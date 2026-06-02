@@ -1,0 +1,69 @@
+## Typography System
+
+Primary Font:
+- Carlito
+
+Secondary Font:
+- Mukta Light
+
+Accent Font:
+- Manrope
+
+Fallback Fonts:
+- "Noto Sans"
+- sans-serif
+
+Google Fonts:
+- https://fonts.google.com/specimen/Carlito
+- https://fonts.google.com/specimen/Mukta
+- https://fonts.google.com/specimen/Manrope
+- https://fonts.google.com/noto/specimen/Noto+Sans
+
+Purpose & Character:
+
+Carlito:
+- closest Google-compatible alternative to Calibri
+- neutral
+- highly readable
+- business-focused
+- clean and familiar
+
+Mukta Light:
+- softer and more human
+- approachable
+- modern
+- excellent for body text and long reading
+
+Manrope:
+- modern contrast font
+- slightly futuristic
+- elegant and technical
+- ideal for highlights, quotes, buttons or hero sections
+
+Usage:
+- Headlines: Manrope SemiBold
+- Subheadings: Carlito Bold
+- Body Text: Mukta Light
+- Captions / Notes: Mukta Light
+- Buttons / UI Elements: Manrope Medium
+
+Typography Mood:
+- trustworthy
+- intelligent
+- modern
+- solution-oriented
+- authentic
+- technically competent
+- human-centered
+
+Font Rules:
+- Use clear hierarchy
+- Avoid more than 3 font weights per page
+- Maintain high whitespace usage
+- Prefer left-aligned layouts
+- Use line spacing between 1.4 and 1.6
+- Avoid fully justified text
+- Keep typography minimalistic and structured
+
+Web CSS Example:
+font-family: "Mukta", "Carlito", "Manrope", "Noto Sans", sans-serif;

@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+:root {
+  /* Brand colors (verbindlich laut PRD) */
+  --brand-gray: #a99eac; /* sicher */
+  --brand-orange: #f89921; /* sinnvoll (CTA) */
+  --brand-blue: #77b3cf; /* strategisch */
+  --brand-text-soft: #dddfeC; /* Schrift-/Hellgrau */
+
+  /* Neutral system (hell, ruhig, großzügig) */
+  --bg: #fbfbfd;
+  --surface: #ffffff;
+  --surface-2: #f3f4f8;
+  --text: #14151a;
+  --muted: #4b5563;
+  --border: rgba(20, 21, 26, 0.10);
+
+  /* Typography */
+  --font-heading: var(--font-heading);
+  --font-subheading: var(--font-subheading);
+  --font-body: var(--font-body);
+
+  --radius-lg: 18px;
+  --shadow-soft: 0 12px 30px rgba(20, 21, 26, 0.06);
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --font-sans: var(--font-body);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body), "Noto Sans", system-ui, -apple-system,
+    "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Comfortable defaults */
+* {
+  scroll-margin-top: 96px;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--brand-orange) 25%, white);
+}
+
+/* Hero: F links, t rechts – Lücke zwischen Frank|Vullhorst per Mittelspalte */
+.hero-name-line {
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+  white-space: nowrap;
+}
+
+.hero-name-word {
+  flex: 0 0 auto;
+  letter-spacing: 0.18em;
+}
+
+/* Nimmt den Platz zwischen k und V auf (3× frühere Wortlücke) */
+.hero-name-between {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+@media (min-width: 640px) {
+  .hero-name-word {
+    /* Etwas enger in den Wörtern → ~3× Lücke zwischen k und V, F/t bleiben außen */
+    letter-spacing: 0.17em;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-name-word {
+    letter-spacing: 0.19em;
+  }
+}
