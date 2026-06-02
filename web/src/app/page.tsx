@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { TERMIN_PAGE_PATH } from "@/lib/booking";
 
 function TerminBuchenLabel() {
   return (
@@ -90,9 +92,7 @@ export default function Home() {
               <div className="mt-5 flex w-full flex-col gap-4">
                 <a
                   className="inline-flex h-14 w-full items-center justify-center rounded-full bg-[var(--brand-orange)] px-8 text-lg font-bold text-[var(--text)] shadow-[var(--shadow-soft)] ring-1 ring-[color-mix(in_srgb,var(--brand-orange)_35%,black)] hover:brightness-[0.98] active:brightness-[0.96]"
-                  href="https://calendar.app.google/5oZJLGD66fr54nHt6"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={TERMIN_PAGE_PATH}
                 >
                   <TerminBuchenLabel />
                 </a>
@@ -252,9 +252,7 @@ export default function Home() {
               </div>
               <a
                 className="inline-flex h-12 items-center justify-center rounded-full bg-[var(--brand-orange)] px-6 text-base font-semibold text-[var(--text)] shadow-[var(--shadow-soft)] ring-1 ring-[color-mix(in_srgb,var(--brand-orange)_35%,black)] hover:brightness-[0.98] active:brightness-[0.96]"
-                href="https://calendar.app.google/5oZJLGD66fr54nHt6"
-                target="_blank"
-                rel="noopener noreferrer"
+                href={TERMIN_PAGE_PATH}
               >
                 Termin buchen
               </a>
@@ -384,14 +382,12 @@ export default function Home() {
 
               <a
                 className="mt-6 inline-flex h-12 w-full items-center justify-center rounded-full bg-[var(--brand-orange)] px-6 text-base font-semibold text-[var(--text)] shadow-[var(--shadow-soft)] ring-1 ring-[color-mix(in_srgb,var(--brand-orange)_35%,black)] hover:brightness-[0.98] active:brightness-[0.96]"
-                href="https://calendar.app.google/5oZJLGD66fr54nHt6"
-                target="_blank"
-                rel="noopener noreferrer"
+                href={TERMIN_PAGE_PATH}
               >
                 <TerminBuchenLabel />
               </a>
               <p className="mt-3 text-center text-sm text-[var(--muted)]">
-                Direkt über Google Calendar. Kein Login auf meiner Seite nötig.
+                Terminwahl auf der Seite „Termin buchen“ – ohne Wechsel zu Google.
               </p>
             </div>
           </div>
@@ -471,9 +467,7 @@ export default function Home() {
               <div className="mt-8">
                 <a
                   className="inline-flex h-12 items-center justify-center rounded-full bg-[var(--brand-orange)] px-7 text-base font-semibold text-[var(--text)] shadow-[var(--shadow-soft)] ring-1 ring-[color-mix(in_srgb,var(--brand-orange)_35%,black)] hover:brightness-[0.98] active:brightness-[0.96]"
-                  href="https://calendar.app.google/5oZJLGD66fr54nHt6"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={TERMIN_PAGE_PATH}
                 >
                   <TerminBuchenLabel />
                 </a>
@@ -530,16 +524,14 @@ export default function Home() {
                 Termin
               </div>
               <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
-                Buchung läuft direkt über Google Calendar Appointment Schedules.
+                Buchung auf der Seite „Termin buchen“ (Google Calendar eingebettet).
               </p>
-              <a
+              <Link
                 className="mt-4 inline-flex h-11 items-center justify-center rounded-full bg-[var(--brand-orange)] px-5 text-sm font-semibold text-[var(--text)] shadow-[var(--shadow-soft)] ring-1 ring-[color-mix(in_srgb,var(--brand-orange)_35%,black)] hover:brightness-[0.98] active:brightness-[0.96]"
-                href="https://calendar.app.google/5oZJLGD66fr54nHt6"
-                target="_blank"
-                rel="noopener noreferrer"
+                href={TERMIN_PAGE_PATH}
               >
                 Termin buchen
-              </a>
+              </Link>
             </div>
           </div>
 

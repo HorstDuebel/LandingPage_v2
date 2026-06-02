@@ -32,11 +32,10 @@ export default function DatenschutzPage() {
           Terminbuchung über Google
         </div>
         <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
-          Die Terminbuchung erfolgt über Google Calendar Appointment Schedules.
-          Wenn Sie auf „Termin buchen“ klicken, werden Sie zu Google
-          weitergeleitet. Dabei können durch Google personenbezogene Daten
-          verarbeitet werden. Details finden Sie in den Datenschutzhinweisen von
-          Google.
+          Die Terminbuchung erfolgt über Google Calendar Appointment Schedules,
+          eingebettet auf der Seite „Termin buchen“ (iframe). Dabei können durch
+          Google personenbezogene Daten verarbeitet werden. Details finden Sie
+          in den Datenschutzhinweisen von Google.
         </p>
       </div>
 
