@@ -21,7 +21,8 @@ export default function Home() {
               <h1 className="display-title">
                 <span className="display-title-line">Ein Erstgespräch.</span>
                 <span className="display-title-line display-title-line--single">
-                  Erst aus Klarheit entsteht echte Effizienz.
+                  Erst aus Klarheit entsteht{" "}
+                  <span className="text-[var(--brand-orange)]">echte Effizienz</span>.
                 </span>
               </h1>
 
@@ -55,7 +56,18 @@ export default function Home() {
             </div>
 
             <div className="prose-width lg:max-w-none">
-              <SectionIntro kicker="Über mich:" title="Mein Name ist Frank.">
+              <SectionIntro
+                kicker="Über mich:"
+                title={
+                  <>
+                    Mein Name ist{" "}
+                    <span className="font-bold text-[var(--brand-orange)]">
+                      Frank
+                    </span>
+                    .
+                  </>
+                }
+              >
                 Ich arbeite mit Inhabern und Geschäftsführern im Handwerk und in
                 KMU, die KI nicht als Hype, sondern als echte Entlastung im
                 Alltag verstehen wollen: verständlich, sicher und praxisnah.
@@ -87,7 +99,13 @@ export default function Home() {
             <SectionIntro
               kicker="Für wen:"
               title="Für Entscheider in Handwerk und KMU,"
-              titleLine2="die Klarheit statt KI-Hype-Begriffe wollen."
+              titleLine2={
+                <>
+                  die{" "}
+                  <span className="text-[var(--brand-orange)]">Klarheit</span>{" "}
+                  statt KI-Hype-Begriffe wollen.
+                </>
+              }
             >
               Für Inhaber, Geschäftsführer und Verantwortliche, die Innovationen
               voranbringen und KI verständlich, sicher und pragmatisch

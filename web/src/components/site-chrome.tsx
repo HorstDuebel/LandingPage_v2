@@ -68,8 +68,8 @@ export function SectionIntro({
   centered = false,
 }: {
   kicker: string;
-  title: string;
-  titleLine2?: string;
+  title: ReactNode;
+  titleLine2?: ReactNode;
   children?: ReactNode;
   centered?: boolean;
 }) {
