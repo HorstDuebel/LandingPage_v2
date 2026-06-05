@@ -3,252 +3,189 @@ import {
   ClickTrigger,
   PrimaryCtaInline,
   PrimaryCtaLink,
-  SecondaryCtaLink,
 } from "@/components/cta-buttons";
-import {
-  SectionIntro,
-  SiteFooter,
-  SiteHeader,
-  TopBar,
-} from "@/components/site-chrome";
+import { SectionIntro, SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { cta, triggers } from "@/lib/copy";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1">
-      <TopBar />
+    <div className="flex flex-1 flex-col">
       <SiteHeader />
 
       <main id="top" className="flex-1">
-        {/* Hero – neomesh: Eyebrow + große Headline + Fließtext */}
-        <section className="section-block bg-[var(--surface)]">
-          <div className="hero-layout nm-container">
-            {/* Porträt: oben rechts, ~80 % kleiner als zuvor */}
-            <div className="hero-portrait-anchor pointer-events-none flex justify-end md:pointer-events-auto">
-              <div className="hero-portrait pointer-events-auto overflow-hidden border border-[var(--border)] bg-[var(--surface-muted)] p-1">
-                <div className="relative aspect-[4/5] w-full overflow-hidden">
-                  <Image
-                    src="/frank.jpg"
-                    alt="Frank Vullhorst"
-                    fill
-                    className="object-cover object-[center_20%]"
-                    sizes="(max-width: 768px) 88px, 136px"
-                    priority
-                  />
-                </div>
+        {/* Hero – Einladung wie susannevolkwein.de */}
+        <section className="section-block bg-[var(--surface)] pt-28 md:pt-32">
+          <div className="page-container">
+            <div className="prose-width">
+              <p className="section-kicker">Meine Einladung:</p>
+              <h1 className="display-title">
+                <span className="display-title-line">Ein Erstgespräch.</span>
+                <span className="display-title-line">45 Minuten Klarheit.</span>
+              </h1>
+
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-8">
+                <PrimaryCtaLink className="btn-primary !w-auto sm:max-w-none">
+                  {cta.primary.hero}
+                </PrimaryCtaLink>
               </div>
+
+              <p className="microcopy mt-6 max-w-md">
+                Sie erzählen, was gerade ist – ich höre zu und ordne ein.
+                <br />
+                45 Minuten. Kein Sales, kein Druck. Kostenfrei. Unverbindlich.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Über mich */}
+        <section className="section-block bg-[var(--surface-muted)]">
+          <div className="page-container grid grid-cols-1 items-start gap-12 lg:grid-cols-[16rem_1fr] lg:gap-16">
+            <div className="about-portrait mx-auto lg:mx-0">
+              <Image
+                src="/frank.jpg"
+                alt="Frank Vullhorst"
+                fill
+                className="object-cover object-[center_20%]"
+                sizes="256px"
+                priority
+              />
             </div>
 
-            <div className="hero-content flex w-full flex-col">
-              <p className="hero-eyebrow">ki-sparring für kmu &amp; handwerk</p>
+            <div className="prose-width lg:max-w-none">
+              <SectionIntro kicker="Über mich:" title="Mein Name ist Frank.">
+                Ich arbeite mit Inhabern und Geschäftsführern in Handwerk und
+                KMU, die KI nicht als Hype, sondern als Entlastung im Alltag
+                verstehen wollen – verständlich, sicher und praxisnah.
+              </SectionIntro>
 
-              <div className="mt-4 w-full max-w-xl">
-                <h1 className="hero-name-line font-[var(--font-heading)] text-[2.25rem] font-bold leading-none text-[var(--text)] sm:text-4xl md:text-[2.75rem]">
-                  <span className="hero-name-word">Frank</span>
-                  <span className="hero-name-between" aria-hidden="true" />
-                  <span className="hero-name-word">Vullhorst</span>
-                </h1>
-                <p
-                  className="hero-tagline mt-3"
-                  aria-label="KI, sicher, sinnvoll, strategisch"
-                >
-                  <span>KI</span>
-                  <span aria-hidden="true">•</span>
-                  <span>Sicher</span>
-                  <span aria-hidden="true">•</span>
-                  <span>Sinnvoll</span>
-                  <span aria-hidden="true">•</span>
-                  <span>Strategisch</span>
-                </p>
-              </div>
+              <p className="body-text mt-8">
+                KI sollte nicht zusätzlich belasten, sondern im Alltag wirklich
+                helfen. Ich unterstütze Betriebe dabei, KI sicher und
+                nachvollziehbar in ihre Abläufe zu integrieren – mit 30+ Jahren
+                Praxis aus Technik, Prozessen und Umsetzung.
+              </p>
 
-              <div className="mt-8 max-w-2xl space-y-6">
-                <p className="font-[var(--font-body)] text-lg font-light leading-[1.75] text-[var(--text)] sm:text-xl">
-                  KI sollte nicht zusätzlich belasten, sondern im Alltag wirklich
-                  helfen. Ich unterstütze Handwerksbetriebe und KMU dabei, KI
-                  verständlich, sicher und praxisnah in ihre Abläufe zu
-                  integrieren.
-                </p>
-
-                <div>
-                  <p className="nm-card-title">Damit Sie klar erkennen:</p>
-                  <ul className="mt-3 space-y-2.5 font-[var(--font-body)] text-base font-light leading-relaxed text-[var(--muted)]">
-                    {[
-                      "wo KI heute bereits sinnvoll entlastet",
-                      "welche Lösungen wirklich zu Ihrem Unternehmen passen",
-                      "und welcher nächste Schritt wirtschaftlich sinnvoll ist",
-                    ].map((item) => (
-                      <li key={item} className="flex gap-3">
-                        <span
-                          className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--brand-orange)]"
-                          aria-hidden="true"
-                        />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <p className="border-l-[3px] border-[var(--brand-blue)] bg-[var(--surface-blue)] py-3 pl-4 font-[var(--font-body)] text-base font-light italic leading-[1.7] text-[var(--muted)]">
-                  Nach unserem Gespräch haben Sie keine Buzzwords mehr — sondern
-                  Orientierung, konkrete Möglichkeiten und eine realistische
-                  Einschätzung für Ihr Unternehmen.
-                </p>
-              </div>
-
-              <div className="mt-4 flex flex-wrap gap-2 sm:gap-3">
-                {["30+ Jahre Praxis", "KI-Manager Cert-IT", "EU AI Act & DSGVO"].map(
-                  (label) => (
-                    <div
-                      key={label}
-                      className="border border-[var(--border)] bg-[var(--surface-muted)] px-3 py-2 font-[var(--font-subheading)] text-[11px] font-bold text-[var(--text)] sm:text-xs"
-                    >
-                      {label}
-                    </div>
-                  ),
-                )}
-              </div>
-
-              <div className="mt-8 flex w-full max-w-md flex-col gap-3">
-                <PrimaryCtaLink>{cta.primary.hero}</PrimaryCtaLink>
-                <SecondaryCtaLink href="#angebot">
-                  {cta.secondary}
-                </SecondaryCtaLink>
-              </div>
-
-              <ClickTrigger className="mt-4 max-w-md text-sm leading-relaxed">
-                {triggers.heroAfter}
-              </ClickTrigger>
+              <p className="hero-tagline mt-8 max-w-md">
+                <span>KI</span>
+                <span aria-hidden="true">•</span>
+                <span>Sicher</span>
+                <span aria-hidden="true">•</span>
+                <span>Sinnvoll</span>
+                <span aria-hidden="true">•</span>
+                <span>Strategisch</span>
+              </p>
             </div>
           </div>
         </section>
 
         {/* Für wen */}
-        <section id="fuer-wen" className="section-block bg-[var(--surface-muted)]">
-          <div className="nm-container">
+        <section id="fuer-wen" className="section-block bg-[var(--surface)]">
+          <div className="page-container">
             <SectionIntro
-              kicker="Was Sie beschäftigt"
-              title="Wenn das bei Ihnen vertraut klingt"
+              kicker="Für wen:"
+              title="Für Entscheider in Handwerk und KMU,"
+              titleLine2="die Klarheit statt Buzzwords wollen."
             >
-              Sie sind nicht allein – und Sie brauchen keine Tool-Show. Sie
-              brauchen Klarheit, die im Betrieb wirklich trägt.
+              Inhaber, Geschäftsführer und Verantwortliche, die enorm viel
+              halten – organisieren, entscheiden, umsetzen – und dabei KI
+              pragmatisch einordnen wollen.
             </SectionIntro>
 
-            <div className="mt-12 grid grid-cols-1 gap-px bg-[var(--border)] md:grid-cols-3">
-              {[
-                {
-                  title: "Zu wenig Zeit im Tagesgeschäft",
-                  text: "KI soll entlasten – nicht neue Baustellen eröffnen.",
-                },
-                {
-                  title: "Unsicherheit bei KI-Nutzung",
-                  text: "Was ist sinnvoll – und was ist riskant oder unnötig?",
-                },
-                {
-                  title: "Schatten-KI im Betrieb",
-                  text: "Wenn Tools genutzt werden, ohne Regeln, ohne Überblick.",
-                },
-                {
-                  title: "Fehlender Fahrplan",
-                  text: "Sie wollen wissen, welcher nächste Schritt wirklich passt.",
-                },
-                {
-                  title: "Unklare Datenschutzlage",
-                  text: "DSGVO, EU AI Act und Praxis müssen zusammenpassen.",
-                },
-                {
-                  title: "Entlastung statt Komplexität",
-                  text: "Pragmatische Lösungen, die im Alltag funktionieren.",
-                },
-              ].map((card) => (
-                <div key={card.title} className="nm-card !border-0 bg-[var(--surface)]">
-                  <h3 className="nm-card-title">{card.title}</h3>
-                  <p className="nm-card-text">{card.text}</p>
-                </div>
-              ))}
+            <div className="prose-width mt-10 space-y-6">
+              <p className="body-text">
+                Menschen, die wissen: KI kann entlasten – aber nur, wenn sie
+                zu Prozessen, Daten und Verantwortung passt. Die keine
+                Tool-Show brauchen, sondern einen Fahrplan, den man im Betrieb
+                wirklich gehen kann.
+              </p>
+              <p className="body-text-muted">
+                Wenn Sie zu wenig Zeit im Tagesgeschäft haben, unsicher sind,
+                was sinnvoll ist, Schatten-KI im Team bemerken oder Datenschutz
+                und EU AI Act pragmatisch lösen wollen – dann sind Sie hier
+                richtig.
+              </p>
             </div>
           </div>
         </section>
 
-        {/* Angebot – 4-Spalten wie neomesh */}
-        <section id="angebot" className="section-block bg-[var(--surface)]">
-          <div className="nm-container">
+        {/* Angebot */}
+        <section id="angebot" className="section-block bg-[var(--surface-warm)]">
+          <div className="page-container">
             <SectionIntro
-              kicker="Was macht das Angebot aus?"
-              title="Was Sie bekommen – Schritt für Schritt"
-              centered
+              kicker="Mein Angebot:"
+              title="Ihr Einstieg."
+              titleLine2="Schritt für Schritt."
             >
-              Kein Leistungskatalog zum Durchklicken, sondern ein klarer Weg:
-              erst Orientierung, dann der Baustein, der bei Ihnen wirklich Nutzen
-              bringt.
+              Kein Leistungskatalog zum Durchklicken – sondern Bausteine, die
+              bei Ihnen wirklich Nutzen bringen.
             </SectionIntro>
 
-            <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="offer-grid mt-14">
               {[
                 {
-                  icon: "K",
-                  tone: "orange" as const,
-                  title: "Klarheit in 45 Minuten",
-                  text: "Sie wissen danach, wo KI entlastet – und welcher nächste Schritt sinnvoll ist.",
+                  title: "Erstgespräch",
+                  desc: "Ihr Thema auf den Tisch bringen, sehen, was wirklich da ist.",
+                  meta: "45 Minuten · kostenfrei",
                 },
                 {
-                  icon: "S",
-                  tone: "blue" as const,
-                  title: "Sicherheit (AI-ISCA)",
-                  text: "Nachvollziehbare Bestandsaufnahme: KI, Datenschutz, Compliance, Kompetenz.",
+                  title: "Potenzial-Scan",
+                  desc: "Wo KI heute entlastet – und welcher nächste Schritt wirtschaftlich sinnvoll ist.",
+                  meta: "Individuell · online oder vor Ort",
                 },
                 {
-                  icon: "T",
-                  tone: "gray" as const,
-                  title: "Kompetenz fürs Team",
-                  text: "Module 1–4: KI verstehen, EU AI Act, Datenschutz – mit Nachweis.",
+                  title: "AI-ISCA Audit",
+                  desc: "Nachvollziehbare Bestandsaufnahme: KI-Nutzung, Datenschutz, Compliance, Kompetenz.",
+                  meta: "Strukturiert · als Entscheidungsgrundlage",
                 },
                 {
-                  icon: "E",
-                  tone: "orange" as const,
-                  title: "Entlastung im Alltag",
-                  text: "Weniger manuelle Arbeit, klare Verantwortung, messbarer Nutzen.",
+                  title: "KI-Leitlinie & Sicherer Hafen",
+                  desc: "Klare Regeln fürs Team – und die passende Schutzstufe für Ihre Daten.",
+                  meta: "Praxisnah · ohne Overkill",
+                },
+                {
+                  title: "AI Literacy Workshop",
+                  desc: "Kompetenz im Team – verständlich, nachweisbar, rechtssicher (Art. 4 EU AI Act).",
+                  meta: "Module 1–4 · für Ihr Team",
+                },
+                {
+                  title: "Pilotprojekt",
+                  desc: "Erster messbarer Nutzen im Betrieb – kontrolliert und auswertbar.",
+                  meta: "Klein starten · sauber ausbauen",
                 },
               ].map((item) => (
-                <div key={item.title} className="nm-icon-tile">
-                  <span className={`nm-icon nm-icon--${item.tone}`}>
-                    {item.icon}
-                  </span>
-                  <h3 className="nm-card-title">{item.title}</h3>
-                  <p className="nm-card-text">{item.text}</p>
-                </div>
+                <article key={item.title} className="offer-card">
+                  <h3 className="offer-card__title">{item.title}</h3>
+                  <p className="offer-card__desc">{item.desc}</p>
+                  <p className="offer-card__meta">{item.meta}</p>
+                  <PrimaryCtaInline>{cta.offerInline}</PrimaryCtaInline>
+                </article>
               ))}
             </div>
 
-            <div className="cta-band mt-14 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
-              <div className="max-w-lg">
-                <p className="section-kicker !text-[var(--brand-orange)]">
-                  {triggers.angebotTitle}
-                </p>
-                <p className="mt-2 text-base leading-relaxed text-[var(--text)]">
-                  {triggers.angebotBody}
-                </p>
-                <p className="mt-3 text-xs font-bold uppercase tracking-wider text-[var(--brand-gray)]">
-                  {triggers.angebotProof}
-                </p>
-              </div>
-              <PrimaryCtaInline>{cta.primary.angebot}</PrimaryCtaInline>
+            <div className="prose-width mt-16">
+              <p className="section-kicker !text-[var(--brand-orange)]">
+                {triggers.angebotTitle}
+              </p>
+              <p className="body-text mt-3">{triggers.angebotBody}</p>
+              <p className="microcopy mt-3">{triggers.angebotProof}</p>
             </div>
           </div>
         </section>
 
         {/* Methode */}
         <section id="methode" className="section-block bg-[var(--surface-blue)]">
-          <div className="nm-container">
+          <div className="page-container">
             <SectionIntro
-              kicker="Denken wir neu"
-              title="So kommen Sie sicher von der Idee zur Umsetzung"
+              kicker="Wie ich arbeite:"
+              title="Ich eröffne Reflexionsräume."
+              titleLine2="Praxisnah und strukturiert."
             >
-              Fünf Schritte – nicht als Theorie, sondern als Fahrplan, den Sie in
-              Ihrem Tempo und mit Ihrem Team gehen können.
+              Fünf Schritte – nicht als Theorie, sondern als Fahrplan, den Sie
+              in Ihrem Tempo und mit Ihrem Team gehen können.
             </SectionIntro>
 
-            <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-5">
+            <div className="prose-width mt-12 lg:max-w-2xl">
               {[
                 {
                   n: "01",
@@ -276,53 +213,99 @@ export default function Home() {
                   text: "Erster messbarer Nutzen im Betrieb – kontrolliert und auswertbar.",
                 },
               ].map((step) => (
-                <div key={step.n} className="nm-card">
-                  <div className="text-xs font-bold tracking-[0.2em] text-[var(--brand-blue)]">
-                    {step.n}
-                  </div>
-                  <h3 className="nm-card-title mt-2">{step.title}</h3>
-                  <p className="nm-card-text">{step.text}</p>
+                <div key={step.n} className="step-item">
+                  <span className="step-number">{step.n}</span>
+                  <h3 className="offer-card__title mt-2">{step.title}</h3>
+                  <p className="offer-card__desc !mt-2">{step.text}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
+        {/* Versprechen */}
+        <section className="section-block bg-[var(--surface)]">
+          <div className="page-container">
+            <SectionIntro
+              kicker="Das Versprechen:"
+              title="Vom Unsichersein"
+              titleLine2="zur Klarheit."
+            >
+              Klarheit entsteht, wenn wir ehrlich hinsehen. Sie werden Worte
+              finden für das, was Sie innerlich schon ahnen – und einen
+              nächsten Schritt, der zu Ihrem Betrieb passt.
+            </SectionIntro>
+
+            <div className="prose-width mt-10 space-y-6">
+              <p className="body-text">
+                Damit Sie klar erkennen: wo KI heute bereits sinnvoll entlastet,
+                welche Lösungen wirklich zu Ihrem Unternehmen passen – und
+                welcher nächste Schritt wirtschaftlich sinnvoll ist.
+              </p>
+              <p className="body-text-muted italic">
+                Nach unserem Gespräch haben Sie keine Buzzwords mehr – sondern
+                Orientierung, konkrete Möglichkeiten und eine realistische
+                Einschätzung für Ihr Unternehmen.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Vertrauen */}
         <section className="section-block bg-[var(--surface-muted)]">
-          <div className="nm-container grid grid-cols-1 gap-12 lg:grid-cols-2">
-            <div>
-              <SectionIntro
-                kicker="Vertrauen"
-                title="Warum Entscheider mir vertrauen"
-              >
-                Keine Show, keine Buzzwords – sondern jemand, der Betrieb von
-                innen kennt und KI so erklärt, dass Sie handeln können.
-              </SectionIntro>
+          <div className="page-container">
+            <SectionIntro
+              kicker="Vertrauen:"
+              title="Warum Entscheider"
+              titleLine2="mir vertrauen."
+            >
+              Keine Show, keine Buzzwords – sondern jemand, der Betrieb von
+              innen kennt und KI so erklärt, dass Sie handeln können.
+            </SectionIntro>
 
-              <div className="mt-8 grid grid-cols-1 gap-3">
+            <div className="mt-12 grid grid-cols-1 gap-0 lg:grid-cols-2 lg:gap-16">
+              <div className="space-y-0">
                 {[
                   "30+ Jahre Praxis – Technik, Prozesse, Umsetzung in der Industrie",
                   "KI-Manager Certificate (Cert-IT), Nr. KI001220 · 02/2026",
                   "27 Jahre bei 3D Systems – internationale Projekte bis €1,5M Budget",
                   "Fokus: verständlich, sicher, umsetzbar (EU AI Act & DSGVO)",
                 ].map((line) => (
-                  <div
+                  <p
                     key={line}
-                    className="border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-sm text-[var(--text)]"
+                    className="border-b border-[var(--border)] py-4 text-sm text-[var(--text)]"
                   >
                     {line}
-                  </div>
+                  </p>
                 ))}
+              </div>
+
+              <div className="mt-8 lg:mt-0">
+                <blockquote className="quote-block">
+                  <p>
+                    »Frank bringt Struktur und Klarheit in komplexe Themen – und
+                    schafft einen Raum, in dem man offen reflektieren kann,
+                    ohne bewertet zu werden.«
+                  </p>
+                  <cite>Führungskraft, Produktionsbetrieb · KI-Einstieg</cite>
+                </blockquote>
+                <blockquote className="quote-block">
+                  <p>
+                    »Endlich jemand, der KI nicht als Hype verkauft, sondern
+                    pragmatisch einordnet – mit Blick auf Datenschutz und
+                    Alltag im Betrieb.«
+                  </p>
+                  <cite>Inhaber, Handwerksbetrieb · Potenzial-Scan</cite>
+                </blockquote>
               </div>
             </div>
 
-            <div className="nm-card">
+            <div className="prose-width mt-14">
               <p className="section-kicker">Erstgespräch</p>
-              <h3 className="section-title mt-2 !text-2xl">
+              <h3 className="section-title !text-2xl">
                 Was Sie im Erstgespräch bekommen
               </h3>
-              <div className="mt-6 grid grid-cols-1 gap-3">
+              <ul className="mt-6 space-y-4">
                 {[
                   {
                     t: "Klarheit",
@@ -337,24 +320,21 @@ export default function Home() {
                     d: "Eine saubere Empfehlung für den kleinsten sinnvollen Einstieg.",
                   },
                 ].map((item) => (
-                  <div
-                    key={item.t}
-                    className="border border-[var(--border)] bg-[var(--surface-muted)] p-4"
-                  >
-                    <div className="text-sm font-bold text-[var(--text)]">
+                  <li key={item.t} className="border-b border-[var(--border)] pb-4">
+                    <span className="font-[var(--font-subheading)] font-bold text-[var(--text)]">
                       {item.t}
-                    </div>
-                    <div className="mt-1 text-sm font-light text-[var(--muted)]">
+                    </span>
+                    <span className="body-text-muted mt-1 block text-sm">
                       {item.d}
-                    </div>
-                  </div>
+                    </span>
+                  </li>
                 ))}
-              </div>
+              </ul>
 
-              <PrimaryCtaLink className="btn-primary mt-6 w-full">
+              <PrimaryCtaLink className="btn-primary mt-8 !w-auto">
                 {cta.primary.vertrauen}
               </PrimaryCtaLink>
-              <ClickTrigger className="mt-3 text-center text-sm">
+              <ClickTrigger className="microcopy mt-4">
                 {triggers.vertrauenAfter}
               </ClickTrigger>
             </div>
@@ -363,75 +343,76 @@ export default function Home() {
 
         {/* FAQ */}
         <section id="faq" className="section-block bg-[var(--surface)]">
-          <div className="nm-container">
-            <SectionIntro kicker="Fragen & Antworten" title="FAQ">
+          <div className="page-container">
+            <SectionIntro kicker="Fragen & Antworten:" title="FAQ">
               Kurz, verständlich, entscheidungsfreundlich.
             </SectionIntro>
 
-            <div className="mt-12 grid grid-cols-1 gap-3">
-            {[
-              {
-                q: "Was passiert im Erstgespräch?",
-                a: "Wir klären Ihre Ausgangslage, ordnen Chancen und Risiken ein und definieren den nächsten sinnvollen Schritt – ohne Tool‑Show und ohne Druck.",
-              },
-              {
-                q: "Muss ich etwas vorbereiten?",
-                a: "Nein. Hilfreich ist nur ein grober Überblick: Welche Aufgaben kosten Zeit? Wo wird schon KI genutzt? Welche Daten sind sensibel?",
-              },
-              {
-                q: "Was ist AI‑ISCA?",
-                a: "Ein strukturiertes Assessment (Audit): KI‑Nutzung, Datenschutz, Compliance und Kompetenz im Betrieb – als nachvollziehbare Grundlage für Entscheidungen.",
-              },
-              {
-                q: "Wie ist das mit Datenschutz und EU AI Act?",
-                a: "Wir arbeiten pragmatisch: wenig Daten, klare Regeln, passende Schutzstufe. Fachbegriffe erkläre ich kurz und verständlich.",
-              },
-              {
-                q: "Für wen ist das Angebot nicht geeignet?",
-                a: "Wenn Sie nur eine Tool‑Demo oder „Hype‑Beratung“ suchen. Es geht um umsetzbare Entlastung im Alltag – nicht um Buzzwords.",
-              },
-              {
-                q: "Was ist der nächste Schritt nach dem Gespräch?",
-                a: "Typisch sind ein Potenzial‑Scan, ein AI‑ISCA Audit oder ein passender Workshop‑Einstieg (Modul 1). Immer klein starten, sauber ausbauen.",
-              },
-            ].map((item) => (
-              <details key={item.q} className="group nm-card !py-5">
-                <summary className="cursor-pointer list-none font-[var(--font-subheading)] text-base font-bold text-[var(--text)]">
-                  <span className="flex items-center justify-between gap-4">
-                    {item.q}
-                    <span className="text-[var(--brand-blue)] transition-transform group-open:rotate-45">
-                      +
+            <div className="prose-width mt-12 lg:max-w-2xl">
+              {[
+                {
+                  q: "Was passiert im Erstgespräch?",
+                  a: "Wir klären Ihre Ausgangslage, ordnen Chancen und Risiken ein und definieren den nächsten sinnvollen Schritt – ohne Tool‑Show und ohne Druck.",
+                },
+                {
+                  q: "Muss ich etwas vorbereiten?",
+                  a: "Nein. Hilfreich ist nur ein grober Überblick: Welche Aufgaben kosten Zeit? Wo wird schon KI genutzt? Welche Daten sind sensibel?",
+                },
+                {
+                  q: "Was ist AI‑ISCA?",
+                  a: "Ein strukturiertes Assessment (Audit): KI‑Nutzung, Datenschutz, Compliance und Kompetenz im Betrieb – als nachvollziehbare Grundlage für Entscheidungen.",
+                },
+                {
+                  q: "Wie ist das mit Datenschutz und EU AI Act?",
+                  a: "Wir arbeiten pragmatisch: wenig Daten, klare Regeln, passende Schutzstufe. Fachbegriffe erkläre ich kurz und verständlich.",
+                },
+                {
+                  q: "Für wen ist das Angebot nicht geeignet?",
+                  a: "Wenn Sie nur eine Tool‑Demo oder „Hype‑Beratung“ suchen. Es geht um umsetzbare Entlastung im Alltag – nicht um Buzzwords.",
+                },
+                {
+                  q: "Was ist der nächste Schritt nach dem Gespräch?",
+                  a: "Typisch sind ein Potenzial‑Scan, ein AI‑ISCA Audit oder ein passender Workshop‑Einstieg (Modul 1). Immer klein starten, sauber ausbauen.",
+                },
+              ].map((item) => (
+                <details key={item.q} className="faq-item group">
+                  <summary>
+                    <span className="flex items-center justify-between gap-4">
+                      {item.q}
+                      <span className="text-[var(--brand-blue)] transition-transform group-open:rotate-45">
+                        +
+                      </span>
                     </span>
-                  </span>
-                </summary>
-                <p className="mt-3 text-sm font-light leading-relaxed text-[var(--muted)]">
-                  {item.a}
-                </p>
-              </details>
-            ))}
+                  </summary>
+                  <p className="mt-3 text-sm font-light leading-relaxed text-[var(--muted)]">
+                    {item.a}
+                  </p>
+                </details>
+              ))}
             </div>
           </div>
         </section>
 
         {/* Final CTA */}
         <section className="section-block bg-[var(--surface-warm)]">
-          <div className="nm-container">
-            <div className="cta-band">
+          <div className="page-container">
+            <div className="prose-width mx-auto text-center">
               <SectionIntro
-                kicker="Gemeinsam starten"
-                title="Statt Unsicherheit: ein klarer nächster Schritt für Ihren Betrieb"
+                kicker="Gemeinsam starten:"
+                title="Statt Unsicherheit:"
+                titleLine2="ein klarer nächster Schritt."
+                centered
               >
                 In 45 Minuten wissen Sie, was bei Ihnen sinnvoll ist – sicher,
                 nachvollziehbar, umsetzbar. Ohne Hype, ohne Verpflichtung.
               </SectionIntro>
-              <div className="mt-8 flex max-w-xl flex-col gap-4">
-                <ClickTrigger className="text-base font-semibold text-[var(--text)]">
-                  {triggers.finalBefore}
-                </ClickTrigger>
-                <PrimaryCtaLink className="btn-primary sm:max-w-md">
-                  {cta.primary.final}
-                </PrimaryCtaLink>
-              </div>
+
+              <ClickTrigger className="microcopy mt-8 !text-[var(--text)]">
+                {triggers.finalBefore}
+              </ClickTrigger>
+              <PrimaryCtaLink className="btn-primary mx-auto mt-6 !w-auto">
+                {cta.primary.final}
+              </PrimaryCtaLink>
             </div>
           </div>
         </section>

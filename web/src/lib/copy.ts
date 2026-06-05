@@ -10,6 +10,7 @@ export const cta = {
     footer: "Klarheit für meinen Betrieb holen",
   },
   secondary: "Zuerst sehen, welcher Weg zu mir passt",
+  offerInline: "Termin wählen",
 } as const;
 
 export const triggers = {

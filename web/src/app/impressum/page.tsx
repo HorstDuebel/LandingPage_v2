@@ -1,29 +1,28 @@
 import Link from "next/link";
-import { SiteFooter, SiteHeader, TopBar } from "@/components/site-chrome";
+import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 
 export default function ImpressumPage() {
   return (
     <div className="flex min-h-full flex-col">
-      <TopBar />
       <SiteHeader />
-      <main className="section-block flex-1 bg-[var(--surface)]">
-        <div className="nm-container max-w-3xl">
+      <main className="section-block flex-1 bg-[var(--surface)] pt-28 md:pt-32">
+        <div className="page-container max-w-3xl">
           <Link href="/" className="nav-link !text-sm">
             ← Zur Startseite
           </Link>
-          <p className="section-kicker mt-8">Rechtliches</p>
-          <h1 className="section-title mt-3">Impressum</h1>
+          <p className="section-kicker mt-8">Rechtliches:</p>
+          <h1 className="section-title mt-2">Impressum</h1>
           <p className="section-lead mt-4">Angaben gemäß § 5 TMG</p>
 
-          <div className="nm-card mt-8">
-            <div className="nm-card-title">Frank Vullhorst</div>
-            <div className="nm-card-text !mt-3">
+          <div className="mt-10 border-t border-[var(--border)] pt-8">
+            <h2 className="offer-card__title">Frank Vullhorst</h2>
+            <p className="body-text-muted mt-3">
               Claudiusweg 9
               <br />
               64380 Roßdorf
               <br />
               Deutschland
-            </div>
+            </p>
             <div className="mt-6 text-sm leading-7 text-[var(--muted)]">
               <div className="font-bold text-[var(--text)]">Kontakt</div>
               <a
@@ -42,7 +41,7 @@ export default function ImpressumPage() {
             </div>
           </div>
 
-          <p className="mt-8 text-sm font-light leading-relaxed text-[var(--muted)]">
+          <p className="microcopy mt-10">
             Hinweis: Dieses Impressum ist eine schlanke Basisseite für den
             Projektstart. Falls weitere rechtliche Angaben benötigt werden,
             können sie ergänzt werden.
