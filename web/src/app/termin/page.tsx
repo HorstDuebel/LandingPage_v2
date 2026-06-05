@@ -5,9 +5,9 @@ import { triggers } from "@/lib/copy";
 import { GOOGLE_APPOINTMENT_SCHEDULE_URL } from "@/lib/booking";
 
 export const metadata = {
-  title: "Erstgespräch – Klarheit in 45 Minuten | Frank Vullhorst",
+  title: "Erstgespräch 30 Minuten | Frank Vullhorst",
   description:
-    "Kostenloses Erstgespräch: Wo KI in Ihrem Betrieb entlastet – und welcher nächste Schritt passt.",
+    "Kostenloses Erstgespräch: Wo KI in Ihrem Betrieb entlastet und welcher nächste Schritt passt.",
 };
 
 export default function TerminPage() {
@@ -23,7 +23,7 @@ export default function TerminPage() {
 
           <p className="section-kicker mt-8">Termin wählen:</p>
           <h1 className="display-title mt-2">
-            <span className="display-title-line">Ihre 45 Minuten</span>
+            <span className="display-title-line">Ihre 30 Minuten</span>
             <span className="display-title-line">Klarheit.</span>
           </h1>
           <p className="section-lead mt-6 max-w-prose">

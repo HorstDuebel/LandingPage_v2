@@ -21,12 +21,12 @@ const fontBody = Mukta({
 });
 
 export const metadata: Metadata = {
-  title: "Frank Vullhorst – KI‑Sparring",
+  title: "Frank Vullhorst  KI. Sicher. Sinnvoll. Strategisch.",
   description:
-    "KI-Sparring auf Augenhöhe: In 45 Minuten klären wir, wo KI und Automatisierung in Ihrem Betrieb entlasten können – sicher, sinnvoll und strategisch.",
+    "Ein Austausch über Prozesse, Optimierungen, Automatisierungen und KI – sicher, sinnvoll und strategisch.",
   metadataBase: new URL("https://example.com"),
   openGraph: {
-    title: "Frank Vullhorst – KI‑Sparring",
+    title: "Frank Vullhorst",
     description:
       "Praxisnah, nachvollziehbar und an EU AI Act sowie DSGVO orientiert.",
     type: "website",

@@ -20,7 +20,7 @@ export default function Home() {
               <p className="section-kicker">Meine Einladung:</p>
               <h1 className="display-title">
                 <span className="display-title-line">Ein Erstgespräch.</span>
-                <span className="display-title-line">45 Minuten Klarheit.</span>
+                <span className="display-title-line">30 Minuten aus der Vogelperspektive.</span>
               </h1>
 
               <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-8">
@@ -30,9 +30,9 @@ export default function Home() {
               </div>
 
               <p className="microcopy mt-6 max-w-md">
-                Sie erzählen, was gerade ist – ich höre zu und ordne ein.
+                Wir beleuchten Ihre aktuelle Situation. Ich höre zu und gebe Impulse.
                 <br />
-                45 Minuten. Kein Sales, kein Druck. Kostenfrei. Unverbindlich.
+                30 Minuten. Erst schauen, ob es menschlich und fachlich passt.
               </p>
             </div>
           </div>
@@ -54,16 +54,16 @@ export default function Home() {
 
             <div className="prose-width lg:max-w-none">
               <SectionIntro kicker="Über mich:" title="Mein Name ist Frank.">
-                Ich arbeite mit Inhabern und Geschäftsführern in Handwerk und
-                KMU, die KI nicht als Hype, sondern als Entlastung im Alltag
-                verstehen wollen – verständlich, sicher und praxisnah.
+                Ich arbeite mit Inhabern und Geschäftsführern im Handwerk und in
+                KMU, die KI nicht als Hype, sondern als echte Entlastung im
+                Alltag verstehen wollen: verständlich, sicher und praxisnah.
               </SectionIntro>
 
               <p className="body-text mt-8">
-                KI sollte nicht zusätzlich belasten, sondern im Alltag wirklich
-                helfen. Ich unterstütze Betriebe dabei, KI sicher und
-                nachvollziehbar in ihre Abläufe zu integrieren – mit 30+ Jahren
-                Praxis aus Technik, Prozessen und Umsetzung.
+                KI soll nicht zusätzlich belasten, sondern im Alltag spürbar
+                entlasten. Ich unterstütze Betriebe dabei, KI sicher und
+                nachvollziehbar in ihre Abläufe zu integrieren, auf Basis von
+                über 30 Jahren Praxis in Technik, Prozessen und Umsetzung.
               </p>
 
               <p className="hero-tagline mt-8 max-w-md">
@@ -85,25 +85,24 @@ export default function Home() {
             <SectionIntro
               kicker="Für wen:"
               title="Für Entscheider in Handwerk und KMU,"
-              titleLine2="die Klarheit statt Buzzwords wollen."
+              titleLine2="die Klarheit statt KI-Hype-Begriffe wollen."
             >
-              Inhaber, Geschäftsführer und Verantwortliche, die enorm viel
-              halten – organisieren, entscheiden, umsetzen – und dabei KI
-              pragmatisch einordnen wollen.
+              Für Inhaber, Geschäftsführer und Verantwortliche, die Innovationen
+              voranbringen und KI verständlich, sicher und pragmatisch
+              einordnen wollen.
             </SectionIntro>
 
             <div className="prose-width mt-10 space-y-6">
               <p className="body-text">
-                Menschen, die wissen: KI kann entlasten – aber nur, wenn sie
-                zu Prozessen, Daten und Verantwortung passt. Die keine
-                Tool-Show brauchen, sondern einen Fahrplan, den man im Betrieb
-                wirklich gehen kann.
+                Für Interessierte, die wissen wollen, wie KI entlastet: Was muss
+                vorbereitet und analysiert werden, damit der nächste Schritt
+                wirklich sinnvoll ist? Keine Tool-Show, sondern ein klarer
+                Fahrplan für den Betrieb.
               </p>
               <p className="body-text-muted">
-                Wenn Sie zu wenig Zeit im Tagesgeschäft haben, unsicher sind,
-                was sinnvoll ist, Schatten-KI im Team bemerken oder Datenschutz
-                und EU AI Act pragmatisch lösen wollen – dann sind Sie hier
-                richtig.
+                Wenn Sie im Tagesgeschäft wenig Zeit haben, Klarheit suchen,
+                Schatten-KI einordnen und Datenschutz sowie den EU AI Act
+                pragmatisch angehen wollen, sind Sie hier richtig.
               </p>
             </div>
           </div>
@@ -117,20 +116,20 @@ export default function Home() {
               title="Ihr Einstieg."
               titleLine2="Schritt für Schritt."
             >
-              Kein Leistungskatalog zum Durchklicken – sondern Bausteine, die
-              bei Ihnen wirklich Nutzen bringen.
+              Keine lange Checkliste, sondern durchdachte Module, die im Alltag
+              wirklich weiterhelfen.
             </SectionIntro>
 
             <div className="offer-grid mt-14">
               {[
                 {
                   title: "Erstgespräch",
-                  desc: "Ihr Thema auf den Tisch bringen, sehen, was wirklich da ist.",
-                  meta: "45 Minuten · kostenfrei",
+                  desc: "Wir bringen Ihre Ideen und Vorhaben auf den Tisch, schauen gemeinsam hin und ich gebe Ihnen erste Impulse.",
+                  meta: "30 Minuten · kostenfrei",
                 },
                 {
                   title: "Potenzial-Scan",
-                  desc: "Wo KI heute entlastet – und welcher nächste Schritt wirtschaftlich sinnvoll ist.",
+                  desc: "Wo KI heute entlastet und welcher nächste Schritt wirtschaftlich sinnvoll ist.",
                   meta: "Individuell · online oder vor Ort",
                 },
                 {
@@ -146,11 +145,11 @@ export default function Home() {
                 {
                   title: "AI Literacy Workshop",
                   desc: "Kompetenz im Team – verständlich, nachweisbar, rechtssicher (Art. 4 EU AI Act).",
-                  meta: "Module 1–4 · für Ihr Team",
+                  meta: "Module 1–4",
                 },
                 {
                   title: "Pilotprojekt",
-                  desc: "Erster messbarer Nutzen im Betrieb – kontrolliert und auswertbar.",
+                  desc: "Erster messbarer Nutzen im Betrieb, kontrolliert und auswertbar.",
                   meta: "Klein starten · sauber ausbauen",
                 },
               ].map((item) => (
@@ -178,11 +177,11 @@ export default function Home() {
           <div className="page-container">
             <SectionIntro
               kicker="Wie ich arbeite:"
-              title="Ich eröffne Reflexionsräume."
+              title="Ich höre hin, nehme auf mit dem Blick auf das Wesentliche"
               titleLine2="Praxisnah und strukturiert."
             >
-              Fünf Schritte – nicht als Theorie, sondern als Fahrplan, den Sie
-              in Ihrem Tempo und mit Ihrem Team gehen können.
+              Fünf Schritte – praxisnah, verständlich und in Ihrem Tempo
+              einsetzbar.
             </SectionIntro>
 
             <div className="prose-width mt-12 lg:max-w-2xl">
@@ -210,7 +209,7 @@ export default function Home() {
                 {
                   n: "05",
                   title: "Pilotprojekt",
-                  text: "Erster messbarer Nutzen im Betrieb – kontrolliert und auswertbar.",
+                  text: "Erster messbarer Nutzen im Betrieb, kontrolliert und auswertbar.",
                 },
               ].map((step) => (
                 <div key={step.n} className="step-item">
@@ -227,25 +226,26 @@ export default function Home() {
         <section className="section-block bg-[var(--surface)]">
           <div className="page-container">
             <SectionIntro
-              kicker="Das Versprechen:"
-              title="Vom Unsichersein"
-              titleLine2="zur Klarheit."
+              kicker="Ihr KI Vorhaben:"
+              title="von ChatGPT zu"
+              titleLine2="sicherer, professioneller KI-Nutzung."
             >
-              Klarheit entsteht, wenn wir ehrlich hinsehen. Sie werden Worte
-              finden für das, was Sie innerlich schon ahnen – und einen
-              nächsten Schritt, der zu Ihrem Betrieb passt.
+              Klarheit entsteht, wenn wir aktuelle Prozesse betrachten. Sie
+              erkennen Reibungspunkte, die Sie schon ahnen, und die nächsten
+              Schritte werden sichtbar.
             </SectionIntro>
 
             <div className="prose-width mt-10 space-y-6">
               <p className="body-text">
-                Damit Sie klar erkennen: wo KI heute bereits sinnvoll entlastet,
-                welche Lösungen wirklich zu Ihrem Unternehmen passen – und
-                welcher nächste Schritt wirtschaftlich sinnvoll ist.
+                Damit Sie erkennen, wo KI heute sinnvoll entlastet, welche
+                Lösungen zu Ihrem Unternehmen passen und welcher nächste Schritt
+                sinnvoll ist.
               </p>
               <p className="body-text-muted italic">
-                Nach unserem Gespräch haben Sie keine Buzzwords mehr – sondern
-                Orientierung, konkrete Möglichkeiten und eine realistische
-                Einschätzung für Ihr Unternehmen.
+                Nach unserem Gespräch gewinnen Sie einen neuen Blick auf die
+                Technologie und eine klare Orientierung in Richtung
+                KI-Möglichkeiten. Ziel ist es, Ihnen mehr Zeit für Ihre
+                unternehmerische Leidenschaft zurückzugeben.
               </p>
             </div>
           </div>
@@ -259,8 +259,9 @@ export default function Home() {
               title="Warum Entscheider"
               titleLine2="mir vertrauen."
             >
-              Keine Show, keine Buzzwords – sondern jemand, der Betrieb von
-              innen kennt und KI so erklärt, dass Sie handeln können.
+              Ich bin Werkzeugmacher, Informatiker, Handwerker,
+              3D-Druck-Spezialist und Führungskraft. Ich kenne Betriebe von
+              innen und nehme Menschen mit.
             </SectionIntro>
 
             <div className="mt-12 grid grid-cols-1 gap-0 lg:grid-cols-2 lg:gap-16">
@@ -352,15 +353,15 @@ export default function Home() {
               {[
                 {
                   q: "Was passiert im Erstgespräch?",
-                  a: "Wir klären Ihre Ausgangslage, ordnen Chancen und Risiken ein und definieren den nächsten sinnvollen Schritt – ohne Tool‑Show und ohne Druck.",
+                  a: "Wir klären Ihre Ausgangslage, ordnen Chancen und Risiken ein und definieren den nächsten sinnvollen Schritt, ohne Tool‑Show und ohne Druck.",
                 },
                 {
                   q: "Muss ich etwas vorbereiten?",
-                  a: "Nein. Hilfreich ist nur ein grober Überblick: Welche Aufgaben kosten Zeit? Wo wird schon KI genutzt? Welche Daten sind sensibel?",
+                  a: "Nein. Hilfreich ist nur ein grober Überblick: Welche Aufgaben kosten Zeit? Wo wird schon KI genutzt? Welche Daten sind sensibel? Wie speichern Sie Daten?",
                 },
                 {
                   q: "Was ist AI‑ISCA?",
-                  a: "Ein strukturiertes Assessment (Audit): KI‑Nutzung, Datenschutz, Compliance und Kompetenz im Betrieb – als nachvollziehbare Grundlage für Entscheidungen.",
+                  a: "Ein strukturiertes Assessment (Audit): KI‑Nutzung, Datenschutz, Compliance und Kompetenz im Betrieb als nachvollziehbare Grundlage für Entscheidungen.",
                 },
                 {
                   q: "Wie ist das mit Datenschutz und EU AI Act?",
@@ -368,7 +369,7 @@ export default function Home() {
                 },
                 {
                   q: "Für wen ist das Angebot nicht geeignet?",
-                  a: "Wenn Sie nur eine Tool‑Demo oder „Hype‑Beratung“ suchen. Es geht um umsetzbare Entlastung im Alltag – nicht um Buzzwords.",
+                  a: "Wenn Sie nur eine Tool‑Demo oder „Hype‑Beratung“ suchen. Es geht um umsetzbare Entlastung im Alltag.",
                 },
                 {
                   q: "Was ist der nächste Schritt nach dem Gespräch?",
@@ -403,7 +404,7 @@ export default function Home() {
                 titleLine2="ein klarer nächster Schritt."
                 centered
               >
-                In 45 Minuten wissen Sie, was bei Ihnen sinnvoll ist – sicher,
+                In 30 Minuten wissen Sie, was bei Ihnen sinnvoll ist. Sicher,
                 nachvollziehbar, umsetzbar. Ohne Hype, ohne Verpflichtung.
               </SectionIntro>
 

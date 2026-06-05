@@ -3,7 +3,7 @@
 export const cta = {
   /** Primärer Button – Endresultat betonen */
   primary: {
-    hero: "Meine Klarheit in 45 Minuten sichern",
+    hero: "eine erste Orientierung",
     angebot: "Diese Klarheit für meinen Betrieb holen",
     vertrauen: "Mein kostenloses Erstgespräch wählen",
     final: "Meinen nächsten sinnvollen Schritt klären",
@@ -16,9 +16,9 @@ export const cta = {
 export const triggers = {
   heroAfter:
     "Kostenloses Erstgespräch · Keine Vorbereitung · Kein Verkaufsdruck · 30+ Jahre Praxis",
-  angebotTitle: "Was Sie nach 45 Minuten haben",
+  angebotTitle: "Was Sie nach 30 Minuten haben",
   angebotBody:
-    "Eine konkrete Einordnung für Ihren Betrieb – und eine Empfehlung, die wirklich zu Ihnen passt.",
+    "Eine konkrete Einschätzung für Ihren Betrieb und eine Empfehlung, die zu Ihrem unternehmerischen Fahrplan passt.",
   angebotProof: "Cert-IT KI-Manager · Rhein-Main · KMU & Handwerk",
   vertrauenAfter:
     "So starten viele Entscheider: erst Klarheit, dann der passende Baustein.",
