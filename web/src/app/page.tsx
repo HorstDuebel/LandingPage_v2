@@ -76,17 +76,42 @@ export default function Home() {
                 <span>Strategisch</span>
               </p>
 
-              <p className="mt-8 font-[var(--font-subheading)] text-lg font-bold leading-snug text-[var(--text)] sm:text-xl md:text-2xl">
-                KI muss zu Ihrem Unternehmen passen und im Alltag helfen. Genau
-                dabei begleite ich Sie, von der ersten Orientierung bis zur
-                Nutzung.
-              </p>
+              <div className="mt-8 space-y-5 font-[var(--font-subheading)] text-lg font-bold leading-snug text-[var(--text)] sm:text-xl">
+                <p>
+                  KI sollte nicht zusätzlich belasten, sondern im Alltag wirklich
+                  helfen. Ich unterstütze Handwerksbetriebe und KMU dabei, KI
+                  verständlich, sicher und praxisnah in ihre Abläufe zu
+                  integrieren.
+                </p>
+                <div>
+                  <p>Damit Sie klar erkennen:</p>
+                  <ul className="mt-3 list-none space-y-2 pl-0 text-[var(--text)]">
+                    <li className="flex gap-2">
+                      <span aria-hidden="true">•</span>
+                      <span>wo KI heute bereits sinnvoll entlastet</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span aria-hidden="true">•</span>
+                      <span>
+                        welche Lösungen wirklich zu Ihrem Unternehmen passen
+                      </span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span aria-hidden="true">•</span>
+                      <span>
+                        und welcher nächste Schritt wirtschaftlich sinnvoll ist
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+                <p className="font-bold leading-relaxed">
+                  Nach unserem Gespräch haben Sie keine Buzzwords mehr — sondern
+                  Orientierung, konkrete Möglichkeiten und eine realistische
+                  Einschätzung für Ihr Unternehmen.
+                </p>
+              </div>
 
-              <p className="mt-10 font-[var(--font-subheading)] text-lg font-bold leading-snug text-[var(--text)] sm:text-xl">
-                {triggers.heroBefore}
-              </p>
-
-              <div className="mt-6 flex w-full flex-col gap-4">
+              <div className="mt-8 flex w-full flex-col gap-4">
                 <PrimaryCtaLink>{cta.primary.hero}</PrimaryCtaLink>
                 <SecondaryCtaLink href="#angebot">
                   {cta.secondary}

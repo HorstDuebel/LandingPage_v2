@@ -13,8 +13,6 @@ export const cta = {
 } as const;
 
 export const triggers = {
-  heroBefore:
-    "Was Sie danach wissen: Wo KI bei Ihnen wirklich entlastet – was sinnvoll ist – und welcher nächste Schritt passt.",
   heroAfter:
     "Kostenloses Erstgespräch · Keine Vorbereitung · Kein Verkaufsdruck · 30+ Jahre Praxis",
   angebotTitle: "Was Sie nach 45 Minuten haben",
