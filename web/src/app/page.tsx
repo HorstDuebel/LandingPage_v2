@@ -55,100 +55,103 @@ export default function Home() {
       <main id="top" className="flex-1">
         {/* Hero */}
         <section className="bg-[var(--surface)]">
-          <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-start gap-10 px-6 py-12 md:grid-cols-2 md:gap-12 md:py-16">
-            {/* Links: Text & Buttons – eine Spalte, linksbündig */}
-            <div className="flex w-full max-w-xl flex-col">
-              <h1 className="hero-name-line font-[var(--font-heading)] text-[2.75rem] font-bold leading-none text-[var(--text)] sm:text-5xl md:text-[3.25rem]">
-                <span className="hero-name-word">Frank</span>
-                <span className="hero-name-between" aria-hidden="true" />
-                <span className="hero-name-word">Vullhorst</span>
-              </h1>
-              <p
-                className="mt-4 flex w-full justify-between font-[var(--font-subheading)] text-base font-bold uppercase tracking-wide text-[var(--text)] sm:text-lg"
-                aria-label="KI, sicher, sinnvoll, strategisch"
-              >
-                <span>KI</span>
-                <span aria-hidden="true">•</span>
-                <span>Sicher</span>
-                <span aria-hidden="true">•</span>
-                <span>Sinnvoll</span>
-                <span aria-hidden="true">•</span>
-                <span>Strategisch</span>
-              </p>
+          <div className="hero-layout mx-auto w-full max-w-6xl px-6 py-10 md:py-14">
+            {/* Porträt: oben rechts, ~80 % kleiner als zuvor */}
+            <div className="hero-portrait-anchor pointer-events-none mb-0 flex justify-end md:pointer-events-auto">
+              <div className="hero-portrait pointer-events-auto overflow-hidden rounded-xl border border-[color-mix(in_srgb,var(--brand-blue)_35%,white)] bg-[color-mix(in_srgb,var(--brand-blue)_10%,white)] p-1.5 shadow-[var(--shadow-soft)]">
+                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg">
+                  <Image
+                    src="/frank.jpg"
+                    alt="Frank Vullhorst"
+                    fill
+                    className="object-cover object-[center_20%]"
+                    sizes="(max-width: 768px) 88px, 136px"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
 
-              <div className="mt-8 space-y-5 font-[var(--font-subheading)] text-lg font-bold leading-snug text-[var(--text)] sm:text-xl">
-                <p>
+            <div className="hero-content flex w-full flex-col">
+              <div className="w-full max-w-xl">
+                <h1 className="hero-name-line font-[var(--font-heading)] text-[2.25rem] font-bold leading-none tracking-tight text-[var(--text)] sm:text-4xl md:text-[2.75rem]">
+                  <span className="hero-name-word">Frank</span>
+                  <span className="hero-name-between" aria-hidden="true" />
+                  <span className="hero-name-word">Vullhorst</span>
+                </h1>
+                <p
+                  className="mt-3 flex w-full justify-between font-[var(--font-subheading)] text-xs font-bold uppercase tracking-[0.2em] text-[var(--brand-gray)] sm:text-sm"
+                  aria-label="KI, sicher, sinnvoll, strategisch"
+                >
+                  <span>KI</span>
+                  <span aria-hidden="true">•</span>
+                  <span>Sicher</span>
+                  <span aria-hidden="true">•</span>
+                  <span>Sinnvoll</span>
+                  <span aria-hidden="true">•</span>
+                  <span>Strategisch</span>
+                </p>
+              </div>
+
+              <div className="mt-7 max-w-2xl space-y-6">
+                <p className="font-[var(--font-body)] text-lg font-normal leading-[1.65] text-[var(--text)] sm:text-[1.125rem]">
                   KI sollte nicht zusätzlich belasten, sondern im Alltag wirklich
                   helfen. Ich unterstütze Handwerksbetriebe und KMU dabei, KI
                   verständlich, sicher und praxisnah in ihre Abläufe zu
                   integrieren.
                 </p>
+
                 <div>
-                  <p>Damit Sie klar erkennen:</p>
-                  <ul className="mt-3 list-none space-y-2 pl-0 text-[var(--text)]">
-                    <li className="flex gap-2">
-                      <span aria-hidden="true">•</span>
-                      <span>wo KI heute bereits sinnvoll entlastet</span>
-                    </li>
-                    <li className="flex gap-2">
-                      <span aria-hidden="true">•</span>
-                      <span>
-                        welche Lösungen wirklich zu Ihrem Unternehmen passen
-                      </span>
-                    </li>
-                    <li className="flex gap-2">
-                      <span aria-hidden="true">•</span>
-                      <span>
-                        und welcher nächste Schritt wirtschaftlich sinnvoll ist
-                      </span>
-                    </li>
+                  <p className="font-[var(--font-subheading)] text-base font-bold text-[var(--text)]">
+                    Damit Sie klar erkennen:
+                  </p>
+                  <ul className="mt-3 space-y-2.5 font-[var(--font-body)] text-base font-light leading-relaxed text-[var(--muted)]">
+                    {[
+                      "wo KI heute bereits sinnvoll entlastet",
+                      "welche Lösungen wirklich zu Ihrem Unternehmen passen",
+                      "und welcher nächste Schritt wirtschaftlich sinnvoll ist",
+                    ].map((item) => (
+                      <li key={item} className="flex gap-3">
+                        <span
+                          className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--brand-orange)]"
+                          aria-hidden="true"
+                        />
+                        <span>{item}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
-                <p className="font-bold leading-relaxed">
+
+                <p className="border-l-2 border-[color-mix(in_srgb,var(--brand-blue)_55%,white)] pl-4 font-[var(--font-body)] text-base font-normal leading-[1.65] text-[var(--muted)] italic">
                   Nach unserem Gespräch haben Sie keine Buzzwords mehr — sondern
                   Orientierung, konkrete Möglichkeiten und eine realistische
                   Einschätzung für Ihr Unternehmen.
                 </p>
               </div>
 
-              <div className="mt-8 flex w-full flex-col gap-4">
-                <PrimaryCtaLink>{cta.primary.hero}</PrimaryCtaLink>
-                <SecondaryCtaLink href="#angebot">
-                  {cta.secondary}
-                </SecondaryCtaLink>
-              </div>
-
-              <ClickTrigger className="mt-4 text-sm leading-6 text-[var(--muted)]">
-                {triggers.heroAfter}
-              </ClickTrigger>
-            </div>
-
-            {/* Rechts: Porträt + Trust-Badges darunter */}
-            <div className="flex w-full flex-col md:max-w-md md:justify-self-end lg:max-w-lg">
-              <div className="overflow-hidden rounded-2xl border border-[color-mix(in_srgb,var(--brand-blue)_35%,white)] bg-[color-mix(in_srgb,var(--brand-blue)_12%,white)] p-3 shadow-[var(--shadow-soft)]">
-                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl">
-                  <Image
-                    src="/frank.jpg"
-                    alt="Frank Vullhorst"
-                    fill
-                    className="object-cover object-center"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    priority
-                  />
-                </div>
-              </div>
-              <div className="mt-4 grid w-full grid-cols-3 gap-2 sm:gap-3">
+              <div className="mt-4 flex flex-wrap gap-2 sm:gap-3">
                 {["30+ Jahre Praxis", "KI-Manager Cert-IT", "EU AI Act & DSGVO"].map(
                   (label) => (
                     <div
                       key={label}
-                      className="flex items-center justify-center rounded-xl border border-[color-mix(in_srgb,var(--text)_22%,white)] bg-[var(--surface)] px-2 py-2.5 text-center font-[var(--font-subheading)] text-[11px] font-bold leading-tight text-[var(--text)] sm:px-3 sm:py-3 sm:text-xs"
+                      className="rounded-lg border border-[color-mix(in_srgb,var(--text)_12%,white)] bg-[var(--surface-2)] px-3 py-2 font-[var(--font-subheading)] text-[11px] font-bold text-[var(--text)] sm:text-xs"
                     >
                       {label}
                     </div>
                   ),
                 )}
               </div>
+
+              <div className="mt-8 flex w-full max-w-md flex-col gap-3">
+                <PrimaryCtaLink>{cta.primary.hero}</PrimaryCtaLink>
+                <SecondaryCtaLink href="#angebot">
+                  {cta.secondary}
+                </SecondaryCtaLink>
+              </div>
+
+              <ClickTrigger className="mt-4 max-w-md text-sm leading-relaxed">
+                {triggers.heroAfter}
+              </ClickTrigger>
             </div>
           </div>
         </section>

@@ -77,3 +77,65 @@ body {
     letter-spacing: 0.19em;
   }
 }
+
+/* Hero: kompaktes Porträt oben rechts (~20 % der früheren Breite) */
+.hero-layout {
+  position: relative;
+}
+
+.hero-portrait {
+  width: 5.5rem;
+  flex-shrink: 0;
+}
+
+.hero-portrait-anchor {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 0;
+  padding-right: 6.5rem;
+}
+
+@media (min-width: 640px) {
+  .hero-portrait {
+    width: 6.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-layout {
+    position: relative;
+    padding-top: 0.5rem;
+  }
+
+  .hero-portrait-anchor {
+    position: absolute;
+    top: 0;
+    right: 1.5rem;
+    z-index: 10;
+  }
+
+  .hero-portrait {
+    width: 7.5rem;
+  }
+
+  .hero-content {
+    max-width: 42rem;
+    padding-right: 9.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-portrait {
+    width: 8.5rem;
+  }
+
+  .hero-content {
+    padding-right: 11rem;
+  }
+}
