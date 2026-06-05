@@ -1,27 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  /* Brand colors (verbindlich laut PRD) */
-  --brand-gray: #a99eac; /* sicher */
-  --brand-orange: #f89921; /* sinnvoll (CTA) */
-  --brand-blue: #77b3cf; /* strategisch */
-  --brand-text-soft: #dddfeC; /* Schrift-/Hellgrau */
+  /* Markenfarben (verbindlich) */
+  --brand-gray: #a99eac;
+  --brand-orange: #f89921;
+  --brand-blue: #77b3cf;
+  --brand-text-soft: #dddfeC;
 
-  /* Neutral system (hell, ruhig, großzügig) */
-  --bg: #fbfbfd;
+  /* Neutrale Flächen – nur helle Abstufungen aus Markenfarben */
+  --bg: color-mix(in srgb, var(--brand-text-soft) 18%, white);
   --surface: #ffffff;
-  --surface-2: #f3f4f8;
-  --text: #14151a;
-  --muted: #4b5563;
-  --border: rgba(20, 21, 26, 0.10);
+  --surface-muted: color-mix(in srgb, var(--brand-text-soft) 55%, white);
+  --surface-blue: color-mix(in srgb, var(--brand-blue) 14%, white);
+  --surface-warm: color-mix(in srgb, var(--brand-orange) 10%, white);
 
-  /* Typography */
-  --font-heading: var(--font-heading);
-  --font-subheading: var(--font-subheading);
-  --font-body: var(--font-body);
+  --text: color-mix(in srgb, var(--brand-gray) 72%, black);
+  --muted: var(--brand-gray);
+  --border: color-mix(in srgb, var(--brand-gray) 28%, white);
 
-  --radius-lg: 18px;
-  --shadow-soft: 0 12px 30px rgba(20, 21, 26, 0.06);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --section-py: clamp(3.5rem, 8vw, 5.5rem);
+  --container: 72rem;
 }
 
 @theme inline {
@@ -33,52 +33,148 @@
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: var(--font-body), "Noto Sans", system-ui, -apple-system,
-    "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: var(--font-body), "Noto Sans", system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
 }
 
-/* Comfortable defaults */
 * {
-  scroll-margin-top: 96px;
+  scroll-margin-top: 120px;
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--brand-orange) 25%, white);
+  background: color-mix(in srgb, var(--brand-orange) 30%, white);
 }
 
-/* Hero: F links, t rechts – Lücke zwischen Frank|Vullhorst per Mittelspalte */
-.hero-name-line {
-  display: flex;
+/* —— Layout (neomesh-inspiriert: klar, großzügig, Sektionen) —— */
+.nm-container {
   width: 100%;
-  align-items: baseline;
-  white-space: nowrap;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2rem);
 }
 
-.hero-name-word {
-  flex: 0 0 auto;
-  letter-spacing: 0.18em;
+.section-block {
+  padding-block: var(--section-py);
 }
 
-/* Nimmt den Platz zwischen k und V auf (3× frühere Wortlücke) */
-.hero-name-between {
-  flex: 1 1 auto;
-  min-width: 0;
+.section-kicker {
+  font-family: var(--font-subheading), sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-blue);
 }
 
-@media (min-width: 640px) {
-  .hero-name-word {
-    /* Etwas enger in den Wörtern → ~3× Lücke zwischen k und V, F/t bleiben außen */
-    letter-spacing: 0.17em;
-  }
+.section-title {
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text);
 }
 
-@media (min-width: 768px) {
-  .hero-name-word {
-    letter-spacing: 0.19em;
-  }
+.section-lead {
+  font-family: var(--font-body), sans-serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--muted);
 }
 
-/* Hero: kompaktes Porträt oben rechts (~20 % der früheren Breite) */
+/* Top-Bar wie neomesh */
+.top-bar {
+  background: var(--surface-blue);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-link {
+  font-family: var(--font-subheading), sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text);
+  transition: color 0.15s ease;
+}
+
+.nav-link:hover {
+  color: var(--brand-orange);
+}
+
+/* Karten – flach, dezent (neomesh) */
+.nm-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.75rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nm-card:hover {
+  border-color: color-mix(in srgb, var(--brand-blue) 45%, white);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--brand-gray) 12%, transparent);
+}
+
+.nm-card-title {
+  font-family: var(--font-subheading), sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.nm-card-text {
+  margin-top: 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+/* Icon-Kachel (neomesh 4-Spalten-Stil) */
+.nm-icon-tile {
+  text-align: center;
+  padding: 2rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  height: 100%;
+}
+
+.nm-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-heading), sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--surface-muted);
+  border-radius: var(--radius-sm);
+}
+
+.nm-icon--orange {
+  background: color-mix(in srgb, var(--brand-orange) 22%, white);
+  color: color-mix(in srgb, var(--brand-orange) 70%, black);
+}
+
+.nm-icon--blue {
+  background: color-mix(in srgb, var(--brand-blue) 22%, white);
+  color: color-mix(in srgb, var(--brand-blue) 65%, black);
+}
+
+.nm-icon--gray {
+  background: color-mix(in srgb, var(--brand-gray) 22%, white);
+  color: color-mix(in srgb, var(--brand-gray) 75%, black);
+}
+
+/* Hero */
 .hero-layout {
   position: relative;
 }
@@ -101,23 +197,65 @@ body {
   padding-right: 6.5rem;
 }
 
+.hero-eyebrow {
+  font-family: var(--font-subheading), sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: lowercase;
+  color: var(--brand-blue);
+}
+
+.hero-name-line {
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+  white-space: nowrap;
+}
+
+.hero-name-word {
+  flex: 0 0 auto;
+  letter-spacing: 0.18em;
+}
+
+.hero-name-between {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.hero-tagline {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-family: var(--font-subheading), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brand-gray);
+}
+
 @media (min-width: 640px) {
+  .hero-name-word {
+    letter-spacing: 0.17em;
+  }
+
   .hero-portrait {
     width: 6.5rem;
+  }
+
+  .hero-tagline {
+    font-size: 0.8125rem;
   }
 }
 
 @media (min-width: 768px) {
-  .hero-layout {
-    position: relative;
-    padding-top: 0.5rem;
+  .hero-name-word {
+    letter-spacing: 0.19em;
   }
 
   .hero-portrait-anchor {
-    position: absolute;
-    top: 0;
     right: 1.5rem;
-    z-index: 10;
   }
 
   .hero-portrait {
@@ -138,4 +276,46 @@ body {
   .hero-content {
     padding-right: 11rem;
   }
+}
+
+/* CTA-Band */
+.cta-band {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--brand-orange) 18%, white),
+    var(--surface)
+  );
+  border: 1px solid var(--border);
+  padding: clamp(2rem, 5vw, 3rem);
+}
+
+.site-footer {
+  background: var(--surface-muted);
+  border-top: 1px solid var(--border);
+}
+
+/* Buttons – klar, rechteckig (neomesh) */
+.btn-primary {
+  background: var(--brand-orange);
+  color: var(--text);
+  border: 1px solid color-mix(in srgb, var(--brand-orange) 55%, black);
+  border-radius: var(--radius-sm);
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+.btn-primary:hover {
+  filter: brightness(0.97);
+}
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--surface-muted);
+  border-color: color-mix(in srgb, var(--brand-gray) 45%, white);
 }

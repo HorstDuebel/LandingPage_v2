@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ClickTrigger } from "@/components/cta-buttons";
+import { SiteFooter, SiteHeader, TopBar } from "@/components/site-chrome";
 import { triggers } from "@/lib/copy";
 import { GOOGLE_APPOINTMENT_SCHEDULE_URL } from "@/lib/booking";
 
@@ -11,61 +12,19 @@ export const metadata = {
 
 export default function TerminPage() {
   return (
-    <div className="flex min-h-full flex-col bg-[var(--surface)]">
-      <header className="sticky top-0 z-30 border-b border-[var(--border)] bg-[color-mix(in_srgb,var(--surface)_92%,white)] backdrop-blur">
-        <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center gap-6 px-6 py-5">
-          <Link
-            href="/"
-            className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[var(--surface-2)] shadow-[var(--shadow-soft)] ring-1 ring-[var(--border)]"
-            aria-label="Zur Startseite"
-          >
-            <span className="font-[var(--font-heading)] text-sm font-semibold tracking-tight text-[var(--text)]">
-              FV
-            </span>
-          </Link>
+    <div className="flex min-h-full flex-col">
+      <TopBar />
+      <SiteHeader />
 
-          <nav className="flex flex-wrap items-center gap-5 sm:gap-8">
-            <Link
-              className="font-[var(--font-subheading)] text-base font-bold text-[var(--text)] hover:opacity-80"
-              href="/#fuer-wen"
-            >
-              Für wen
-            </Link>
-            <Link
-              className="font-[var(--font-subheading)] text-base font-bold text-[var(--text)] hover:opacity-80"
-              href="/#angebot"
-            >
-              Angebot
-            </Link>
-            <Link
-              className="font-[var(--font-subheading)] text-base font-bold text-[var(--text)] hover:opacity-80"
-              href="/#methode"
-            >
-              Methode
-            </Link>
-            <Link
-              className="font-[var(--font-subheading)] text-base font-bold text-[var(--text)] hover:opacity-80"
-              href="/#faq"
-            >
-              FAQ
-            </Link>
-          </nav>
-        </div>
-      </header>
-
-      <main className="flex-1">
-        <div className="mx-auto w-full max-w-4xl px-6 py-10 md:py-14">
-          <Link
-            href="/"
-            className="text-sm font-semibold text-[var(--muted)] hover:text-[var(--text)] hover:underline"
-          >
+      <main className="flex-1 section-block bg-[var(--surface)]">
+        <div className="nm-container max-w-4xl">
+          <Link href="/" className="nav-link !text-sm">
             ← Zurück zur Startseite
           </Link>
 
-          <h1 className="mt-6 font-[var(--font-heading)] text-3xl font-bold tracking-tight text-[var(--text)] sm:text-4xl">
-            Ihre 45 Minuten Klarheit
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg leading-8 text-[var(--muted)]">
+          <p className="section-kicker mt-8">Termin wählen</p>
+          <h1 className="section-title mt-3">Ihre 45 Minuten Klarheit</h1>
+          <p className="section-lead mt-5">
             Wählen Sie einen Termin, der in Ihren Kalender passt. Danach wissen
             Sie,{" "}
             <strong className="font-semibold text-[var(--text)]">
@@ -78,20 +37,20 @@ export default function TerminPage() {
             {triggers.terminIntro}
           </ClickTrigger>
 
-          <div className="mt-6 overflow-hidden rounded-2xl border border-[color-mix(in_srgb,var(--brand-blue)_35%,white)] bg-[var(--surface)] p-3 shadow-[var(--shadow-soft)] ring-1 ring-[var(--border)]">
+          <div className="mt-8 overflow-hidden border border-[var(--border)] bg-[var(--surface-muted)] p-3">
             <iframe
               src={GOOGLE_APPOINTMENT_SCHEDULE_URL}
               title="Terminwahl – Erstgespräch Frank Vullhorst"
-              className="w-full rounded-xl border-0 bg-white"
+              className="w-full border-0 bg-white"
               style={{ minHeight: "700px", height: "75vh" }}
               loading="lazy"
             />
           </div>
 
-          <p className="mt-6 text-sm leading-6 text-[var(--muted)]">
+          <p className="mt-6 text-sm font-light leading-relaxed text-[var(--muted)]">
             Kalender lädt nicht?{" "}
             <a
-              className="font-medium text-[var(--text)] underline hover:opacity-80"
+              className="font-medium text-[var(--text)] underline hover:text-[var(--brand-orange)]"
               href={GOOGLE_APPOINTMENT_SCHEDULE_URL}
               target="_blank"
               rel="noopener noreferrer"
@@ -102,19 +61,7 @@ export default function TerminPage() {
         </div>
       </main>
 
-      <footer className="border-t border-[var(--border)] bg-[var(--surface)]">
-        <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-8 text-sm text-[var(--muted)]">
-          <span>© {new Date().getFullYear()} Frank Vullhorst</span>
-          <div className="flex gap-4">
-            <Link className="hover:underline" href="/impressum">
-              Impressum
-            </Link>
-            <Link className="hover:underline" href="/datenschutz">
-              Datenschutz
-            </Link>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
