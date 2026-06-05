@@ -85,6 +85,11 @@ body {
   display: block;
 }
 
+.display-title-line--single {
+  white-space: nowrap;
+  font-size: clamp(1.5rem, 4.2vw, 3.75rem);
+}
+
 .section-title {
   font-family: var(--font-heading), sans-serif;
   font-size: clamp(1.875rem, 4.5vw, 3rem);

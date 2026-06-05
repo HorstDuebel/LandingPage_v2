@@ -16,14 +16,16 @@ export default function Home() {
         {/* Hero – Einladung wie susannevolkwein.de */}
         <section className="section-block bg-[var(--surface)] pt-28 md:pt-32">
           <div className="page-container">
-            <div className="prose-width">
+            <div>
               <p className="section-kicker">Meine Einladung:</p>
               <h1 className="display-title">
                 <span className="display-title-line">Ein Erstgespräch.</span>
-                <span className="display-title-line">30 Minuten aus der Vogelperspektive.</span>
+                <span className="display-title-line display-title-line--single">
+                  Erst aus Klarheit entsteht echte Effizienz.
+                </span>
               </h1>
 
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-8">
+              <div className="prose-width mt-10 flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-8">
                 <PrimaryCtaLink className="btn-primary !w-auto sm:max-w-none">
                   {cta.primary.hero}
                 </PrimaryCtaLink>
