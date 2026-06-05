@@ -1,15 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { TERMIN_PAGE_PATH } from "@/lib/booking";
-
-function TerminBuchenLabel() {
-  return (
-    <span className="inline-flex items-baseline gap-2">
-      <span>Termin buchen</span>
-      <span className="text-[0.8em] font-normal italic">(Google Kalender)</span>
-    </span>
-  );
-}
+import {
+  ClickTrigger,
+  PrimaryCtaInline,
+  PrimaryCtaLink,
+  SecondaryCtaLink,
+} from "@/components/cta-buttons";
+import { cta, triggers } from "@/lib/copy";
 
 export default function Home() {
   return (
@@ -85,24 +82,20 @@ export default function Home() {
                 Nutzung.
               </p>
 
-              <p className="mt-10 font-[var(--font-subheading)] text-lg font-bold text-[var(--text)] sm:text-xl md:text-2xl">
-                Neugierig? Lernen wir uns kennen:
+              <p className="mt-10 font-[var(--font-subheading)] text-lg font-bold leading-snug text-[var(--text)] sm:text-xl">
+                {triggers.heroBefore}
               </p>
 
-              <div className="mt-5 flex w-full flex-col gap-4">
-                <a
-                  className="inline-flex h-14 w-full items-center justify-center rounded-full bg-[var(--brand-orange)] px-8 text-lg font-bold text-[var(--text)] shadow-[var(--shadow-soft)] ring-1 ring-[color-mix(in_srgb,var(--brand-orange)_35%,black)] hover:brightness-[0.98] active:brightness-[0.96]"
-                  href={TERMIN_PAGE_PATH}
-                >
-                  <TerminBuchenLabel />
-                </a>
-                <a
-                  className="inline-flex h-14 w-full items-center justify-center rounded-full border-2 border-[color-mix(in_srgb,var(--brand-gray)_55%,white)] bg-[var(--surface)] px-8 text-lg font-bold text-[var(--text)] hover:bg-[var(--surface-2)]"
-                  href="#angebot"
-                >
-                  Angebot ansehen
-                </a>
+              <div className="mt-6 flex w-full flex-col gap-4">
+                <PrimaryCtaLink>{cta.primary.hero}</PrimaryCtaLink>
+                <SecondaryCtaLink href="#angebot">
+                  {cta.secondary}
+                </SecondaryCtaLink>
               </div>
+
+              <ClickTrigger className="mt-4 text-sm leading-6 text-[var(--muted)]">
+                {triggers.heroAfter}
+              </ClickTrigger>
             </div>
 
             {/* Rechts: Porträt + Trust-Badges darunter */}
@@ -137,15 +130,15 @@ export default function Home() {
 
         {/* Für wen */}
         <section id="fuer-wen" className="mx-auto w-full max-w-6xl px-6 py-16">
-          <div className="max-w-2xl">
-            <h2 className="font-[var(--font-heading)] text-3xl font-semibold tracking-tight text-[var(--text)]">
-              Für wen das Angebot gedacht ist
-            </h2>
-            <p className="mt-4 text-lg leading-8 text-[var(--muted)]">
-              Für KMU, Handwerk und Entscheider, die schnell Klarheit wollen –
-              ohne Hype, ohne Tool‑Show, ohne Überforderung.
-            </p>
-          </div>
+            <div className="max-w-2xl">
+              <h2 className="font-[var(--font-heading)] text-3xl font-semibold tracking-tight text-[var(--text)]">
+                Wenn das bei Ihnen vertraut klingt
+              </h2>
+              <p className="mt-4 text-lg leading-8 text-[var(--muted)]">
+                Sie sind nicht allein – und Sie brauchen keine Tool‑Show. Sie
+                brauchen Klarheit, die im Betrieb wirklich trägt.
+              </p>
+            </div>
 
           <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">
             {[
@@ -197,31 +190,32 @@ export default function Home() {
           <div className="mx-auto w-full max-w-6xl px-6 py-16">
             <div className="max-w-2xl">
               <h2 className="font-[var(--font-heading)] text-3xl font-semibold tracking-tight text-[var(--text)]">
-                Klarer Einstieg. Sauberer Ausbau.
+                Was Sie bekommen – Schritt für Schritt
               </h2>
               <p className="mt-4 text-lg leading-8 text-[var(--muted)]">
-                Wir starten klein und sinnvoll – und bauen nur das aus, was
-                wirklich Nutzen bringt.
+                Kein Leistungskatalog zum Durchklicken, sondern ein klarer Weg:
+                erst Orientierung, dann der Baustein, der bei Ihnen wirklich
+                Nutzen bringt.
               </p>
             </div>
 
             <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2">
               {[
                 {
-                  title: "Erstgespräch (45 Minuten)",
-                  text: "Orientierung, Einordnung, nächster sinnvoller Schritt. Direkt per Terminbuchung.",
+                  title: "Klarheit in 45 Minuten",
+                  text: "Sie wissen danach, wo KI bei Ihnen entlastet – und welcher nächste Schritt sinnvoll ist. Kostenlos, ohne Druck.",
                 },
                 {
-                  title: "AI‑ISCA Audit",
-                  text: "Strukturierte Bestandsaufnahme: KI‑Nutzung, Datenschutz, Compliance und Kompetenz – als klare Grundlage.",
+                  title: "Sicherheit statt Bauchgefühl (AI‑ISCA)",
+                  text: "Eine nachvollziehbare Bestandsaufnahme: KI‑Nutzung, Datenschutz, Compliance und Kompetenz – als Grundlage für Entscheidungen.",
                 },
                 {
-                  title: "Module 1–4 (Workshops)",
-                  text: "KI verstehen, EU AI Act, Datenschutz und ein 5‑Schritte‑Fahrplan – kompakt, verständlich, praxisnah.",
+                  title: "Kompetenz fürs Team (Module 1–4)",
+                  text: "Ihr Team versteht KI, EU AI Act und Datenschutz – praxisnah, verständlich, mit dokumentierbarem Nachweis.",
                 },
                 {
-                  title: "Automatisierung & Umsetzung",
-                  text: "Prozesse so gestalten, dass weniger manuell gemacht werden muss – mit Kontrolle und Verantwortung im Team.",
+                  title: "Entlastung im Alltag",
+                  text: "Weniger manuelle Arbeit, klare Verantwortung, messbarer Nutzen – ohne neue Komplexität im Tagesgeschäft.",
                 },
               ].map((card) => (
                 <div
@@ -241,21 +235,19 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="mt-10 flex flex-col items-start justify-between gap-4 rounded-2xl bg-[var(--surface)] p-6 shadow-[var(--shadow-soft)] ring-1 ring-[var(--border)] sm:flex-row sm:items-center">
-              <div>
+            <div className="mt-10 flex flex-col items-start justify-between gap-6 rounded-2xl bg-[var(--surface)] p-6 shadow-[var(--shadow-soft)] ring-1 ring-[var(--border)] sm:flex-row sm:items-center">
+              <div className="max-w-lg">
                 <div className="font-[var(--font-subheading)] text-base font-bold text-[var(--text)]">
-                  Der schnellste Einstieg
+                  {triggers.angebotTitle}
                 </div>
-                <div className="mt-1 text-sm text-[var(--muted)]">
-                  45 Minuten, klare Einordnung, kein Druck.
+                <div className="mt-2 text-sm leading-6 text-[var(--muted)]">
+                  {triggers.angebotBody}
+                </div>
+                <div className="mt-3 text-xs font-semibold tracking-wide text-[var(--brand-gray)] uppercase">
+                  {triggers.angebotProof}
                 </div>
               </div>
-              <a
-                className="inline-flex h-12 items-center justify-center rounded-full bg-[var(--brand-orange)] px-6 text-base font-semibold text-[var(--text)] shadow-[var(--shadow-soft)] ring-1 ring-[color-mix(in_srgb,var(--brand-orange)_35%,black)] hover:brightness-[0.98] active:brightness-[0.96]"
-                href={TERMIN_PAGE_PATH}
-              >
-                Termin buchen
-              </a>
+              <PrimaryCtaInline>{cta.primary.angebot}</PrimaryCtaInline>
             </div>
           </div>
         </section>
@@ -264,11 +256,11 @@ export default function Home() {
         <section id="methode" className="mx-auto w-full max-w-6xl px-6 py-16">
           <div className="max-w-2xl">
             <h2 className="font-[var(--font-heading)] text-3xl font-semibold tracking-tight text-[var(--text)]">
-              Die Methode: der 5‑Schritte‑Fahrplan
+              So kommen Sie sicher von der Idee zur Umsetzung
             </h2>
             <p className="mt-4 text-lg leading-8 text-[var(--muted)]">
-              Nicht kompliziert, sondern nachvollziehbar: Schritt für Schritt
-              zu einem sicheren, praxistauglichen Einsatz.
+              Fünf Schritte – nicht als Theorie, sondern als Fahrplan, den Sie
+              in Ihrem Tempo und mit Ihrem Team gehen können.
             </p>
           </div>
 
@@ -277,27 +269,27 @@ export default function Home() {
               {
                 n: "01",
                 title: "Audit",
-                text: "Bestandsaufnahme: Was wird genutzt, was fehlt, was ist riskant?",
+                text: "Sie sehen klar: Was läuft, was fehlt, wo Risiko steckt.",
               },
               {
                 n: "02",
                 title: "KI‑Leitlinie",
-                text: "Klare Regeln: freigegebene Tools, Datenregeln, Verantwortung, Prüfung.",
+                text: "Ihr Team weiß: Was darf genutzt werden – und was nicht.",
               },
               {
                 n: "03",
                 title: "Sicherer Hafen",
-                text: "Passende Schutzstufe je Datenklasse – ohne Overkill, aber sauber.",
+                text: "Daten bekommen die Schutzstufe, die sie brauchen – ohne Overkill.",
               },
               {
                 n: "04",
                 title: "AI Literacy",
-                text: "Kompetenz aufbauen und nachweisen – Pflicht nach Art. 4 EU AI Act.",
+                text: "Kompetenz im Team – nachweisbar, rechtssicher (Art. 4 EU AI Act).",
               },
               {
                 n: "05",
                 title: "Pilotprojekt",
-                text: "Ein klarer Anwendungsfall, messbarer Nutzen, Human‑in‑the‑Loop.",
+                text: "Erster messbarer Nutzen im Betrieb – kontrolliert und auswertbar.",
               },
             ].map((step) => (
               <div
@@ -323,18 +315,18 @@ export default function Home() {
           <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-10 px-6 py-16 md:grid-cols-2">
             <div>
               <h2 className="font-[var(--font-heading)] text-3xl font-semibold tracking-tight text-[var(--text)]">
-                Vertrauen durch Erfahrung – ohne Show
+                Warum Entscheider mir vertrauen
               </h2>
               <p className="mt-4 text-lg leading-8 text-[var(--muted)]">
-                Ich komme aus der Praxis. Ich schaue mit Ihnen auf Ihre reale
-                Situation – und wir entscheiden gemeinsam den nächsten Schritt.
+                Keine Show, keine Buzzwords – sondern jemand, der Betrieb von
+                innen kennt und KI so erklärt, dass Sie handeln können.
               </p>
 
               <div className="mt-8 grid grid-cols-1 gap-3">
                 {[
-                  "30+ Jahre Praxis in Technik, Prozessen und Umsetzung",
-                  "KI‑Manager Certificate (Cert‑IT), 02/2026",
-                  "Erfahrung in Führung, Prozessoptimierung und Vertrieb",
+                  "30+ Jahre Praxis – Technik, Prozesse, Umsetzung in der Industrie",
+                  "KI‑Manager Certificate (Cert‑IT), Nr. KI001220 · 02/2026",
+                  "27 Jahre bei 3D Systems – internationale Projekte bis €1,5M Budget",
                   "Fokus: verständlich, sicher, umsetzbar (EU AI Act & DSGVO)",
                 ].map((line) => (
                   <div
@@ -380,15 +372,12 @@ export default function Home() {
                 ))}
               </div>
 
-              <a
-                className="mt-6 inline-flex h-12 w-full items-center justify-center rounded-full bg-[var(--brand-orange)] px-6 text-base font-semibold text-[var(--text)] shadow-[var(--shadow-soft)] ring-1 ring-[color-mix(in_srgb,var(--brand-orange)_35%,black)] hover:brightness-[0.98] active:brightness-[0.96]"
-                href={TERMIN_PAGE_PATH}
-              >
-                <TerminBuchenLabel />
-              </a>
-              <p className="mt-3 text-center text-sm text-[var(--muted)]">
-                Terminwahl auf der Seite „Termin buchen“ – ohne Wechsel zu Google.
-              </p>
+              <PrimaryCtaLink className="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[var(--brand-orange)] px-6 py-3 text-center text-base font-semibold leading-snug text-[var(--text)] shadow-[var(--shadow-soft)] ring-1 ring-[color-mix(in_srgb,var(--brand-orange)_35%,black)] hover:brightness-[0.98] active:brightness-[0.96]">
+                {cta.primary.vertrauen}
+              </PrimaryCtaLink>
+              <ClickTrigger className="mt-3 text-center text-sm">
+                {triggers.vertrauenAfter}
+              </ClickTrigger>
             </div>
           </div>
         </section>
@@ -457,20 +446,21 @@ export default function Home() {
             <div className="rounded-[var(--radius-lg)] bg-[linear-gradient(135deg,color-mix(in_srgb,var(--brand-orange)_20%,white),white)] p-10 shadow-[var(--shadow-soft)] ring-1 ring-[var(--border)]">
               <div className="max-w-3xl">
                 <h2 className="font-[var(--font-heading)] text-3xl font-semibold tracking-tight text-[var(--text)]">
-                  In 45 Minuten zu Klarheit und einem sinnvollen nächsten Schritt
+                  Statt Unsicherheit: ein klarer nächster Schritt für Ihren
+                  Betrieb
                 </h2>
                 <p className="mt-4 text-lg leading-8 text-[var(--muted)]">
-                  Ruhig, praxisnah, verständlich – damit KI im Betrieb wirklich
-                  entlastet.
+                  In 45 Minuten wissen Sie, was bei Ihnen sinnvoll ist – sicher,
+                  nachvollziehbar, umsetzbar. Ohne Hype, ohne Verpflichtung.
                 </p>
               </div>
-              <div className="mt-8">
-                <a
-                  className="inline-flex h-12 items-center justify-center rounded-full bg-[var(--brand-orange)] px-7 text-base font-semibold text-[var(--text)] shadow-[var(--shadow-soft)] ring-1 ring-[color-mix(in_srgb,var(--brand-orange)_35%,black)] hover:brightness-[0.98] active:brightness-[0.96]"
-                  href={TERMIN_PAGE_PATH}
-                >
-                  <TerminBuchenLabel />
-                </a>
+              <div className="mt-8 flex flex-col gap-4 sm:max-w-xl">
+                <ClickTrigger className="text-base font-semibold text-[var(--text)]">
+                  {triggers.finalBefore}
+                </ClickTrigger>
+                <PrimaryCtaLink className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[var(--brand-orange)] px-7 py-3 text-center text-base font-semibold leading-snug text-[var(--text)] shadow-[var(--shadow-soft)] ring-1 ring-[color-mix(in_srgb,var(--brand-orange)_35%,black)] hover:brightness-[0.98] active:brightness-[0.96] sm:w-auto sm:min-w-[20rem]">
+                  {cta.primary.final}
+                </PrimaryCtaLink>
               </div>
             </div>
           </div>
@@ -521,16 +511,16 @@ export default function Home() {
 
             <div>
               <div className="font-[var(--font-subheading)] text-base font-bold text-[var(--text)]">
-                Termin
+                Noch unsicher?
               </div>
               <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
-                Buchung auf der Seite „Termin buchen“ (Google Calendar eingebettet).
+                {triggers.footerBody}
               </p>
               <Link
-                className="mt-4 inline-flex h-11 items-center justify-center rounded-full bg-[var(--brand-orange)] px-5 text-sm font-semibold text-[var(--text)] shadow-[var(--shadow-soft)] ring-1 ring-[color-mix(in_srgb,var(--brand-orange)_35%,black)] hover:brightness-[0.98] active:brightness-[0.96]"
-                href={TERMIN_PAGE_PATH}
+                className="mt-4 inline-flex min-h-11 items-center justify-center rounded-full bg-[var(--brand-orange)] px-5 py-2 text-center text-sm font-semibold leading-snug text-[var(--text)] shadow-[var(--shadow-soft)] ring-1 ring-[color-mix(in_srgb,var(--brand-orange)_35%,black)] hover:brightness-[0.98] active:brightness-[0.96]"
+                href="/termin"
               >
-                Termin buchen
+                {cta.primary.footer}
               </Link>
             </div>
           </div>

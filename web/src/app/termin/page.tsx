@@ -1,10 +1,12 @@
 import Link from "next/link";
+import { ClickTrigger } from "@/components/cta-buttons";
+import { triggers } from "@/lib/copy";
 import { GOOGLE_APPOINTMENT_SCHEDULE_URL } from "@/lib/booking";
 
 export const metadata = {
-  title: "Termin buchen – Frank Vullhorst",
+  title: "Erstgespräch – Klarheit in 45 Minuten | Frank Vullhorst",
   description:
-    "45-minütiges Erstgespräch buchen – eingebettet, ohne Weiterleitung zur Google-Startseite.",
+    "Kostenloses Erstgespräch: Wo KI in Ihrem Betrieb entlastet – und welcher nächste Schritt passt.",
 };
 
 export default function TerminPage() {
@@ -61,21 +63,25 @@ export default function TerminPage() {
           </Link>
 
           <h1 className="mt-6 font-[var(--font-heading)] text-3xl font-bold tracking-tight text-[var(--text)] sm:text-4xl">
-            Termin buchen
+            Ihre 45 Minuten Klarheit
           </h1>
           <p className="mt-4 max-w-2xl text-lg leading-8 text-[var(--muted)]">
-            Wählen Sie unten einen freien Termin für Ihr{" "}
+            Wählen Sie einen Termin, der in Ihren Kalender passt. Danach wissen
+            Sie,{" "}
             <strong className="font-semibold text-[var(--text)]">
-              45-minütiges Erstgespräch
-            </strong>
-            . Die Buchung läuft über Google Calendar – Sie bleiben auf dieser
-            Seite.
+              wo KI in Ihrem Betrieb entlastet
+            </strong>{" "}
+            – und welcher nächste Schritt wirklich sinnvoll ist.
           </p>
 
-          <div className="mt-8 overflow-hidden rounded-2xl border border-[color-mix(in_srgb,var(--brand-blue)_35%,white)] bg-[var(--surface)] p-3 shadow-[var(--shadow-soft)] ring-1 ring-[var(--border)]">
+          <ClickTrigger className="mt-4 text-sm font-semibold text-[var(--text)]">
+            {triggers.terminIntro}
+          </ClickTrigger>
+
+          <div className="mt-6 overflow-hidden rounded-2xl border border-[color-mix(in_srgb,var(--brand-blue)_35%,white)] bg-[var(--surface)] p-3 shadow-[var(--shadow-soft)] ring-1 ring-[var(--border)]">
             <iframe
               src={GOOGLE_APPOINTMENT_SCHEDULE_URL}
-              title="Terminbuchung – Google Calendar"
+              title="Terminwahl – Erstgespräch Frank Vullhorst"
               className="w-full rounded-xl border-0 bg-white"
               style={{ minHeight: "700px", height: "75vh" }}
               loading="lazy"
@@ -83,14 +89,14 @@ export default function TerminPage() {
           </div>
 
           <p className="mt-6 text-sm leading-6 text-[var(--muted)]">
-            Probleme mit der Anzeige?{" "}
+            Kalender lädt nicht?{" "}
             <a
               className="font-medium text-[var(--text)] underline hover:opacity-80"
               href={GOOGLE_APPOINTMENT_SCHEDULE_URL}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Terminbuchung in neuem Tab öffnen
+              Terminwahl in neuem Tab öffnen
             </a>
           </p>
         </div>

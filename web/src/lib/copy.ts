@@ -1,0 +1,32 @@
+/** Conversion-Copy: Wert statt Handlung, Einladung statt Befehl */
+
+export const cta = {
+  /** Primärer Button – Endresultat betonen */
+  primary: {
+    hero: "Meine Klarheit in 45 Minuten sichern",
+    angebot: "Diese Klarheit für meinen Betrieb holen",
+    vertrauen: "Mein kostenloses Erstgespräch wählen",
+    final: "Meinen nächsten sinnvollen Schritt klären",
+    footer: "Klarheit für meinen Betrieb holen",
+  },
+  secondary: "Zuerst sehen, welcher Weg zu mir passt",
+} as const;
+
+export const triggers = {
+  heroBefore:
+    "Was Sie danach wissen: Wo KI bei Ihnen wirklich entlastet – was sinnvoll ist – und welcher nächste Schritt passt.",
+  heroAfter:
+    "Kostenloses Erstgespräch · Keine Vorbereitung · Kein Verkaufsdruck · 30+ Jahre Praxis",
+  angebotTitle: "Was Sie nach 45 Minuten haben",
+  angebotBody:
+    "Eine konkrete Einordnung für Ihren Betrieb – und eine Empfehlung, die wirklich zu Ihnen passt.",
+  angebotProof: "Cert-IT KI-Manager · Rhein-Main · KMU & Handwerk",
+  vertrauenAfter:
+    "So starten viele Entscheider: erst Klarheit, dann der passende Baustein.",
+  finalBefore:
+    "Kostenlos und unverbindlich – Sie wählen einen Termin, der in Ihren Kalender passt.",
+  footerBody:
+    "Viele Inhaber und Geschäftsführer starten mit einem kurzen Gespräch – und wissen danach, ob und wie es weitergeht.",
+  terminIntro:
+    "Freie Termine · Erstgespräch kostenlos · Keine Vorbereitung nötig",
+} as const;
