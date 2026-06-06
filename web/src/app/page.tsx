@@ -98,7 +98,8 @@ export default function Home() {
           <div className="page-container">
             <SectionIntro
               kicker="Für wen:"
-              title="Für Entscheider in Handwerk und KMU,"
+              wide
+              title="Für Entscheider in Handwerk und Unternehmen,"
               titleLine2={
                 <>
                   die{" "}
@@ -247,6 +248,7 @@ export default function Home() {
           <div className="page-container">
             <SectionIntro
               kicker="Ihr KI Vorhaben:"
+              wide
               title="von ChatGPT zu"
               titleLine2="sicherer, professioneller KI-Nutzung."
             >
@@ -417,24 +419,22 @@ export default function Home() {
         {/* Final CTA */}
         <section className="section-block bg-[var(--surface-warm)]">
           <div className="page-container">
-            <div className="prose-width mx-auto text-center">
-              <SectionIntro
-                kicker="Gemeinsam starten:"
-                title="Statt Unsicherheit:"
-                titleLine2="ein klarer nächster Schritt."
-                centered
-              >
-                In 30 Minuten wissen Sie, was bei Ihnen sinnvoll ist. Sicher,
-                nachvollziehbar, umsetzbar. Ohne Hype, ohne Verpflichtung.
-              </SectionIntro>
+            <SectionIntro
+              kicker="Gemeinsam starten:"
+              title="Statt Unsicherheit:"
+              titleLine2="ein klarer nächster Schritt."
+            >
+              Nach 30 Minuten haben Sie eine erste klare Orientierung: Was ist
+              bei Ihnen sinnvoll, was könnte zu Ihrem Betrieb passen, und wie
+              lauten die nächsten Schritte?
+            </SectionIntro>
 
-              <ClickTrigger className="microcopy mt-8 !text-[var(--text)]">
-                {triggers.finalBefore}
-              </ClickTrigger>
-              <PrimaryCtaLink className="btn-primary mx-auto mt-6 !w-auto">
-                {cta.primary.final}
-              </PrimaryCtaLink>
-            </div>
+            <ClickTrigger className="microcopy mt-8 !text-[var(--text)] prose-width">
+              {triggers.finalBefore}
+            </ClickTrigger>
+            <PrimaryCtaLink className="btn-primary mt-6 !w-auto">
+              {cta.primary.final}
+            </PrimaryCtaLink>
           </div>
         </section>
       </main>

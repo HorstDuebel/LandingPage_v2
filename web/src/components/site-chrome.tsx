@@ -1,30 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-export function SiteHeader() {
-  return (
-    <header className="site-header">
-      <div className="page-container site-header-inner">
-        <Link href="/#top" className="nav-link !font-[var(--font-heading)] !text-lg !text-[var(--text)]">
-          Frank Vullhorst
-        </Link>
-        <nav className="flex flex-wrap items-center gap-5 sm:gap-7">
-          {[
-            { href: "/#fuer-wen", label: "Für wen" },
-            { href: "/#angebot", label: "Angebot" },
-            { href: "/#methode", label: "Methode" },
-            { href: "/#faq", label: "FAQ" },
-            { href: "/termin", label: "Termin" },
-          ].map((item) => (
-            <Link key={item.href} href={item.href} className="nav-link">
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-      </div>
-    </header>
-  );
-}
+export { SiteHeader } from "@/components/site-header";
 
 export function SiteFooter() {
   return (
@@ -66,23 +43,39 @@ export function SectionIntro({
   titleLine2,
   children,
   centered = false,
+  wide = false,
 }: {
   kicker: string;
   title: ReactNode;
   titleLine2?: ReactNode;
   children?: ReactNode;
   centered?: boolean;
+  wide?: boolean;
 }) {
-  return (
-    <div className={`prose-width ${centered ? "mx-auto text-center" : ""}`}>
+  const titleBlock = (
+    <>
       <p className="section-kicker">{kicker}</p>
-      <h2 className="section-title">
+      <h2 className={`section-title ${wide ? "section-title--two-lines" : ""}`}>
         <span className="display-title-line">{title}</span>
         {titleLine2 ? (
           <span className="display-title-line">{titleLine2}</span>
         ) : null}
       </h2>
-      {children ? <p className="section-lead mt-6">{children}</p> : null}
+    </>
+  );
+
+  const widthClass = `prose-width${centered ? " mx-auto" : ""}`;
+
+  return (
+    <div className={centered ? "text-center" : ""}>
+      {wide ? (
+        titleBlock
+      ) : (
+        <div className={widthClass}>{titleBlock}</div>
+      )}
+      {children ? (
+        <p className={`section-lead mt-6 ${widthClass}`}>{children}</p>
+      ) : null}
     </div>
   );
 }
