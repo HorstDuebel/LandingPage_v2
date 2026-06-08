@@ -3,10 +3,10 @@
 export const cta = {
   /** Primärer Button – Endresultat betonen */
   primary: {
-    hero: "eine erste Orientierung",
+    hero: "Kostenloses Erstgespräch wählen",
     angebot: "Diese Klarheit für meinen Betrieb holen",
-    vertrauen: "Mein kostenloses Erstgespräch wählen",
-    final: "Meinen nächsten sinnvollen Schritt klären",
+    vertrauen: "Mein kostenloses Erstgespräch buchen",
+    final: "Meinen Termin wählen",
     footer: "Klarheit für meinen Betrieb holen",
   },
   secondary: "Zuerst sehen, welcher Weg zu mir passt",
@@ -16,16 +16,16 @@ export const cta = {
 export const triggers = {
   heroAfter:
     "Kostenloses Erstgespräch · Keine Vorbereitung · Kein Verkaufsdruck · 30+ Jahre Praxis",
-  angebotTitle: "Was Sie nach 30 Minuten haben",
   angebotBody:
-    "Eine konkrete Einschätzung für Ihren Betrieb und eine Empfehlung, die zu Ihrem unternehmerischen Fahrplan passt.",
-  angebotProof: "Cert-IT KI-Manager · Rhein-Main · KMU & Handwerk",
+    "Nach 30 Minuten wissen Sie: Was passt zu Ihrem Betrieb — und was können Sie sich (noch) sparen.",
+  angebotProof:
+    "Zertifizierter KI-Manager (Cert-IT, Nr. KI001220) · Fokus: KMU & Handwerk · Rhein-Main",
   vertrauenAfter:
-    "So starten viele Entscheider: erst Klarheit, dann der passende Baustein.",
+    "So starten die meisten Entscheider*innen: erst Klarheit — dann der passende nächste Baustein.",
   finalBefore:
-    "Kostenlos und unverbindlich – Sie wählen einen Termin, der in Ihren Kalender passt.",
+    "Kostenlos, unverbindlich — und in Ihrem Kalender, wenn Sie wollen.",
   footerBody:
-    "Viele Inhaber und Geschäftsführer starten mit einem kurzen Gespräch – und wissen danach, ob und wie es weitergeht.",
+    "Viele Inhaber*innen und Geschäftsführer*innen starten mit einem kurzen Gespräch — und wissen danach, ob und wie es weitergeht.",
   terminIntro:
     "Freie Termine · Erstgespräch kostenlos · Keine Vorbereitung nötig",
 } as const;

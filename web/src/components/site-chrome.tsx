@@ -7,9 +7,9 @@ export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="page-container">
-        <p className="section-kicker">Ich bin da, in Roßdorf und darüber hinaus:</p>
+        <p className="section-kicker">Ich bin erreichbar, in Roßdorf und überall sonst:</p>
         <h2 className="contact-hero mt-2">
-          Rufen Sie mich an oder schreiben Sie mir direkt.
+          Rufen Sie an. Oder schreiben. Beides funktioniert.
         </h2>
         <a href="tel:+491726689960" className="contact-link">
           +49 (0)172 6689960
@@ -29,7 +29,7 @@ export function SiteFooter() {
             Datenschutz
           </Link>
           <span className="ml-auto text-xs">
-            © {new Date().getFullYear()} Frank Vullhorst · KI-Sparring
+            © 2026 Frank Vullhorst     KI. Sicher. Sinnvoll. Strategisch.
           </span>
         </div>
       </div>
