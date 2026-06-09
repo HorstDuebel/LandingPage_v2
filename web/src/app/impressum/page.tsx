@@ -1,5 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
+
+export const metadata: Metadata = {
+  title: "Impressum",
+  description:
+    "Impressum von Frank Vullhorst – KI-Beratung für KMU und Handwerk, Roßdorf (Rhein-Main).",
+  alternates: { canonical: "/impressum" },
+  robots: { index: true, follow: true },
+};
 
 export default function ImpressumPage() {
   return (

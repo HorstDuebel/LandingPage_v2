@@ -1,16 +1,32 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import {
   ClickTrigger,
   PrimaryCtaInline,
   PrimaryCtaLink,
 } from "@/components/cta-buttons";
+import { JsonLd } from "@/components/json-ld";
 import { Problem } from "@/components/problem";
 import { SectionIntro, SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { cta, triggers } from "@/lib/copy";
+import { getHomeJsonLd } from "@/lib/home-schema";
+import { siteConfig } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: { absolute: siteConfig.fullTitle },
+  description: siteConfig.defaultDescription,
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: siteConfig.fullTitle,
+    description: siteConfig.ogDescription,
+    url: "/",
+  },
+};
 
 export default function Home() {
   return (
     <div className="flex flex-1 flex-col">
+      <JsonLd data={getHomeJsonLd()} />
       <SiteHeader />
 
       <main id="top" className="flex-1">
@@ -35,7 +51,10 @@ export default function Home() {
               </p>
 
               <div className="prose-width mt-10 flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-8">
-                <PrimaryCtaLink className="btn-primary !w-auto sm:max-w-none">
+                <PrimaryCtaLink
+                  className="btn-primary !w-auto sm:max-w-none"
+                  trackLabel="hero"
+                >
                   {cta.primary.hero}
                 </PrimaryCtaLink>
               </div>
@@ -290,7 +309,7 @@ export default function Home() {
         </section>
 
         {/* 8. Erstgespräch-CTA */}
-        <section className="section-block bg-[var(--surface)]">
+        <section id="termin" className="section-block bg-[var(--surface)]">
           <div className="page-container">
             <div className="prose-width">
               <p className="section-kicker">Jetzt starten:</p>
@@ -323,7 +342,10 @@ export default function Home() {
                 ))}
               </ul>
 
-              <PrimaryCtaLink className="btn-primary mt-8 !w-auto">
+              <PrimaryCtaLink
+                className="btn-primary mt-8 !w-auto"
+                trackLabel="erstgespraech_cta"
+              >
                 {cta.primary.vertrauen}
               </PrimaryCtaLink>
               <ClickTrigger className="microcopy mt-4">
@@ -403,7 +425,10 @@ export default function Home() {
             <ClickTrigger className="microcopy mt-8 !text-[var(--text)] prose-width">
               {triggers.finalBefore}
             </ClickTrigger>
-            <PrimaryCtaLink className="btn-primary mt-6 !w-auto">
+            <PrimaryCtaLink
+              className="btn-primary mt-6 !w-auto"
+              trackLabel="final"
+            >
               {cta.primary.final}
             </PrimaryCtaLink>
           </div>

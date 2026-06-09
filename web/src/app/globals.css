@@ -553,3 +553,136 @@ body {
     letter-spacing: 0.19em;
   }
 }
+
+/* —— Responsive: Headlines, Navigation, Touch —— */
+
+@media (max-width: 767px) {
+  .section-title--two-lines .display-title-line,
+  .display-title-line--single {
+    white-space: normal;
+  }
+
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+  }
+
+  .btn-primary {
+    min-height: 2.75rem;
+    padding: 0.65rem 1.25rem 0.75rem;
+  }
+}
+
+/* Mobile Navigation */
+.site-nav-toggle {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.35rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0.5rem;
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.site-nav-toggle__bar {
+  display: block;
+  width: 1.375rem;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.site-header--menu-open .site-nav-toggle__bar:nth-child(1) {
+  transform: translateY(0.45rem) rotate(45deg);
+}
+
+.site-header--menu-open .site-nav-toggle__bar:nth-child(2) {
+  opacity: 0;
+}
+
+.site-header--menu-open .site-nav-toggle__bar:nth-child(3) {
+  transform: translateY(-0.45rem) rotate(-45deg);
+}
+
+.site-nav--desktop {
+  display: none;
+}
+
+.site-nav--mobile {
+  display: none;
+  border-top: 1px solid color-mix(in srgb, var(--brand-orange) 22%, white);
+  background: color-mix(in srgb, var(--brand-orange) 9%, white);
+}
+
+.site-nav--mobile-open {
+  display: block;
+}
+
+.site-nav--mobile-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-block: 1rem 1.25rem;
+}
+
+.nav-link--mobile {
+  font-size: 1.0625rem;
+  padding-block: 0.625rem;
+}
+
+@media (min-width: 768px) {
+  .site-nav-toggle {
+    display: none;
+  }
+
+  .site-nav--desktop {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .site-nav--mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .site-header-inner {
+    gap: 1rem;
+  }
+
+  .site-nav--desktop {
+    gap: 1rem;
+  }
+
+  .nav-link {
+    font-size: 0.875rem;
+  }
+}
+
+/* Termin-iFrame */
+.termin-iframe {
+  min-height: min(700px, 75vh);
+  height: 75vh;
+}
+
+@media (max-width: 639px) {
+  .termin-iframe {
+    min-height: 28rem;
+    height: 70vh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-nav-toggle__bar {
+    transition: none;
+  }
+}

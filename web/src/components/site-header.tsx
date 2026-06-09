@@ -6,9 +6,18 @@ import { useCallback, useEffect, useRef, useState } from "react";
 const SCROLL_THRESHOLD = 72;
 const HIDE_DELAY_MS = 350;
 
+const NAV_ITEMS = [
+  { href: "/#fuer-wen", label: "Für wen" },
+  { href: "/#angebot", label: "Angebot" },
+  { href: "/#methode", label: "Methode" },
+  { href: "/#faq", label: "FAQ" },
+  { href: "/#termin", label: "Termin" },
+] as const;
+
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [revealed, setRevealed] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const lastScrollY = useRef(0);
 
@@ -29,6 +38,8 @@ export function SiteHeader() {
     hideTimer.current = setTimeout(() => setRevealed(false), HIDE_DELAY_MS);
   }, [clearHideTimer]);
 
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
+
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
@@ -37,7 +48,6 @@ export function SiteHeader() {
       if (y <= SCROLL_THRESHOLD) {
         setRevealed(false);
       } else if (y < lastScrollY.current - 8) {
-        // Mobile / Touch-Fallback: leicht nach oben scrollen → Header zeigen
         showHeader();
       }
 
@@ -51,12 +61,28 @@ export function SiteHeader() {
 
   useEffect(() => () => clearHideTimer(), [clearHideTimer]);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeMenu();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [closeMenu]);
+
   const isHidden = scrolled && !revealed;
 
   const headerClass = [
     "site-header",
     scrolled ? "site-header--fixed" : "",
     isHidden ? "site-header--hidden" : "",
+    menuOpen ? "site-header--menu-open" : "",
   ]
     .filter(Boolean)
     .join(" ");
@@ -86,7 +112,7 @@ export function SiteHeader() {
         }}
       >
         <div className="page-container site-header-inner">
-          <Link href="/#top" className="site-header-logo">
+          <Link href="/#top" className="site-header-logo" onClick={closeMenu}>
             <span className="site-header-logo-inner">
               <span className="site-header-name-line">
                 <span className="site-header-name-word">Frank</span>
@@ -107,20 +133,48 @@ export function SiteHeader() {
               </span>
             </span>
           </Link>
-          <nav className="flex flex-wrap items-center gap-5 sm:gap-7">
-            {[
-              { href: "/#fuer-wen", label: "Für wen" },
-              { href: "/#angebot", label: "Angebot" },
-              { href: "/#methode", label: "Methode" },
-              { href: "/#faq", label: "FAQ" },
-              { href: "/#termin", label: "Termin" },
-            ].map((item) => (
+
+          <button
+            type="button"
+            className="site-nav-toggle"
+            aria-expanded={menuOpen}
+            aria-controls="site-nav-mobile"
+            aria-label={menuOpen ? "Menü schließen" : "Menü öffnen"}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <span className="site-nav-toggle__bar" aria-hidden="true" />
+            <span className="site-nav-toggle__bar" aria-hidden="true" />
+            <span className="site-nav-toggle__bar" aria-hidden="true" />
+          </button>
+
+          <nav className="site-nav site-nav--desktop" aria-label="Hauptnavigation">
+            {NAV_ITEMS.map((item) => (
               <Link key={item.href} href={item.href} className="nav-link">
                 {item.label}
               </Link>
             ))}
           </nav>
         </div>
+
+        <nav
+          id="site-nav-mobile"
+          className={`site-nav site-nav--mobile${menuOpen ? " site-nav--mobile-open" : ""}`}
+          aria-label="Mobile Navigation"
+          hidden={!menuOpen}
+        >
+          <div className="page-container site-nav--mobile-inner">
+            {NAV_ITEMS.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="nav-link nav-link--mobile"
+                onClick={closeMenu}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </nav>
       </header>
     </>
   );

@@ -1,5 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
+
+export const metadata: Metadata = {
+  title: "Datenschutz",
+  description:
+    "Datenschutzerklärung der Website von Frank Vullhorst – KI-Beratung für KMU und Handwerk.",
+  alternates: { canonical: "/datenschutz" },
+  robots: { index: true, follow: true },
+};
 
 export default function DatenschutzPage() {
   return (
