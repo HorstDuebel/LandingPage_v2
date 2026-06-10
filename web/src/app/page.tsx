@@ -9,7 +9,9 @@ import { JsonLd } from "@/components/json-ld";
 import { Problem } from "@/components/problem";
 import { SectionIntro, SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { cta, triggers } from "@/lib/copy";
+import { faqEntries } from "@/lib/faq";
 import { getHomeJsonLd } from "@/lib/home-schema";
+import { journeySteps } from "@/lib/journey";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -31,7 +33,7 @@ export default function Home() {
 
       <main id="top" className="flex-1">
         {/* 1. Hero */}
-        <section className="section-block bg-[var(--surface)] pt-28 md:pt-32">
+        <section className="hero-section section-block bg-[var(--surface)]">
           <div className="page-container">
             <div>
               <h1 className="display-title">
@@ -145,52 +147,25 @@ export default function Home() {
             <SectionIntro
               kicker="Mein Angebot:"
               wide
-              title="Ihr Einstieg."
+              title="Sieben Bausteine."
               titleLine2="Klar strukturiert, ohne Umwege."
             >
-              Flexibele Module, je nachdem wo Sie stehen. Manche Betriebe starten
-              mit dem Erstgespräch. Andere brauchen zuerst den Überblick. Beides
-              ist richtig.
+              Sieben aufeinander aufbauende Module — vom Audit bis zum
+              produktiven Einsatz. Viele starten mit dem kostenlosen
+              Erstgespräch oder einem Potenzial-Scan, danach wählen Sie den
+              passenden Baustein.
             </SectionIntro>
 
-            <div className="offer-grid mt-14">
-              {[
-                {
-                  title: "Erstgespräch",
-                  desc: "Wir schauen gemeinsam hin: Was läuft, was fehlt, wo der nächste sinnvolle Schritt liegt.",
-                  meta: "30 Minuten · kostenfrei",
-                },
-                {
-                  title: "Potenzial-Scan",
-                  desc: "Wo KI heute im Betrieb wirklich entlastet — und welcher Schritt wirtschaftlich Sinn ergibt.",
-                  meta: "Individuell · online oder vor Ort",
-                },
-                {
-                  title: "AI-ISCA Audit",
-                  desc: "Strukturierte Bestandsaufnahme: Was wird genutzt, was fehlt, wo liegen Risiken? Ergebnis: eine klare Entscheidungsgrundlage.",
-                  meta: "Strukturiert · als Entscheidungsgrundlage",
-                },
-                {
-                  title: "KI-Leitlinie & Sicherer Hafen",
-                  desc: "Klare Spielregeln für das Team: Was darf genutzt werden — und was nicht. Dazu die richtige Schutzstufe. Ohne Bürokratie-Overkill.",
-                  meta: "Praxisnah · ohne Overkill",
-                },
-                {
-                  title: "AI Literacy Workshop",
-                  desc: "KI-Kompetenz, die sitzt: verständlich erklärt, nachweisbar dokumentiert, EU AI Act-konform (Art. 4).",
-                  meta: "Module 1–4",
-                },
-                {
-                  title: "Pilotprojekt",
-                  desc: "Der erste echte Schritt mit KI im Betrieb — kontrolliert, messbar, ausbaufähig. Klein anfangen. Sauber wachsen.",
-                  meta: "Klein starten · sauber ausbauen",
-                },
-              ].map((item) => (
-                <article key={item.title} className="offer-card">
-                  <h3 className="offer-card__title">{item.title}</h3>
-                  <p className="offer-card__desc">{item.desc}</p>
-                  <p className="offer-card__meta">{item.meta}</p>
-                  <PrimaryCtaInline>{cta.offerInline}</PrimaryCtaInline>
+            <div className="offer-grid offer-grid--seven mt-14">
+              {journeySteps.map((item) => (
+                <article key={item.id} className="offer-card">
+                  <p className="step-number">{item.n}</p>
+                  <h3 className="offer-card__title">{item.offerTitle}</h3>
+                  <p className="offer-card__desc">{item.offerDesc}</p>
+                  <p className="offer-card__meta">{item.offerMeta}</p>
+                  <PrimaryCtaInline trackLabel={`offer_${item.id}`}>
+                    {cta.offerInline}
+                  </PrimaryCtaInline>
                 </article>
               ))}
             </div>
@@ -217,41 +192,15 @@ export default function Home() {
                 </span>
                 <span className="display-title-line">in Ihrem Tempo.</span>
               </h2>
-              <p className="section-lead mt-6">Fünf Schritte:</p>
+              <p className="section-lead mt-6">Sieben Schritte:</p>
             </div>
 
             <div className="prose-width mt-12 lg:max-w-2xl">
-              {[
-                {
-                  n: "01",
-                  title: "Audit",
-                  text: "Sie sehen klar: Was heute läuft, was fehlt — und wo ein Risiko versteckt liegt.",
-                },
-                {
-                  n: "02",
-                  title: "KI-Leitlinie",
-                  text: "Ihr Team weiß, was erlaubt ist — und was nicht. Keine Grauzone, keine Ausreden.",
-                },
-                {
-                  n: "03",
-                  title: "Sicherer Hafen",
-                  text: "Ihre Daten bekommen die Schutzstufe, die sie brauchen. Nicht mehr — aber auch nicht weniger.",
-                },
-                {
-                  n: "04",
-                  title: "AI Literacy",
-                  text: "Das Team kann KI einsetzen — nachweisbar, sicher, EU AI Act-konform.",
-                },
-                {
-                  n: "05",
-                  title: "Pilotprojekt",
-                  text: "Erster echter Nutzen im Betrieb. Kontrolliert gestartet, sauber ausgebaut.",
-                },
-              ].map((step) => (
+              {journeySteps.map((step) => (
                 <div key={step.n} className="step-item">
                   <span className="step-number">{step.n}</span>
                   <h3 className="offer-card__title mt-2">{step.title}</h3>
-                  <p className="offer-card__desc !mt-2">{step.text}</p>
+                  <p className="offer-card__desc !mt-2">{step.methodText}</p>
                 </div>
               ))}
             </div>
@@ -366,43 +315,18 @@ export default function Home() {
             </SectionIntro>
 
             <div className="prose-width mt-12 lg:max-w-2xl">
-              {[
-                {
-                  q: "Was passiert im Erstgespräch?",
-                  a: "Wir schauen gemeinsam auf Ihre Ausgangslage: Was läuft, was fehlt, wo KI heute helfen kann — und was Sie noch lassen sollten. Kein Pitch, keine Agenda.",
-                },
-                {
-                  q: "Muss ich mich vorbereiten?",
-                  a: "Nein. Es hilft, grob zu wissen: Welche Aufgaben kosten gerade Zeit? Wo wird KI schon genutzt — bewusst oder unbewusst? Mehr braucht es nicht.",
-                },
-                {
-                  q: "Was ist der AI-ISCA Audit?",
-                  a: "Eine strukturierte Bestandsaufnahme: Wo wird KI genutzt? Was fehlt beim Datenschutz? Wo liegt Compliance-Risiko? Ergebnis: eine klare, dokumentierte Grundlage für Entscheidungen.",
-                },
-                {
-                  q: "Wie halte ich es mit Datenschutz und EU AI Act?",
-                  a: "Pragmatisch: klare Regeln, passende Schutzstufe, kein Bürokratie-Overkill. Fachbegriffe erkläre ich so, dass sie im Betrieb ankommen.",
-                },
-                {
-                  q: "Für wen ist das nichts?",
-                  a: "Wenn Sie eine Tool-Demo wollen oder Berater suchen, die Ihnen sagen, was trendy ist. Hier geht es um echte, umsetzbare Entlastung im Betriebsalltag.",
-                },
-                {
-                  q: "Was kommt nach dem Erstgespräch?",
-                  a: "Je nach Situation: ein Potenzial-Scan, ein AI-ISCA Audit oder Modul 1 des AI Literacy Workshops. Ich empfehle das, was zu Ihrem Betrieb passt — kein Standardpaket.",
-                },
-              ].map((item) => (
-                <details key={item.q} className="faq-item group">
+              {faqEntries.map((item) => (
+                <details key={item.question} className="faq-item group">
                   <summary>
                     <span className="flex items-center justify-between gap-4">
-                      {item.q}
+                      {item.question}
                       <span className="text-[var(--brand-blue)] transition-transform group-open:rotate-45">
                         +
                       </span>
                     </span>
                   </summary>
                   <p className="mt-3 text-sm font-light leading-relaxed text-[var(--muted)]">
-                    {item.a}
+                    {item.answer}
                   </p>
                 </details>
               ))}
