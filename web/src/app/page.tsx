@@ -150,10 +150,12 @@ export default function Home() {
               title="Sieben Bausteine."
               titleLine2="Klar strukturiert, ohne Umwege."
             >
-              Sieben aufeinander aufbauende Module — vom Audit bis zum
-              produktiven Einsatz. Viele starten mit dem kostenlosen
-              Erstgespräch oder einem Potenzial-Scan, danach wählen Sie den
-              passenden Baustein.
+              Sieben flexibel kombinierbare Module, von der ersten Orientierung
+              bis zur produktiven Nutzung. Die Module können einzeln gebucht
+              oder zu einem durchgängigen Vorgehen kombiniert werden. Viele
+              Unternehmen starten mit einem kostenlosen Erstgespräch oder
+              Potenzial-Scan und wählen anschließend die Schritte, die zu ihrer
+              aktuellen Situation passen.
             </SectionIntro>
 
             <div className="offer-grid offer-grid--seven mt-14">
@@ -222,7 +224,7 @@ export default function Home() {
             <div className="mt-12 grid grid-cols-1 gap-0 lg:grid-cols-2 lg:gap-16">
               <div className="space-y-0">
                 {[
-                  "30 Jahre Praxis in Technik, Prozessen und Führung — in der Industrie",
+                  "30 Jahre Praxis in Technik, Prozessen und Führung, in der Industrie",
                   "Zertifizierter KI-Manager (Cert-IT, Nr. KI001220, Februar 2026)",
                   "27 Jahre bei 3D Systems: internationale Projekte bis 1,5 Mio. € Budget",
                   "Fokus: verständlich erklären, sicher einführen, nachhaltig verankern",
@@ -242,7 +244,7 @@ export default function Home() {
                     »Frank bringt Struktur und Klarheit in komplexe Themen und
                     schafft einen Raum, in dem man offen reden kann.«
                   </p>
-                  <cite>— Führungskraft, Produktionsbetrieb</cite>
+                  <cite>, Führungskraft, Produktionsbetrieb</cite>
                 </blockquote>
                 <blockquote className="quote-block">
                   <p>
@@ -250,7 +252,7 @@ export default function Home() {
                     pragmatisch einordnet, mit echtem Blick auf Datenschutz und
                     Nutzen.«
                   </p>
-                  <cite>— Inhaberin / Inhaber, Handwerksbetrieb</cite>
+                  <cite>, Inhaberin / Inhaber, Handwerksbetrieb</cite>
                 </blockquote>
               </div>
             </div>

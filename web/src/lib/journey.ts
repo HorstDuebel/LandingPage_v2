@@ -1,4 +1,4 @@
-/** 7-Schritte-Fahrplan — Single Source of Truth für Angebot & Methode */
+/** 7-Schritte-Fahrplan, Single Source of Truth für Angebot & Methode */
 
 export type JourneyStep = {
   n: string;
@@ -20,7 +20,7 @@ export const journeySteps: JourneyStep[] = [
       "Strukturierte Bestandsaufnahme: Was wird genutzt, was fehlt, wo liegen Risiken? Ergebnis: eine klare Entscheidungsgrundlage für Ihren Betrieb.",
     offerMeta: "Strukturiert · als Entscheidungsgrundlage",
     methodText:
-      "Sie sehen klar: Was heute läuft, was fehlt — und wo ein Risiko versteckt liegt.",
+      "Sie sehen klar: Was heute läuft, was fehlt, und wo ein Risiko versteckt liegt.",
   },
   {
     n: "02",
@@ -28,10 +28,10 @@ export const journeySteps: JourneyStep[] = [
     title: "KI-Leitlinie",
     offerTitle: "KI-Leitlinie",
     offerDesc:
-      "Klare Spielregeln für Ihr Team: Was darf genutzt werden — und was nicht. Verständlich formuliert, im Alltag anwendbar.",
+      "Klare Spielregeln für Ihr Team: Was darf genutzt werden, und was nicht. Verständlich formuliert, im Alltag anwendbar.",
     offerMeta: "Praxisnah · für das ganze Team",
     methodText:
-      "Ihr Team weiß, was erlaubt ist — und was nicht. Keine Grauzone, keine Ausreden.",
+      "Ihr Team weiß, was erlaubt ist, und was nicht. Keine Grauzone, keine Ausreden.",
   },
   {
     n: "03",
@@ -39,10 +39,10 @@ export const journeySteps: JourneyStep[] = [
     title: "Sicherer Hafen",
     offerTitle: "Sicherer Hafen",
     offerDesc:
-      "Ihre Daten bekommen die Schutzstufe, die sie brauchen — lokal, in der Cloud oder hybrid. Ohne Bürokratie-Overkill.",
+      "Ihre Daten bekommen die Schutzstufe, die sie brauchen, lokal, in der Cloud oder hybrid. Ohne Bürokratie-Overkill.",
     offerMeta: "Passend zur Datenschutzklasse",
     methodText:
-      "Ihre Daten bekommen die Schutzstufe, die sie brauchen. Nicht mehr — aber auch nicht weniger.",
+      "Ihre Daten bekommen die Schutzstufe, die sie brauchen. Nicht mehr, aber auch nicht weniger.",
   },
   {
     n: "04",
@@ -53,7 +53,7 @@ export const journeySteps: JourneyStep[] = [
       "KI-Kompetenz, die sitzt: verständlich erklärt, nachweisbar dokumentiert, EU AI Act-konform (Art. 4).",
     offerMeta: "Workshop · Module 1–4",
     methodText:
-      "Das Team kann KI einsetzen — nachweisbar, sicher, EU AI Act-konform.",
+      "Das Team kann KI einsetzen, nachweisbar, sicher, EU AI Act-konform.",
   },
   {
     n: "05",
@@ -61,10 +61,10 @@ export const journeySteps: JourneyStep[] = [
     title: "Prozess-Erfassung",
     offerTitle: "Prozess-Erfassung",
     offerDesc:
-      "IST-Aufnahme mit SIPOC und Swimlane: Wie läuft Ihr Ablauf wirklich — Rollen, Übergaben, Reibungspunkte. Bevor KI ins Spiel kommt.",
-    offerMeta: "Workshop · Handwerk & KMU",
+      "Prozessanalyse: Das große Ganze sichtbar machen, Abläufe, Verantwortlichkeiten und Reibungspunkte erkennen, als Grundlage für die nächsten Schritte.",
+    offerMeta: "Workshop · Prozessaufnahme",
     methodText:
-      "Sie sehen, wie Ihr Ablauf wirklich läuft — Rollen, Übergaben und Reibungspunkte auf einen Blick. Grundlage für sinnvolle Automatisierung.",
+      "Sie sehen, wie Ihr Ablauf wirklich läuft, Rollen, Übergaben und Reibungspunkte auf einen Blick. Grundlage für sinnvolle Automatisierung.",
   },
   {
     n: "06",
@@ -72,7 +72,7 @@ export const journeySteps: JourneyStep[] = [
     title: "Pilotprojekt",
     offerTitle: "Pilotprojekt",
     offerDesc:
-      "Der erste echte Schritt mit KI im Betrieb — kontrolliert, messbar, ausbaufähig. Klein anfangen. Sauber wachsen.",
+      "Der erste echte Schritt mit KI im Betrieb, kontrolliert, messbar, ausbaufähig. Klein anfangen. Sauber wachsen.",
     offerMeta: "Klein starten · sauber ausbauen",
     methodText:
       "Erster echter Nutzen im Betrieb. Kontrolliert gestartet, sauber ausgebaut.",
@@ -83,9 +83,9 @@ export const journeySteps: JourneyStep[] = [
     title: "Claude Cowork",
     offerTitle: "Claude Cowork Workshop",
     offerDesc:
-      "Ihr Team lernt Claude Cowork sicher einzusetzen — Dateien, Skills und Workflows im eigenen Betrieb. Claude schlägt vor, Sie prüfen und geben frei.",
+      "Sie lernen, Claude Cowork sicher und sinnvoll in Ihrer Arbeitsumgebung einzusetzen. Cowork arbeitet als ausführender Agent auf Basis Ihrer Anweisungen, nutzt Dateien, Skills und Workflows und erstellt Vorschläge sowie Arbeitsergebnisse. Sie behalten jederzeit die Kontrolle, prüfen die Resultate und entscheiden über deren Einsatz.",
     offerMeta: "Workshop · Desktop-Agent · befähigend",
     methodText:
-      "Ihr Team nutzt Claude Cowork sicher und produktiv — mit klaren Regeln, praxisnahen Workflows und voller Kontrolle.",
+      "Sie setzen Claude Cowork sicher und sinnvoll in Ihrer Arbeitsumgebung ein. Cowork arbeitet als ausführender Agent mit Dateien, Skills und Workflows auf Ihre Anweisung, Sie prüfen die Resultate und behalten die Kontrolle.",
   },
 ];

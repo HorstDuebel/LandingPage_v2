@@ -6,14 +6,14 @@ import { triggers } from "@/lib/copy";
 import { GOOGLE_APPOINTMENT_SCHEDULE_URL } from "@/lib/booking";
 
 export const metadata: Metadata = {
-  title: "Erstgespräch 30 Minuten – kostenlos",
+  title: "Erstgespräch 30 Minuten, kostenlos",
   description:
     "Kostenloses KI-Erstgespräch mit Frank Vullhorst: Wo KI in Ihrem Betrieb entlastet und welcher nächste Schritt passt. Online oder vor Ort, Rhein-Main.",
   alternates: { canonical: "/termin" },
   openGraph: {
-    title: "Erstgespräch 30 Minuten – kostenlos | Frank Vullhorst",
+    title: "Erstgespräch 30 Minuten, kostenlos | Frank Vullhorst",
     description:
-      "Kostenloses Erstgespräch: Klarheit für Ihren Betrieb – sicher, sinnvoll, strategisch.",
+      "Kostenloses Erstgespräch: Klarheit für Ihren Betrieb, sicher, sinnvoll, strategisch.",
     url: "/termin",
   },
 };
@@ -39,8 +39,7 @@ export default function TerminPage() {
             Sie,{" "}
             <strong className="font-semibold text-[var(--text)]">
               wo KI in Ihrem Betrieb entlastet
-            </strong>{" "}
-            – und welcher nächste Schritt wirklich sinnvoll ist.
+            </strong>, und welcher nächste Schritt wirklich sinnvoll ist.
           </p>
 
           <ClickTrigger className="mt-4 !text-[var(--text)]">
@@ -50,7 +49,7 @@ export default function TerminPage() {
           <div className="termin-embed mt-10 overflow-hidden border border-[var(--border)] bg-[var(--surface-muted)] p-2 sm:p-3">
             <iframe
               src={GOOGLE_APPOINTMENT_SCHEDULE_URL}
-              title="Terminwahl – Erstgespräch Frank Vullhorst"
+              title="Terminwahl, Erstgespräch Frank Vullhorst"
               className="termin-iframe w-full border-0 bg-white"
               loading="lazy"
             />

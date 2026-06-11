@@ -11,7 +11,7 @@ export function getHomeJsonLd() {
         "@type": "WebSite",
         "@id": `${url}/#website`,
         url,
-        name: `${name} – ${siteConfig.tagline}`,
+        name: `${name}, ${siteConfig.tagline}`,
         description: siteConfig.defaultDescription,
         inLanguage: "de-DE",
       },
@@ -48,7 +48,7 @@ export function getHomeJsonLd() {
       {
         "@type": "ProfessionalService",
         "@id": `${url}/#service`,
-        name: `${name} – KI-Sparring`,
+        name: `${name}, KI-Sparring`,
         description: siteConfig.defaultDescription,
         url,
         email,

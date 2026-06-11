@@ -4,7 +4,7 @@ import Script from "next/script";
 import { isAnalyticsEnabled } from "@/lib/analytics";
 
 /**
- * Matomo-Skript – wird nur geladen wenn NEXT_PUBLIC_ANALYTICS_ENABLED=true
+ * Matomo-Skript, wird nur geladen wenn NEXT_PUBLIC_ANALYTICS_ENABLED=true
  * und NEXT_PUBLIC_MATOMO_URL + NEXT_PUBLIC_MATOMO_SITE_ID gesetzt sind.
  */
 export function Analytics() {

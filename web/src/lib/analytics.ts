@@ -1,4 +1,4 @@
-/** Analytics-Vorbereitung – aktiv nur mit NEXT_PUBLIC_ANALYTICS_ENABLED=true */
+/** Analytics-Vorbereitung, aktiv nur mit NEXT_PUBLIC_ANALYTICS_ENABLED=true */
 
 export type AnalyticsEventProps = Record<string, string | number | boolean>;
 
@@ -12,7 +12,7 @@ export function isAnalyticsEnabled(): boolean {
   return process.env.NEXT_PUBLIC_ANALYTICS_ENABLED === "true";
 }
 
-/** Event senden – No-Op solange Analytics deaktiviert ist */
+/** Event senden, No-Op solange Analytics deaktiviert ist */
 export function trackEvent(name: string, props?: AnalyticsEventProps): void {
   if (typeof window === "undefined" || !isAnalyticsEnabled()) return;
 
