@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { SiteFooter, SiteHeader } from "@/components/site-chrome";
+import {
+  LegalFootnote,
+  LegalPage,
+  LegalSection,
+} from "@/components/legal-page";
 
 export const metadata: Metadata = {
   title: "Impressum",
@@ -12,52 +15,143 @@ export const metadata: Metadata = {
 
 export default function ImpressumPage() {
   return (
-    <div className="flex min-h-full flex-col">
-      <SiteHeader />
-      <main className="section-block flex-1 bg-[var(--surface)] pt-28 md:pt-32">
-        <div className="page-container max-w-3xl">
-          <Link href="/" className="nav-link !text-sm">
-            ← Zur Startseite
-          </Link>
-          <p className="section-kicker mt-8">Rechtliches:</p>
-          <h1 className="section-title mt-2">Impressum</h1>
-          <p className="section-lead mt-4">Angaben gemäß § 5 TMG</p>
+    <LegalPage title="Impressum">
+      <LegalSection title="Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz)">
+        <p>
+          Frank Vullhorst
+          <br />
+          KI. Sicher. Sinnvoll. Strategisch.
+          <br />
+          <br />
+          Claudiusweg 9
+          <br />
+          64380 Roßdorf
+          <br />
+          Deutschland
+        </p>
+      </LegalSection>
 
-          <div className="mt-10 border-t border-[var(--border)] pt-8">
-            <h2 className="offer-card__title">Frank Vullhorst</h2>
-            <p className="body-text-muted mt-3">
-              Claudiusweg 9
-              <br />
-              64380 Roßdorf
-              <br />
-              Deutschland
-            </p>
-            <div className="mt-6 text-sm leading-7 text-[var(--muted)]">
-              <div className="font-bold text-[var(--text)]">Kontakt</div>
-              <a
-                className="font-medium text-[var(--text)] hover:text-[var(--brand-orange)]"
-                href="mailto:Frank.Vullhorst@t-online.de"
-              >
-                Frank.Vullhorst@t-online.de
-              </a>
-              <br />
-              <a
-                className="font-medium text-[var(--text)] hover:text-[var(--brand-orange)]"
-                href="tel:+491726689960"
-              >
-                +49 (0)172 6689960
-              </a>
-            </div>
-          </div>
+      <LegalSection title="Kontakt">
+        <p>
+          Telefon:{" "}
+          <a href="tel:+491726689960">+49 (0)172 6689960</a>
+          <br />
+          E-Mail:{" "}
+          <a href="mailto:Frank.Vullhorst@t-online.de">
+            Frank.Vullhorst@t-online.de
+          </a>
+        </p>
+      </LegalSection>
 
-          <p className="microcopy mt-10">
-            Hinweis: Dieses Impressum ist eine schlanke Basisseite für den
-            Projektstart. Falls weitere rechtliche Angaben benötigt werden,
-            können sie ergänzt werden.
-          </p>
-        </div>
-      </main>
-      <SiteFooter />
-    </div>
+      <LegalSection title="Steuerliche Angaben">
+        <p>
+          Kleinunternehmer gemäß § 19 UStG — es wird keine Umsatzsteuer erhoben
+          und ausgewiesen.
+          <br />
+          Steuernummer: 007/878/61615
+        </p>
+      </LegalSection>
+
+      <LegalSection title="Berufsbezeichnung">
+        <p>KI-Berater</p>
+        <p>
+          Die Tätigkeit als KI-Berater ist in Deutschland kein reglementierter
+          Beruf. Es bestehen keine gesetzlichen berufsrechtlichen
+          Sonderregelungen und keine zuständige Aufsichtsbehörde im Sinne des §
+          5 Abs. 1 Nr. 5 DDG.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="Redaktionell verantwortlich">
+        <p>
+          Frank Vullhorst
+          <br />
+          Claudiusweg 9
+          <br />
+          64380 Roßdorf
+        </p>
+      </LegalSection>
+
+      <LegalSection title="EU-Streitschlichtung">
+        <p>
+          Die Europäische Kommission stellt eine Plattform zur
+          Online-Streitbeilegung (OS) bereit:
+          <br />
+          <a
+            href="https://ec.europa.eu/consumers/odr/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://ec.europa.eu/consumers/odr/
+          </a>
+        </p>
+        <p>Meine E-Mail-Adresse finden Sie oben im Impressum.</p>
+      </LegalSection>
+
+      <LegalSection title="Verbraucherstreitbeilegung">
+        <p>
+          Ich bin nicht bereit und nicht verpflichtet, an
+          Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
+          teilzunehmen.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="Haftung für Inhalte">
+        <p>
+          Als Diensteanbieter bin ich gemäß § 7 Abs. 1 DDG für eigene Inhalte
+          auf dieser Website nach den allgemeinen Gesetzen verantwortlich. Nach
+          §§ 8 bis 10 DDG bin ich als Diensteanbieter jedoch nicht
+          verpflichtet, übermittelte oder gespeicherte fremde Informationen zu
+          überwachen oder nach Umständen zu forschen, die auf eine
+          rechtswidrige Tätigkeit hinweisen.
+        </p>
+        <p>
+          Verpflichtungen zur Entfernung oder Sperrung der Nutzung von
+          Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt.
+          Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der
+          Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden
+          von entsprechenden Rechtsverletzungen werde ich diese Inhalte umgehend
+          entfernen.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="Haftung für Links">
+        <p>
+          Diese Website enthält Links zu externen Websites Dritter, auf deren
+          Inhalte ich keinen Einfluss habe. Für diese fremden Inhalte kann ich
+          daher keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten
+          ist stets der jeweilige Anbieter oder Betreiber verantwortlich. Die
+          verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche
+          Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt
+          der Verlinkung nicht erkennbar.
+        </p>
+        <p>
+          Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist ohne
+          konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei
+          Bekanntwerden von Rechtsverletzungen werde ich derartige Links
+          umgehend entfernen.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="Urheberrecht">
+        <p>
+          Die durch mich erstellten Inhalte und Werke auf dieser Website
+          unterliegen dem deutschen Urheberrecht. Vervielfältigung,
+          Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der
+          Grenzen des Urheberrechts bedürfen meiner schriftlichen Zustimmung.
+          Downloads und Kopien dieser Seite sind nur für den privaten, nicht
+          kommerziellen Gebrauch gestattet.
+        </p>
+        <p>
+          Soweit Inhalte auf dieser Seite nicht von mir erstellt wurden, werden
+          die Urheberrechte Dritter beachtet und entsprechend gekennzeichnet.
+          Sollten Sie dennoch auf eine Urheberrechtsverletzung aufmerksam
+          werden, bitte ich um einen Hinweis. Bei Bekanntwerden von
+          Rechtsverletzungen werde ich entsprechende Inhalte umgehend entfernen.
+        </p>
+      </LegalSection>
+
+      <LegalFootnote>Stand: Juni 2026</LegalFootnote>
+    </LegalPage>
   );
 }

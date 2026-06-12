@@ -416,6 +416,65 @@ body {
   color: color-mix(in srgb, var(--brand-blue) 70%, black);
 }
 
+/* Rechtliche Seiten (Impressum, Datenschutz) */
+.legal-section + .legal-section,
+.legal-footnote {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.legal-section__title {
+  font-family: var(--font-heading), sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.legal-section__body {
+  margin-top: 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.legal-section__body p + p,
+.legal-section__body p + ul,
+.legal-section__body ul + p {
+  margin-top: 0.75rem;
+}
+
+.legal-section__body ul {
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.legal-section__body li + li {
+  margin-top: 0.5rem;
+}
+
+.legal-section__body strong {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.legal-section__body a {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.legal-section__body a:hover {
+  color: var(--brand-orange);
+}
+
+.legal-footnote {
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
 /* Zitate / Social Proof */
 .quote-block {
   padding-block: 1.5rem;
