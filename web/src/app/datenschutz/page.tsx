@@ -71,17 +71,19 @@ export default function DatenschutzPage() {
         </ul>
       </LegalSection>
 
-      <LegalSection title="3. Hosting durch Netlify">
+      <LegalSection title="3. Hosting">
         <p>Diese Website wird gehostet von:</p>
         <p>
-          Netlify, Inc.
+          IONOS SE
           <br />
-          512 2nd Street, Suite 200
+          Elgendorfer Str. 57
           <br />
-          San Francisco, CA 94107, USA
+          56410 Montabaur
+          <br />
+          Deutschland
         </p>
         <p>
-          Beim Aufruf dieser Website erfasst Netlify automatisch sogenannte
+          Beim Aufruf dieser Website erfasst IONOS automatisch sogenannte
           Server-Logfiles. Diese enthalten:
         </p>
         <ul>
@@ -95,25 +97,18 @@ export default function DatenschutzPage() {
         <p>
           Diese Daten sind technisch erforderlich, um die Website korrekt
           auszuliefern und die Sicherheit des Betriebs zu gewährleisten. Eine
-          Zusammenführung dieser Daten mit anderen Datenquellen findet nicht
-          statt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes
-          Interesse am sicheren und störungsfreien Betrieb der Website).
-        </p>
-        <p>
-          <strong>Datenübermittlung in die USA:</strong> Netlify ist ein
-          US-amerikanisches Unternehmen. Die Datenübermittlung erfolgt auf
-          Grundlage von Standardvertragsklauseln (SCCs) gemäß Art. 46 Abs. 2
-          lit. c DSGVO. Es besteht ein Auftragsverarbeitungsvertrag (Data
-          Processing Agreement) mit Netlify gemäß Art. 28 DSGVO.
+          Zusammenführung mit anderen Datenquellen findet nicht statt. Die
+          Server stehen in Deutschland. Eine Übermittlung in Drittländer findet
+          nicht statt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.
         </p>
         <p>
           Weitere Informationen:{" "}
           <a
-            href="https://www.netlify.com/privacy/"
+            href="https://www.ionos.de/terms-gtc/datenschutzerklaerung/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            https://www.netlify.com/privacy/
+            https://www.ionos.de/terms-gtc/datenschutzerklaerung/
           </a>
         </p>
       </LegalSection>
