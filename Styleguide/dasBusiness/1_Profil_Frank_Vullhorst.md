@@ -11,7 +11,7 @@
 **Name:** Frank Vullhorst  
 **geb.:** 09. September 1968, Balingen/Württemberg  
 **Firma:** Frank Vullhorst (KI-Sparring)  
-**Kontakt:** Claudiusweg 9, 64380 Roßdorf · Frank.Vullhorst@t-online.de · +49 (0)172 6689960  
+**Kontakt:** Claudiusweg 9, 64380 Roßdorf · Info@FrankVullhorst.de · +49 (0)172 6689960  
 **Sprachen:** Deutsch (Muttersprache), Englisch (fließend, C1)
 
 **Positionierungssatz:**  

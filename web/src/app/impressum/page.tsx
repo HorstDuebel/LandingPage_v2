@@ -37,8 +37,8 @@ export default function ImpressumPage() {
           <a href="tel:+491726689960">+49 (0)172 6689960</a>
           <br />
           E-Mail:{" "}
-          <a href="mailto:Frank.Vullhorst@t-online.de">
-            Frank.Vullhorst@t-online.de
+          <a href="mailto:Info@FrankVullhorst.de">
+            Info@FrankVullhorst.de
           </a>
         </p>
       </LegalSection>

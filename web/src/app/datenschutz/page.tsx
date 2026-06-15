@@ -34,8 +34,8 @@ export default function DatenschutzPage() {
           <a href="tel:+491726689960">+49 (0)172 6689960</a>
           <br />
           E-Mail:{" "}
-          <a href="mailto:Frank.Vullhorst@t-online.de">
-            Frank.Vullhorst@t-online.de
+          <a href="mailto:Info@FrankVullhorst.de">
+            Info@FrankVullhorst.de
           </a>
         </p>
         <p>
@@ -250,8 +250,8 @@ export default function DatenschutzPage() {
         </p>
         <p>
           Zur Ausübung Ihrer Rechte wenden Sie sich per E-Mail an:{" "}
-          <a href="mailto:Frank.Vullhorst@t-online.de">
-            Frank.Vullhorst@t-online.de
+          <a href="mailto:Info@FrankVullhorst.de">
+            Info@FrankVullhorst.de
           </a>
         </p>
       </LegalSection>
@@ -303,11 +303,11 @@ export default function DatenschutzPage() {
           Datenschutzerklärung anzupassen. Die jeweils aktuelle Version ist
           jederzeit unter{" "}
           <a
-            href="https://frank-vu.netlify.app/datenschutz"
+            href="https://frankvullhorst.de/datenschutz"
             target="_blank"
             rel="noopener noreferrer"
           >
-            https://frank-vu.netlify.app/datenschutz
+            https://frankvullhorst.de/datenschutz
           </a>{" "}
           abrufbar.
         </p>

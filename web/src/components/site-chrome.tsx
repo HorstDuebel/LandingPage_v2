@@ -15,10 +15,10 @@ export function SiteFooter() {
           +49 (0)172 6689960
         </a>
         <a
-          href="mailto:Frank.Vullhorst@t-online.de"
+          href="mailto:Info@FrankVullhorst.de"
           className="contact-link !text-[clamp(1rem,2.5vw,1.375rem)]"
         >
-          Frank.Vullhorst@t-online.de
+          Info@FrankVullhorst.de
         </a>
 
         <div className="mt-14 flex flex-wrap gap-6 border-t border-[var(--border)] pt-8 text-sm text-[var(--muted)]">

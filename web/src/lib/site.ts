@@ -6,7 +6,7 @@ export const siteConfig = {
   tagline: "KI. Sicher. Sinnvoll. Strategisch.",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-    "https://frank-vu.netlify.app",
+    "https://frankvullhorst.de",
   locale: "de_DE",
   defaultTitle: "KI-Beratung für KMU & Handwerk, KI. Sicher. Sinnvoll. Strategisch.",
   fullTitle:
@@ -15,7 +15,7 @@ export const siteConfig = {
     "KI-Sparring für Inhaber*innen und Geschäftsführer*innen in KMU und Handwerk: KI sicher einführen, EU AI Act pragmatisch umsetzen, kostenloses Erstgespräch in Roßdorf und Rhein-Main.",
   ogDescription:
     "Praxisnah, nachvollziehbar und an EU AI Act sowie DSGVO orientiert, KI-Beratung für KMU und Handwerk.",
-  email: "Frank.Vullhorst@t-online.de",
+  email: "Info@FrankVullhorst.de",
   phone: "+49-172-6689960",
   address: {
     street: "Claudiusweg 9",

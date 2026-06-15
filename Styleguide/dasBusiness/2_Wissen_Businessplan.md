@@ -11,7 +11,7 @@ Stand: Mai 2026 | Quelle: Businessplan.pdf
 - **Firmenbezeichnung:** Frank Vullhorst (KI-Sparring)
 - **Adresse:** Claudiusweg 9, 64380 Roßdorf
 - **Telefon:** +49 (0)172 6689960
-- **E-Mail:** Frank.Vullhorst@t-online.de
+- **E-Mail:** Info@FrankVullhorst.de
 - **IBAN:** DE84 5007 0371 0071 7538 00 (FYRST)
 - **BIC:** DEUTDEDB500
 - **Standort:** Roßdorf (Rhein-Main-Gebiet, Landkreis Darmstadt-Dieburg)
