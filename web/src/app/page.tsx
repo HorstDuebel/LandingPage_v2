@@ -6,6 +6,7 @@ import {
   PrimaryCtaLink,
 } from "@/components/cta-buttons";
 import { JsonLd } from "@/components/json-ld";
+import { Methode } from "@/components/methode";
 import { Problem } from "@/components/problem";
 import { SectionIntro, SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { cta, triggers } from "@/lib/copy";
@@ -48,11 +49,11 @@ export default function Home() {
                 </span>
               </h1>
 
-              <p className="section-lead prose-width mt-6">
+              <p className="section-lead mt-6">
                 Ich ändere das. Mit Ihnen, in Ihrem Tempo.
               </p>
 
-              <div className="prose-width mt-10 flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-8">
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-8">
                 <PrimaryCtaLink
                   className="btn-primary !w-auto sm:max-w-none"
                   trackLabel="hero"
@@ -80,11 +81,11 @@ export default function Home() {
               title="Für Inhaber*innen und Geschäftsführer*innen"
               titleLine2="im Handwerk und KMU."
             >
-              Für Inhaber*innen und Führungskräfte, die KI nicht als Hype,
+              Für Inhaber*innen und Führungspersonen, die KI nicht als Hype,
               sondern als echtes Werkzeug sehen und sicher einsetzen wollen.    
             </SectionIntro>
 
-            <div className="prose-width mt-10 space-y-6">
+            <div className="mt-10 space-y-6">
               <p className="body-text">
                 Für alle, die wissen wollen: Wo entlastet KI heute wirklich? Was
                 muss vorbereitet sein, damit der Einstieg sauber gelingt?
@@ -111,13 +112,13 @@ export default function Home() {
               />
             </div>
 
-            <div className="prose-width lg:max-w-none">
+            <div>
               <SectionIntro
                 kicker="Wer ich bin:"
                 title="30 Jahre Betrieb. Technik, Menschen, Verantwortung."
               >
-                Ich bin Werkzeugmacher, Informatiker und ehemaliger
-                3D-Systems-Manager mit 30 Jahren internationaler
+                Ich bin Werkzeugmacher, Informatiker und war in leitender
+                Position bei 3D Systems mit 30 Jahren internationaler
                 Projekterfahrung. Ich kenne Betriebe von innen, die Sprache der
                 Werkstatt genauso wie die Sprache des Managements.
               </SectionIntro>
@@ -141,7 +142,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 5. Angebot */}
+        {/* 5. Wie ich arbeite */}
+        <Methode />
+
+        {/* 6. Angebot */}
         <section id="angebot" className="section-block bg-[var(--surface-warm)]">
           <div className="page-container">
             <SectionIntro
@@ -172,39 +176,9 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="prose-width mt-16">
+            <div className="mt-16">
               <p className="body-text">{triggers.angebotBody}</p>
               <p className="microcopy mt-3">{triggers.angebotProof}</p>
-            </div>
-          </div>
-        </section>
-
-        {/* 6. Methode */}
-        <section id="methode" className="section-block bg-[var(--surface-blue)]">
-          <div className="page-container">
-            <div className="prose-width">
-              <p className="section-kicker">Wie ich arbeite:</p>
-              <h2 className="section-title">
-                <span className="display-title-line">Ich höre zuerst zu.</span>
-                <span className="display-title-line display-title-line--gap">
-                  Dann der Strukturübersicht
-                </span>
-                <span className="display-title-line">
-                  und die Analyse, praxisnah
-                </span>
-                <span className="display-title-line">in Ihrem Tempo.</span>
-              </h2>
-              <p className="section-lead mt-6">Sieben Schritte:</p>
-            </div>
-
-            <div className="prose-width mt-12 lg:max-w-2xl">
-              {journeySteps.map((step) => (
-                <div key={step.n} className="step-item">
-                  <span className="step-number">{step.n}</span>
-                  <h3 className="offer-card__title mt-2">{step.title}</h3>
-                  <p className="offer-card__desc !mt-2">{step.methodText}</p>
-                </div>
-              ))}
             </div>
           </div>
         </section>
@@ -225,13 +199,13 @@ export default function Home() {
               <div className="space-y-0">
                 {[
                   "30 Jahre Praxis in Technik, Prozessen und Führung, in der Industrie",
-                  "Zertifizierter KI-Manager (Cert-IT, Nr. KI001220, Februar 2026)",
+                  "Zertifizierung: KI-Manager*in (Cert-IT, Nr. KI001220, Februar 2026)",
                   "27 Jahre bei 3D Systems: internationale Projekte bis 1,5 Mio. € Budget",
                   "Fokus: verständlich erklären, sicher einführen, nachhaltig verankern",
                 ].map((line) => (
                   <p
                     key={line}
-                    className="border-b border-[var(--border)] py-4 text-sm text-[var(--text)]"
+                    className="border-b border-[var(--border)] py-4 copy-small text-[var(--text)]"
                   >
                     {line}
                   </p>
@@ -248,11 +222,11 @@ export default function Home() {
                 </blockquote>
                 <blockquote className="quote-block">
                   <p>
-                    »Endlich jemand, der KI nicht als Hype verkauft, sondern
+                    »Endlich jemand*, der*die KI nicht als Hype verkauft, sondern
                     pragmatisch einordnet, mit echtem Blick auf Datenschutz und
                     Nutzen.«
                   </p>
-                  <cite>, Inhaberin / Inhaber, Handwerksbetrieb</cite>
+                  <cite>, Inhaber*in, Handwerksbetrieb</cite>
                 </blockquote>
               </div>
             </div>
@@ -262,9 +236,9 @@ export default function Home() {
         {/* 8. Erstgespräch-CTA */}
         <section id="termin" className="section-block bg-[var(--surface)]">
           <div className="page-container">
-            <div className="prose-width">
+            <div>
               <p className="section-kicker">Jetzt starten:</p>
-              <h3 className="section-title !text-2xl">
+              <h3 className="section-title !text-xl">
                 Was Sie nach 30 Minuten mitnehmen
               </h3>
               <ul className="mt-6 space-y-4">
@@ -286,7 +260,7 @@ export default function Home() {
                     <span className="font-[var(--font-subheading)] font-bold text-[var(--text)]">
                       {item.t}
                     </span>
-                    <span className="body-text-muted mt-1 block text-sm">
+                    <span className="body-text-muted mt-1 block copy-small">
                       {item.d}
                     </span>
                   </li>
@@ -316,7 +290,7 @@ export default function Home() {
               Kurz. Direkt. Damit Sie entscheiden können.
             </SectionIntro>
 
-            <div className="prose-width mt-12 lg:max-w-2xl">
+            <div className="mt-12">
               {faqEntries.map((item) => (
                 <details key={item.question} className="faq-item group">
                   <summary>
@@ -327,7 +301,7 @@ export default function Home() {
                       </span>
                     </span>
                   </summary>
-                  <p className="mt-3 text-sm font-light leading-relaxed text-[var(--muted)]">
+                  <p className="mt-3 copy-small font-light leading-relaxed text-[var(--muted)]">
                     {item.answer}
                   </p>
                 </details>
@@ -348,7 +322,7 @@ export default function Home() {
               sinnvolle nächste Schritt für Ihren Betrieb ist.
             </SectionIntro>
 
-            <ClickTrigger className="microcopy mt-8 !text-[var(--text)] prose-width">
+            <ClickTrigger className="microcopy mt-8 !text-[var(--text)]">
               {triggers.finalBefore}
             </ClickTrigger>
             <PrimaryCtaLink

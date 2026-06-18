@@ -34,7 +34,7 @@ export const faqEntries = [
   {
     question: "Für wen ist das nichts?",
     answer:
-      "Wenn Sie eine Tool-Demo wollen oder Berater suchen, die Ihnen sagen, was trendy ist. Hier geht es um echte, umsetzbare Entlastung im Betriebsalltag.",
+      "Wenn Sie eine Tool-Demo wollen oder Berater*innen suchen, die Ihnen sagen, was trendy ist. Hier geht es um echte, umsetzbare Entlastung im Betriebsalltag.",
   },
   {
     question: "Was kommt nach dem Erstgespräch?",

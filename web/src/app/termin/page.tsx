@@ -24,7 +24,7 @@ export default function TerminPage() {
       <SiteHeader />
 
       <main className="section-block flex-1 bg-[var(--surface)] pt-28 md:pt-32">
-        <div className="page-container max-w-4xl">
+        <div className="page-container">
           <Link href="/" className="nav-link !text-sm">
             ← Zurück zur Startseite
           </Link>
@@ -34,7 +34,7 @@ export default function TerminPage() {
             <span className="display-title-line">Ihre 30 Minuten</span>
             <span className="display-title-line">Klarheit.</span>
           </h1>
-          <p className="section-lead mt-6 max-w-prose">
+          <p className="section-lead mt-6">
             Wählen Sie einen Termin, der in Ihren Kalender passt. Danach wissen
             Sie,{" "}
             <strong className="font-semibold text-[var(--text)]">

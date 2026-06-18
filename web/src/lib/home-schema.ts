@@ -21,7 +21,7 @@ export function getHomeJsonLd() {
         name,
         email,
         telephone: phone,
-        jobTitle: "KI-Berater",
+        jobTitle: "KI-Berater*in",
         description: siteConfig.defaultDescription,
         url,
         address: {

@@ -40,8 +40,8 @@ export default function DatenschutzPage() {
         </p>
         <p>
           Ein Datenschutzbeauftragter ist nicht bestellt. Als Einzelunternehmer
-          mit weniger als 20 Mitarbeitern, der keine sensiblen Daten im Sinne
-          von Art. 9 DSGVO systematisch verarbeitet, besteht hierfür keine
+          mit weniger als 20 Mitarbeitenden, wenn keine sensiblen Daten im Sinne
+          von Art. 9 DSGVO systematisch verarbeitet werden, besteht hierfür keine
           gesetzliche Pflicht (§ 38 BDSG).
         </p>
       </LegalSection>

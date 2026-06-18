@@ -8,8 +8,8 @@ const HIDE_DELAY_MS = 350;
 
 const NAV_ITEMS = [
   { href: "/#fuer-wen", label: "Für wen" },
-  { href: "/#angebot", label: "Angebot" },
   { href: "/#methode", label: "Methode" },
+  { href: "/#angebot", label: "Angebot" },
   { href: "/#faq", label: "FAQ" },
   { href: "/#termin", label: "Termin" },
 ] as const;

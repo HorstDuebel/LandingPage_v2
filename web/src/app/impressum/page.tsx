@@ -53,9 +53,9 @@ export default function ImpressumPage() {
       </LegalSection>
 
       <LegalSection title="Berufsbezeichnung">
-        <p>KI-Berater</p>
+        <p>KI-Beratung</p>
         <p>
-          Die Tätigkeit als KI-Berater ist in Deutschland kein reglementierter
+          Die Tätigkeit in der KI-Beratung ist in Deutschland kein reglementierter
           Beruf. Es bestehen keine gesetzlichen berufsrechtlichen
           Sonderregelungen und keine zuständige Aufsichtsbehörde im Sinne des §
           5 Abs. 1 Nr. 5 DDG.

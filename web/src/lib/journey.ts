@@ -1,4 +1,4 @@
-/** 7-Schritte-Fahrplan, Single Source of Truth für Angebot & Methode */
+/** 7-Schritte-Fahrplan, Single Source of Truth für die Angebot-Section */
 
 export type JourneyStep = {
   n: string;
@@ -7,7 +7,6 @@ export type JourneyStep = {
   offerTitle: string;
   offerDesc: string;
   offerMeta: string;
-  methodText: string;
 };
 
 export const journeySteps: JourneyStep[] = [
@@ -19,8 +18,6 @@ export const journeySteps: JourneyStep[] = [
     offerDesc:
       "Strukturierte Bestandsaufnahme: Was wird genutzt, was fehlt, wo liegen Risiken? Ergebnis: eine klare Entscheidungsgrundlage für Ihren Betrieb.",
     offerMeta: "Strukturiert · als Entscheidungsgrundlage",
-    methodText:
-      "Sie sehen klar: Was heute läuft, was fehlt, und wo ein Risiko versteckt liegt.",
   },
   {
     n: "02",
@@ -30,8 +27,6 @@ export const journeySteps: JourneyStep[] = [
     offerDesc:
       "Klare Spielregeln für Ihr Team: Was darf genutzt werden, und was nicht. Verständlich formuliert, im Alltag anwendbar.",
     offerMeta: "Praxisnah · für das ganze Team",
-    methodText:
-      "Ihr Team weiß, was erlaubt ist, und was nicht. Keine Grauzone, keine Ausreden.",
   },
   {
     n: "03",
@@ -41,8 +36,6 @@ export const journeySteps: JourneyStep[] = [
     offerDesc:
       "Ihre Daten bekommen die Schutzstufe, die sie brauchen, lokal, in der Cloud oder hybrid. Ohne Bürokratie-Overkill.",
     offerMeta: "Passend zur Datenschutzklasse",
-    methodText:
-      "Ihre Daten bekommen die Schutzstufe, die sie brauchen. Nicht mehr, aber auch nicht weniger.",
   },
   {
     n: "04",
@@ -52,8 +45,6 @@ export const journeySteps: JourneyStep[] = [
     offerDesc:
       "KI-Kompetenz, die sitzt: verständlich erklärt, nachweisbar dokumentiert, EU AI Act-konform (Art. 4).",
     offerMeta: "Workshop · Module 1–4",
-    methodText:
-      "Das Team kann KI einsetzen, nachweisbar, sicher, EU AI Act-konform.",
   },
   {
     n: "05",
@@ -63,8 +54,6 @@ export const journeySteps: JourneyStep[] = [
     offerDesc:
       "Prozessanalyse: Das große Ganze sichtbar machen, Abläufe, Verantwortlichkeiten und Reibungspunkte erkennen, als Grundlage für die nächsten Schritte.",
     offerMeta: "Workshop · Prozessaufnahme",
-    methodText:
-      "Sie sehen, wie Ihr Ablauf wirklich läuft, Rollen, Übergaben und Reibungspunkte auf einen Blick. Grundlage für sinnvolle Automatisierung.",
   },
   {
     n: "06",
@@ -74,8 +63,6 @@ export const journeySteps: JourneyStep[] = [
     offerDesc:
       "Der erste echte Schritt mit KI im Betrieb, kontrolliert, messbar, ausbaufähig. Klein anfangen. Sauber wachsen.",
     offerMeta: "Klein starten · sauber ausbauen",
-    methodText:
-      "Erster echter Nutzen im Betrieb. Kontrolliert gestartet, sauber ausgebaut.",
   },
   {
     n: "07",
@@ -83,9 +70,7 @@ export const journeySteps: JourneyStep[] = [
     title: "Claude Cowork",
     offerTitle: "Claude Cowork Workshop",
     offerDesc:
-      "Sie lernen, Claude Cowork sicher und sinnvoll in Ihrer Arbeitsumgebung einzusetzen. Cowork arbeitet als ausführender Agent auf Basis Ihrer Anweisungen, nutzt Dateien, Skills und Workflows und erstellt Vorschläge sowie Arbeitsergebnisse. Sie behalten jederzeit die Kontrolle, prüfen die Resultate und entscheiden über deren Einsatz.",
+      "Sie lernen, Claude Cowork sicher und sinnvoll in Ihrer Arbeitsumgebung einzusetzen. Cowork arbeitet als digitale Assistenz auf Basis Ihrer Anweisungen, nutzt Dateien, Skills und Workflows und erstellt Vorschläge sowie Arbeitsergebnisse. Sie behalten jederzeit die Kontrolle, prüfen die Resultate und entscheiden über deren Einsatz.",
     offerMeta: "Workshop · Desktop-Agent · befähigend",
-    methodText:
-      "Sie setzen Claude Cowork sicher und sinnvoll in Ihrer Arbeitsumgebung ein. Cowork arbeitet als ausführender Agent mit Dateien, Skills und Workflows auf Ihre Anweisung, Sie prüfen die Resultate und behalten die Kontrolle.",
   },
 ];

@@ -64,17 +64,13 @@ export function SectionIntro({
     </>
   );
 
-  const widthClass = `prose-width${centered ? " mx-auto" : ""}`;
+  const widthClass = centered ? " mx-auto" : "";
 
   return (
     <div className={centered ? "text-center" : ""}>
-      {wide ? (
-        titleBlock
-      ) : (
-        <div className={widthClass}>{titleBlock}</div>
-      )}
+      {wide ? titleBlock : <div className={widthClass}>{titleBlock}</div>}
       {children ? (
-        <p className={`section-lead mt-6 ${widthClass}`}>{children}</p>
+        <p className={`section-lead mt-6${widthClass}`}>{children}</p>
       ) : null}
     </div>
   );
