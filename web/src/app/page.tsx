@@ -117,16 +117,16 @@ export default function Home() {
                 kicker="Wer ich bin:"
                 title="30 Jahre Betrieb. Technik, Menschen, Verantwortung."
               >
-                Ich bin Werkzeugmacher, Informatiker und war in leitender
-                Position bei 3D Systems mit 30 Jahren internationaler
-                Projekterfahrung. Ich kenne Betriebe von innen, die Sprache der
-                Werkstatt genauso wie die Sprache des Managements.
+                Ich bin Werkzeugmacher, Informatiker und habe über viele Jahre
+                in leitender Funktion bei 3D Systems gearbeitet. Mit mehr als
+                30 Jahren Erfahrung in Technik, Führung und internationalen
+                Projekten kenne ich Betriebe von innen, von der Werkstatt bis
+                ins Management.
               </SectionIntro>
 
               <p className="body-text mt-8">
-                KI ist für mich kein Trend und keine Theorie. Es ist das
-                Werkzeug, das ich Inhaber*innen und ihren Teams zugänglich
-                machen will, verständlich, rechtssicher und ohne Abhängigkeit.
+                KI ist für mich kein Hype, sondern ein Werkzeug, das
+                verständlich, sicher und praktisch nutzbar sein muss.
               </p>
 
               <p className="hero-tagline mt-8 max-w-md">

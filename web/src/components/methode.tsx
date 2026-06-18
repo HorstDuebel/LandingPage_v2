@@ -21,13 +21,13 @@ export function Methode() {
           <p className="section-kicker">Wie ich arbeite:</p>
           <h2 className="section-title">
             <span className="display-title-line">
-              „Nie im Leben.« Das höre ich gern.
+              «Nie im Leben.» Das höre ich gern.
             </span>
           </h2>
           <p className="section-lead mt-6">
             KI-Skepsis ist kein Problem. Sie zeigt, dass Menschen Verantwortung
             ernst nehmen und Fragen stellen, bevor sie handeln. Dieses
-            abzuholen, im Unternehmerischen Kontext, das ist mein Anfang.
+            abzuholen, im unternehmerischen Kontext, das ist mein Anfang.
           </p>
         </div>
 
