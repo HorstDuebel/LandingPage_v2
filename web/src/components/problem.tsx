@@ -4,11 +4,14 @@ export function Problem() {
       <div className="page-container">
         <div className="prose-width">
           <p className="section-kicker">Warum das dringend ist:</p>
-          <h2 className="section-title section-title--stacked">
+          <h2 className="section-title section-title--stacked section-title--problem">
             <span className="display-title-line">
-              KI läuft bereits in Ihrem Betrieb.
+              KI läuft bereits in Ihrem
             </span>
-            <span className="display-title-line">Die Frage ist:</span>
+            <span className="display-title-line">Betrieb.</span>
+            <span className="display-title-line display-title-line--gap">
+              Die Frage ist:
+            </span>
             <span className="display-title-line">
               kontrolliert oder unkontrolliert?
             </span>
