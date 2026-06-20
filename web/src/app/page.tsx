@@ -45,7 +45,7 @@ export default function Home() {
                   Einweisung an eine neue Maschine.
                 </span>
                 <span className="display-title-line display-title-line--gap">
-                  Bei KI Anwendungen passiert genau dies, täglich.
+                  Bei KI-Anwendungen passiert genau dies, täglich.
                 </span>
               </h1>
 
@@ -157,8 +157,7 @@ export default function Home() {
               Sieben flexibel kombinierbare Module, von der ersten Orientierung
               bis zur produktiven Nutzung. Die Module können einzeln gebucht
               oder zu einem durchgängigen Vorgehen kombiniert werden. Viele
-              Unternehmen starten mit einem kostenlosen Erstgespräch oder
-              Potenzial-Scan und wählen anschließend die Schritte, die zu ihrer
+              Unternehmen starten mit einem kostenlosen Erstgespräch und wählen anschließend die Schritte, die zu ihrer
               aktuellen Situation passen.
             </SectionIntro>
 
@@ -198,7 +197,7 @@ export default function Home() {
             <div className="mt-12 grid grid-cols-1 gap-0 lg:grid-cols-2 lg:gap-16">
               <div className="space-y-0">
                 {[
-                  "30 Jahre Praxis in Technik, Prozessen und Führung, in der Industrie",
+                  "30 Jahre Praxis in Technik, Prozessen und Führung, in der Industrie erprobt.",
                   "Zertifizierung: KI-Manager*in (Cert-IT, Nr. KI001220, Februar 2026)",
                   "27 Jahre bei 3D Systems: internationale Projekte bis 1,5 Mio. € Budget",
                   "Fokus: verständlich erklären, sicher einführen, nachhaltig verankern",
@@ -218,7 +217,7 @@ export default function Home() {
                     »Frank bringt Struktur und Klarheit in komplexe Themen und
                     schafft einen Raum, in dem man offen reden kann.«
                   </p>
-                  <cite>, Führungskraft, Produktionsbetrieb</cite>
+                  <cite>Führungskraft, Produktionsbetrieb</cite>
                 </blockquote>
                 <blockquote className="quote-block">
                   <p>
@@ -226,7 +225,7 @@ export default function Home() {
                     pragmatisch einordnet, mit echtem Blick auf Datenschutz und
                     Nutzen.«
                   </p>
-                  <cite>, Inhaber*in, Handwerksbetrieb</cite>
+                  <cite>Inhaber*in, Handwerksbetrieb</cite>
                 </blockquote>
               </div>
             </div>

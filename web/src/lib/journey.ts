@@ -70,7 +70,7 @@ export const journeySteps: JourneyStep[] = [
     title: "Claude Cowork",
     offerTitle: "Claude Cowork Workshop",
     offerDesc:
-      "Sie lernen, Claude Cowork sicher und sinnvoll in Ihrer Arbeitsumgebung einzusetzen. Cowork arbeitet als digitale Assistenz auf Basis Ihrer Anweisungen, nutzt Dateien, Skills und Workflows und erstellt Vorschläge sowie Arbeitsergebnisse. Sie behalten jederzeit die Kontrolle, prüfen die Resultate und entscheiden über deren Einsatz.",
+      "Ich unterstütze Sie dabei, Claude Cowork sicher einzuführen und produktive Workflows zu entwickeln, für eine digitale Assistenz, die Sie im Arbeitsalltag spürbar entlastet.",
     offerMeta: "Workshop · Desktop-Agent · befähigend",
   },
 ];

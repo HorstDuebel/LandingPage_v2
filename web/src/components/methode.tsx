@@ -9,7 +9,7 @@ const principles = [
   },
   {
     kicker: "Mein Maßstab: Mitarbeitende wollen es selbst.",
-    text: "Wenn Mitarbeitende KI nutzen, weil das Unternehmen sie einführt, ist das ein Anfang. Wenn sie KI nutzen, weil sie selbst merken, dass der Job mit dem Werkzeug besser geht, entsteht Nachhaltigkeit. Mein Ziel ist, das KI-Werkzeug zu nutzen, ohne Menschen zu entmündigen. Verantwortungsvoll, sicher und mit klaren Grenzen.",
+    text: "Wenn Mitarbeitende KI nutzen, weil das Unternehmen sie einführt, ist das ein Anfang. Wenn sie KI nutzen, weil sie selbst merken, dass der Job mit dem Werkzeug besser geht, entsteht Nachhaltigkeit. Mein Ziel: KI so einzusetzen, dass Menschen nicht entmündigt werden. Verantwortungsvoll, sicher und mit klaren Grenzen.",
   },
 ] as const;
 
