@@ -13,17 +13,24 @@ const principles = [
   },
 ] as const;
 
+import { AnimateIn } from "@/components/animate-in";
+import { SectionKicker } from "@/components/site-chrome";
+
 export function Methode() {
   return (
     <section id="methode" className="section-block bg-[var(--surface-blue)]">
       <div className="page-container">
         <div>
-          <p className="section-kicker">Wie ich arbeite:</p>
-          <h2 className="section-title">
-            <span className="display-title-line">
-              «Nie im Leben.» Das höre ich gern.
-            </span>
-          </h2>
+          <AnimateIn>
+            <>
+              <SectionKicker>Wie ich arbeite:</SectionKicker>
+              <h2 className="section-title">
+                <span className="display-title-line">
+                  «Nie im Leben.» Das höre ich gern.
+                </span>
+              </h2>
+            </>
+          </AnimateIn>
           <p className="section-lead mt-6">
             KI-Skepsis ist kein Problem. Sie zeigt, dass Menschen Verantwortung
             ernst nehmen und Fragen stellen, bevor sie handeln. Dieses

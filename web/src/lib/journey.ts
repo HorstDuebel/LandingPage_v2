@@ -7,6 +7,8 @@ export type JourneyStep = {
   offerTitle: string;
   offerDesc: string;
   offerMeta: string;
+  recommended?: boolean;
+  isNew?: boolean;
 };
 
 export const journeySteps: JourneyStep[] = [
@@ -18,6 +20,7 @@ export const journeySteps: JourneyStep[] = [
     offerDesc:
       "Strukturierte Bestandsaufnahme: Was wird genutzt, was fehlt, wo liegen Risiken? Ergebnis: eine klare Entscheidungsgrundlage für Ihren Betrieb.",
     offerMeta: "Strukturiert · als Entscheidungsgrundlage",
+    recommended: true,
   },
   {
     n: "02",
@@ -72,5 +75,6 @@ export const journeySteps: JourneyStep[] = [
     offerDesc:
       "Ich unterstütze Sie dabei, Claude Cowork sicher einzuführen und produktive Workflows zu entwickeln, für eine digitale Assistenz, die Sie im Arbeitsalltag spürbar entlastet.",
     offerMeta: "Workshop · Desktop-Agent · befähigend",
+    isNew: true,
   },
 ];

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { AnimateIn } from "@/components/animate-in";
 import {
   ClickTrigger,
   PrimaryCtaInline,
@@ -8,7 +9,7 @@ import {
 import { JsonLd } from "@/components/json-ld";
 import { Methode } from "@/components/methode";
 import { Problem } from "@/components/problem";
-import { SectionIntro, SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { SectionIntro, SectionKicker, SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { cta, triggers } from "@/lib/copy";
 import { faqEntries } from "@/lib/faq";
 import { getHomeJsonLd } from "@/lib/home-schema";
@@ -34,7 +35,7 @@ export default function Home() {
 
       <main id="top" className="flex-1">
         {/* 1. Hero */}
-        <section className="hero-section section-block bg-[var(--surface)]">
+        <section className="hero-section hero-pattern section-block bg-[var(--surface)]">
           <div className="page-container">
             <div>
               <h1 className="display-title">
@@ -42,7 +43,10 @@ export default function Home() {
                   Kein Betrieb lässt Mitarbeitende ohne
                 </span>
                 <span className="display-title-line">
-                  Einweisung an eine neue Maschine.
+                  Einweisung an eine neue{" "}
+                  <span style={{ color: "var(--color-accent)" }}>
+                    Maschine.
+                  </span>
                 </span>
                 <span className="display-title-line display-title-line--gap">
                   Bei KI-Anwendungen passiert genau dies, täglich.
@@ -75,15 +79,17 @@ export default function Home() {
         {/* 3. Für wen */}
         <section id="fuer-wen" className="section-block bg-[var(--surface)]">
           <div className="page-container">
-            <SectionIntro
-              kicker="Für wen:"
-              wide
-              title="Für Inhaber*innen und Geschäftsführer*innen"
-              titleLine2="im Handwerk und KMU."
-            >
-              Für Inhaber*innen und Führungspersonen, die KI nicht als Hype,
-              sondern als echtes Werkzeug sehen und sicher einsetzen wollen.    
-            </SectionIntro>
+            <AnimateIn>
+              <SectionIntro
+                kicker="Für wen:"
+                wide
+                title="Für Inhaber*innen und Geschäftsführer*innen"
+                titleLine2="im Handwerk und KMU."
+              >
+                Für Inhaber*innen und Führungspersonen, die KI nicht als Hype,
+                sondern als echtes Werkzeug sehen und sicher einsetzen wollen.    
+              </SectionIntro>
+            </AnimateIn>
 
             <div className="mt-10 space-y-6">
               <p className="body-text">
@@ -101,28 +107,55 @@ export default function Home() {
         {/* 4. Über mich */}
         <section className="section-block bg-[var(--surface-muted)]">
           <div className="page-container grid grid-cols-1 items-start gap-12 lg:grid-cols-[16rem_1fr] lg:gap-16">
-            <div className="about-portrait mx-auto lg:mx-0">
-              <Image
-                src="/frank.jpg"
-                alt="Frank Vullhorst"
-                fill
-                className="object-cover object-[center_20%]"
-                sizes="256px"
-                priority
-              />
+            <div className="relative mx-auto inline-block lg:mx-0">
+              <div className="about-portrait">
+                <Image
+                  src="/frank.jpg"
+                  alt="Frank Vullhorst"
+                  fill
+                  className="object-cover object-[center_20%]"
+                  sizes="256px"
+                  priority
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute bottom-0 right-0 z-10 h-14 w-14"
+                  style={{
+                    background: "var(--color-accent)",
+                    clipPath: "polygon(100% 0, 100% 100%, 0 100%)",
+                  }}
+                />
+              </div>
+              <div
+                title="KI-Manager · Cert-IT · Nr. KI001220 · Feb. 2026"
+                className="absolute -top-3 -right-3 flex items-center justify-center rounded-full border-2 border-white text-center font-semibold text-white"
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  background: "#1A3A6B",
+                  fontSize: "9px",
+                  lineHeight: 1.2,
+                }}
+              >
+                KI
+                <br />
+                Cert
+              </div>
             </div>
 
             <div>
-              <SectionIntro
-                kicker="Wer ich bin:"
-                title="30 Jahre Betrieb. Technik, Menschen, Verantwortung."
-              >
-                Ich bin Werkzeugmacher, Informatiker und habe über viele Jahre
-                in leitender Funktion bei 3D Systems gearbeitet. Mit mehr als
-                30 Jahren Erfahrung in Technik, Führung und internationalen
-                Projekten kenne ich Betriebe von innen, von der Werkstatt bis
-                ins Management.
-              </SectionIntro>
+              <AnimateIn>
+                <SectionIntro
+                  kicker="Wer ich bin:"
+                  title="30 Jahre Betrieb. Technik, Menschen, Verantwortung."
+                >
+                  Ich bin Werkzeugmacher, Informatiker und habe über viele Jahre
+                  in leitender Funktion bei 3D Systems gearbeitet. Mit mehr als
+                  30 Jahren Erfahrung in Technik, Führung und internationalen
+                  Projekten kenne ich Betriebe von innen, von der Werkstatt bis
+                  ins Management.
+                </SectionIntro>
+              </AnimateIn>
 
               <p className="body-text mt-8">
                 KI ist für mich kein Hype, sondern ein Werkzeug, das
@@ -148,30 +181,46 @@ export default function Home() {
         {/* 6. Angebot */}
         <section id="angebot" className="section-block bg-[var(--surface-warm)]">
           <div className="page-container">
-            <SectionIntro
-              kicker="Mein Angebot:"
-              wide
-              title="Sieben Bausteine."
-              titleLine2="Klar strukturiert, ohne Umwege."
-            >
-              Sieben flexibel kombinierbare Module, von der ersten Orientierung
-              bis zur produktiven Nutzung. Die Module können einzeln gebucht
-              oder zu einem durchgängigen Vorgehen kombiniert werden. Viele
-              Unternehmen starten mit einem kostenlosen Erstgespräch und wählen anschließend die Schritte, die zu ihrer
-              aktuellen Situation passen.
-            </SectionIntro>
+            <AnimateIn>
+              <SectionIntro
+                kicker="Mein Angebot:"
+                wide
+                title="Sieben Bausteine."
+                titleLine2="Klar strukturiert, ohne Umwege."
+              >
+                Sieben flexibel kombinierbare Module, von der ersten Orientierung
+                bis zur produktiven Nutzung. Die Module können einzeln gebucht
+                oder zu einem durchgängigen Vorgehen kombiniert werden. Viele
+                Unternehmen starten mit einem kostenlosen Erstgespräch und wählen anschließend die Schritte, die zu ihrer
+                aktuellen Situation passen.
+              </SectionIntro>
+            </AnimateIn>
 
             <div className="offer-grid offer-grid--seven mt-14">
-              {journeySteps.map((item) => (
-                <article key={item.id} className="offer-card">
-                  <p className="step-number">{item.n}</p>
-                  <h3 className="offer-card__title">{item.offerTitle}</h3>
-                  <p className="offer-card__desc">{item.offerDesc}</p>
-                  <p className="offer-card__meta">{item.offerMeta}</p>
-                  <PrimaryCtaInline trackLabel={`offer_${item.id}`}>
-                    {cta.offerInline}
-                  </PrimaryCtaInline>
-                </article>
+              {journeySteps.map((item, i) => (
+                <AnimateIn key={item.id} delay={i * 60} className="h-full">
+                  <article className="offer-card h-full">
+                    <div className="flex items-center justify-between gap-3">
+                      <p className="step-number">{item.n}</p>
+                      {item.recommended || item.isNew ? (
+                        <span
+                          className={`shrink-0 rounded px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white${
+                            item.isNew ? " mr-2" : ""
+                          }`}
+                          style={{ background: "var(--color-accent)" }}
+                        >
+                          {item.recommended ? "Empfohlen" : "N E U"}
+                        </span>
+                      ) : null}
+                    </div>
+                    <h3 className="offer-card__title">{item.offerTitle}</h3>
+                    <p className="offer-card__desc">{item.offerDesc}</p>
+                    <p className="offer-card__meta">{item.offerMeta}</p>
+                    <PrimaryCtaInline trackLabel={`offer_${item.id}`}>
+                      {cta.offerInline}
+                    </PrimaryCtaInline>
+                  </article>
+                </AnimateIn>
               ))}
             </div>
 
@@ -185,14 +234,16 @@ export default function Home() {
         {/* 7. Vertrauen */}
         <section className="section-block bg-[var(--surface-muted)]">
           <div className="page-container">
-            <SectionIntro
-              kicker="Warum Entscheider*innen mir vertrauen:"
-              title="Das, was ich mitbringe und was Sie davon haben."
-            >
-              30 Jahre Betrieb, Technik und Verantwortung: Als Werkzeugmacher,
-              Informatiker und leitende Kraft habe ich internationale Projekte umgesetzt. 
-              Ich kenne Betriebe von innen, die Werkstatt genauso wie das Büro und die Führungsebene.
-            </SectionIntro>
+            <AnimateIn>
+              <SectionIntro
+                kicker="Warum Entscheider*innen mir vertrauen:"
+                title="Das, was ich mitbringe und was Sie davon haben."
+              >
+                30 Jahre Betrieb, Technik und Verantwortung: Als Werkzeugmacher,
+                Informatiker und leitende Kraft habe ich internationale Projekte umgesetzt. 
+                Ich kenne Betriebe von innen, die Werkstatt genauso wie das Büro und die Führungsebene.
+              </SectionIntro>
+            </AnimateIn>
 
             <div className="mt-12 grid grid-cols-1 gap-0 lg:grid-cols-2 lg:gap-16">
               <div className="space-y-0">
@@ -201,32 +252,35 @@ export default function Home() {
                   "Zertifizierung: KI-Manager*in (Cert-IT, Nr. KI001220, Februar 2026)",
                   "27 Jahre bei 3D Systems: internationale Projekte bis 1,5 Mio. € Budget",
                   "Fokus: verständlich erklären, sicher einführen, nachhaltig verankern",
-                ].map((line) => (
-                  <p
-                    key={line}
-                    className="border-b border-[var(--border)] py-4 copy-small text-[var(--text)]"
-                  >
-                    {line}
-                  </p>
+                ].map((line, i) => (
+                  <AnimateIn key={line} delay={i * 80}>
+                    <p className="border-b border-[var(--border)] py-4 copy-small text-[var(--text)]">
+                      {line}
+                    </p>
+                  </AnimateIn>
                 ))}
               </div>
 
               <div className="mt-8 lg:mt-0">
-                <blockquote className="quote-block">
-                  <p>
-                    »Frank bringt Struktur und Klarheit in komplexe Themen und
-                    schafft einen Raum, in dem man offen reden kann.«
-                  </p>
-                  <cite>Führungskraft, Produktionsbetrieb</cite>
-                </blockquote>
-                <blockquote className="quote-block">
-                  <p>
-                    »Endlich jemand*, der*die KI nicht als Hype verkauft, sondern
-                    pragmatisch einordnet, mit echtem Blick auf Datenschutz und
-                    Nutzen.«
-                  </p>
-                  <cite>Inhaber*in, Handwerksbetrieb</cite>
-                </blockquote>
+                <AnimateIn delay={0}>
+                  <blockquote className="quote-block testimonial-card">
+                    <p>
+                      »Frank bringt Struktur und Klarheit in komplexe Themen und
+                      schafft einen Raum, in dem man offen reden kann.«
+                    </p>
+                    <cite>Führungskraft, Produktionsbetrieb</cite>
+                  </blockquote>
+                </AnimateIn>
+                <AnimateIn delay={120}>
+                  <blockquote className="quote-block testimonial-card">
+                    <p>
+                      »Endlich jemand*, der*die KI nicht als Hype verkauft, sondern
+                      pragmatisch einordnet, mit echtem Blick auf Datenschutz und
+                      Nutzen.«
+                    </p>
+                    <cite>Inhaber*in, Handwerksbetrieb</cite>
+                  </blockquote>
+                </AnimateIn>
               </div>
             </div>
           </div>
@@ -236,7 +290,7 @@ export default function Home() {
         <section id="termin" className="section-block bg-[var(--surface)]">
           <div className="page-container">
             <div>
-              <p className="section-kicker">Jetzt starten:</p>
+              <SectionKicker>Jetzt starten:</SectionKicker>
               <h3 className="section-title !text-xl">
                 Was Sie nach 30 Minuten mitnehmen
               </h3>
@@ -282,12 +336,14 @@ export default function Home() {
         {/* 9. FAQ */}
         <section id="faq" className="section-block bg-[var(--surface-muted)]">
           <div className="page-container">
-            <SectionIntro
-              kicker="Fragen & Antworten:"
-              title="Das fragen Entscheider*innen vor dem ersten Schritt"
-            >
-              Kurz. Direkt. Damit Sie entscheiden können.
-            </SectionIntro>
+            <AnimateIn>
+              <SectionIntro
+                kicker="Fragen & Antworten:"
+                title="Das fragen Entscheider*innen vor dem ersten Schritt"
+              >
+                Kurz. Direkt. Damit Sie entscheiden können.
+              </SectionIntro>
+            </AnimateIn>
 
             <div className="mt-12">
               {faqEntries.map((item) => (
@@ -310,18 +366,20 @@ export default function Home() {
         </section>
 
         {/* 10. Abschluss-CTA */}
-        <section className="section-block bg-[var(--surface-warm)]">
+        <section className="final-cta section-block">
           <div className="page-container">
-            <SectionIntro
-              kicker="Jetzt den ersten Schritt machen:"
-              title="Statt warten:"
-              titleLine2="ein klares Gespräch."
-            >
-              Nach 30 Minuten wissen Sie, wo Sie stehen und was der kleinste,
-              sinnvolle nächste Schritt für Ihren Betrieb ist.
-            </SectionIntro>
+            <AnimateIn>
+              <SectionIntro
+                kicker="Jetzt den ersten Schritt machen:"
+                title="Statt warten:"
+                titleLine2="ein klares Gespräch."
+              >
+                Nach 30 Minuten wissen Sie, wo Sie stehen und was der kleinste,
+                sinnvolle nächste Schritt für Ihren Betrieb ist.
+              </SectionIntro>
+            </AnimateIn>
 
-            <ClickTrigger className="microcopy mt-8 !text-[var(--text)]">
+            <ClickTrigger className="microcopy mt-8">
               {triggers.finalBefore}
             </ClickTrigger>
             <PrimaryCtaLink

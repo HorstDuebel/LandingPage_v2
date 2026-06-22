@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Carlito, Manrope, Mukta } from "next/font/google";
 import { Analytics } from "@/components/analytics";
+import { ScrollProgress } from "@/components/scroll-progress";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
@@ -79,6 +80,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         {children}
         <Analytics />
+        <ScrollProgress />
       </body>
     </html>
   );

@@ -3,11 +3,26 @@ import type { ReactNode } from "react";
 
 export { SiteHeader } from "@/components/site-header";
 
+export function SectionKicker({ children }: { children: string }) {
+  return (
+    <div className="mb-3 flex items-center gap-2">
+      <div
+        className="w-5 shrink-0"
+        style={{ height: "2px", background: "var(--color-accent)" }}
+        aria-hidden="true"
+      />
+      <p className="section-kicker !mb-0 text-xs uppercase tracking-widest">
+        {children}
+      </p>
+    </div>
+  );
+}
+
 export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="page-container">
-        <p className="section-kicker">Ich bin erreichbar, in Roßdorf und überall sonst:</p>
+        <SectionKicker>Ich bin erreichbar, in Roßdorf und überall sonst:</SectionKicker>
         <h2 className="contact-hero mt-2">
           Rufen Sie an. Oder schreiben. Beides funktioniert.
         </h2>
@@ -21,16 +36,18 @@ export function SiteFooter() {
           Info@FrankVullhorst.de
         </a>
 
-        <div className="mt-14 flex flex-wrap gap-6 border-t border-[var(--border)] pt-8 text-sm text-[var(--muted)]">
-          <Link href="/impressum" className="nav-link !text-sm">
-            Impressum
-          </Link>
-          <Link href="/datenschutz" className="nav-link !text-sm">
-            Datenschutz
-          </Link>
-          <span className="ml-auto text-xs">
-            © 2026 Frank Vullhorst     KI. Sicher. Sinnvoll. Strategisch.
-          </span>
+        <div className="site-footer-legal">
+          <div className="site-footer-legal__links">
+            <Link href="/impressum" className="site-footer-legal__link">
+              Impressum
+            </Link>
+            <Link href="/datenschutz" className="site-footer-legal__link">
+              Datenschutz
+            </Link>
+          </div>
+          <p className="site-footer-legal__copy">
+            © 2026 Frank Vullhorst · KI. Sicher. Sinnvoll. Strategisch.
+          </p>
         </div>
       </div>
     </footer>
@@ -54,7 +71,7 @@ export function SectionIntro({
 }) {
   const titleBlock = (
     <>
-      <p className="section-kicker">{kicker}</p>
+      <SectionKicker>{kicker}</SectionKicker>
       <h2 className={`section-title ${wide ? "section-title--two-lines" : ""}`}>
         <span className="display-title-line">{title}</span>
         {titleLine2 ? (

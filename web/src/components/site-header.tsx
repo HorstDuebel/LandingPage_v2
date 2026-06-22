@@ -114,21 +114,19 @@ export function SiteHeader() {
         <div className="page-container site-header-inner">
           <Link href="/#top" className="site-header-logo" onClick={closeMenu}>
             <span className="site-header-logo-inner">
-              <span className="site-header-name-line">
-                <span className="site-header-name-word">Frank</span>
-                <span className="site-header-name-between" aria-hidden="true" />
-                <span className="site-header-name-word">Vullhorst</span>
+              <span className="site-header-name-line site-header-wordmark-name">
+                Frank Vullhorst
               </span>
               <span
-                className="site-header-tagline"
+                className="site-header-tagline site-header-wordmark-tagline"
                 aria-label="KI, Sicher, Sinnvoll, Strategisch"
               >
                 <span>KI</span>
-                <span aria-hidden="true">•</span>
+                <span aria-hidden="true">·</span>
                 <span>Sicher</span>
-                <span aria-hidden="true">•</span>
+                <span aria-hidden="true">·</span>
                 <span>Sinnvoll</span>
-                <span aria-hidden="true">•</span>
+                <span aria-hidden="true">·</span>
                 <span>Strategisch</span>
               </span>
             </span>

@@ -19,7 +19,7 @@ export const triggers = {
   angebotBody:
     "Nach 30 Minuten wissen Sie: Was passt zu Ihrem Betrieb, und was können Sie sich (noch) sparen.",
   angebotProof:
-    "Zertifizierung: KI-Manager*in (Cert-IT, Nr. KI001220) · Fokus: KMU & Handwerk · Rhein-Main",
+    "Zertifizierung: KI-Manager*in (Cert-IT, Nr. KI001220) · Fokus: KMU & Handwerk",
   vertrauenAfter:
     "So starten die meisten Entscheider*innen: erst Klarheit, dann der passende nächste Baustein.",
   finalBefore:
