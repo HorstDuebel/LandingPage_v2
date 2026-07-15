@@ -23,7 +23,7 @@ export const triggers = {
   vertrauenAfter:
     "So starten die meisten Entscheider*innen: erst Klarheit, dann der passende nächste Baustein.",
   finalBefore:
-    "Kostenlos, unverbindlich, und in Ihrem Kalender, wenn Sie wollen.",
+    "Kostenlos, unverbindlich und direkt auf Ihren Zeitplan abgestimmt.",
   footerBody:
     "Viele Inhaber*innen und Geschäftsführer*innen starten mit einem kurzen Gespräch, und wissen danach, ob und wie es weitergeht.",
   terminIntro:

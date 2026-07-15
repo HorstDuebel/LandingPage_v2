@@ -10,10 +10,9 @@ export function Problem() {
             <>
               <SectionKicker>Warum das dringend ist:</SectionKicker>
               <h2 className="section-title section-title--problem">
-                <span className="display-title-line">
-                  KI läuft bereits in Ihrem
+                <span className="display-title-line display-title-line--single">
+                  KI läuft bereits in Ihrem Betrieb.
                 </span>
-                <span className="display-title-line">Betrieb.</span>
                 <span className="display-title-line display-title-line--gap">
                   Die Frage ist:
                 </span>

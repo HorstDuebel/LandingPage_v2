@@ -20,7 +20,7 @@ export default function ImpressumPage() {
         <p>
           Frank Vullhorst
           <br />
-          KI. Sicher. Sinnvoll. Strategisch.
+          ki: sicher strategisch sinnvoll
           <br />
           <br />
           Claudiusweg 9

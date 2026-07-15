@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { BrandSignature } from "@/components/brand-signature";
 
 const SCROLL_THRESHOLD = 72;
 const HIDE_DELAY_MS = 350;
@@ -113,23 +114,7 @@ export function SiteHeader() {
       >
         <div className="page-container site-header-inner">
           <Link href="/#top" className="site-header-logo" onClick={closeMenu}>
-            <span className="site-header-logo-inner">
-              <span className="site-header-name-line site-header-wordmark-name">
-                Frank Vullhorst
-              </span>
-              <span
-                className="site-header-tagline site-header-wordmark-tagline"
-                aria-label="KI, Sicher, Sinnvoll, Strategisch"
-              >
-                <span>KI</span>
-                <span aria-hidden="true">·</span>
-                <span>Sicher</span>
-                <span aria-hidden="true">·</span>
-                <span>Sinnvoll</span>
-                <span aria-hidden="true">·</span>
-                <span>Strategisch</span>
-              </span>
-            </span>
+            <BrandSignature variant="header" />
           </Link>
 
           <button

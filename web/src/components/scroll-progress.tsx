@@ -28,7 +28,7 @@ export function ScrollProgress() {
         style={{
           height: "100%",
           width: `${p}%`,
-          background: "var(--color-accent)",
+          background: "var(--brand-orange)",
           transition: "width 80ms linear",
         }}
       />

@@ -21,7 +21,7 @@ export default function DatenschutzPage() {
         <p>
           Frank Vullhorst
           <br />
-          KI. Sicher. Sinnvoll. Strategisch.
+          ki: sicher strategisch sinnvoll
           <br />
           Claudiusweg 9
           <br />

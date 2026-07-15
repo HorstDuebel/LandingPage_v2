@@ -8,7 +8,7 @@ export function SectionKicker({ children }: { children: string }) {
     <div className="mb-3 flex items-center gap-2">
       <div
         className="w-5 shrink-0"
-        style={{ height: "2px", background: "var(--color-accent)" }}
+        style={{ height: "2px", background: "var(--brand-orange)" }}
         aria-hidden="true"
       />
       <p className="section-kicker !mb-0 text-xs uppercase tracking-widest">
@@ -46,7 +46,7 @@ export function SiteFooter() {
             </Link>
           </div>
           <p className="site-footer-legal__copy">
-            © 2026 Frank Vullhorst · KI. Sicher. Sinnvoll. Strategisch.
+            © 2026 Frank Vullhorst · ki: sicher strategisch sinnvoll
           </p>
         </div>
       </div>

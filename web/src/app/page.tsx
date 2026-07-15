@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { AnimateIn } from "@/components/animate-in";
+import { BrandSignature } from "@/components/brand-signature";
 import {
   ClickTrigger,
   PrimaryCtaInline,
@@ -44,7 +45,7 @@ export default function Home() {
                 </span>
                 <span className="display-title-line">
                   Einweisung an eine neue{" "}
-                  <span style={{ color: "var(--color-accent)" }}>
+                  <span style={{ color: "var(--brand-orange)" }}>
                     Maschine.
                   </span>
                 </span>
@@ -121,25 +122,10 @@ export default function Home() {
                   aria-hidden="true"
                   className="absolute bottom-0 right-0 z-10 h-14 w-14"
                   style={{
-                    background: "var(--color-accent)",
+                    background: "var(--brand-orange)",
                     clipPath: "polygon(100% 0, 100% 100%, 0 100%)",
                   }}
                 />
-              </div>
-              <div
-                title="KI-Manager · Cert-IT · Nr. KI001220 · Feb. 2026"
-                className="absolute -top-3 -right-3 flex items-center justify-center rounded-full border-2 border-white text-center font-semibold text-white"
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  background: "#1A3A6B",
-                  fontSize: "9px",
-                  lineHeight: 1.2,
-                }}
-              >
-                KI
-                <br />
-                Cert
               </div>
             </div>
 
@@ -162,15 +148,7 @@ export default function Home() {
                 verständlich, sicher und praktisch nutzbar sein muss.
               </p>
 
-              <p className="hero-tagline mt-8 max-w-md">
-                <span>KI</span>
-                <span aria-hidden="true">•</span>
-                <span>Sicher</span>
-                <span aria-hidden="true">•</span>
-                <span>Sinnvoll</span>
-                <span aria-hidden="true">•</span>
-                <span>Strategisch</span>
-              </p>
+              <BrandSignature variant="section" className="mt-8" />
             </div>
           </div>
         </section>
@@ -204,10 +182,14 @@ export default function Home() {
                       <p className="step-number">{item.n}</p>
                       {item.recommended || item.isNew ? (
                         <span
-                          className={`shrink-0 rounded px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white${
+                          className={`shrink-0 rounded px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-white${
                             item.isNew ? " mr-2" : ""
                           }`}
-                          style={{ background: "var(--color-accent)" }}
+                          style={{
+                            background: item.recommended
+                              ? "var(--brand-orange)"
+                              : "var(--accent-green)",
+                          }}
                         >
                           {item.recommended ? "Empfohlen" : "N E U"}
                         </span>
@@ -287,7 +269,7 @@ export default function Home() {
         </section>
 
         {/* 8. Erstgespräch-CTA */}
-        <section id="termin" className="section-block bg-[var(--surface)]">
+        <section className="section-block bg-[var(--surface)]">
           <div className="page-container">
             <div>
               <SectionKicker>Jetzt starten:</SectionKicker>
@@ -310,7 +292,7 @@ export default function Home() {
                   },
                 ].map((item) => (
                   <li key={item.t} className="border-b border-[var(--border)] pb-4">
-                    <span className="font-[var(--font-subheading)] font-bold text-[var(--text)]">
+                    <span className="font-[var(--font-heading)] font-medium text-[var(--text)]">
                       {item.t}
                     </span>
                     <span className="body-text-muted mt-1 block copy-small">
@@ -351,7 +333,7 @@ export default function Home() {
                   <summary>
                     <span className="flex items-center justify-between gap-4">
                       {item.question}
-                      <span className="text-[var(--brand-blue)] transition-transform group-open:rotate-45">
+                      <span className="text-[var(--brand-teal)] transition-transform group-open:rotate-45">
                         +
                       </span>
                     </span>
@@ -366,7 +348,7 @@ export default function Home() {
         </section>
 
         {/* 10. Abschluss-CTA */}
-        <section className="final-cta section-block">
+        <section id="termin" className="final-cta section-block">
           <div className="page-container">
             <AnimateIn>
               <SectionIntro

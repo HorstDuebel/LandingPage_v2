@@ -1,26 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Carlito, Manrope, Mukta } from "next/font/google";
+import { Barlow } from "next/font/google";
 import { Analytics } from "@/components/analytics";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
-const fontHeading = Manrope({
+const fontBarlow = Barlow({
   subsets: ["latin"],
-  variable: "--font-heading",
-  weight: ["400", "500", "600", "700"],
-});
-
-const fontSubheading = Carlito({
-  subsets: ["latin"],
-  variable: "--font-subheading",
-  weight: ["400", "700"],
-});
-
-const fontBody = Mukta({
-  subsets: ["latin"],
-  variable: "--font-body",
-  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-barlow",
+  weight: ["300", "400", "500"],
 });
 
 export const viewport: Viewport = {
@@ -73,10 +61,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="de"
-      className={`${fontHeading.variable} ${fontSubheading.variable} ${fontBody.variable} h-full antialiased`}
-    >
+    <html lang="de" className={`${fontBarlow.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         {children}
         <Analytics />

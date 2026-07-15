@@ -1,0 +1,22 @@
+{
+  "deskFacts": {
+    "width": 1440,
+    "offerCols": 3,
+    "lockupOk": true,
+    "footerBg": "rgb(65, 54, 42)",
+    "finalCtaBg": "rgb(65, 54, 42)",
+    "faqPlus": "rgb(122, 175, 161)",
+    "btnBg": "rgb(241, 136, 37)",
+    "btnColor": "rgb(255, 255, 255)"
+  },
+  "mobFacts": {
+    "width": 390,
+    "offerCols": 1,
+    "lockupOk": true,
+    "footerBg": "rgb(65, 54, 42)",
+    "finalCtaBg": "rgb(65, 54, 42)",
+    "faqPlus": "rgb(122, 175, 161)",
+    "btnBg": "rgb(241, 136, 37)",
+    "btnColor": "rgb(255, 255, 255)"
+  }
+}

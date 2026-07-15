@@ -18,7 +18,7 @@ import { SectionKicker } from "@/components/site-chrome";
 
 export function Methode() {
   return (
-    <section id="methode" className="section-block bg-[var(--surface-blue)]">
+    <section id="methode" className="section-block bg-[var(--surface-teal)]">
       <div className="page-container">
         <div>
           <AnimateIn>
@@ -48,7 +48,7 @@ export function Methode() {
                   : ""
               }`}
             >
-              <p className="font-[var(--font-subheading)] text-base font-bold text-[var(--brand-orange)] sm:text-lg">
+              <p className="font-[var(--font-heading)] text-base font-medium text-[var(--brand-orange)] sm:text-lg">
                 {principle.kicker}
               </p>
               <p className="body-text mt-4">{principle.text}</p>

@@ -1,22 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  /* Markenfarben (verbindlich) */
-  --brand-gray: #a99eac;
-  --brand-orange: #f89921;
-  --color-accent: #e8650a;
-  --brand-blue: #77b3cf;
-  --brand-text-soft: #dddfeC;
+  /* Marken-Tokens (CI 15.07.2026) */
+  --brand-taupe: #7b7163;
+  --brand-teal: #7aafa1;
+  --brand-orange: #f18825;
+  --brand-dark: #41362a;
+  --accent-green: #75c2a9;
+  --accent-lime: #d3da3d;
+  --sand: #d7cabd;
 
-  --bg: color-mix(in srgb, var(--brand-text-soft) 12%, white);
+  /* Alias: bestehende Komponenten mit --color-accent */
+  --color-accent: var(--brand-orange);
+
   --surface: #ffffff;
-  --surface-muted: color-mix(in srgb, var(--brand-text-soft) 48%, white);
-  --surface-blue: color-mix(in srgb, var(--brand-blue) 11%, white);
-  --surface-warm: color-mix(in srgb, var(--brand-orange) 8%, white);
+  --surface-muted: color-mix(in srgb, var(--sand) 35%, #ffffff);
+  --surface-warm: color-mix(in srgb, var(--brand-taupe) 12%, #ffffff);
+  --surface-teal: color-mix(in srgb, var(--brand-teal) 12%, #ffffff);
 
-  --text: color-mix(in srgb, var(--brand-gray) 78%, black);
-  --muted: var(--brand-gray);
-  --border: color-mix(in srgb, var(--brand-gray) 22%, white);
+  --bg: color-mix(in srgb, var(--sand) 18%, #ffffff);
+  --text: var(--brand-dark);
+  --muted: color-mix(in srgb, var(--brand-dark) 62%, #ffffff);
+  --border: color-mix(in srgb, var(--brand-taupe) 24%, #ffffff);
 
   --section-py: clamp(4rem, 11vw, 7rem);
   --container: 68rem;
@@ -33,20 +38,32 @@
   --type-kicker: clamp(1.125rem, 2.15vw, 1.25rem);
   --type-small: 1.0625rem;
   --type-caption: 1rem;
+
+  /*
+   * Font-Rollen (alle → Barlow via --font-barlow):
+   * - Headlines/Namen: Medium (500) → --font-heading
+   * - Tagline/Kicker/Sublines: Light (300) → --font-subheading
+   * - Fließtext: Regular (400) → --font-body
+   * Body-Gewicht Annahme, Quelle legt nur Medium/Light fest; final mit Frank abstimmen.
+   */
+  --font-heading: var(--font-barlow);
+  --font-subheading: var(--font-barlow);
+  --font-body: var(--font-barlow);
 }
 
 @theme inline {
   --color-background: var(--bg);
   --color-foreground: var(--text);
-  --font-sans: var(--font-body);
+  --font-sans: var(--font-barlow);
 }
 
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: var(--font-body), "Noto Sans", system-ui, sans-serif;
+  font-family: var(--font-body), "Barlow", system-ui, sans-serif;
   font-size: 1.1875rem;
-  font-weight: 300;
+  /* Body-Gewicht Annahme, Quelle legt nur Medium/Light fest; final mit Frank abstimmen. */
+  font-weight: 400;
   line-height: 1.75;
   overflow-wrap: break-word;
 }
@@ -85,7 +102,7 @@ body {
 .section-kicker {
   font-family: var(--font-subheading), sans-serif;
   font-size: var(--type-kicker);
-  font-weight: 400;
+  font-weight: 300;
   color: var(--muted);
   margin-bottom: 0.75rem;
 }
@@ -94,7 +111,7 @@ body {
 .display-title {
   font-family: var(--font-heading), sans-serif;
   font-size: var(--type-display);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.12;
   letter-spacing: -0.02em;
   color: var(--text);
@@ -120,7 +137,7 @@ body {
 .section-title {
   font-family: var(--font-heading), sans-serif;
   font-size: var(--type-section);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.15;
   letter-spacing: -0.02em;
   color: var(--text);
@@ -129,7 +146,7 @@ body {
 .section-title--problem {
   font-family: var(--font-heading), sans-serif;
   font-size: var(--type-display);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.12;
   letter-spacing: -0.02em;
   color: var(--text);
@@ -158,14 +175,15 @@ body {
 }
 
 .section-lead {
-  font-family: var(--font-body), sans-serif;
+  font-family: var(--font-subheading), sans-serif;
   font-size: var(--type-lead);
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.85;
   color: var(--muted);
 }
 
 .body-text {
+  font-family: var(--font-body), sans-serif;
   font-size: var(--type-body);
   font-weight: 400;
   line-height: 1.85;
@@ -223,7 +241,9 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  padding-block: 1.25rem 1.125rem;
+  /* Logo möglichst weit oben; 1mm Abstand der oberen Logo-Linie zum Header-Rand */
+  padding-top: calc(1mm + env(safe-area-inset-top, 0px));
+  padding-bottom: 0.5rem;
 }
 
 .site-header-logo {
@@ -237,119 +257,186 @@ body {
   color: var(--text);
 }
 
-.site-header-logo-inner {
+/* Signatur-Lockup (Wortmarke) – nach LOGO_NEU_15-07-2026 */
+.brand-signature {
   display: inline-flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 0.35rem;
   width: max-content;
+  max-width: 100%;
+  gap: 0;
 }
 
-.site-header-name-line.site-header-wordmark-name {
+.brand-signature__name {
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 500;
+  color: var(--brand-dark);
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.brand-signature__lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-top: 0.2em;
+}
+
+.brand-signature__tagline,
+.brand-signature__accents {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  gap: 0.38em;
+  font-family: var(--font-subheading), sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+
+.brand-signature__tagline {
+  color: var(--brand-dark);
+  line-height: 1.15;
+  transition: color 0.2s ease;
+}
+
+.brand-signature__ki,
+.brand-signature__word-text {
+  flex: 0 0 auto;
+}
+
+.brand-signature__accents {
+  position: relative;
+  margin-top: 0.3em;
+  /* Höhe der Farbbalken – Basislinie mittig durch die Balken */
+  min-height: 4px;
+  align-items: center;
+}
+
+/* Dünne Linie MITTIG durch die Farbbalken */
+.brand-signature__accents::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: color-mix(in srgb, var(--brand-dark) 45%, transparent);
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+.brand-signature__ki--ghost,
+.brand-signature__word-ghost {
+  display: block;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.brand-signature__accent {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex: 0 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.brand-signature__word-bar {
   display: block;
   width: 100%;
-  text-align: justify;
-  text-align-last: justify;
-  letter-spacing: 0.2em;
-  font-weight: 600;
-  color: var(--text);
-  transition: color 0.2s ease;
-  white-space: nowrap;
+  height: 4px;
+  transition: transform 0.2s ease;
 }
 
-.site-header-tagline.site-header-wordmark-tagline {
-  display: flex;
+.brand-signature__word-bar--taupe {
+  background: var(--brand-taupe);
+}
+
+.brand-signature__word-bar--teal {
+  background: var(--brand-teal);
+}
+
+.brand-signature__word-bar--orange {
+  background: var(--brand-orange);
+}
+
+.brand-signature__rule {
+  display: block;
   width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  color: var(--color-accent);
-  font-variant: normal;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  transition: color 0.2s ease;
+  flex-shrink: 0;
+  height: 1px;
+  background: color-mix(in srgb, var(--brand-dark) 45%, transparent);
 }
 
-.site-header-tagline.site-header-wordmark-tagline span[aria-hidden="true"] {
-  flex: 0 0 auto;
-  padding-inline: 0.12em;
-  font-variant: normal;
-  letter-spacing: 0;
+.brand-signature__rule--top {
+  margin-bottom: 0.5em;
 }
 
-.site-header-logo:hover .site-header-name-line.site-header-wordmark-name {
-  color: var(--color-accent);
+/* Header: größer / präsenter zur Hero-Headline */
+.brand-signature--header .brand-signature__name {
+  font-size: clamp(1.625rem, 3.8vw, 2.125rem);
 }
 
-.site-header-logo:hover .site-header-wordmark-tagline {
-  color: var(--muted);
+.brand-signature--header .brand-signature__tagline,
+.brand-signature--header .brand-signature__accents {
+  font-size: clamp(0.8125rem, 1.9vw, 0.9375rem);
+  letter-spacing: 0.045em;
+  gap: 0.42em;
 }
 
-@media (min-width: 640px) {
-  .site-header-name-line.site-header-wordmark-name {
-    letter-spacing: 0.22em;
-  }
-
-  .site-header-tagline.site-header-wordmark-tagline {
-    letter-spacing: 0.16em;
-  }
+.brand-signature--header .brand-signature__accents {
+  min-height: 4.5px;
+  margin-top: 0.35em;
 }
 
-.site-header-name-line {
-  display: flex;
-  align-items: baseline;
-  white-space: nowrap;
-  font-family: var(--font-heading), sans-serif;
-  font-size: clamp(1.3125rem, 3.2vw, 1.75rem);
-  font-weight: 700;
-  line-height: 1;
+.brand-signature--header .brand-signature__word-bar {
+  height: 4.5px;
 }
 
-.site-header-name-word {
-  flex: 0 0 auto;
-  letter-spacing: 0.16em;
+.brand-signature--header .brand-signature__rule--top {
+  margin-bottom: 0.4em;
 }
 
-.site-header-name-between {
-  flex: 0 0 0.55em;
-  min-width: 0.55em;
+.brand-signature--header .brand-signature__lockup {
+  margin-top: 0.22em;
 }
 
-.site-header-tagline {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  font-family: var(--font-subheading), sans-serif;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  font-variant: small-caps;
-  letter-spacing: 0.14em;
-  color: var(--brand-gray);
-  line-height: 1;
+.brand-signature--section .brand-signature__name {
+  font-size: clamp(1.375rem, 3vw, 1.75rem);
 }
 
-.site-header-tagline span[aria-hidden="true"] {
-  flex: 0 0 auto;
-  padding-inline: 0.15em;
-  font-variant: normal;
-  letter-spacing: 0;
+.brand-signature--section .brand-signature__tagline,
+.brand-signature--section .brand-signature__accents {
+  font-size: clamp(0.75rem, 1.7vw, 0.875rem);
 }
 
-@media (min-width: 640px) {
-  .site-header-name-word {
-    letter-spacing: 0.17em;
-  }
-
-  .site-header-tagline {
-    font-size: 0.75rem;
-    letter-spacing: 0.16em;
-  }
+.brand-signature--section .brand-signature__word-bar {
+  height: 4px;
 }
 
-@media (min-width: 768px) {
-  .site-header-name-word {
-    letter-spacing: 0.19em;
-  }
+.site-header-logo:hover .brand-signature__name {
+  color: var(--brand-orange);
+}
+
+.site-header-logo:hover .brand-signature__tagline {
+  color: var(--brand-taupe);
+}
+
+.site-header-logo:hover .brand-signature__word-bar--orange {
+  transform: scaleY(1.15);
+  transform-origin: center;
+}
+
+.site-header-logo:hover .brand-signature__rule--top,
+.site-header-logo:hover .brand-signature__accents::before {
+  background: color-mix(in srgb, var(--brand-orange) 35%, var(--brand-dark));
 }
 
 .nav-link {
@@ -364,64 +451,33 @@ body {
   color: var(--brand-orange);
 }
 
-/* CTAs – Textlink mit orangefarbener Pill beim Hover */
+/* CTAs – gefüllt Orange, weißer Text */
 .btn-primary {
   position: relative;
-  isolation: isolate;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.45rem 1rem 0.65rem;
-  font-family: var(--font-subheading), sans-serif;
+  padding: 0.65rem 1.25rem;
+  font-family: var(--font-heading), sans-serif;
   font-size: var(--type-body);
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.3;
-  color: var(--text);
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid var(--brand-orange);
-  border-radius: 0;
-  transition:
-    color 0.22s ease,
-    border-color 0.22s ease;
-}
-
-.btn-primary::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  left: -0.125rem;
-  right: -0.125rem;
-  top: 0;
-  bottom: 0.45rem;
-  border-radius: 9999px;
+  color: #ffffff;
   background: var(--brand-orange);
-  opacity: 0;
-  transform: scale(0.97);
-  transition:
-    opacity 0.22s ease,
-    transform 0.22s ease;
+  border: none;
+  border-radius: 0.5rem;
+  transition: background 0.22s ease, color 0.22s ease;
 }
 
 .btn-primary:hover,
 .btn-primary:focus-visible {
   color: #ffffff;
-  border-bottom-color: var(--brand-orange);
-  text-shadow:
-    0 0 1px color-mix(in srgb, var(--text) 55%, black),
-    0 1px 1px color-mix(in srgb, var(--text) 35%, black);
+  background: color-mix(in srgb, var(--brand-orange) 72%, var(--brand-dark));
   outline: none;
 }
 
-.btn-primary:hover::before,
-.btn-primary:focus-visible::before {
-  opacity: 1;
-  transform: scale(1);
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .btn-primary,
-  .btn-primary::before {
+  .btn-primary {
     transition: none;
   }
 }
@@ -444,7 +500,7 @@ body {
 
 .btn-secondary:hover {
   color: var(--text);
-  border-color: var(--brand-gray);
+  border-color: var(--brand-taupe);
 }
 
 .microcopy {
@@ -489,7 +545,7 @@ body {
 }
 
 .offer-card:hover {
-  border-left-color: var(--color-accent);
+  border-left-color: var(--brand-orange);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px color-mix(in srgb, var(--text) 8%, transparent);
 }
@@ -497,7 +553,7 @@ body {
 .offer-card__title {
   font-family: var(--font-heading), sans-serif;
   font-size: 1.3125rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.3;
   color: var(--text);
 }
@@ -514,8 +570,8 @@ body {
   margin-top: 1rem;
   font-family: var(--font-subheading), sans-serif;
   font-size: var(--type-caption);
-  font-weight: 700;
-  color: color-mix(in srgb, var(--brand-blue) 70%, black);
+  font-weight: 300;
+  color: color-mix(in srgb, var(--brand-teal) 78%, var(--brand-dark));
 }
 
 /* Rechtliche Seiten (Impressum, Datenschutz) */
@@ -529,7 +585,7 @@ body {
 .legal-section__title {
   font-family: var(--font-heading), sans-serif;
   font-size: 1.1875rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.35;
   color: var(--text);
 }
@@ -558,7 +614,7 @@ body {
 }
 
 .legal-section__body strong {
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text);
 }
 
@@ -617,15 +673,15 @@ body {
   left: 16px;
   font-size: 72px;
   line-height: 1;
-  color: var(--color-accent);
+  color: var(--brand-orange);
   opacity: 0.15;
   font-family: Georgia, serif;
   pointer-events: none;
 }
 
-/* Abschluss-CTA – Navy-Kontrastblock */
+/* Abschluss-CTA – dunkler Kontrastblock */
 .final-cta {
-  background: #1a3a6b;
+  background: var(--brand-dark);
 }
 
 .final-cta .section-kicker {
@@ -646,18 +702,14 @@ body {
 }
 
 .final-cta .btn-primary {
-  color: #fff;
-  background: var(--color-accent);
-  border-bottom-color: var(--color-accent);
+  color: #ffffff;
+  background: var(--brand-orange);
 }
 
-.final-cta .btn-primary::before {
-  opacity: 0;
-}
-
-.final-cta .btn-primary:hover {
-  opacity: 0.9;
-  color: #fff;
+.final-cta .btn-primary:hover,
+.final-cta .btn-primary:focus-visible {
+  color: #ffffff;
+  background: color-mix(in srgb, var(--brand-orange) 72%, var(--brand-dark));
 }
 
 /* Portrait */
@@ -682,9 +734,9 @@ body {
 .step-number {
   font-family: var(--font-subheading), sans-serif;
   font-size: 0.8125rem;
-  font-weight: 700;
+  font-weight: 300;
   letter-spacing: 0.12em;
-  color: var(--brand-blue);
+  color: var(--brand-teal);
 }
 
 /* FAQ */
@@ -720,16 +772,21 @@ body {
 
 /* Footer – Kontakt prominent */
 .site-footer {
-  background: var(--surface-muted);
+  background: var(--brand-dark);
   padding-block: var(--section-py);
+  color: rgb(255 255 255 / 0.88);
+}
+
+.site-footer .section-kicker {
+  color: rgb(255 255 255 / 0.55);
 }
 
 .contact-hero {
   font-family: var(--font-heading), sans-serif;
   font-size: clamp(1.4375rem, 3.25vw, 2.25rem);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.2;
-  color: var(--text);
+  color: #ffffff;
 }
 
 .contact-link {
@@ -737,8 +794,8 @@ body {
   margin-top: 1rem;
   font-family: var(--font-heading), sans-serif;
   font-size: clamp(1.0625rem, 2.5vw, 1.4375rem);
-  font-weight: 400;
-  color: var(--text);
+  font-weight: 500;
+  color: #ffffff;
   transition: color 0.2s ease;
 }
 
@@ -754,10 +811,10 @@ body {
   flex-wrap: nowrap;
   margin-top: 3.5rem;
   padding-top: 2rem;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid color-mix(in srgb, #ffffff 18%, transparent);
   font-size: clamp(1rem, 1.8vw, 1.125rem);
   line-height: 1.5;
-  color: var(--muted);
+  color: rgb(255 255 255 / 0.65);
 }
 
 .site-footer-legal__links {
@@ -771,7 +828,7 @@ body {
   font-family: var(--font-subheading), sans-serif;
   font-size: inherit;
   font-weight: 400;
-  color: var(--muted);
+  color: rgb(255 255 255 / 0.65);
   white-space: nowrap;
   transition: color 0.2s ease;
 }
@@ -797,52 +854,6 @@ body {
   }
 }
 
-/* Hero name (bestehend) */
-.hero-name-line {
-  display: flex;
-  width: 100%;
-  align-items: baseline;
-  white-space: nowrap;
-}
-
-.hero-name-word {
-  flex: 0 0 auto;
-  letter-spacing: 0.18em;
-}
-
-.hero-name-between {
-  flex: 1 1 auto;
-  min-width: 0;
-}
-
-.hero-tagline {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  font-family: var(--font-subheading), sans-serif;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--brand-gray);
-}
-
-@media (min-width: 640px) {
-  .hero-name-word {
-    letter-spacing: 0.17em;
-  }
-
-  .hero-tagline {
-    font-size: 0.8125rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .hero-name-word {
-    letter-spacing: 0.19em;
-  }
-}
-
 /* Hero – genug Abstand unter fixiertem Header (Mobile) */
 .hero-pattern {
   background-image: radial-gradient(
@@ -854,12 +865,25 @@ body {
 }
 
 .hero-section {
-  padding-top: calc(8.5rem + env(safe-area-inset-top, 0px));
+  /* Platz unter dem absoluten Header, damit die Headline nicht hineinragt */
+  padding-top: calc(8.75rem + env(safe-area-inset-top, 0px));
+}
+
+.hero-portrait {
+  margin: 2.25rem 0 0;
+  width: clamp(9rem, 13vw, 10.75rem);
+  height: clamp(9rem, 13vw, 10.75rem);
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--sand) 12%, #ffffff);
+  box-shadow: 0 10px 28px color-mix(in srgb, var(--text) 7%, transparent);
 }
 
 @media (min-width: 768px) {
   .hero-section {
-    padding-top: calc(8.5rem + env(safe-area-inset-top, 0px));
+    padding-top: calc(9rem + env(safe-area-inset-top, 0px));
   }
 }
 
