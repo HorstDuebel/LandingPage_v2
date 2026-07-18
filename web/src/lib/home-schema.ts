@@ -74,17 +74,44 @@ export function getHomeJsonLd() {
         founder: { "@id": `${url}/#person` },
       },
       {
-        "@type": "FAQPage",
-        "@id": `${url}/#faq`,
-        mainEntity: faqEntries.map((item) => ({
-          "@type": "Question",
-          name: item.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: item.answer,
-          },
-        })),
+        "@type": "LocalBusiness",
+        "@id": `${url}/#localbusiness`,
+        name,
+        description: "KI-Beratung",
+        url: "https://frankvullhorst.de",
+        email,
+        telephone: phone,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: address.street,
+          addressLocality: address.city,
+          postalCode: address.postalCode,
+          addressRegion: address.region,
+          addressCountry: address.country,
+        },
+        areaServed: [
+          { "@type": "City", name: "Darmstadt" },
+          { "@type": "AdministrativeArea", name: "Rhein-Main" },
+        ],
       },
     ],
+  };
+}
+
+export function getFaqJsonLd() {
+  const { url } = siteConfig;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${url}/faq#faq`,
+    mainEntity: faqEntries.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
   };
 }

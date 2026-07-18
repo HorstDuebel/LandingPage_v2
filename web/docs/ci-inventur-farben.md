@@ -1,138 +1,109 @@
-# CI-Inventur: Farben & Tokens (Stand Vorbereitung 15.07.2026)
+# CI-Inventur: Farben, Fonts & Logo (Stand 18.07.2026)
 
-Vorbereitung für Rebrand. **Sichtbares Design unverändert.**  
-Referenz geplant: `CursorAI.md` → Abschnitt „Design-Tokens & Fonts (Stand 15.07.2026)“ — Datei im Repo **nicht gefunden**.
-
----
-
-## 1. Zentrale Tokens (`web/src/app/globals.css` → `:root`)
-
-| Token | Wert | Rolle |
-|-------|------|--------|
-| `--brand-gray` | `#a99eac` | Basis Grau/Lila, muted, Borders |
-| `--brand-orange` | `#f89921` | Primär-Orange (Buttons, Hover, Header-Tint) |
-| `--color-accent` | `#e8650a` | Akzent-Orange (dunkler, Kickers, CTAs, Hover-Linien) |
-| `--brand-blue` | `#77b3cf` | Blau/Teal (Meta, Step-Numbers, FAQ-Plus) |
-| `--brand-text-soft` | `#dddfeC` | Hintergrund-Mix-Basis |
-| `--bg` | `color-mix(… --brand-text-soft 12%, white)` | Seitenhintergrund |
-| `--surface` | `#ffffff` | Weiße Flächen |
-| `--surface-muted` | `color-mix(… --brand-text-soft 48%, white)` | Abwechselnde Sections, Footer |
-| `--surface-blue` | `color-mix(… --brand-blue 11%, white)` | Methode-Section |
-| `--surface-warm` | `color-mix(… --brand-orange 8%, white)` | Angebot-Section |
-| `--text` | `color-mix(… --brand-gray 78%, black)` | Fließtext, Headlines |
-| `--muted` | `var(--brand-gray)` | Sekundärtext, Kickers, Footer-Legal |
-| `--border` | `color-mix(… --brand-gray 22%, white)` | Trennlinien |
-
-### Hardcodierte Hex-Werte in `globals.css` (nicht als Token)
-
-| Wert | Verwendung |
-|------|------------|
-| `#1a3a6b` | `.final-cta` Hintergrund (Navy) |
-| `#ffffff` / `#fff` | Button-Hover, Final-CTA Text |
-| `rgb(255 255 255 / 0.5)` | `.final-cta .section-kicker` |
-| `rgb(255 255 255 / 0.7)` | `.final-cta .section-lead`, `.microcopy` |
+Aktiver Stand nach CI-Umstellung (Prompt 11).  
+**Quelle Farbcodes & Font:** `Styleguide/Farbgebung/260715_FarbzuordnungFrank02.pdf`  
+**Logo/Signatur:** `Styleguide/Logo+Font/` und `web/public/brand/`
 
 ---
 
-## 2. Blau- / Navy-Fundstellen (Priorität Rebrand)
+## 1. Primärfarben (PDF → Tokens)
 
-### Navy `#1a3a6b` / `#1A3A6B`
+Ziel laut PDF: Wiedererkennung, Unternehmensbereiche. Einsatz: Logotype, Schrift, Hintergrund.
 
-| Datei | Zeile(n) | Kontext |
-|-------|----------|---------|
-| `web/src/app/globals.css` | 626–628 | `.final-cta { background: #1a3a6b; }` — Abschluss-CTA „Jetzt den ersten Schritt machen“ |
-| `web/src/app/page.tsx` | 149 | Cert-Badge Über-mich: `style={{ background: "#1A3A6B" }}` |
+| Bedeutung | Hex | Token | Einsatz |
+|-----------|-----|-------|---------|
+| sicher | `#7b7163` | `--brand-taupe` | Wortmarke-Balken „sicher“, warme Flächen |
+| strategisch | `#7aafa1` | `--brand-teal` | Wortmarke-Balken „strategisch“, Meta, Teal-Flächen |
+| sinnvoll | `#f18825` | `--brand-orange` | Wortmarke-Balken „sinnvoll“, CTAs, Akzente |
+| Text / Wortmarke | `#41362a` | `--brand-dark` | Name, Fließtext, Final-CTA-Hintergrund |
 
-### Blau-Token `--brand-blue` (`#77b3cf`)
-
-| Datei | Zeile(n) | Kontext |
-|-------|----------|---------|
-| `web/src/app/globals.css` | 8, 14 | Token-Definition, `--surface-blue` |
-| `web/src/app/globals.css` | 518 | `.offer-card__meta` — `color-mix(… --brand-blue 70%, black)` |
-| `web/src/app/globals.css` | 687 | `.step-number` — Modul-Nummern 01–07 |
-| `web/src/app/page.tsx` | 368 | FAQ-Plus-Icon: `text-[var(--brand-blue)]` |
-| `web/src/components/methode.tsx` | 21 | Section-Hintergrund: `bg-[var(--surface-blue)]` |
+Alias: `--color-accent` → `var(--brand-orange)`.
 
 ---
 
-## 3. Grau-Textfarben & Muted
+## 2. Akzentfarben (PDF)
 
-### Token-Kette
+Ziel: Aufmerksamkeit, Aktivierung. Einsatz: Buttons, CTAs, Hervorhebungen.
 
-- `--text` → abgeleitet aus `--brand-gray`
-- `--muted` → direkt `--brand-gray` (`#a99eac`)
+| Hex | Token | Rolle |
+|-----|-------|--------|
+| `#75c2a9` | `--accent-green` | Sekundärer Akzent (sparsam) |
+| `#d3da3d` | `--accent-lime` | Sekundärer Akzent (sparsam) |
+| `#f18825` | `--brand-orange` | Primärer Button-Fill |
 
-### `globals.css`
-
-| Selektor / Bereich | Token/Farbe |
-|--------------------|-------------|
-| `.section-kicker` | `var(--muted)` |
-| `.section-lead` | `var(--muted)` |
-| `.body-text-muted` | `var(--muted)` |
-| `.nav-link` | `var(--muted)` |
-| `.btn-secondary` | `var(--muted)` |
-| `.microcopy` | `var(--muted)` |
-| `.offer-card__desc` | `var(--muted)` |
-| `.legal-section__body` | `var(--muted)` |
-| `.faq-item p` | `var(--muted)` |
-| `.site-footer-legal`, `__link` | `var(--muted)` |
-| `.site-header-tagline` (legacy) | `var(--brand-gray)` |
-| `.hero-tagline` | `var(--brand-gray)` |
-| Wordmark-Hover Tagline | `var(--muted)` |
-
-### Komponenten / Pages (Tailwind `var(--…)`)
-
-| Datei | Verwendung |
-|-------|------------|
-| `web/src/app/page.tsx` | `body-text-muted`, FAQ-Antworten `text-[var(--muted)]` |
-| `web/src/components/problem.tsx` | — (nur `surface-muted` BG) |
-| `web/src/app/termin/page.tsx` | — (hauptsächlich `--text`) |
-
-### Footer-Band
-
-| Datei | Zeile(n) | Hinweis |
-|-------|----------|---------|
-| `web/src/app/globals.css` | 722–724 | `.site-footer { background: var(--surface-muted); }` — **kein Navy**, warmes Grau-Beige |
-| `web/src/components/site-chrome.tsx` | 23–52 | Footer-Inhalt; Legal-Zeile nutzt `.site-footer-legal` → `muted` |
+CTA-Regel im Code: `.btn-primary` = Orange, Hover = `color-mix(orange 72%, brand-dark)`.
 
 ---
 
-## 4. Orange / Akzent (Kurzreferenz)
+## 3. Sekundär- und Neutralfarben (PDF)
 
-| Token | Fundstellen (Auswahl) |
-|-------|------------------------|
-| `--color-accent` | Kicker-Strich (`site-chrome.tsx`), Hero „Maschine.“, Offer-Badges, Scroll-Progress, Offer-Card-Hover, Testimonial-Quote |
-| `--brand-orange` | Header-BG, Buttons `.btn-primary`, Nav-Hover, Contact-Link-Hover, Methode-Kicker |
+Ziel: Ergänzung / Ausgewogenheit. Einsatz: Grafiken, Hintergrundflächen.
 
----
+| Hex | Token / Ableitung | Rolle |
+|-----|-------------------|--------|
+| `#d7cabd` | `--sand` | Sekundär für Grafiken, Basis für helle Flächen |
+| `#41362a` | `--brand-dark` | auch als dunkle Sekundär-/Kontrastfläche |
+| `#ffffff` | `--surface` / Mix-Basis | Weiß, keine erfundenen Neutraltöne |
 
-## 5. Vorbereitung Barlow (ohne Aktivierung)
+### Abgeleitete Flächen (`globals.css`)
 
-| Datei | Änderung |
-|-------|----------|
-| `web/src/app/layout.tsx` | `Barlow` via `next/font/google`, Gewichte 300/400/500, Variable `--font-barlow` auf `<html>` — **nicht** in `body`/globals.css verwendet |
-
-Aktive Fonts unverändert: Manrope (`--font-heading`), Carlito (`--font-subheading`), Mukta (`--font-body`).
-
----
-
-## 6. Signatur-Assets
-
-| Ziel | Status |
-|------|--------|
-| `web/public/brand/260715_SignaturFrank.png` | Kopiert |
-| `web/public/brand/260715_SignaturFrank.eps` | Kopiert |
-| `web/public/brand/260715_SignaturFrank.svg` | **Nicht erstellt** — Inkscape, ImageMagick, Ghostscript lokal nicht verfügbar; EPS→SVG sauber nicht konvertierbar. Web-Fallback: PNG. |
-
-**Quelle:** `Styleguide/Logo+Font/` (Ordner `2026-07-15_Updates` im Repo nicht vorhanden).
+| Token | Ableitung |
+|-------|-----------|
+| `--surface` | `#ffffff` |
+| `--surface-muted` | `color-mix(sand 35%, white)` |
+| `--surface-warm` | `color-mix(brand-taupe 12%, white)` |
+| `--surface-teal` | `color-mix(brand-teal 12%, white)` |
+| `--bg` | `color-mix(sand 18%, white)` |
+| `--text` | `var(--brand-dark)` |
+| `--muted` | `color-mix(brand-dark 62%, white)` |
+| `--border` | `color-mix(brand-taupe 24%, white)` |
 
 ---
 
-## 7. Rebrand-relevante Mappings (für nächsten Schritt)
+## 4. Fonts (PDF: Barlow Medium / Barlow Light)
 
-| Alt | Typische Stellen |
-|-----|------------------|
-| `#77b3cf` / `--brand-blue` | Methode-BG, Step-Numbers, Offer-Meta, FAQ-Plus |
-| `#1a3a6b` | Final-CTA, Cert-Badge |
-| `#a99eac` / `--muted` | Fließtext sekundär, Footer-Legal, Kickers |
-| `#e8650a` / `#f89921` | Akzente, CTAs, Header |
+| Rolle | Schnitt | Gewicht | Token |
+|-------|---------|---------|-------|
+| Name, Headlines | Barlow Medium | 500 | `--font-heading` |
+| Tagline, Kicker, Subline | Barlow Light | 300 | `--font-subheading` |
+| Fließtext | Barlow Light | 300 | `--font-body` |
+
+Einbindung: `next/font/google` in `web/src/app/layout.tsx`, Variable `--font-barlow`, Gewichte **nur 300 und 500**.
+
+---
+
+## 5. Logo / Signatur-Lockup
+
+Laut PDF und Umsetzung in `BrandSignature`:
+
+- **Name:** „Frank Vullhorst“ → Barlow Medium, `--brand-dark`
+- **Tagline:** „ki: sicher strategisch sinnvoll“ → Barlow Light
+- **Farbbalken unter den Wörtern:**
+  - sicher → Taupe `#7b7163`
+  - strategisch → Teal `#7aafa1`
+  - sinnvoll → Orange `#f18825`
+
+### Assets
+
+| Datei | Status |
+|-------|--------|
+| `web/public/brand/260715_SignaturFrank.png` | vorhanden |
+| `web/public/brand/260715_SignaturFrank.eps` | vorhanden |
+| `Styleguide/Logo+Font/260715_SignaturFrank.png` | Quelle |
+| `Styleguide/Logo+Font/260715_FarbzuordnungFrank02.png` | visuelle Referenz Lockup |
+| SVG-Variante | nicht vorhanden; Web nutzt CSS-Lockup + PNG |
+
+Komponente: `web/src/components/brand-signature.tsx` (Header- und Section-Variante).
+
+---
+
+## 6. Wichtige Einsatzstellen (aktuell)
+
+| Element | Farbe / Token |
+|---------|----------------|
+| Primär-Buttons | `--brand-orange`, Text weiß |
+| Final-CTA-Block | Hintergrund `--brand-dark` |
+| Header-Tint | Orange leicht auf Weiß gemischt |
+| Offer-Meta / Trust-Link | Teal-Mischungen |
+| FAQ-Plus (`/faq`) | `--brand-teal` |
+| Portrait-Ecke Expertise | `--brand-orange` |

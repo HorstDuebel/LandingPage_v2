@@ -1,56 +1,120 @@
-# Abnahmecheck CI-Rebrand (15.07.2026)
+# Abnahmecheck CI-Rebrand (Stand 18.07.2026, Prompt 13)
 
-## 1. Suche Alt-Werte (aktiv vs. inaktiv)
+Referenz: `Styleguide/Farbgebung/260715_FarbzuordnungFrank02.pdf`  
+Inventur: `web/docs/ci-inventur-farben.md`
 
-### Aktiv (`web/src/**`) — **keine Treffer**
-Geprüft: `77b3cf`, `1a3a6b`, `a99eac`, `e8650a`, `f89921`, `dddfeC`, `brand-blue`, `brand-gray`, `brand-text-soft`, `surface-blue`, Manrope, Carlito, Mukta.
+---
 
-### Nur Dokumentation (nicht runtime)
-- `web/docs/ci-inventur-farben.md` — historische Inventur mit alten Werten. **Kein Einfluss auf Build.** Kann archiviert/aktualisiert werden.
+## 1. Aktives CI (Soll = Ist)
 
-## 2. Kontrast WCAG AA (Normtext ≥ 4.5:1)
+### Primärfarben
+| Bedeutung | Hex | Token |
+|-----------|-----|-------|
+| sicher | `#7b7163` | `--brand-taupe` |
+| strategisch | `#7aafa1` | `--brand-teal` |
+| sinnvoll | `#f18825` | `--brand-orange` |
+| Text / Wortmarke | `#41362a` | `--brand-dark` |
 
-| Paar | Ratio | AA |
-|------|------:|----|
+### Akzent / Sekundär
+| Hex | Token |
+|-----|-------|
+| `#75c2a9` | `--accent-green` |
+| `#d3da3d` | `--accent-lime` |
+| `#d7cabd` | `--sand` |
+| `#ffffff` | `--surface` / Mix-Basis |
+
+### Fonts
+| Rolle | Schnitt |
+|-------|---------|
+| Name, Headlines | Barlow Medium (500) |
+| Tagline, Subline, Fließtext | Barlow Light (300) |
+
+### Logo
+CSS-Lockup `BrandSignature`: Name, Tagline, drei gleich breite Farbbalken.
+
+---
+
+## 2. Kontrast WCAG AA (Prompt 13)
+
+Normtext ≥ 4.5:1. Messungen nach Fixes.
+
+### Besteht AA
+
+| Paar | Ratio | Status |
+|------|------:|--------|
 | `--brand-dark` auf Weiß | 11.76 | OK |
-| `--brand-dark` auf `--bg` (#f8f5f3) | 10.83 | OK |
-| `--brand-dark` auf `--surface-muted` (#f1ece8) | 10.03 | OK |
-| Weiß auf `--brand-dark` (Footer/CTA) | 11.76 | OK |
-| Taupe auf Weiß (Tagline „sicher“) | 4.79 | OK |
-| **Weiß auf `--brand-orange` (CTA)** | **2.53** | **Unterschreitung** |
-| **`--muted` (#89827b) auf Weiß** | **3.79** | **Unterschreitung** |
-| **Teal FAQ-Plus auf Weiß** | **2.48** | **Unterschreitung** (Icon; UI ≥ 3:1 ideal) |
+| `--brand-dark` auf `--bg` | 10.83 | OK |
+| `--brand-dark` auf `--surface-muted` | 10.03 | OK |
+| `--brand-dark` auf `--surface-warm` | 10.14 | OK |
+| `--brand-dark` auf `--surface-teal` | 10.66 | OK |
+| Weiß auf `--brand-dark` (Final-CTA / Footer) | 11.76 | OK |
+| Taupe auf Weiß | 4.79 | OK |
+| `--muted` (75 % dark) auf Weiß | 5.48 | OK |
+| `--muted` auf `--bg` | 5.05 | OK |
+| `--muted` auf `--surface-muted` | 4.67 | OK |
+| `--muted` auf `--surface-warm` | 4.72 | OK |
+| `--muted` auf `--surface-teal` | 4.97 | OK |
+| **`--brand-dark` auf Orange-CTA** | **4.64** | **OK (Fix)** |
+| **`--brand-dark` auf CTA-Hover** (Orange 85 % Weiß) | **5.33** | **OK (Fix)** |
+| Microcopy Final-CTA (~70 % Weiß auf Dark) | ~5.3 | OK |
 
-### Vorschläge für Frank
-1. **CTA:** Weißer Text auf Orange `#f18825` scheitert. Optionen:
-   - Text `--brand-dark` auf Orange (bereits ~4.64:1), oder
-   - Button-Fill abdunkeln auf ca. `color-mix(orange 60%, brand-dark)` → ~#ab6727 (≈4.47:1 mit Weiß).
-2. **Muted-Text:** `--muted` dunkler mischen, z. B. `color-mix(brand-dark 70%, white)` → ~#7a726a (≈4.73:1).
-3. **FAQ-Plus:** bei Teal eher dekorativ; für AA besser `--brand-dark` oder abgedunkeltes Teal.
+### Behoben in Prompt 13
 
-## 3. Responsive (Fakten aus `qa-notes.json`)
+| Vorher | Problem | Fix |
+|--------|---------|-----|
+| Weiß auf Orange `#f18825` | 2.53 | Button-Text → `--brand-dark` |
+| Hover Weiß auf abgedunkeltes Orange | 3.73 | Hover → Orange aufgehellt, Text bleibt dark |
+| `--muted` 62 % dark | 3.79 auf Weiß, schlechter auf Flächen | `--muted` → 75 % dark |
+| Offer-Meta Teal-Mix | 2.87–3.37 | Farbe → `--muted` |
+| Trust-Link Teal | 2.48 | Farbe → `--brand-dark` |
+| FAQ-Plus Teal | 2.48 | Farbe → `--brand-dark` |
 
-| Viewport | Offer-Grid | Lockup | Footer / Final-CTA | Button |
-|----------|------------|--------|--------------------|--------|
-| 390 (Mobil) | **1 Spalte** | sichtbar | `--brand-dark` | Orange / Weiß |
-| 640–1023 | **2 Spalten** | sichtbar | `--brand-dark` | Orange / Weiß |
-| ≥1024 (Desktop) | **3 Spalten** | sichtbar | `--brand-dark` | Orange / Weiß |
+### Bewusst nicht als Fließtext genutzt (dekorativ / Grafik)
 
-Messwerte: FAQ-Plus = `rgb(122, 175, 161)` = `--brand-teal`; Button-Fill = `#f18825`.
+| Farbe | Ratio auf Weiß | Hinweis |
+|-------|---------------:|---------|
+| Teal `#7aafa1` | 2.48 | nur Farbbalken / Flächen |
+| Green `#75c2a9` | 2.09 | sparsame Akzentfläche |
+| Lime `#d3da3d` | 1.51 | sparsame Akzentfläche |
 
-## 4. Build
-`npm run build` — **erfolgreich** (Next.js 16.2.7, alle Routen statisch).
+---
 
-## 5. Screenshots
-Pfad: `web/public/brand/qa/`
+## 3. Mobile & Layout (Prompt 13)
 
-Desktop: `desktop-hero.png`, `desktop-angebot.png`, `desktop-faq.png`, `desktop-abschluss-cta.png`, `desktop-footer.png`  
-Mobile: `mobile-hero.png`, `mobile-angebot.png`, `mobile-faq.png`, `mobile-abschluss-cta.png`, `mobile-footer.png`
+| Check | Ergebnis |
+|-------|----------|
+| Hero-Abstand unter Header | angepasst (`7.25rem` / `7.75rem` Desktop) |
+| Offer-Grid 1 → 2 → 3 Spalten | bestätigt (`1fr` / `640px` / `1024px`) |
+| Sonderkachel volle Breite | `width: 100%` |
+| Click-Trigger / Microcopy | `max-width: 40rem`, `text-wrap: pretty`, Umbruch erlaubt |
+| Lange CTA-Buttons | `white-space: normal`, `text-wrap: balance` |
+| Hamburger-Anker | `#angebot`, `#so-arbeiten-wir`, `#ueber-mich`, `#nutzen`, `#termin`, `/faq` |
+| Tablet-Nav (6 Einträge) | engere Gaps / kleinere Schrift 768–1023px |
+
+---
+
+## 4. Typografie
+
+| Token | Verwendung |
+|-------|------------|
+| `--type-display` / `--type-display-mobile` | Hero-Headline, Barlow Medium |
+| `--type-section` | Section-Titles |
+| `--type-lead` | Sublines / Leads, Barlow Light |
+| `--type-body` | Fließtext, Barlow Light |
+| `--prose: 40rem` | `max-width` auf `.section-lead` und `.body-text` |
+
+---
+
+## 5. Build
+`npm run build` — siehe letzter Lauf nach Prompt 13.
+
+---
+
+## 6. Screenshots
+Pfad: `web/public/brand/qa/` — für finale Abnahme neu erzeugen empfohlen (Funnel + Kontrast-Fixes).
+
+---
 
 ## Offene Punkte für Frank
-1. CTA-Kontrast entscheiden (dunklerer Orange-Fill **oder** dunkler Text).
-2. Muted-Text ggf. etwas dunkler.
-3. FAQ-Plus: Teal belassen oder auf Dark wechseln.
-4. Farblich kodierte Tagline-Wörter (sicher/strategisch/sinnvoll) freigeben oder wieder monochrom.
-5. Inventur-Doc `web/docs/ci-inventur-farben.md` aktualisieren oder entfernen.
-6. Optional: Playwright war nur temporary für Screenshots (`--no-save`); package-lock ggf. prüfen.
+1. Visuelles Review: dunkler CTA-Text auf Orange (statt Weiß) freigeben.
+2. QA-Screenshots neu erzeugen.

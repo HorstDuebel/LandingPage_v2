@@ -8,11 +8,12 @@ const SCROLL_THRESHOLD = 72;
 const HIDE_DELAY_MS = 350;
 
 const NAV_ITEMS = [
-  { href: "/#fuer-wen", label: "Für wen" },
-  { href: "/#methode", label: "Methode" },
   { href: "/#angebot", label: "Angebot" },
-  { href: "/#faq", label: "FAQ" },
+  { href: "/#so-arbeiten-wir", label: "So arbeiten wir" },
+  { href: "/#ueber-mich", label: "Über mich" },
+  { href: "/#nutzen", label: "Nutzen" },
   { href: "/#termin", label: "Termin" },
+  { href: "/faq", label: "FAQ" },
 ] as const;
 
 export function SiteHeader() {
@@ -113,7 +114,21 @@ export function SiteHeader() {
         }}
       >
         <div className="page-container site-header-inner">
-          <Link href="/#top" className="site-header-logo" onClick={closeMenu}>
+          <Link
+            href="/"
+            className="site-header-logo"
+            aria-label="Zum Seitenanfang"
+            onClick={(event) => {
+              closeMenu();
+              if (window.location.pathname === "/") {
+                event.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                if (window.location.hash) {
+                  window.history.replaceState(null, "", "/");
+                }
+              }
+            }}
+          >
             <BrandSignature variant="header" />
           </Link>
 

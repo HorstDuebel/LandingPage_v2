@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { BrandSignature } from "@/components/brand-signature";
 
 export { SiteHeader } from "@/components/site-header";
 
@@ -22,6 +23,8 @@ export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="page-container">
+        <BrandSignature variant="footer" className="mb-12" />
+
         <SectionKicker>Ich bin erreichbar, in Roßdorf und überall sonst:</SectionKicker>
         <h2 className="contact-hero mt-2">
           Rufen Sie an. Oder schreiben. Beides funktioniert.
@@ -38,6 +41,9 @@ export function SiteFooter() {
 
         <div className="site-footer-legal">
           <div className="site-footer-legal__links">
+            <Link href="/faq" className="site-footer-legal__link">
+              FAQ
+            </Link>
             <Link href="/impressum" className="site-footer-legal__link">
               Impressum
             </Link>

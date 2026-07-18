@@ -4,9 +4,11 @@ import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 
 export function LegalPage({
   title,
+  kicker = "Rechtliches:",
   children,
 }: {
   title: string;
+  kicker?: string;
   children: ReactNode;
 }) {
   return (
@@ -17,7 +19,7 @@ export function LegalPage({
           <Link href="/" className="nav-link !text-sm">
             ← Zur Startseite
           </Link>
-          <p className="section-kicker mt-8">Rechtliches:</p>
+          <p className="section-kicker mt-8">{kicker}</p>
           <h1 className="section-title mt-2">{title}</h1>
           <div className="legal-content mt-10 border-t border-[var(--border)] pt-8">
             {children}

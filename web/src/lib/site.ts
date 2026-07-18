@@ -8,15 +8,18 @@ export const siteConfig = {
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
     "https://frankvullhorst.de",
   locale: "de_DE",
-  defaultTitle: "KI-Beratung für KMU & Handwerk, ki: sicher strategisch sinnvoll",
+  defaultTitle:
+    "KI Beratung Darmstadt: KI-Strategie für KMU und Handwerk | Frank Vullhorst",
   fullTitle:
-    "KI-Beratung für KMU & Handwerk | Frank Vullhorst, ki: sicher strategisch sinnvoll",
+    "KI Beratung Darmstadt: KI-Strategie für KMU und Handwerk | Frank Vullhorst",
   defaultDescription:
-    "KI-Sparring für Inhaber*innen und Geschäftsführer*innen in KMU und Handwerk: KI sicher einführen, EU AI Act pragmatisch umsetzen, kostenloses Erstgespräch in Roßdorf und Rhein-Main.",
+    "KI-Kompetenz und KI-Strategie für KMU und Handwerk in Darmstadt und Rhein-Main. EU AI Act pragmatisch umgesetzt. Kostenfreies 30-Minuten-Erstgespräch.",
   ogDescription:
-    "Praxisnah, nachvollziehbar und an EU AI Act sowie DSGVO orientiert, KI-Beratung für KMU und Handwerk.",
+    "KI-Kompetenz und KI-Strategie für KMU und Handwerk in Darmstadt und Rhein-Main. EU AI Act pragmatisch umgesetzt. Kostenfreies 30-Minuten-Erstgespräch.",
   email: "Info@FrankVullhorst.de",
   phone: "+49-172-6689960",
+  /** LinkedIn-Profil-URL: noch einzutragen (siehe Entscheidung nötig.md) */
+  linkedinUrl: "",
   address: {
     street: "Claudiusweg 9",
     city: "Roßdorf",
@@ -33,6 +36,7 @@ export const siteConfig = {
 export const siteRoutes = [
   { path: "/", changeFrequency: "weekly" as const, priority: 1 },
   { path: "/termin", changeFrequency: "monthly" as const, priority: 0.9 },
+  { path: "/faq", changeFrequency: "monthly" as const, priority: 0.7 },
   { path: "/impressum", changeFrequency: "yearly" as const, priority: 0.3 },
   { path: "/datenschutz", changeFrequency: "yearly" as const, priority: 0.3 },
 ];

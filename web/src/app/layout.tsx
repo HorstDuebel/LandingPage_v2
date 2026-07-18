@@ -8,7 +8,8 @@ import "./globals.css";
 const fontBarlow = Barlow({
   subsets: ["latin"],
   variable: "--font-barlow",
-  weight: ["300", "400", "500"],
+  weight: ["300", "500"],
+  style: ["normal", "italic"],
 });
 
 export const viewport: Viewport = {
@@ -46,12 +47,12 @@ export const metadata: Metadata = {
     url: siteConfig.url,
     siteName: siteConfig.name,
     title: siteConfig.fullTitle,
-    description: siteConfig.ogDescription,
+    description: siteConfig.defaultDescription,
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.fullTitle,
-    description: siteConfig.ogDescription,
+    description: siteConfig.defaultDescription,
   },
 };
 
