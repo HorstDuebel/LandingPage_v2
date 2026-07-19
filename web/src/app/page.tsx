@@ -229,7 +229,7 @@ export default function Home() {
                 <AnimateIn delay={80}>
                   <p className="border-b border-[var(--border)] py-4 copy-small text-[var(--text)]">
                     Vom 3D-Druck zur KI: Neue Technologie in Betriebe zu bringen ist mein
-                    Beruf, seit 30 Jahren.
+                    Beruf.
                   </p>
                 </AnimateIn>
                 <AnimateIn delay={160}>
