@@ -73,8 +73,12 @@ body {
   overflow-wrap: break-word;
 }
 
-* {
-  scroll-margin-top: 100px;
+html {
+  scroll-padding-top: 0;
+}
+
+section[id] {
+  scroll-margin-top: 0;
 }
 
 ::selection {
@@ -601,6 +605,166 @@ body {
   font-size: var(--type-caption);
   font-weight: 300;
   color: var(--muted);
+}
+
+/* Flip-Karten (Orientierung): kompakte A-Seite, große B-Overlay */
+.flip-card {
+  position: relative;
+  outline: none;
+}
+
+.flip-card__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  background: color-mix(in srgb, var(--brand-dark) 32%, transparent);
+  cursor: pointer;
+}
+
+.flip-card__slot {
+  pointer-events: none;
+}
+
+.flip-card--open .flip-card__slot {
+  visibility: hidden;
+}
+
+.flip-card__flyout {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  perspective: 1200px;
+  cursor: pointer;
+  transition:
+    width 0.5s ease,
+    height 0.5s ease,
+    left 0.5s ease,
+    translate 0.5s ease,
+    box-shadow 0.5s ease;
+}
+
+.flip-card__flyout:focus-visible {
+  outline: 2px solid var(--brand-orange);
+  outline-offset: 4px;
+}
+
+.flip-card--open .flip-card__flyout {
+  left: 50%;
+  translate: -50% 0;
+  width: min(28rem, calc(100vw - 2rem));
+  height: auto;
+  z-index: 50;
+  box-shadow: 0 16px 48px color-mix(in srgb, var(--brand-dark) 22%, transparent);
+}
+
+.flip-card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.55s ease;
+}
+
+.flip-card--open .flip-card__inner {
+  display: grid;
+  height: auto;
+  transform: rotateY(180deg);
+}
+
+.flip-card__face {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 1.5rem 0.875rem;
+  border-bottom: 1px solid var(--border);
+  border-left: 3px solid var(--border);
+  background: var(--surface-lime);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.flip-card__flyout:hover .flip-card__face--front,
+.flip-card--open .flip-card__face--back {
+  border-left-color: var(--brand-orange);
+}
+
+.flip-card:not(.flip-card--open) .flip-card__face--back {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  transform: rotateY(180deg);
+  pointer-events: none;
+}
+
+.flip-card--open .flip-card__face {
+  grid-area: 1 / 1;
+  padding: 1.25rem 1.25rem 1.5rem 1.25rem;
+  background: var(--surface);
+}
+
+.flip-card--open .flip-card__face--front {
+  transform: rotateY(0deg);
+}
+
+.flip-card--open .flip-card__face--back {
+  transform: rotateY(180deg);
+}
+
+.flip-card__hint {
+  margin-top: 1rem;
+  font-family: var(--font-subheading), sans-serif;
+  font-size: var(--type-caption);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.flip-card__modules {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 0.875rem;
+}
+
+.flip-card__module-title {
+  font-family: var(--font-heading), sans-serif;
+  font-size: var(--type-small);
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flip-card__flyout,
+  .flip-card__inner,
+  .flip-card__face {
+    transition: none;
+  }
+
+  .flip-card--open .flip-card__inner {
+    transform: none;
+  }
+
+  .flip-card:not(.flip-card--open) .flip-card__face--back,
+  .flip-card--open .flip-card__face--back {
+    transform: none;
+  }
+
+  .flip-card:not(.flip-card--open) .flip-card__face--back {
+    opacity: 0;
+  }
+
+  .flip-card--open .flip-card__face--front {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .flip-card__face {
+    transition: opacity 0.2s ease;
+  }
 }
 
 .offer-special {

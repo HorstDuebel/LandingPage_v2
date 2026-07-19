@@ -93,13 +93,17 @@ export const journeySteps: JourneyStep[] = [
   },
 ];
 
+export type JourneyBackModule = {
+  title: string;
+  body: string;
+};
+
 export type JourneyBuildingBlock = {
   id: Exclude<JourneyClusterId, "special">;
   title: string;
   description: string;
-  /** Dezent unter dem Kartentext, kein Button */
-  formatsHint: string;
   stepIds: readonly string[];
+  backModules: readonly JourneyBackModule[];
 };
 
 /** Drei Bausteine der Orientierungs-Section (ohne Sonderformat) */
@@ -109,24 +113,51 @@ export const journeyBuildingBlocks: JourneyBuildingBlock[] = [
     title: "Prozessanalyse",
     description:
       "Prozesse verstehen. Ich höre zu, stelle Fragen und finde den Kern Ihres Betriebs.",
-    formatsHint: "Typische Formate: AI-ISCA Audit, Prozess-Erfassung.",
     stepIds: ["audit", "prozess-erfassung"],
+    backModules: [
+      {
+        title: "AI-ISCA Audit",
+        body: "Eine strukturierte Bestandsaufnahme: Wo wird KI schon genutzt? Wo liegen Datenschutz- und Compliance-Risiken? Ergebnis ist eine dokumentierte Grundlage für Ihre Entscheidungen.",
+      },
+      {
+        title: "Prozess-Erfassung",
+        body: "Wir nehmen Ihren Ist-Ablauf auf, mit Swimlane oder SIPOC. Rollen, Übergaben und Reibungspunkte werden sichtbar. Keine Personenbewertung, sondern Verständnis für den Betrieb.",
+      },
+    ],
   },
   {
     id: "prozessoptimierung",
     title: "Prozessoptimierung mit und ohne KI",
     description:
       "Entlastungspotenziale finden und heben. KI nur dort, wo sie wirklich trägt.",
-    formatsHint: "Typische Formate: Sicherer Hafen, Pilotprojekt.",
     stepIds: ["sicherer-hafen", "pilotprojekt"],
+    backModules: [
+      {
+        title: "Sicherer Hafen",
+        body: "Ein geordneter Rahmen für den KI-Einsatz: geprüfte Werkzeuge, klare Regeln, saubere Datenwege. Schatten-KI verliert ihren Nährboden.",
+      },
+      {
+        title: "Pilotprojekt",
+        body: "Ein Prozess, ein Ziel, ein messbares Ergebnis. Wir setzen die Optimierung an einer Stelle konkret um, bevor der Betrieb in die Breite geht. Klein anfangen. Sauber wachsen.",
+      },
+    ],
   },
   {
     id: "trainings",
     title: "Trainings / Workshops",
     description:
       "Sie und Ihr Team bei der Einführung begleiten. Befähigung statt Abhängigkeit.",
-    formatsHint: "Typische Formate: KI-Leitlinie, AI Literacy Workshop.",
     stepIds: ["ki-leitlinie", "ai-literacy"],
+    backModules: [
+      {
+        title: "KI-Leitlinie",
+        body: "Klare Spielregeln für Ihr Team: Was darf genutzt werden, was nicht. Verständlich formuliert und im Alltag anwendbar.",
+      },
+      {
+        title: "AI Literacy Workshop",
+        body: "KI-Kompetenz für Ihr Team, wie der EU AI Act sie verlangt. Verstehen, was KI kann und wo ihre Grenzen liegen, an Beispielen aus Ihrem Arbeitsalltag. Mit Unterlagen für Ihre Dokumentation.",
+      },
+    ],
   },
 ];
 

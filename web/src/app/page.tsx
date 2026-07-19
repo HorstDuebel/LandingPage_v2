@@ -6,11 +6,12 @@ import {
   ClickTrigger,
   PrimaryCtaLink,
 } from "@/components/cta-buttons";
+import { BuildingBlockFlipGrid } from "@/components/flip-offer-card";
 import { JsonLd } from "@/components/json-ld";
 import { SectionKicker, SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { cta, finalCta } from "@/lib/copy";
 import { getHomeJsonLd } from "@/lib/home-schema";
-import { journeyBuildingBlocks, journeySpecialFormat } from "@/lib/journey";
+import { journeySpecialFormat } from "@/lib/journey";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -98,7 +99,8 @@ export default function Home() {
                 Regeln, Einweisung und ein passender Kompetenzaufbau fehlen. Der
                 EU AI Act verlangt deshalb geeignete Maßnahmen zur KI-Kompetenz
                 im Team. Entscheidend ist dabei nicht die Größe des Betriebs,
-                sondern wie KI im Unternehmen eingesetzt wird.
+                sondern wie KI im Unternehmen eingesetzt wird. Das ist keine
+                Bürokratie. Das ist Ihr Schutz.
               </p>
               <p className="body-text-note italic">
                 Ich vermittle KI-Kompetenz und stelle Ihnen die Unterlagen
@@ -116,27 +118,15 @@ export default function Home() {
         >
           <div className="page-container">
             <AnimateIn>
-              <h2 className="section-title section-title--two-lines">
-                <span className="display-title-line">
-                  So arbeiten wir zusammen.
-                </span>
+              <SectionKicker>So arbeiten wir zusammen</SectionKicker>
+              <h2 className="section-title">
                 <span className="display-title-line">
                   Die Bausteine, der rote Faden.
                 </span>
               </h2>
             </AnimateIn>
 
-            <div className="offer-grid mt-14">
-              {journeyBuildingBlocks.map((block, i) => (
-                <AnimateIn key={block.id} delay={i * 60} className="h-full">
-                  <article className="offer-card h-full">
-                    <h3 className="offer-card__title">{block.title}</h3>
-                    <p className="offer-card__desc">{block.description}</p>
-                    <p className="offer-card__meta">{block.formatsHint}</p>
-                  </article>
-                </AnimateIn>
-              ))}
-            </div>
+            <BuildingBlockFlipGrid />
 
             <AnimateIn delay={200}>
               <article className="offer-special">
@@ -201,10 +191,14 @@ export default function Home() {
                 </p>
                 <p className="body-text">
                   Das Besondere ist die Verbindung aus Praxis und Struktur.
-                  Werkstattverständnis trifft auf die Logik eines Informatikers
-                  und auf Führungserfahrung auf C-Level. Dazu kommt breites
-                  Branchenwissen im Umfeld industrieller 3D-Druck-Anwendungen,
-                  verbunden mit Erfahrung in internationalen Projektumfeldern.
+                  Werkstattverständnis trifft auf die Logik eines Informatikers.
+                  Der Kundendienst im 3D-Druck hat mich in hunderte Betriebe
+                  geführt: Dental, Automobil, Landmaschinen, Medizintechnik,
+                  Weißwaren, bis hin zu Kunst und Mode. Mein Arbeitsplatz war
+                  dabei mal in den Chefetagen, mal in den Werkhallen und
+                  Produktionen. Ich bewege mich gekonnt auf
+                  Geschäftsleitungsebene und packe an der Werkbank geschickt mit
+                  an. Beide Sprachen sind meine.
                 </p>
               </div>
 
@@ -234,7 +228,8 @@ export default function Home() {
                 </AnimateIn>
                 <AnimateIn delay={80}>
                   <p className="border-b border-[var(--border)] py-4 copy-small text-[var(--text)]">
-                    Fokusthema 3D-Druck
+                    Vom 3D-Druck zur KI: Neue Technologie in Betriebe zu bringen ist mein
+                    Beruf, seit 30 Jahren.
                   </p>
                 </AnimateIn>
                 <AnimateIn delay={160}>
@@ -337,11 +332,8 @@ export default function Home() {
               <p className="section-lead mt-6">{finalCta.body}</p>
             </AnimateIn>
 
-            <ClickTrigger className="microcopy mt-8">
-              {finalCta.microcopy}
-            </ClickTrigger>
             <PrimaryCtaLink
-              className="btn-primary mt-6 !w-auto"
+              className="btn-primary mt-8 !w-auto"
               trackLabel="final"
             >
               {cta.primary.final}

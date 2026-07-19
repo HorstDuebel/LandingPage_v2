@@ -16,12 +16,17 @@ const NAV_ITEMS = [
   { href: "/faq", label: "FAQ" },
 ] as const;
 
+function isHashNav(href: string): href is `/#${string}` {
+  return href.startsWith("/#");
+}
+
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [revealed, setRevealed] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const lastScrollY = useRef(0);
+  const lockHeaderRef = useRef(false);
 
   const clearHideTimer = useCallback(() => {
     if (hideTimer.current) {
@@ -31,6 +36,7 @@ export function SiteHeader() {
   }, []);
 
   const showHeader = useCallback(() => {
+    if (lockHeaderRef.current) return;
     clearHideTimer();
     setRevealed(true);
   }, [clearHideTimer]);
@@ -40,7 +46,34 @@ export function SiteHeader() {
     hideTimer.current = setTimeout(() => setRevealed(false), HIDE_DELAY_MS);
   }, [clearHideTimer]);
 
+  const hideHeaderNow = useCallback(() => {
+    clearHideTimer();
+    setRevealed(false);
+  }, [clearHideTimer]);
+
   const closeMenu = useCallback(() => setMenuOpen(false), []);
+
+  const scrollToSection = useCallback(
+    (href: string) => {
+      const id = href.slice(2);
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      closeMenu();
+      lockHeaderRef.current = true;
+      hideHeaderNow();
+
+      const top = Math.round(el.getBoundingClientRect().top + window.scrollY);
+      window.scrollTo({ top, behavior: "auto" });
+      window.history.pushState(null, "", href);
+
+      window.setTimeout(() => {
+        lockHeaderRef.current = false;
+        lastScrollY.current = window.scrollY;
+      }, 400);
+    },
+    [closeMenu, hideHeaderNow],
+  );
 
   useEffect(() => {
     const onScroll = () => {
@@ -146,11 +179,25 @@ export function SiteHeader() {
           </button>
 
           <nav className="site-nav site-nav--desktop" aria-label="Hauptnavigation">
-            {NAV_ITEMS.map((item) => (
-              <Link key={item.href} href={item.href} className="nav-link">
-                {item.label}
-              </Link>
-            ))}
+            {NAV_ITEMS.map((item) =>
+              isHashNav(item.href) ? (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="nav-link"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    scrollToSection(item.href);
+                  }}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link key={item.href} href={item.href} className="nav-link">
+                  {item.label}
+                </Link>
+              ),
+            )}
           </nav>
         </div>
 
@@ -161,16 +208,30 @@ export function SiteHeader() {
           hidden={!menuOpen}
         >
           <div className="page-container site-nav--mobile-inner">
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="nav-link nav-link--mobile"
-                onClick={closeMenu}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {NAV_ITEMS.map((item) =>
+              isHashNav(item.href) ? (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="nav-link nav-link--mobile"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    scrollToSection(item.href);
+                  }}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="nav-link nav-link--mobile"
+                  onClick={closeMenu}
+                >
+                  {item.label}
+                </Link>
+              ),
+            )}
           </div>
         </nav>
       </header>
