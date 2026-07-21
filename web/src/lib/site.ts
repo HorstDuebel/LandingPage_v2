@@ -16,7 +16,6 @@ export const siteConfig = {
     "KI-Kompetenz und KI-Strategie für KMU und Handwerk in Darmstadt und Rhein-Main. EU AI Act pragmatisch umgesetzt. Kostenfreies 30-Minuten-Erstgespräch.",
   ogDescription:
     "KI-Kompetenz und KI-Strategie für KMU und Handwerk in Darmstadt und Rhein-Main. EU AI Act pragmatisch umgesetzt. Kostenfreies 30-Minuten-Erstgespräch.",
-  email: "Info@FrankVullhorst.de",
   phone: "+49-172-6689960",
   /** LinkedIn-Profil-URL */
   linkedinUrl: "https://www.linkedin.com/in/frankvullhorst/",

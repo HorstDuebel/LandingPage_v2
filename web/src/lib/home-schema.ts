@@ -2,7 +2,15 @@ import { faqEntries } from "@/lib/faq";
 import { siteConfig } from "@/lib/site";
 
 export function getHomeJsonLd() {
-  const { address, url, name, email, phone } = siteConfig;
+  const { address, url, name, phone } = siteConfig;
+
+  const contactPoint = {
+    "@type": "ContactPoint" as const,
+    telephone: phone,
+    contactType: "customer service",
+    availableLanguage: "German",
+    url: `${url}/impressum`,
+  };
 
   return {
     "@context": "https://schema.org",
@@ -19,8 +27,8 @@ export function getHomeJsonLd() {
         "@type": "Person",
         "@id": `${url}/#person`,
         name,
-        email,
         telephone: phone,
+        contactPoint,
         jobTitle: "KI-Berater*in",
         description: siteConfig.defaultDescription,
         url,
@@ -51,8 +59,8 @@ export function getHomeJsonLd() {
         name: `${name}, KI-Sparring`,
         description: siteConfig.defaultDescription,
         url,
-        email,
         telephone: phone,
+        contactPoint,
         priceRange: "€€",
         address: {
           "@type": "PostalAddress",
@@ -79,8 +87,8 @@ export function getHomeJsonLd() {
         name,
         description: "KI-Beratung",
         url: "https://frankvullhorst.de",
-        email,
         telephone: phone,
+        contactPoint,
         address: {
           "@type": "PostalAddress",
           streetAddress: address.street,

@@ -4,6 +4,7 @@ import {
   LegalPage,
   LegalSection,
 } from "@/components/legal-page";
+import { ProtectedEmail } from "@/components/protected-email";
 
 export const metadata: Metadata = {
   title: "Impressum",
@@ -36,10 +37,7 @@ export default function ImpressumPage() {
           Telefon:{" "}
           <a href="tel:+491726689960">+49 (0)172 6689960</a>
           <br />
-          E-Mail:{" "}
-          <a href="mailto:Info@FrankVullhorst.de">
-            Info@FrankVullhorst.de
-          </a>
+          E-Mail: <ProtectedEmail />
         </p>
       </LegalSection>
 

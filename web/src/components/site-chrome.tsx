@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { ProtectedEmail } from "@/components/protected-email";
 import { BrandSignature } from "@/components/brand-signature";
 
 export { SiteHeader } from "@/components/site-header";
@@ -32,12 +33,7 @@ export function SiteFooter() {
         <a href="tel:+491726689960" className="contact-link">
           +49 (0)172 6689960
         </a>
-        <a
-          href="mailto:Info@FrankVullhorst.de"
-          className="contact-link !text-[clamp(1rem,2.5vw,1.375rem)]"
-        >
-          Info@FrankVullhorst.de
-        </a>
+        <ProtectedEmail className="contact-link !text-[clamp(1rem,2.5vw,1.375rem)]" />
 
         <div className="site-footer-legal">
           <div className="site-footer-legal__links">
