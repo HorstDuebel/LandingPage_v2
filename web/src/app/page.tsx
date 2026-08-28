@@ -96,18 +96,25 @@ export default function Home() {
                 aus, suchen bessere, schnellere Wege und entdecken sinnvolle
                 Einsatzmöglichkeiten.
               </p>
-              <p className="body-text !max-w-none">
-                Ich greife diesen Antrieb auf und gebe ihm einen klaren Rahmen:
-                Wo schafft KI echten Nutzen? Welche Kompetenzen, Regeln und
-                Grenzen braucht es? So wird aus einzelnen Versuchen ein
-                sicherer, steuerbarer{" "}
-                <span className="whitespace-nowrap">KI-Einsatz</span>.
-                Schatten-KI wird dabei sichtbar und steuerbar. Nicht durch
-                Verbote, sondern durch Klarheit und Kompetenz. Gleichzeitig
-                erhalten Sie eine nachvollziehbare Dokumentation Ihrer Maßnahmen
-                zur <span className="whitespace-nowrap">KI-Kompetenz</span>,
-                auch mit Blick auf den EU AI Act.
-              </p>
+              <div className="body-text !max-w-none space-y-3">
+                <p>
+                  Ich greife diesen Antrieb auf und gebe ihm einen klaren Rahmen:
+                </p>
+                <ul className="list-disc space-y-1 pl-6">
+                  <li>Wo schafft KI echten Nutzen?</li>
+                  <li>Welche Kompetenzen, Regeln und Grenzen braucht es?</li>
+                </ul>
+                <p>
+                  So wird aus einzelnen Versuchen ein sicherer, steuerbarer{" "}
+                  <span className="whitespace-nowrap">KI-Einsatz</span>.
+                  Schatten-KI wird dabei sichtbar und steuerbar. Nicht durch
+                  Verbote, sondern durch Klarheit und Kompetenz. Gleichzeitig
+                  erhalten Sie eine nachvollziehbare Dokumentation Ihrer
+                  Maßnahmen zur{" "}
+                  <span className="whitespace-nowrap">KI-Kompetenz</span>, auch
+                  mit Blick auf den EU AI Act.
+                </p>
+              </div>
               <p className="body-text !max-w-none">
                 Das ist nicht nur Compliance. Das ist Befähigung.
               </p>
