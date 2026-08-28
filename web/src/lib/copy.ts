@@ -16,7 +16,8 @@ export const cta = {
 /** Einziger Abschluss-CTA (Section 7) */
 export const finalCta = {
   headline: "Jetzt den ersten Schritt machen",
-  body: "Kostenfreies Erstgespräch für Ihre Orientierung reservieren. Nach dem Austausch haben Sie eine Vorstellung davon, was für Ihr Unternehmen heute sinnvoll ist und was ein sinnvoller nächster Schritt sein kann.",
+  body: "Ich erkläre Ihnen KI nicht nur. Ich baue mit Ihnen KI-Kompetenz auf,",
+  bodyLine2: "die im Betrieb bleibt, wenn ich wieder weg bin.",
   microcopy:
     "kostenfrei, 30 Minuten, unverbindlich, Video oder Telefonat, keine Vorbereitung nötig",
 } as const;

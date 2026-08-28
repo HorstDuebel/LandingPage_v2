@@ -182,10 +182,12 @@ export const journeySpecialFormat = {
       "Wann soll es nachfragen?",
     ],
     afterBullets:
-      "Sie entscheiden selbst, wie viel Rechte und Zugriff Claude bekommt und wissen, wie Sie die Arbeit jederzeit stoppen können.",
+      "Sie entscheiden selbst, welche Rechte und welchen Zugriff Claude bekommt.",
+    afterBulletsLine2:
+      "Und wissen, wie Sie die Arbeit jederzeit stoppen können.",
     paragraphs: [
       {
-        label: "Kosten:",
+        label: "Tarife:",
         body: "Für die rein private Nutzung kommen die Claude-Tarif „Pro“ oder „Max“ infrage.",
       },
       {

@@ -327,7 +327,11 @@ export default function Home() {
               <h2 className="section-title">
                 <span className="display-title-line">{finalCta.headline}</span>
               </h2>
-              <p className="section-lead mt-6">{finalCta.body}</p>
+              <p className="section-lead mt-6">
+                {finalCta.body}
+                <br />
+                {finalCta.bodyLine2}
+              </p>
             </AnimateIn>
 
             <PrimaryCtaLink
