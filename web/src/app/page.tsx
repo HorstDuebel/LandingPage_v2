@@ -83,8 +83,8 @@ export default function Home() {
                 <span className="display-title-line">
                   KI-Strategie für Ihr Unternehmen.
                 </span>
-                <span className="display-title-line mt-[0.4em]">
-                  Sicher, strategisch, sinnvoll.
+                <span className="display-title-line mt-[0.4em] whitespace-pre">
+                  sicher   strategisch   sinnvoll
                 </span>
               </h2>
             </AnimateIn>
