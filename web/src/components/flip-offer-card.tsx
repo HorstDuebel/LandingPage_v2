@@ -10,6 +10,7 @@ import {
 } from "react";
 import {
   journeyBuildingBlocks,
+  journeySpecialFormat,
   type JourneyBuildingBlock,
 } from "@/lib/journey";
 
@@ -49,7 +50,7 @@ function FlipOfferCard({
       className={`flip-card${flipped ? " flip-card--open" : ""}`}
       style={minHeight > 0 && !flipped ? { minHeight } : undefined}
     >
-      <div className="flip-card__slot" aria-hidden="true">
+      <div className="flip-card__slot">
         <div className="flip-card__measure" data-flip-slot="">
           <div className="flip-card__face flip-card__face--front">{front}</div>
         </div>
@@ -82,6 +83,158 @@ function FlipOfferCard({
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SpecialFormatFlipCard({
+  flipped,
+  onToggle,
+}: {
+  flipped: boolean;
+  onToggle: () => void;
+}) {
+  const backMeasureRef = useRef<HTMLDivElement>(null);
+  const [openMinHeight, setOpenMinHeight] = useState(0);
+
+  const onKeyDown = useCallback(
+    (event: KeyboardEvent<HTMLDivElement>) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        onToggle();
+      }
+    },
+    [onToggle],
+  );
+
+  const syncOpenHeight = useCallback(() => {
+    const measure = backMeasureRef.current;
+    if (!measure) return;
+    setOpenMinHeight(measure.scrollHeight);
+  }, []);
+
+  useLayoutEffect(() => {
+    if (!flipped) {
+      setOpenMinHeight(0);
+      return;
+    }
+    syncOpenHeight();
+  }, [flipped, syncOpenHeight]);
+
+  useEffect(() => {
+    if (!flipped) return;
+
+    const measure = backMeasureRef.current;
+    if (!measure) return;
+
+    const ro = new ResizeObserver(() => syncOpenHeight());
+    ro.observe(measure);
+    window.addEventListener("resize", syncOpenHeight);
+
+    if (document.fonts?.ready) {
+      void document.fonts.ready.then(syncOpenHeight);
+    }
+
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", syncOpenHeight);
+    };
+  }, [flipped, syncOpenHeight]);
+
+  const front = (
+    <>
+      <h3 className="offer-card__title offer-special__title">
+        {journeySpecialFormat.title}
+      </h3>
+      <p className="offer-card__desc">{journeySpecialFormat.intro}</p>
+      <p className="offer-card__desc">
+        <strong>Mein Angebot:</strong> {journeySpecialFormat.offerBody}
+      </p>
+      <p className="offer-card__desc offer-special__closing">
+        {journeySpecialFormat.closing}
+      </p>
+      <p className="flip-card__hint">Mehr erfahren</p>
+    </>
+  );
+
+  const back = (
+    <>
+      <h3 className="offer-card__title offer-special__title">
+        {journeySpecialFormat.title}
+      </h3>
+      <p className="flip-card-special__subtitle">
+        {journeySpecialFormat.back.subtitle}
+      </p>
+      <p className="offer-card__desc">{journeySpecialFormat.back.lead}</p>
+      <ul className="flip-card-special__list">
+        {journeySpecialFormat.back.bullets.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+      <p className="offer-card__desc">{journeySpecialFormat.back.afterBullets}</p>
+      {journeySpecialFormat.back.paragraphs.map((paragraph) => (
+        <p key={paragraph.body} className="offer-card__desc">
+          {paragraph.label ? (
+            <>
+              <strong>{paragraph.label}</strong> {paragraph.body}
+            </>
+          ) : (
+            paragraph.body
+          )}
+        </p>
+      ))}
+    </>
+  );
+
+  return (
+    <div
+      className={`flip-card flip-card-special${flipped ? " flip-card--open" : ""}`}
+    >
+      <div
+        ref={backMeasureRef}
+        className="flip-card-special__back-measure"
+        aria-hidden="true"
+      >
+        <div className="flip-card__face flip-card__face--special">{back}</div>
+      </div>
+
+      <div className="flip-card__slot">
+        <div className="flip-card__measure" data-flip-slot-special="">
+          <div className="flip-card__face flip-card__face--front flip-card__face--special">
+            {front}
+          </div>
+        </div>
+      </div>
+
+      <div
+        className="flip-card__flyout"
+        role="button"
+        tabIndex={0}
+        aria-expanded={flipped}
+        aria-label={`${journeySpecialFormat.title}: ${flipped ? "Details schließen" : "Mehr erfahren"}`}
+        style={
+          flipped && openMinHeight > 0
+            ? { minHeight: openMinHeight }
+            : undefined
+        }
+        onClick={(event) => {
+          event.stopPropagation();
+          onToggle();
+        }}
+        onKeyDown={onKeyDown}
+      >
+        <div className="flip-card__inner">
+          <div className="flip-card__face flip-card__face--front flip-card__face--special">
+            {front}
+          </div>
+          <div
+            className="flip-card__face flip-card__face--back flip-card__face--special"
+            aria-hidden={!flipped}
+          >
+            {back}
           </div>
         </div>
       </div>
@@ -142,7 +295,7 @@ export function BuildingBlockFlipGrid() {
   }, [openId, close]);
 
   return (
-    <>
+    <div className="orientation-flip-zone">
       {openId ? (
         <div
           className="flip-card__backdrop"
@@ -164,6 +317,15 @@ export function BuildingBlockFlipGrid() {
           />
         ))}
       </div>
-    </>
+
+      <SpecialFormatFlipCard
+        flipped={openId === journeySpecialFormat.id}
+        onToggle={() =>
+          setOpenId((current) =>
+            current === journeySpecialFormat.id ? null : journeySpecialFormat.id,
+          )
+        }
+      />
+    </div>
   );
 }

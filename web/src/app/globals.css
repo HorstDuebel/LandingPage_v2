@@ -63,6 +63,11 @@
   --font-sans: var(--font-barlow);
 }
 
+html {
+  scroll-padding-top: 0;
+  overflow-x: clip;
+}
+
 body {
   background: var(--bg);
   color: var(--text);
@@ -71,10 +76,8 @@ body {
   font-weight: 300;
   line-height: 1.75;
   overflow-wrap: break-word;
-}
-
-html {
-  scroll-padding-top: 0;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 section[id] {
@@ -91,7 +94,8 @@ section[id] {
   width: 100%;
   max-width: var(--container);
   margin-inline: auto;
-  padding-inline: clamp(1.5rem, 5vw, 3rem);
+  padding-left: max(clamp(1.5rem, 5vw, 3rem), env(safe-area-inset-left, 0px));
+  padding-right: max(clamp(1.5rem, 5vw, 3rem), env(safe-area-inset-right, 0px));
 }
 
 .prose-width {
@@ -272,6 +276,8 @@ section[id] {
 
 .site-header-logo {
   display: inline-block;
+  min-width: 0;
+  max-width: calc(100% - 3.5rem);
   color: var(--text);
   text-decoration: none;
   transition: color 0.2s ease;
@@ -550,6 +556,10 @@ section[id] {
   gap: clamp(2rem, 4vw, 3rem);
 }
 
+.offer-grid > * {
+  min-width: 0;
+}
+
 @media (min-width: 640px) {
   .offer-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -614,6 +624,7 @@ section[id] {
   flex-direction: column;
   align-self: stretch;
   height: 100%;
+  min-width: 0;
   outline: none;
 }
 
@@ -667,7 +678,10 @@ section[id] {
   left: 50%;
   translate: -50% 0;
   width: min(28rem, calc(100vw - 2rem));
+  width: min(28rem, calc(100dvw - 2rem));
   height: auto;
+  max-height: min(85dvh, 90vh);
+  overflow-y: auto;
   z-index: 50;
   box-shadow: 0 16px 48px color-mix(in srgb, var(--brand-dark) 22%, transparent);
 }
@@ -789,13 +803,100 @@ section[id] {
   }
 }
 
-.offer-special {
-  display: block;
-  width: 100%;
+.offer-special__title {
+  font-weight: 700;
+}
+
+.offer-special__closing {
+  margin-top: 1rem;
+}
+
+/* Orientierungs-Zone: Sonderkarte flippt wie die Bausteine (rotateY) */
+.orientation-flip-zone {
+  position: relative;
+  overflow: visible;
+}
+
+.flip-card-special {
   margin-top: clamp(2rem, 4vw, 3rem);
+  overflow: visible;
+}
+
+.flip-card-special__back-measure {
+  position: absolute;
+  inset: 0 auto auto 0;
+  visibility: hidden;
+  pointer-events: none;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+}
+
+/* Geöffnet: volle Breite, wächst nach oben, überlappt Bausteine soweit nötig */
+.flip-card-special.flip-card--open {
+  z-index: 50;
+}
+
+.flip-card-special.flip-card--open .flip-card__flyout {
+  inset: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: auto;
+  width: 100%;
+  height: auto;
+  max-height: min(82dvh, 82vh, 52rem);
+  overflow-y: auto;
+  translate: none;
+  z-index: 50;
+  box-shadow: 0 -10px 40px color-mix(in srgb, var(--brand-dark) 18%, transparent);
+  -webkit-overflow-scrolling: touch;
+}
+
+.flip-card-special.flip-card--open .flip-card__face--special {
+  padding: 1.75rem 1.5rem 2rem;
+  background: var(--surface-teal);
+  border-bottom: none;
+}
+
+.flip-card__face--special {
   padding: 1.5rem 1.25rem 1.75rem;
   background: var(--surface-teal);
   border-left: 3px solid var(--brand-orange);
+  border-bottom: none;
+}
+
+.flip-card-special:not(.flip-card--open) .flip-card__face--special {
+  border-bottom: none;
+}
+
+.flip-card-special__subtitle {
+  margin-top: 0.5rem;
+  font-family: var(--font-subheading), sans-serif;
+  font-size: var(--type-caption);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.flip-card-special__list {
+  margin-top: 0.5rem;
+  padding-left: 1.25rem;
+  list-style: disc;
+  font-size: var(--type-small);
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.flip-card-special__list li + li {
+  margin-top: 0.35rem;
+}
+
+.flip-card-special .offer-card__desc + .offer-card__desc,
+.flip-card-special .flip-card-special__list + .offer-card__desc {
+  margin-top: 0.75rem;
 }
 
 /* Rechtliche Seiten (Impressum, Datenschutz) */
@@ -965,13 +1066,59 @@ section[id] {
   background: color-mix(in srgb, var(--brand-orange) 85%, #ffffff);
 }
 
-/* Portrait */
+/*
+ * Expertise-Portrait – SOLL-Vorlage (Paint):
+ * Bild LINKS neben Text (nicht darüber).
+ * 9 Uhr = linke Kante Hero-Button; 3 Uhr ≈ 5mm vor Text; 12 Uhr ≈ EXPERTISE.
+ * Breakpoint bewusst < 900px, damit Side-by-Side auch in schmaleren Fenstern greift.
+ */
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  gap: 2rem;
+}
+
 .about-portrait {
-  position: relative;
-  aspect-ratio: 4 / 5;
-  max-width: 16rem;
+  width: min(16rem, 70vw);
+  margin-inline: auto;
+  line-height: 0;
+  border-radius: 50%;
   overflow: hidden;
-  border: 1px solid var(--border);
+  background: transparent;
+}
+
+.about-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Ab ~700px: nebeneinander wie SOLL (Ist-Screenshot war nur ~900px breit) */
+@media (min-width: 700px) {
+  .about-layout {
+    grid-template-columns: 22.25rem minmax(0, 1fr);
+    column-gap: 5mm;
+    row-gap: 0;
+  }
+
+  .about-portrait {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+    justify-self: start;
+  }
+
+  .about-copy {
+    min-width: 0;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 899px) {
+  /* Schmalere Desktop-Fenster: etwas kompakter, weiter nebeneinander */
+  .about-layout {
+    grid-template-columns: minmax(14rem, 38%) minmax(0, 1fr);
+  }
 }
 
 /* Schritte-Liste */
@@ -1027,6 +1174,7 @@ section[id] {
 .site-footer {
   background: var(--surface-muted);
   padding-block: var(--section-py);
+  padding-bottom: calc(var(--section-py) + env(safe-area-inset-bottom, 0px));
   color: var(--text);
 }
 
@@ -1098,12 +1246,22 @@ section[id] {
 
 @media (max-width: 767px) {
   .site-footer-legal {
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
     gap: 1rem;
     font-size: 0.9375rem;
   }
 
   .site-footer-legal__links {
+    flex-wrap: wrap;
     gap: 1.25rem;
+  }
+
+  .site-footer-legal__copy {
+    white-space: normal;
+    text-align: left;
+    text-wrap: pretty;
   }
 }
 
@@ -1120,6 +1278,29 @@ section[id] {
 .hero-section {
   /* Platz unter dem Header (kompaktes Lockup) */
   padding-top: calc(7.25rem + env(safe-area-inset-top, 0px));
+}
+
+/* Hero: gleiche Nutzbreite wie Angebot (voller page-container) */
+.hero-section .hero-lead-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  max-width: 100%;
+}
+
+.hero-section .hero-lead-cta__text,
+.hero-section .section-lead {
+  width: 100%;
+  max-width: none;
+  line-height: 1.95;
+}
+
+.hero-lead-cta__button {
+  align-self: stretch;
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
 }
 
 .hero-portrait {
@@ -1149,6 +1330,10 @@ section[id] {
 
   .hero-section .display-title-line--gap {
     margin-top: 0.9em;
+  }
+
+  .display-title-line {
+    overflow-wrap: anywhere;
   }
 
   .section-title--problem {
@@ -1242,6 +1427,7 @@ section[id] {
   flex-direction: column;
   gap: 0.25rem;
   padding-block: 1rem 1.25rem;
+  padding-bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
 }
 
 .nav-link--mobile {

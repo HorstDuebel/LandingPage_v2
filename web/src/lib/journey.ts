@@ -134,7 +134,7 @@ export const journeyBuildingBlocks: JourneyBuildingBlock[] = [
     backModules: [
       {
         title: "Sicherer Hafen",
-        body: "Ein geordneter Rahmen für den KI-Einsatz: geprüfte Werkzeuge, klare Regeln, saubere Datenwege. Schatten-KI verliert ihren Nährboden.",
+        body: "Ein geordneter Rahmen für den KI-Einsatz: geprüfte Werkzeuge, klare Regeln, saubere Datenwege. Was bisher im Verborgenen lief, bekommt einen sicheren, offiziellen Platz.",
       },
       {
         title: "Pilotprojekt",
@@ -165,7 +165,38 @@ export const journeyBuildingBlocks: JourneyBuildingBlock[] = [
 export const journeySpecialFormat = {
   id: "special" as const,
   title: "Claude Cowork Workshop",
-  description:
-    "Ein Sonderformat für Betriebe, die KI direkt im Arbeitsalltag erleben wollen. Wir arbeiten gemeinsam an Ihren echten Aufgaben, mit Claude als digitalem Mitarbeiter.",
+  intro:
+    "Claude Cowork bearbeitet Aufgaben selbstständig in mehreren Schritten. In der Desktop-App arbeitet Claude mit lokalen Ordnern, die Sie gezielt und kontrolliert freigeben.",
+  offerBody:
+    "Wir richten gemeinsam einen klar abgegrenzten Arbeitsbereich ein und legen fest, was Claude sehen und tun darf, im Unternehmen oder privat zuhause.",
+  closing:
+    "Nicht zuschauen, sondern selbst machen, mit klaren Grenzen von Anfang an.",
   stepId: "claude-cowork",
+  back: {
+    subtitle: "(für Einzelpersonen oder Gruppen)",
+    lead:
+      "Sie bringen eine Kopie eines echten Arbeitsordners mit. Daraus bauen wir einen klar abgegrenzten Arbeitsraum:",
+    bullets: [
+      "Welche Dateien darf Claude sehen?",
+      "Was darf es bearbeiten?",
+      "Wann soll es nachfragen?",
+    ],
+    afterBullets:
+      "Sie entscheiden selbst, wie viel Rechte und Zugriff Claude bekommt und wissen, wie Sie die Arbeit jederzeit stoppen können.",
+    paragraphs: [
+      {
+        label: "Kosten:",
+        body: "Für die rein private Nutzung kommen die Claude-Tarif „Pro“ oder „Max“ infrage.",
+      },
+      {
+        body: "Werden Claude Cowork und oder Claude im Unternehmen mit personenbezogenen Kunden- oder Beschäftigtendaten eingesetzt, klären wir gemeinsam den passenden geschäftlichen Account und die notwendigen Datenschutzvoraussetzungen. Im geschäftlichen Bereich sind dafür insbesondere die Tarife Team und Enterprise mit AVV/DPA relevant.",
+      },
+      {
+        body: "Genauso wichtig ist, welche Daten Claude überhaupt erhält. Namen, Kundennummern, Adressen oder Steuer-IDs ersetzen wir, wo sinnvoll, mit der Verarbeitung durch Platzhalter. Das reduziert das Risiko, unabhängig vom gewählten Account.",
+      },
+      {
+        body: "Am Ende steht kein Zertifikat, sondern ein funktionierendes Setup für eine echte Aufgabe aus Ihrem Alltag und Sie wissen, welche Freigaben Sie bewusst erteilt haben.",
+      },
+    ],
+  },
 };

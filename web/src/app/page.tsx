@@ -11,7 +11,6 @@ import { JsonLd } from "@/components/json-ld";
 import { SectionKicker, SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { cta, finalCta } from "@/lib/copy";
 import { getHomeJsonLd } from "@/lib/home-schema";
-import { journeySpecialFormat } from "@/lib/journey";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -42,34 +41,35 @@ export default function Home() {
             <div>
               <h1 className="display-title">
                 <span className="display-title-line">
-                  KI im Unternehmen ohne KI-Kompetenz?
+                  Wer sein Unternehmen voranbringt,
                 </span>
-                <span className="display-title-line">
-                  Das ist ein Sicherheitsrisiko.
-                </span>
+                <span className="display-title-line">geht Risiken ein.</span>
                 <span className="display-title-line display-title-line--gap">
-                  Und verschenktes Potenzial.
+                  Bei KI sollten Sie wissen, welche.
                 </span>
               </h1>
 
-              <p className="section-lead mt-6">
-                Ich baue mit Ihnen KI-Kompetenz auf und entwickle Ihre
-                KI-Strategie. Sicher. Strategisch. Sinnvoll. Für KMU und
-                Handwerksbetriebe.
-              </p>
+              <div className="hero-lead-cta mt-6">
+                <p className="section-lead hero-lead-cta__text !max-w-none">
+                  Fortschritt entsteht, wenn Risiken erkannt, abgewogen und
+                  bewusst eingegangen werden. Bei KI gilt nichts anderes. Ich
+                  begleite Sie bei Ihrer{" "}
+                  <span className="whitespace-nowrap">KI-Einführung</span>{" "}
+                  dabei: Chancen nutzen, mutig vorangehen und an kritischen
+                  Stellen bewusst entscheiden. So entstehen KI-Kompetenzen und
+                  eine{" "}
+                  <span className="whitespace-nowrap">KI-Strategie</span>, die
+                  im Unternehmen verstanden und von der Belegschaft mitgetragen
+                  wird.
+                </p>
 
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-8">
                 <PrimaryCtaLink
-                  className="btn-primary !w-auto sm:max-w-none"
+                  className="btn-primary hero-lead-cta__button mt-10 w-full"
                   trackLabel="hero"
                 >
                   {cta.primary.hero}
                 </PrimaryCtaLink>
               </div>
-
-              <p className="microcopy mt-6 max-w-md">
-                30 Minuten. Kostenlos. Klarheit für Ihren nächsten Schritt.
-              </p>
             </div>
           </div>
         </section>
@@ -79,35 +79,44 @@ export default function Home() {
           <div className="page-container">
             <AnimateIn>
               <SectionKicker>Das Angebot</SectionKicker>
-              <h2 className="section-title section-title--two-lines">
+              <h2 className="display-title">
                 <span className="display-title-line">
                   KI-Strategie für Ihr Unternehmen.
                 </span>
-                <span className="display-title-line">
+                <span className="display-title-line mt-[0.4em]">
                   Sicher, strategisch, sinnvoll.
                 </span>
               </h2>
             </AnimateIn>
 
-            <div className="mt-10">
+            <div className="mt-10 space-y-5">
               <p className="body-text !max-w-none">
-                Schatten-KI ist in vielen Unternehmen bereits ein Thema.
-                Mitarbeitende nutzen mitunter private oder nicht klar geregelte
-                KI-Tools, teils produktiv, teils mit Risiken.
-                Datenschutzverstöße, Haftungslücken und falsche Ergebnisse
-                entstehen selten aus böser Absicht. Sie entstehen dort, wo klare
-                Regeln, Einweisung und ein passender Kompetenzaufbau fehlen. Der
-                EU AI Act verlangt deshalb geeignete Maßnahmen zur KI-Kompetenz
-                im Team. Entscheidend ist dabei nicht die Größe des Betriebs,
-                sondern wie KI im Unternehmen eingesetzt wird. Das ist keine
-                Bürokratie. Das ist Ihr Schutz.
+                KI-Einführung beginnt bei den Menschen, die damit arbeiten. In
+                vielen Teams ist der Antrieb längst da: Mitarbeitende probieren
+                aus, suchen bessere, schnellere Wege und entdecken sinnvolle
+                Einsatzmöglichkeiten.
               </p>
-              <p className="body-text-note italic">
-                Ich vermittle KI-Kompetenz und stelle Ihnen die Unterlagen
-                bereit, mit denen Sie das Kompetenztraining nachvollziehbar
-                dokumentieren können.
+              <p className="body-text !max-w-none">
+                Ich greife diesen Antrieb auf und gebe ihm einen klaren Rahmen:
+                Wo schafft KI echten Nutzen? Welche Kompetenzen, Regeln und
+                Grenzen braucht es? So wird aus einzelnen Versuchen ein
+                sicherer, steuerbarer{" "}
+                <span className="whitespace-nowrap">KI-Einsatz</span>.
+                Schatten-KI wird dabei sichtbar und steuerbar. Nicht durch
+                Verbote, sondern durch Klarheit und Kompetenz. Gleichzeitig
+                erhalten Sie eine nachvollziehbare Dokumentation Ihrer Maßnahmen
+                zur <span className="whitespace-nowrap">KI-Kompetenz</span>,
+                auch mit Blick auf den EU AI Act.
+              </p>
+              <p className="body-text !max-w-none">
+                Das ist nicht nur Compliance. Das ist Befähigung.
               </p>
             </div>
+            <p className="body-text-note">
+              Ich vermittle KI-Kompetenz und stelle Ihnen die Unterlagen bereit,
+              mit denen Sie das Kompetenztraining nachvollziehbar dokumentieren
+              können.
+            </p>
           </div>
         </section>
 
@@ -121,25 +130,16 @@ export default function Home() {
               <SectionKicker>So arbeiten wir zusammen</SectionKicker>
               <h2 className="section-title">
                 <span className="display-title-line">
-                  Die Bausteine, der rote Faden.
+                  Erst verstehen: Dann sinnvoll umsetzen.
                 </span>
               </h2>
             </AnimateIn>
 
             <BuildingBlockFlipGrid />
 
-            <AnimateIn delay={200}>
-              <article className="offer-special">
-                <h3 className="offer-card__title">{journeySpecialFormat.title}</h3>
-                <p className="offer-card__desc">
-                  {journeySpecialFormat.description}
-                </p>
-              </article>
-            </AnimateIn>
-
             <div className="mt-12">
               <PrimaryCtaLink
-                className="btn-primary !w-auto sm:max-w-none"
+                className="btn-primary hero-lead-cta__button w-full"
                 trackLabel="orientierung"
               >
                 {cta.primary.hero}
@@ -153,29 +153,20 @@ export default function Home() {
           id="ueber-mich"
           className="section-block bg-[var(--surface-warm)]"
         >
-          <div className="page-container grid grid-cols-1 items-start gap-12 lg:grid-cols-[16rem_1fr] lg:gap-16">
-            <div className="relative mx-auto inline-block lg:mx-0">
-              <div className="about-portrait">
-                <Image
-                  src="/frank.jpg"
-                  alt="Frank Vullhorst"
-                  fill
-                  className="object-cover object-[center_20%]"
-                  sizes="256px"
-                  priority
-                />
-                <div
-                  aria-hidden="true"
-                  className="absolute bottom-0 right-0 z-10 h-14 w-14"
-                  style={{
-                    background: "var(--brand-orange)",
-                    clipPath: "polygon(100% 0, 100% 100%, 0 100%)",
-                  }}
-                />
-              </div>
+          <div className="page-container about-layout">
+            <div className="about-portrait">
+              <Image
+                src="/frank.png"
+                alt="Frank Vullhorst"
+                width={1254}
+                height={1254}
+                className="h-auto w-full"
+                sizes="(min-width: 900px) 22.25rem, (min-width: 700px) 38vw, 70vw"
+                priority
+              />
             </div>
 
-            <div>
+            <div className="about-copy">
               <AnimateIn>
                 <SectionKicker>Expertise</SectionKicker>
                 <h2 className="sr-only">Expertise</h2>
