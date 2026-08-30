@@ -18,8 +18,6 @@ export const finalCta = {
   headline: "Jetzt den ersten Schritt machen",
   body: "Ich erkläre Ihnen KI nicht nur. Ich baue mit Ihnen KI-Kompetenz auf,",
   bodyLine2: "die im Betrieb bleibt, wenn ich wieder weg bin.",
-  microcopy:
-    "kostenfrei, 30 Minuten, unverbindlich, Video oder Telefonat, keine Vorbereitung nötig",
 } as const;
 
 export const triggers = {
@@ -31,7 +29,6 @@ export const triggers = {
     "Zertifizierung: KI-Manager*in (Cert-IT, Nr. KI001220) · Fokus: KMU & Handwerk",
   vertrauenAfter:
     "So starten die meisten Entscheider*innen: erst Klarheit, dann der passende nächste Baustein.",
-  finalBefore: finalCta.microcopy,
   footerBody:
     "Viele Inhaber*innen und Geschäftsführer*innen starten mit einem kurzen Gespräch, und wissen danach, ob und wie es weitergeht.",
   terminIntro:

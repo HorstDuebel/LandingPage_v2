@@ -3,7 +3,6 @@ import Image from "next/image";
 import { AnimateIn } from "@/components/animate-in";
 import { BrandSignature } from "@/components/brand-signature";
 import {
-  ClickTrigger,
   PrimaryCtaLink,
 } from "@/components/cta-buttons";
 import { BuildingBlockFlipGrid } from "@/components/flip-offer-card";
@@ -34,7 +33,7 @@ export default function Home() {
       <JsonLd data={getHomeJsonLd()} />
       <SiteHeader />
 
-      <main id="top" className="flex-1">
+      <main id="top" className="landing-page flex-1">
         {/* 1. Hero */}
         <section className="hero-section hero-pattern section-block bg-[var(--surface-lime)]">
           <div className="page-container">
@@ -83,8 +82,10 @@ export default function Home() {
                 <span className="display-title-line">
                   KI-Strategie für Ihr Unternehmen.
                 </span>
-                <span className="display-title-line mt-[0.4em] whitespace-pre">
-                  sicher   strategisch   sinnvoll
+                <span className="display-title-line display-title-tagline mt-[0.4em]">
+                  <span className="display-title-tagline__word">sicher</span>
+                  <span className="display-title-tagline__word">strategisch</span>
+                  <span className="display-title-tagline__word">sinnvoll</span>
                 </span>
               </h2>
             </AnimateIn>
@@ -340,9 +341,6 @@ export default function Home() {
             >
               {cta.primary.final}
             </PrimaryCtaLink>
-            <ClickTrigger className="microcopy mt-4">
-              {finalCta.microcopy}
-            </ClickTrigger>
           </div>
         </section>
       </main>

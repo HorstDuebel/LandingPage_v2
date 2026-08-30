@@ -174,7 +174,11 @@ function SpecialFormatFlipCard({
           <li key={item}>{item}</li>
         ))}
       </ul>
-      <p className="offer-card__desc">{journeySpecialFormat.back.afterBullets}</p>
+      <p className="offer-card__desc">
+        {journeySpecialFormat.back.afterBullets}
+        <br />
+        {journeySpecialFormat.back.afterBulletsLine2}
+      </p>
       {journeySpecialFormat.back.paragraphs.map((paragraph) => (
         <p key={paragraph.body} className="offer-card__desc">
           {paragraph.label ? (

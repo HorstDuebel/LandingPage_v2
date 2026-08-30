@@ -143,6 +143,18 @@ section[id] {
   margin-top: 1.1em;
 }
 
+.display-title-tagline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.75em;
+  row-gap: 0.2em;
+}
+
+.display-title-tagline__word {
+  flex: 0 0 auto;
+}
+
 .section-title--stacked .display-title-line + .display-title-line {
   margin-top: 1.1em;
 }
@@ -1332,6 +1344,13 @@ section[id] {
     margin-top: 0.9em;
   }
 
+  #angebot .display-title-tagline {
+    font-size: clamp(1.0625rem, 4.1vw, 1.375rem);
+    column-gap: 0.55em;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+
   .display-title-line {
     overflow-wrap: anywhere;
   }
@@ -1463,6 +1482,39 @@ section[id] {
 
   .nav-link {
     font-size: 0.8125rem;
+  }
+}
+
+/* Landing Page: größerer, breiterer Fließtext nur auf Desktop */
+@media (min-width: 768px) {
+  .landing-page {
+    --type-lead: 1.5rem;
+    --type-body: 1.5rem;
+  }
+
+  .landing-page .section-lead,
+  .landing-page .body-text {
+    max-width: 100%;
+    line-height: 1.8;
+    text-wrap: pretty;
+  }
+
+  .landing-page .hero-section .hero-lead-cta__text,
+  .landing-page .hero-section .section-lead {
+    line-height: 1.82;
+  }
+
+  .landing-page .body-text-note {
+    font-size: calc(var(--type-body) * 0.75);
+    max-width: min(44rem, 100%);
+    line-height: 1.75;
+  }
+
+  .landing-page .offer-card__desc,
+  .landing-page .quote-block p,
+  .landing-page .copy-small {
+    font-size: calc(var(--type-body) * 0.93);
+    line-height: 1.75;
   }
 }
 
