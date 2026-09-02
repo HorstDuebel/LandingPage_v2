@@ -16,11 +16,18 @@ const NAV_ITEMS = [
   { href: "/faq", label: "FAQ" },
 ] as const;
 
+const DOWNLOAD_NAV_ITEMS = [{ href: "/", label: "Zur Startseite" }] as const;
+
+type SiteHeaderProps = {
+  variant?: "default" | "download";
+};
+
 function isHashNav(href: string): href is `/#${string}` {
   return href.startsWith("/#");
 }
 
-export function SiteHeader() {
+export function SiteHeader({ variant = "default" }: SiteHeaderProps) {
+  const navItems = variant === "download" ? DOWNLOAD_NAV_ITEMS : NAV_ITEMS;
   const [scrolled, setScrolled] = useState(false);
   const [revealed, setRevealed] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -115,12 +122,22 @@ export function SiteHeader() {
 
   const headerClass = [
     "site-header",
+    variant === "download" ? "site-header--download" : "",
     scrolled ? "site-header--fixed" : "",
     isHidden ? "site-header--hidden" : "",
     menuOpen ? "site-header--menu-open" : "",
   ]
     .filter(Boolean)
     .join(" ");
+
+  const navLinkClass = (mobile = false) =>
+    [
+      "nav-link",
+      mobile ? "nav-link--mobile" : "",
+      variant === "download" ? "nav-link--home-cta" : "",
+    ]
+      .filter(Boolean)
+      .join(" ");
 
   return (
     <>
@@ -146,7 +163,14 @@ export function SiteHeader() {
           }
         }}
       >
-        <div className="page-container site-header-inner">
+        <div className="page-container">
+          <div
+            className={
+              variant === "download"
+                ? "download-layout__column site-header-inner site-header-inner--download"
+                : "site-header-inner"
+            }
+          >
           <Link
             href="/"
             className="site-header-logo"
@@ -179,12 +203,12 @@ export function SiteHeader() {
           </button>
 
           <nav className="site-nav site-nav--desktop" aria-label="Hauptnavigation">
-            {NAV_ITEMS.map((item) =>
+            {navItems.map((item) =>
               isHashNav(item.href) ? (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="nav-link"
+                  className={navLinkClass()}
                   onClick={(event) => {
                     event.preventDefault();
                     scrollToSection(item.href);
@@ -193,12 +217,13 @@ export function SiteHeader() {
                   {item.label}
                 </a>
               ) : (
-                <Link key={item.href} href={item.href} className="nav-link">
+                <Link key={item.href} href={item.href} className={navLinkClass()}>
                   {item.label}
                 </Link>
               ),
             )}
           </nav>
+          </div>
         </div>
 
         <nav
@@ -208,12 +233,12 @@ export function SiteHeader() {
           hidden={!menuOpen}
         >
           <div className="page-container site-nav--mobile-inner">
-            {NAV_ITEMS.map((item) =>
+            {navItems.map((item) =>
               isHashNav(item.href) ? (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="nav-link nav-link--mobile"
+                  className={navLinkClass(true)}
                   onClick={(event) => {
                     event.preventDefault();
                     scrollToSection(item.href);
@@ -225,7 +250,7 @@ export function SiteHeader() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="nav-link nav-link--mobile"
+                  className={navLinkClass(true)}
                   onClick={closeMenu}
                 >
                   {item.label}
