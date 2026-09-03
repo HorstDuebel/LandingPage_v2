@@ -83,9 +83,24 @@ export default function Home() {
                   KI-Strategie für Ihr Unternehmen.
                 </span>
                 <span className="display-title-line display-title-tagline mt-[0.4em]">
-                  <span className="display-title-tagline__word">sicher</span>
-                  <span className="display-title-tagline__word">strategisch</span>
-                  <span className="display-title-tagline__word">sinnvoll</span>
+                  <span
+                    className="display-title-tagline__word display-title-tagline__word--taupe"
+                    style={{ color: "var(--brand-taupe)" }}
+                  >
+                    sicher
+                  </span>
+                  <span
+                    className="display-title-tagline__word display-title-tagline__word--teal"
+                    style={{ color: "var(--brand-teal)" }}
+                  >
+                    strategisch
+                  </span>
+                  <span
+                    className="display-title-tagline__word display-title-tagline__word--orange"
+                    style={{ color: "var(--brand-orange)" }}
+                  >
+                    sinnvoll
+                  </span>
                 </span>
               </h2>
             </AnimateIn>

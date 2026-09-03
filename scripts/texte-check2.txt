@@ -1,0 +1,8 @@
+45 in C: 0
+---typos---
+3|Optemierungen|layout.tsx → metadata.description|Ein Austausch über Prozesse, Optemierungen, Automatiesierungen und KI – sicher, sinnvoll und strategisch.
+3|Automatiesierungen|layout.tsx → metadata.description|Ein Austausch über Prozesse, Optemierungen, Automatiesierungen und KI – sicher, sinnvoll und strategisch.
+16|Vogelperspektive|page.tsx → Hero → Headline Zeile 2|30 Minuten aus der Vogelperspektive.
+25|  ver|page.tsx → Über mich → Lead|Ich arbeite mit Inhabern und Geschäftsführern im Handwerk und in KMU, die KI nicht als Hype, sondern als echte Entlastung im Alltag verstehen wollen:  verständlich, sicher und praxisnah.
+65|höhre|page.tsx → Methode → Titel Zeile 1|Ich höhre hin, nehme auf mit dem Blick auf das Wesentliche
+83|KI Vorhaben|page.tsx → Versprechen → kicker|Ihr KI Vorhaben:

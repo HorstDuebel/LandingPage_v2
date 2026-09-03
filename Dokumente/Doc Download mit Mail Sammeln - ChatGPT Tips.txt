@@ -1,0 +1,156 @@
+Ja. Für dein Vorhaben würde ich **FormSubmit.co und Web3Forms nicht einsetzen**. Technisch funktionieren beide, aber für eine professionelle Website, auf der du personenbezogene Daten sammelst und anschließend für Kundenkommunikation nutzen möchtest, gibt es sauberere Lösungen.
+
+Der wichtigste Punkt ist allerdings ein anderer:
+
+> **„Teilnehmer bekommt Unterlagen – ich bekomme dafür seine E-Mail-Adresse und darf ihn anschließend anschreiben“ sind rechtlich zwei verschiedene Zwecke.**
+
+### Was du darfst – und was nicht
+
+Wenn jemand seine E-Mail-Adresse eingibt mit dem Hinweis „Unterlagen zu meinem Vortrag per E-Mail erhalten“, darfst du diese Adresse verwenden, um ihm genau diese Unterlagen zu schicken. Dafür braucht es nicht zwingend eine Newsletter-Einwilligung; die Verarbeitung kann zur Erbringung der ausdrücklich gewünschten Leistung erforderlich sein. Die Person muss aber bei der Datenerhebung darüber informiert werden, was mit ihren Daten geschieht. Art. 13 DSGVO verlangt diese Transparenz. ([Eur-Lex][1])
+
+**Du darfst anschließend aber nicht einfach eine Werbe-E-Mail hinterherschicken**, etwa „Wie hat Ihnen der Vortrag gefallen? Vielleicht kann ich Ihr Unternehmen bei KI unterstützen.“ Der Hessische Datenschutzbeauftragte weist ausdrücklich darauf hin, dass Werbung per E-Mail grundsätzlich eine ausdrückliche und nachweisbare Einwilligung benötigt. Auch § 7 UWG verlangt für Werbung per elektronischer Post grundsätzlich die vorherige ausdrückliche Einwilligung. ([Datenschutz Hessen][2])
+
+Und genau deshalb würde ich den Prozess so bauen:
+
+1. **QR-Code → frankvullhorst.de/unterlagen/…**
+
+   Dort beispielsweise:
+
+   **Unterlagen zum Vortrag herunterladen**
+   „Geben Sie Ihre E-Mail-Adresse ein. Sie erhalten anschließend den Link zu den Unterlagen.“
+
+   E-Mail-Adresse: **Pflichtfeld**
+   Vorname: freiwillig
+
+2. Darunter eine **separate, nicht vorausgewählte Checkbox**:
+
+   > ☐ Ich möchte von Frank Vullhorst gelegentlich per E-Mail Informationen zu KI, weiteren Vorträgen, Veranstaltungen und Angeboten erhalten. Ich kann meine Einwilligung jederzeit widerrufen.
+
+3. Darunter:
+
+   > Hinweise zur Verarbeitung Ihrer Daten finden Sie in meiner Datenschutzerklärung.
+
+4. Button:
+
+   **„Unterlagen anfordern“**
+
+5. Der Teilnehmer erhält sofort die Mail mit seinen Unterlagen.
+
+6. **Nur wenn er die zusätzliche Checkbox aktiviert hat**, bekommt er eine Double-Opt-in-Mail. Erst nachdem er diese bestätigt hat, kommt er in deine Kontakt-/Marketingliste.
+
+Das ist nicht nur juristisch sauberer, sondern auch aus meiner Sicht **besser für deine Positionierung**: Du sprichst selbst von sicherer und sinnvoller KI-Nutzung. Dann sollte auch deine eigene Datenverarbeitung sichtbar sauber sein.
+
+Eine verpflichtende Newsletter-Einwilligung als „Bezahlung“ für die Unterlagen würde ich vermeiden. Art. 7 Abs. 4 DSGVO verlangt bei der Beurteilung einer Einwilligung ausdrücklich zu berücksichtigen, ob eine Dienstleistung von einer Datenverarbeitung abhängig gemacht wird, die dafür nicht erforderlich ist. Die Datenschutzkonferenz weist darauf hin, dass solche gekoppelten Einwilligungen regelmäßig hinsichtlich ihrer Freiwilligkeit problematisch werden können. ([Eur-Lex][3])
+
+## Deine beiden vorgeschlagenen Dienste
+
+| Lösung                                               | Meine Einschätzung                                  |
+| ---------------------------------------------------- | --------------------------------------------------- |
+| **FormSubmit.co**                                    | ❌ Würde ich nicht nehmen                            |
+| **Web3Forms**                                        | ❌ Würde ich für deinen Zweck ebenfalls nicht nehmen |
+| **rapidmail**                                        | ✅ Meine erste Wahl                                  |
+| **CleverReach**                                      | ✅ Gute Alternative                                  |
+| **Eigener Formular-Backend + rapidmail/CleverReach** | ✅✅ Technisch und datenschutzseitig mein Favorit     |
+
+### FormSubmit.co
+
+Hier wäre ich besonders zurückhaltend. Die veröffentlichte Datenschutzerklärung ist mit **17. Januar 2019** datiert und enthält aus meiner Sicht zu wenig konkrete Informationen zu Betreiber, Serverstandorten, Unterauftragnehmern und Auftragsverarbeitung. Gleichzeitig dokumentiert FormSubmit selbst, dass Formulardaten teilweise **30 Tage gespeichert** werden können. ([FormSubmit][4])
+
+Wenn ein Dienst deine Teilnehmerdaten verarbeitet, bist du Verantwortlicher und der Dienst typischerweise Auftragsverarbeiter. Nach Art. 28 DSGVO solltest du dafür einen Anbieter einsetzen, der ausreichende Garantien bietet und mit dem eine entsprechende Vereinbarung zur Auftragsverarbeitung abgeschlossen werden kann. ([Eur-Lex][3])
+
+**Für eine Testseite okay. Für deine geschäftliche Website mit echten Interessentendaten: nein.**
+
+### Web3Forms
+
+Web3Forms ist transparenter – aber gerade deshalb würde ich es ebenfalls nicht wählen.
+
+Der Anbieter schreibt selbst: Die Server stehen in **US-East**, das Unternehmen gehört zu Web3Creative in **Kerala, Indien**. Außerdem können Serverlogs personenbezogene Informationen enthalten und werden laut Anbieter regelmäßig nach etwa zwei Monaten gelöscht. ([docs.web3forms.com][5])
+
+Das kann theoretisch datenschutzkonform gestaltet werden, macht aber Drittlandtransfers, Vertragsprüfung und Dokumentation unnötig kompliziert.
+
+Du bist ein deutsches Ein-Personen-Unternehmen und willst vielleicht ein paar Hundert oder später einige Tausend Kontakte verwalten. **Warum sich freiwillig USA/Indien ins Datenschutzkonzept holen, wenn es deutsche Anbieter gibt?**
+
+## Meine Wahl für FrankVullhorst.de: rapidmail
+
+Für deinen konkreten Anwendungsfall finde ich **rapidmail erstaunlich passend**.
+
+rapidmail bietet einen elektronisch abschließbaren **AV-Vertrag**, speichert nach eigenen Angaben die Daten seines Kernprodukts auf Servern in **Deutschland**, unterstützt **Double-Opt-in** und dokumentiert die DOI-Daten. ([rapidmail.de][6])
+
+Und besonders interessant für dein Vorhaben:
+
+**rapidmail kann zu einem Anmeldeformular direkt einen QR-Code erzeugen.** Die Formulare lassen sich außerdem in die eigene Website einbetten. ([rapidmail.de][7])
+
+Das trifft deinen Anwendungsfall fast exakt.
+
+### CleverReach wäre meine Nummer 2
+
+CleverReach ist ebenfalls ein deutscher Anbieter. Nach eigenen Angaben werden die relevanten Empfängerdaten auf Servern in Deutschland bzw. der EU gespeichert; ein AV-Vertrag kann online abgeschlossen werden und Double-Opt-in inklusive Nachweis wird unterstützt. ([cleverreach.com][8])
+
+CleverReach hat derzeit auch einen kostenlosen Einstiegstarif; Preise und Tarifgrenzen sind selbstverständlich **prüfbedürftig**, weil sie sich ändern können. ([cleverreach.com][9])
+
+## So würde ich es bei dir technisch aufbauen
+
+Ich würde sogar noch einen Schritt weitergehen und **Formular und Newsletter-Anmeldung voneinander trennen**:
+
+```text
+QR-Code auf deiner Präsentation
+          ↓
+frankvullhorst.de/unterlagen/ki-senioren
+          ↓
+┌──────────────────────────────────────────┐
+│ Unterlagen zum heutigen Vortrag          │
+│                                          │
+│ E-Mail-Adresse *                         │
+│ [____________________________]           │
+│                                          │
+│ Vorname (freiwillig)                     │
+│ [____________________________]           │
+│                                          │
+│ ☐ Ich möchte gelegentlich weitere        │
+│   Informationen zu KI, Veranstaltungen   │
+│   und Angeboten von Frank Vullhorst.     │
+│                                          │
+│ Datenschutzhinweise                      │
+│                                          │
+│      [ Unterlagen anfordern ]            │
+└──────────────────────────────────────────┘
+          ↓
+E-Mail mit Download-Link
+          ↓
+nur bei gesetztem Häkchen:
+Double-Opt-in
+          ↓
+Marketing-/Interessentenliste
+```
+
+Damit hast du später beispielsweise Kontakte mit einem Tag:
+
+**Quelle:** Vortrag KI für Senioren – KHVR Roßdorf – 04.09.2026
+
+oder
+
+**Quelle:** KI-Vortrag Handwerkskammer – 12.11.2026
+
+Das ist für dich später extrem wertvoll. Du weißt nicht nur, **wer** der Kontakt ist, sondern auch, **woher** er kommt und wofür er sich interessiert.
+
+Und ich würde die Unterlagen nicht einfach nach dem Absenden des Formulars als öffentliche `/downloads/handout.pdf` anzeigen. Besser ist, **den Download-Link per E-Mail zu schicken**. Damit weißt du wenigstens, dass eine funktionsfähige Adresse angegeben wurde. Wenn du echten Zugangsschutz brauchst, kann man später auch zeitlich begrenzte Download-Links verwenden.
+
+### Mein konkreter Rat
+
+Für dich würde ich **rapidmail + eigene Landingpage auf FrankVullhorst.de** wählen. Nicht FormSubmit und nicht Web3Forms.
+
+Dabei sollte rapidmail möglichst nur den Teil übernehmen, für den es gut ist: **Kontaktverwaltung, Double-Opt-in, Nachweis, Abmeldung und spätere E-Mail-Kommunikation.** Das eigentliche Teilnehmererlebnis bleibt komplett auf **FrankVullhorst.de** und sieht nach dir aus, nicht nach einem Newsletteranbieter.
+
+Wichtig: Das ist eine belastbare praktische Einschätzung anhand des aktuellen Stands im September 2026, aber keine individuelle Rechtsberatung. Gerade Datenschutzerklärung, Löschfristen und genauer Einwilligungstext sollten vor dem produktiven Einsatz noch einmal final geprüft werden.
+
+**Wenn du möchtest, kann ich dir als nächsten Schritt den gesamten Ablauf für FrankVullhorst.de konkret entwerfen – inklusive Text der Landingpage, Formularfelder, DSGVO-/Einwilligungstext, Double-Opt-in-Mail, Download-Mail und der technischen Architektur mit rapidmail.** Das würde ich so auslegen, dass du es anschließend für jeden neuen Vortrag einfach kopieren kannst.
+
+[1]: https://eur-lex.europa.eu/eli/reg/2016/679/art_6/oj/eng?utm_source=chatgpt.com "Regulation - 2016/679 - DE - gdpr - EUR-Lex"
+[2]: https://datenschutz.hessen.de/infothek/haeufig-gestellte-fragen?utm_source=chatgpt.com "Häufig gestellte Fragen | datenschutz.hessen.de"
+[3]: https://eur-lex.europa.eu/legal-content/DE/TXT/?qid=1681893047023&uri=CELEX%3A32016R0679&utm_source=chatgpt.com "Verordnung - 2016/679 - EN - Datenschutz Grundverordnung - EUR-Lex"
+[4]: https://formsubmit.co/privacy.pdf?utm_source=chatgpt.com "Privacy Policies | Terms of services"
+[5]: https://docs.web3forms.com/getting-started/faq?utm_source=chatgpt.com "FAQ | Web3Forms"
+[6]: https://www.rapidmail.de/hilfe/datenschutzvertrag-nach-eu-dsgvo-abschliessen?utm_source=chatgpt.com "Auftragsverarbeitungs-Vertrag nach EU-DSGVO abschließen – rapidmail Hilfecenter"
+[7]: https://www.rapidmail.de/funktionen-kontakte-gewinnen?utm_source=chatgpt.com "Newsletter-Kontakte gewinnen & Reichweite steigern"
+[8]: https://www.cleverreach.com/de-de/vorteile/dsgvo-konformes-newsletter-tool/?utm_source=chatgpt.com "DSGVO-konformes Newsletter-Tool"
+[9]: https://www.cleverreach.com/de-de/?utm_source=chatgpt.com "Intuitives Newsletter-Tool – DSGVO-konform & Made in Germany"

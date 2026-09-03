@@ -1,7 +1,9 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ProtectedEmail } from "@/components/protected-email";
 import { BrandSignature } from "@/components/brand-signature";
+import { kiSalonContact } from "@/lib/ki-salon";
 
 export { SiteHeader } from "@/components/site-header";
 
@@ -20,20 +22,74 @@ export function SectionKicker({ children }: { children: string }) {
   );
 }
 
-export function SiteFooter() {
+type SiteFooterProps = {
+  variant?: "default" | "ki-salon";
+};
+
+export function SiteFooter({ variant = "default" }: SiteFooterProps) {
+  const isKiSalon = variant === "ki-salon";
+  const [susanne, frank] = kiSalonContact.hosts;
+
   return (
     <footer className="site-footer">
       <div className="page-container">
-        <BrandSignature variant="footer" className="mb-12" />
+        {isKiSalon ? null : (
+          <BrandSignature variant="footer" className="mb-12" />
+        )}
 
-        <SectionKicker>Ich bin erreichbar, in Roßdorf und überall sonst:</SectionKicker>
-        <h2 className="contact-hero mt-2">
-          Rufen Sie an. Oder schreiben. Beides funktioniert.
-        </h2>
-        <a href="tel:+491726689960" className="contact-link">
-          +49 (0)172 6689960
-        </a>
-        <ProtectedEmail className="contact-link !text-[clamp(1rem,2.5vw,1.375rem)]" />
+        {isKiSalon ? (
+          <div className="ki-salon-contact-block">
+            <SectionKicker>{kiSalonContact.kicker}</SectionKicker>
+            <div className="ki-salon-contact-align">
+              <h2 className="contact-hero mt-2">{kiSalonContact.headline}</h2>
+
+              <div className="ki-salon-contact">
+                <div className="ki-salon-contact__col">
+                  <Image
+                    src={susanne.logo}
+                    alt={susanne.logoAlt}
+                    width={560}
+                    height={440}
+                    className="ki-salon-contact__logo"
+                  />
+                  <a href={susanne.phoneHref} className="contact-link ki-salon-contact__link">
+                    {susanne.phoneDisplay}
+                  </a>
+                  <a
+                    href={`mailto:${susanne.email}`}
+                    className="contact-link ki-salon-contact__link"
+                  >
+                    {susanne.email}
+                  </a>
+                </div>
+
+                <div className="ki-salon-contact__col ki-salon-contact__col--frank">
+                  <BrandSignature
+                    variant="section"
+                    className="ki-salon-contact__signature"
+                  />
+                  <a href={frank.phoneHref} className="contact-link ki-salon-contact__link">
+                    {frank.phoneDisplay}
+                  </a>
+                  <ProtectedEmail className="contact-link ki-salon-contact__link" />
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <>
+            <SectionKicker>
+              Ich bin erreichbar, in Roßdorf und überall sonst:
+            </SectionKicker>
+            <h2 className="contact-hero mt-2">
+              Rufen Sie an. Oder schreiben. Beides funktioniert.
+            </h2>
+            <a href="tel:+491726689960" className="contact-link">
+              +49 (0)172 6689960
+            </a>
+            <ProtectedEmail className="contact-link !text-[clamp(1rem,2.5vw,1.375rem)]" />
+          </>
+        )}
 
         <div className="site-footer-legal">
           <div className="site-footer-legal__links">

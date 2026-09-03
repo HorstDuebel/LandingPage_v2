@@ -1,0 +1,209 @@
+Datei: D:\Eigene Datein\KI_Projekte\LandingPage_v2\website-texte.xlsx
+Sheet: Website-Texte
+Zeilen gesamt: 171
+Spalte C ausgefüllt: 171
+Spalte C leer: 0
+Geändert (C ≠ B): 38
+Unverändert (C = B): 133
+
+=== MINUTEN-KONSISTENZ (geänderte Zeilen) ===
+Geänderte Zeilen mit '45' in Spalte C: 0
+Geänderte Zeilen mit '30' + 'Minute' in Spalte C: 7
+  Zeile 6 | termin/page.tsx → metadata.title | Erstgespräch 30 Minuten | Frank Vullhorst
+  Zeile 16 | page.tsx → Hero → Headline Zeile 2 | 30 Minuten aus der Vogelperspektive.
+  Zeile 19 | page.tsx → Hero → Microcopy Zeile 2 | 30 Minuten. Erst schauen, ob es menschlich und fachlich passt.
+  Zeile 43 | page.tsx → Angebot → Karte 1 Meta | 30 Minuten · kostenfrei
+  Zeile 61 | copy.ts → triggers.angebotTitle | Was Sie nach 30 Minuten haben
+  Zeile 129 | page.tsx → Final CTA → Lead | In 30 Minuten wissen Sie, was bei Ihnen sinnvoll ist. Sicher, nachvollziehbar, umsetzbar. Ohne Hype, ohne Verpflichtung.
+  Zeile 143 | termin/page.tsx → Headline Zeile 1 | Ihre 30 Minuten
+
+=== ALLE GEÄNDERTEN TEXTE ===
+--- Zeile 2 ---
+Quelle: layout.tsx → metadata.title
+ALT: Frank Vullhorst – KI‑Sparring
+NEU: Frank Vullhorst  KI. Sicher. Sinnvoll. Strategisch.
+
+--- Zeile 3 ---
+Quelle: layout.tsx → metadata.description
+ALT: KI-Sparring auf Augenhöhe: In 45 Minuten klären wir, wo KI und Automatisierung in Ihrem Betrieb entlasten können – sicher, sinnvoll und strategisch.
+NEU: Ein Austausch über Prozesse, Optemierungen, Automatiesierungen und KI – sicher, sinnvoll und strategisch.
+
+--- Zeile 4 ---
+Quelle: layout.tsx → openGraph.title
+ALT: Frank Vullhorst – KI‑Sparring
+NEU: Frank Vullhorst
+
+--- Zeile 6 ---
+Quelle: termin/page.tsx → metadata.title
+ALT: Erstgespräch – Klarheit in 45 Minuten | Frank Vullhorst
+NEU: Erstgespräch 30 Minuten | Frank Vullhorst
+
+--- Zeile 7 ---
+Quelle: termin/page.tsx → metadata.description
+ALT: Kostenloses Erstgespräch: Wo KI in Ihrem Betrieb entlastet – und welcher nächste Schritt passt.
+NEU: Kostenloses Erstgespräch: Wo KI in Ihrem Betrieb entlastet und welcher nächste Schritt passt.
+
+--- Zeile 16 ---
+Quelle: page.tsx → Hero → Headline Zeile 2
+ALT: 45 Minuten Klarheit.
+NEU: 30 Minuten aus der Vogelperspektive.
+
+--- Zeile 17 ---
+Quelle: copy.ts → cta.primary.hero
+ALT: Meine Klarheit in 45 Minuten sichern
+NEU: eine erste Orientierung
+
+--- Zeile 18 ---
+Quelle: page.tsx → Hero → Microcopy Zeile 1
+ALT: Sie erzählen, was gerade ist – ich höre zu und ordne ein.
+NEU: Wir beleuchten Ihre aktuelle Situation. Ich höre zu und gebe Impulse.
+
+--- Zeile 19 ---
+Quelle: page.tsx → Hero → Microcopy Zeile 2
+ALT: 45 Minuten. Kein Sales, kein Druck. Kostenfrei. Unverbindlich.
+NEU: 30 Minuten. Erst schauen, ob es menschlich und fachlich passt.
+
+--- Zeile 25 ---
+Quelle: page.tsx → Über mich → Lead
+ALT: Ich arbeite mit Inhabern und Geschäftsführern in Handwerk und KMU, die KI nicht als Hype, sondern als Entlastung im Alltag verstehen wollen – verständlich, sicher und praxisnah.
+NEU: Ich arbeite mit Inhabern und Geschäftsführern im Handwerk und in KMU, die KI nicht als Hype, sondern als echte Entlastung im Alltag verstehen wollen:  verständlich, sicher und praxisnah.
+
+--- Zeile 26 ---
+Quelle: page.tsx → Über mich → Fließtext
+ALT: KI sollte nicht zusätzlich belasten, sondern im Alltag wirklich helfen. Ich unterstütze Betriebe dabei, KI sicher und nachvollziehbar in ihre Abläufe zu integrieren – mit 30+ Jahren Praxis aus Technik, Prozessen und Umsetzung.
+NEU: KI soll nicht zusätzlich belasten, sondern im Alltag spürbar entlasten. Ich unterstütze Betriebe dabei, KI sicher und nachvollziehbar in ihre Abläufe zu integrieren, auf Basis von über 30 Jahren Praxis in Technik, Prozessen und Umsetzung.
+
+--- Zeile 33 ---
+Quelle: page.tsx → Für wen → Titel Zeile 2
+ALT: die Klarheit statt Buzzwords wollen.
+NEU: die Klarheit statt KI-Hype-Begriffe wollen.
+
+--- Zeile 34 ---
+Quelle: page.tsx → Für wen → Lead
+ALT: Inhaber, Geschäftsführer und Verantwortliche, die enorm viel halten – organisieren, entscheiden, umsetzen – und dabei KI pragmatisch einordnen wollen.
+NEU: Für Inhaber, Geschäftsführer und Verantwortliche, die Innovationen voranbringen und KI verständlich, sicher und pragmatisch einordnen wollen.
+
+--- Zeile 35 ---
+Quelle: page.tsx → Für wen → Absatz 1
+ALT: Menschen, die wissen: KI kann entlasten – aber nur, wenn sie zu Prozessen, Daten und Verantwortung passt. Die keine Tool-Show brauchen, sondern einen Fahrplan, den man im Betrieb wirklich gehen kann.
+NEU: Für Interessierte, die wissen wollen, wie KI entlastet: Was muss vorbereitet und analysiert werden, damit der nächste Schritt wirklich sinnvoll ist? Keine Tool-Show, sondern ein klarer Fahrplan für den Betrieb.
+
+--- Zeile 36 ---
+Quelle: page.tsx → Für wen → Absatz 2
+ALT: Wenn Sie zu wenig Zeit im Tagesgeschäft haben, unsicher sind, was sinnvoll ist, Schatten-KI im Team bemerken oder Datenschutz und EU AI Act pragmatisch lösen wollen – dann sind Sie hier richtig.
+NEU: Wenn Sie im Tagesgeschäft wenig Zeit haben, Klarheit suchen, Schatten-KI einordnen und Datenschutz sowie den EU AI Act pragmatisch angehen wollen, sind Sie hier richtig.
+
+--- Zeile 40 ---
+Quelle: page.tsx → Angebot → Lead
+ALT: Kein Leistungskatalog zum Durchklicken – sondern Bausteine, die bei Ihnen wirklich Nutzen bringen.
+NEU: Keine lange Checkliste, sondern durchdachte Module, die im Alltag wirklich weiterhelfen.
+
+--- Zeile 42 ---
+Quelle: page.tsx → Angebot → Karte 1 Beschreibung
+ALT: Ihr Thema auf den Tisch bringen, sehen, was wirklich da ist.
+NEU: Wir bringen Ihre Ideen und Vorhaben auf den Tisch, schauen gemeinsam hin und ich gebe Ihnen erste Impulse.
+
+--- Zeile 43 ---
+Quelle: page.tsx → Angebot → Karte 1 Meta
+ALT: 45 Minuten · kostenfrei
+NEU: 30 Minuten · kostenfrei
+
+--- Zeile 45 ---
+Quelle: page.tsx → Angebot → Karte 2 Beschreibung
+ALT: Wo KI heute entlastet – und welcher nächste Schritt wirtschaftlich sinnvoll ist.
+NEU: Wo KI heute entlastet und welcher nächste Schritt wirtschaftlich sinnvoll ist.
+
+--- Zeile 55 ---
+Quelle: page.tsx → Angebot → Karte 5 Meta
+ALT: Module 1–4 · für Ihr Team
+NEU: Module 1–4
+
+--- Zeile 57 ---
+Quelle: page.tsx → Angebot → Karte 6 Beschreibung
+ALT: Erster messbarer Nutzen im Betrieb – kontrolliert und auswertbar.
+NEU: Erster messbarer Nutzen im Betrieb, kontrolliert und auswertbar.
+
+--- Zeile 61 ---
+Quelle: copy.ts → triggers.angebotTitle
+ALT: Was Sie nach 45 Minuten haben
+NEU: Was Sie nach 30 Minuten haben
+
+--- Zeile 62 ---
+Quelle: copy.ts → triggers.angebotBody
+ALT: Eine konkrete Einordnung für Ihren Betrieb – und eine Empfehlung, die wirklich zu Ihnen passt.
+NEU: Eine konkrete Einschätzung für Ihren Betrieb und eine Empfehlung, die zu Ihrem unternehmerischen Fahrplan passt.
+
+--- Zeile 65 ---
+Quelle: page.tsx → Methode → Titel Zeile 1
+ALT: Ich eröffne Reflexionsräume.
+NEU: Ich höhre hin, nehme auf mit dem Blick auf das Wesentliche
+
+--- Zeile 67 ---
+Quelle: page.tsx → Methode → Lead
+ALT: Fünf Schritte – nicht als Theorie, sondern als Fahrplan, den Sie in Ihrem Tempo und mit Ihrem Team gehen können.
+NEU: Fünf Schritte – praxisnah, verständlich und in Ihrem Tempo einsetzbar.
+
+--- Zeile 83 ---
+Quelle: page.tsx → Versprechen → kicker
+ALT: Das Versprechen:
+NEU: Ihr KI Vorhaben:
+
+--- Zeile 84 ---
+Quelle: page.tsx → Versprechen → Titel Zeile 1
+ALT: Vom Unsichersein
+NEU: von ChatGPT zu
+
+--- Zeile 85 ---
+Quelle: page.tsx → Versprechen → Titel Zeile 2
+ALT: zur Klarheit.
+NEU: sicherer, professioneller KI-Nutzung.
+
+--- Zeile 86 ---
+Quelle: page.tsx → Versprechen → Lead
+ALT: Klarheit entsteht, wenn wir ehrlich hinsehen. Sie werden Worte finden für das, was Sie innerlich schon ahnen – und einen nächsten Schritt, der zu Ihrem Betrieb passt.
+NEU: Klarheit entsteht, wenn wir aktuelle Prozesse betrachten. Sie erkennen Reibungspunkte, die Sie schon ahnen, und die nächsten Schritte werden sichtbar.
+
+--- Zeile 87 ---
+Quelle: page.tsx → Versprechen → Absatz 1
+ALT: Damit Sie klar erkennen: wo KI heute bereits sinnvoll entlastet, welche Lösungen wirklich zu Ihrem Unternehmen passen – und welcher nächste Schritt wirtschaftlich sinnvoll ist.
+NEU: Damit Sie erkennen, wo KI heute sinnvoll entlastet, welche Lösungen zu Ihrem Unternehmen passen und welcher nächste Schritt sinnvoll ist.
+
+--- Zeile 88 ---
+Quelle: page.tsx → Versprechen → Absatz 2 (kursiv)
+ALT: Nach unserem Gespräch haben Sie keine Buzzwords mehr – sondern Orientierung, konkrete Möglichkeiten und eine realistische Einschätzung für Ihr Unternehmen.
+NEU: Nach unserem Gespräch gewinnen Sie einen neuen Blick auf die Technologie und eine klare Orientierung in Richtung KI-Möglichkeiten. Ziel ist es, Ihnen mehr Zeit für Ihre unternehmerische Leidenschaft zurückzugeben.
+
+--- Zeile 92 ---
+Quelle: page.tsx → Vertrauen → Lead
+ALT: Keine Show, keine Buzzwords – sondern jemand, der Betrieb von innen kennt und KI so erklärt, dass Sie handeln können.
+NEU: Ich bin Werkzeugmacher, Informatiker, Handwerker, 3D-Druck-Spezialist und Führungskraft. Ich kenne Betriebe von innen und nehme Menschen mit.
+
+--- Zeile 115 ---
+Quelle: page.tsx → FAQ → Antwort 1
+ALT: Wir klären Ihre Ausgangslage, ordnen Chancen und Risiken ein und definieren den nächsten sinnvollen Schritt – ohne Tool‑Show und ohne Druck.
+NEU: Wir klären Ihre Ausgangslage, ordnen Chancen und Risiken ein und definieren den nächsten sinnvollen Schritt, ohne Tool‑Show und ohne Druck.
+
+--- Zeile 117 ---
+Quelle: page.tsx → FAQ → Antwort 2
+ALT: Nein. Hilfreich ist nur ein grober Überblick: Welche Aufgaben kosten Zeit? Wo wird schon KI genutzt? Welche Daten sind sensibel?
+NEU: Nein. Hilfreich ist nur ein grober Überblick: Welche Aufgaben kosten Zeit? Wo wird schon KI genutzt? Welche Daten sind sensibel? Wie speichern Sie Daten?
+
+--- Zeile 119 ---
+Quelle: page.tsx → FAQ → Antwort 3
+ALT: Ein strukturiertes Assessment (Audit): KI‑Nutzung, Datenschutz, Compliance und Kompetenz im Betrieb – als nachvollziehbare Grundlage für Entscheidungen.
+NEU: Ein strukturiertes Assessment (Audit): KI‑Nutzung, Datenschutz, Compliance und Kompetenz im Betrieb als nachvollziehbare Grundlage für Entscheidungen.
+
+--- Zeile 123 ---
+Quelle: page.tsx → FAQ → Antwort 5
+ALT: Wenn Sie nur eine Tool‑Demo oder „Hype‑Beratung“ suchen. Es geht um umsetzbare Entlastung im Alltag – nicht um Buzzwords.
+NEU: Wenn Sie nur eine Tool‑Demo oder „Hype‑Beratung“ suchen. Es geht um umsetzbare Entlastung im Alltag.
+
+--- Zeile 129 ---
+Quelle: page.tsx → Final CTA → Lead
+ALT: In 45 Minuten wissen Sie, was bei Ihnen sinnvoll ist – sicher, nachvollziehbar, umsetzbar. Ohne Hype, ohne Verpflichtung.
+NEU: In 30 Minuten wissen Sie, was bei Ihnen sinnvoll ist. Sicher, nachvollziehbar, umsetzbar. Ohne Hype, ohne Verpflichtung.
+
+--- Zeile 143 ---
+Quelle: termin/page.tsx → Headline Zeile 1
+ALT: Ihre 45 Minuten
+NEU: Ihre 30 Minuten

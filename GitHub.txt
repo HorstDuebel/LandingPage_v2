@@ -1,0 +1,3 @@
+git add Datenschutz_Final.md web/src/app/datenschutz/page.tsx
+git commit -m "Deine Commit-Nachricht"
+git push origin main

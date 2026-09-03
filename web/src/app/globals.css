@@ -156,6 +156,19 @@ section[id] {
   flex: 0 0 auto;
 }
 
+/* Angebot-Tagline: Farben wie Logo-Farbbalken */
+.display-title-tagline__word--taupe {
+  color: var(--brand-taupe);
+}
+
+.display-title-tagline__word--teal {
+  color: var(--brand-teal);
+}
+
+.display-title-tagline__word--orange {
+  color: var(--brand-orange);
+}
+
 .section-title--stacked .display-title-line + .display-title-line {
   margin-top: 1.1em;
 }
@@ -497,6 +510,54 @@ section[id] {
   color: var(--brand-orange);
 }
 
+.nav-link--emphasized {
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.nav-link--emphasized:hover {
+  color: var(--brand-orange);
+}
+
+/* Variante B: KI-Salon als Desktop-CTA (ohne Puls) */
+.nav-link--ki-salon-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.35rem;
+  padding: 0.45rem 0.95rem 0.5rem;
+  font-family: var(--font-heading), sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--brand-dark);
+  background: color-mix(in srgb, var(--brand-orange) 22%, white);
+  border: 1px solid color-mix(in srgb, var(--brand-orange) 45%, white);
+  border-radius: 0.375rem;
+  box-shadow: 0 2px 10px color-mix(in srgb, var(--brand-orange) 14%, transparent);
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.nav-link--ki-salon-cta:hover {
+  color: var(--brand-dark);
+  background: color-mix(in srgb, var(--brand-orange) 34%, white);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--brand-orange) 22%, transparent);
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .nav-link--ki-salon-cta {
+    margin-left: 0.15rem;
+    padding: 0.35rem 0.7rem 0.4rem;
+    font-size: 0.8125rem;
+  }
+}
+
 .site-header--download .site-header-inner--download {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -510,6 +571,7 @@ section[id] {
   grid-column: 1;
   justify-self: start;
   flex: none;
+  min-width: 0;
   max-width: 100%;
 }
 
@@ -578,9 +640,48 @@ section[id] {
 }
 
 @media (max-width: 767px) {
+  .site-header--download .site-header-inner--download {
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .site-header--download .site-header-inner--download .site-header-logo {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .site-header--download .brand-signature--header {
+    max-width: 100%;
+  }
+
+  .site-header--download .brand-signature--header .brand-signature__name {
+    font-size: clamp(1rem, 4vw, 1.1875rem);
+  }
+
+  .site-header--download .brand-signature--header .brand-signature__tagline,
+  .site-header--download .brand-signature--header .brand-signature__rule {
+    font-size: clamp(0.5625rem, 2.4vw, 0.6875rem);
+  }
+
+  .site-header--download .nav-link--home-cta {
+    padding: 0.35rem 0.6rem 0.4rem;
+    font-size: 0.75rem;
+    line-height: 1.15;
+    white-space: nowrap;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px color-mix(in srgb, var(--brand-orange) 14%, transparent);
+    animation: none;
+  }
+
+  .site-header--download .nav-link--home-cta:hover {
+    transform: none;
+    box-shadow: 0 2px 8px color-mix(in srgb, var(--brand-orange) 14%, transparent);
+  }
+
   .site-header--download .site-nav--desktop {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
   }
 
   .site-header--download .site-nav--mobile {
@@ -1308,6 +1409,112 @@ section[id] {
   color: var(--brand-orange);
 }
 
+/* KI-Salon: Align-Box = Headline-Breite; Frank rechtsbündig mit „funktioniert“ */
+.ki-salon-contact-block {
+  max-width: 100%;
+}
+
+.ki-salon-contact-align {
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: top;
+}
+
+.ki-salon-contact-align .contact-hero {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+}
+
+.ki-salon-contact {
+  position: relative;
+  display: block;
+  margin-top: 2.5rem;
+  /* Breite nur von der Headline, Inhalt darf die Box nicht aufweiten */
+  contain: inline-size;
+  width: 100%;
+}
+
+.ki-salon-contact__col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* Susanne: Logo inkl. Name 15 % kleiner; Kontaktzeilen bleiben voll */
+.ki-salon-contact__logo {
+  width: min(100%, 13.6rem); /* 16rem × 0.85 */
+  height: auto;
+  margin-bottom: 0.1rem;
+}
+
+.ki-salon-contact__signature {
+  display: inline-flex;
+  align-items: flex-start;
+  margin-bottom: 0.1rem;
+}
+
+/* Frank-Signatur: visuelles Gegengewicht zu Susannes Logo */
+.ki-salon-contact__signature.brand-signature--section .brand-signature__name {
+  font-size: clamp(2rem, 4.2vw, 2.625rem);
+}
+
+.ki-salon-contact__signature.brand-signature--section .brand-signature__tagline,
+.ki-salon-contact__signature.brand-signature--section .brand-signature__rule {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  gap: 0.42em;
+}
+
+.ki-salon-contact__signature.brand-signature--section .brand-signature__lockup {
+  margin-top: 0.6em;
+}
+
+.ki-salon-contact__signature.brand-signature--section .brand-signature__rule {
+  margin-top: 0.5em;
+}
+
+.ki-salon-contact__signature.brand-signature--section .brand-signature__bar {
+  height: 3.5px;
+}
+
+/* Tel/Mail unverändert groß (wie Standard-contact-link) */
+.ki-salon-contact__link {
+  margin-top: 0.85rem;
+  font-size: clamp(1.0625rem, 2.5vw, 1.4375rem);
+  font-weight: 500;
+}
+
+/* Mail näher an die Telefonnummer darüber */
+.ki-salon-contact__link + .ki-salon-contact__link {
+  margin-top: 0.3rem;
+}
+
+@media (min-width: 768px) {
+  /* Susanne unverändert leicht eingerückt */
+  .ki-salon-contact__col:first-child {
+    margin-left: 2.5rem;
+    max-width: calc(100% - 3rem);
+  }
+
+  /* Frank: rechte Kante exakt = rechte Kante der Headline („funktioniert“) */
+  .ki-salon-contact__col--frank {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .ki-salon-contact {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    contain: none;
+  }
+}
+
 .site-footer-legal {
   display: flex;
   align-items: center;
@@ -1781,5 +1988,238 @@ section[id] {
     flex-direction: row;
     align-items: flex-start;
     gap: 1.5rem;
+  }
+}
+
+/* KI-Salon: /ki-salon */
+.ki-salon-hero__intro {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+}
+
+.ki-salon-hero__kicker {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.ki-salon-partner {
+  flex: 0 0 auto;
+  margin-left: auto;
+  /* Hero-Padding ~124px, Header ~71px → Logo knapp unter die Menüleiste ziehen */
+  margin-top: -2.85rem;
+  line-height: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.ki-salon-partner a {
+  display: inline-block;
+  line-height: 0;
+  text-decoration: none;
+  background: var(--surface);
+  padding: 0.4rem 0.65rem;
+}
+
+.ki-salon-partner__logo {
+  display: block;
+  width: 320px;
+  max-width: min(320px, 72vw);
+  height: auto;
+}
+
+@media (max-width: 767px) {
+  .ki-salon-hero__intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 0.75rem 1rem;
+  }
+
+  .ki-salon-partner {
+    width: auto;
+    /* Unter 768px nicht in den Header ziehen – mit dem Kicker in einer Zeile */
+    margin-top: 0;
+    display: block;
+  }
+
+  .ki-salon-partner a {
+    padding: 0.3rem 0.45rem;
+  }
+
+  .ki-salon-partner__logo {
+    width: 160px;
+    max-width: min(160px, 38vw);
+  }
+
+  .ki-salon-page .final-cta .btn-primary {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .ki-salon-page .body-text,
+  .ki-salon-page .section-lead,
+  .ki-salon-page .section-title,
+  .ki-salon-page .display-title {
+    overflow-wrap: anywhere;
+  }
+}
+
+.ki-salon-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  padding: 0;
+  margin: 2.75rem 0 0;
+  list-style: none;
+}
+
+.ki-salon-stats__item {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-family: var(--font-subheading), sans-serif;
+  font-size: var(--type-caption);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  background: color-mix(in srgb, var(--surface) 60%, transparent);
+}
+
+.ki-salon-host--text-only {
+  max-width: 42rem;
+}
+
+.ki-salon-timeline__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ki-salon-timeline__step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem 1.25rem;
+  padding-block: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.ki-salon-timeline__step:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.ki-salon-timeline__marker {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 0.15rem;
+}
+
+.ki-salon-timeline__number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--brand-orange);
+  color: var(--brand-dark);
+  font-family: var(--font-heading), sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.ki-salon-timeline__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+}
+
+.ki-salon-timeline__title {
+  font-family: var(--font-heading), sans-serif;
+  font-size: var(--type-body);
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+.ki-salon-timeline__duration {
+  font-family: var(--font-subheading), sans-serif;
+  font-size: var(--type-caption);
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.ki-salon-timeline__text {
+  margin-top: 0.5rem;
+  color: var(--muted);
+}
+
+@media (min-width: 1024px) {
+  .ki-salon-timeline__list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0 1.5rem;
+    position: relative;
+    padding-top: 2.5rem;
+  }
+
+  .ki-salon-timeline__list::before {
+    content: "";
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    right: 0.85rem;
+    height: 3px;
+    background: var(--brand-teal);
+  }
+
+  .ki-salon-timeline__list::after {
+    content: "";
+    position: absolute;
+    top: calc(1rem - 6px);
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 7.5px 0 7.5px 14px;
+    border-color: transparent transparent transparent var(--brand-teal);
+  }
+
+  .ki-salon-timeline__step {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-block: 0;
+    border: none;
+    text-align: center;
+  }
+
+  .ki-salon-timeline__step:first-child {
+    border-top: none;
+  }
+
+  .ki-salon-timeline__marker {
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ki-salon-timeline__header {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .ki-salon-timeline__text {
+    text-align: left;
   }
 }

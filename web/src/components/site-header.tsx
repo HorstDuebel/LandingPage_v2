@@ -7,16 +7,29 @@ import { BrandSignature } from "@/components/brand-signature";
 const SCROLL_THRESHOLD = 72;
 const HIDE_DELAY_MS = 350;
 
-const NAV_ITEMS = [
+type NavItem = {
+  href: string;
+  label: string;
+  /** In Desktop-Leiste sichtbar (Default: true) */
+  desktop?: boolean;
+  /** Als CTA-Button in der Desktop-Leiste */
+  cta?: boolean;
+};
+
+/** Variante B: Desktop schlank + KI-Salon-CTA; Mobile vollständiges Burger-Menü */
+const NAV_ITEMS: readonly NavItem[] = [
   { href: "/#angebot", label: "Angebot" },
-  { href: "/#so-arbeiten-wir", label: "So arbeiten wir" },
+  { href: "/#so-arbeiten-wir", label: "So arbeiten wir", desktop: false },
   { href: "/#ueber-mich", label: "Über mich" },
   { href: "/#nutzen", label: "Nutzen" },
   { href: "/#termin", label: "Termin" },
-  { href: "/faq", label: "FAQ" },
-] as const;
+  { href: "/ki-salon", label: "KI-Salon", cta: true },
+  { href: "/faq", label: "FAQ", desktop: false },
+];
 
-const DOWNLOAD_NAV_ITEMS = [{ href: "/", label: "Zur Startseite" }] as const;
+const DOWNLOAD_NAV_ITEMS: readonly NavItem[] = [
+  { href: "/", label: "Zur Startseite", cta: true },
+];
 
 type SiteHeaderProps = {
   variant?: "default" | "download";
@@ -27,7 +40,11 @@ function isHashNav(href: string): href is `/#${string}` {
 }
 
 export function SiteHeader({ variant = "default" }: SiteHeaderProps) {
-  const navItems = variant === "download" ? DOWNLOAD_NAV_ITEMS : NAV_ITEMS;
+  const allNavItems = variant === "download" ? DOWNLOAD_NAV_ITEMS : NAV_ITEMS;
+  const desktopNavItems =
+    variant === "download"
+      ? DOWNLOAD_NAV_ITEMS
+      : NAV_ITEMS.filter((item) => item.desktop !== false);
   const [scrolled, setScrolled] = useState(false);
   const [revealed, setRevealed] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -64,7 +81,12 @@ export function SiteHeader({ variant = "default" }: SiteHeaderProps) {
     (href: string) => {
       const id = href.slice(2);
       const el = document.getElementById(id);
-      if (!el) return;
+
+      if (!el) {
+        closeMenu();
+        window.location.assign(href);
+        return;
+      }
 
       closeMenu();
       lockHeaderRef.current = true;
@@ -81,6 +103,18 @@ export function SiteHeader({ variant = "default" }: SiteHeaderProps) {
     },
     [closeMenu, hideHeaderNow],
   );
+
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+
+    const el = document.getElementById(hash);
+    if (!el) return;
+
+    const top = Math.round(el.getBoundingClientRect().top + window.scrollY);
+    window.scrollTo({ top, behavior: "auto" });
+    lastScrollY.current = window.scrollY;
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -130,14 +164,50 @@ export function SiteHeader({ variant = "default" }: SiteHeaderProps) {
     .filter(Boolean)
     .join(" ");
 
-  const navLinkClass = (mobile = false) =>
+  const navLinkClass = (item: NavItem, mobile = false) =>
     [
       "nav-link",
       mobile ? "nav-link--mobile" : "",
-      variant === "download" ? "nav-link--home-cta" : "",
+      item.cta && (variant === "download" || !mobile)
+        ? variant === "download"
+          ? "nav-link--home-cta"
+          : "nav-link--ki-salon-cta"
+        : "",
+      item.cta && mobile && variant !== "download" ? "nav-link--emphasized" : "",
     ]
       .filter(Boolean)
       .join(" ");
+
+  const renderNavItem = (item: NavItem, mobile: boolean) => {
+    const className = navLinkClass(item, mobile);
+
+    if (isHashNav(item.href)) {
+      return (
+        <a
+          key={item.href}
+          href={item.href}
+          className={className}
+          onClick={(event) => {
+            event.preventDefault();
+            scrollToSection(item.href);
+          }}
+        >
+          {item.label}
+        </a>
+      );
+    }
+
+    return (
+      <Link
+        key={item.href}
+        href={item.href}
+        className={className}
+        onClick={mobile ? closeMenu : undefined}
+      >
+        {item.label}
+      </Link>
+    );
+  };
 
   return (
     <>
@@ -171,58 +241,43 @@ export function SiteHeader({ variant = "default" }: SiteHeaderProps) {
                 : "site-header-inner"
             }
           >
-          <Link
-            href="/"
-            className="site-header-logo"
-            aria-label="Zum Seitenanfang"
-            onClick={(event) => {
-              closeMenu();
-              if (window.location.pathname === "/") {
-                event.preventDefault();
-                window.scrollTo({ top: 0, behavior: "smooth" });
-                if (window.location.hash) {
-                  window.history.replaceState(null, "", "/");
+            <Link
+              href="/"
+              className="site-header-logo"
+              aria-label="Zum Seitenanfang"
+              onClick={(event) => {
+                closeMenu();
+                if (window.location.pathname === "/") {
+                  event.preventDefault();
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                  if (window.location.hash) {
+                    window.history.replaceState(null, "", "/");
+                  }
                 }
-              }
-            }}
-          >
-            <BrandSignature variant="header" />
-          </Link>
+              }}
+            >
+              <BrandSignature variant="header" />
+            </Link>
 
-          <button
-            type="button"
-            className="site-nav-toggle"
-            aria-expanded={menuOpen}
-            aria-controls="site-nav-mobile"
-            aria-label={menuOpen ? "Menü schließen" : "Menü öffnen"}
-            onClick={() => setMenuOpen((open) => !open)}
-          >
-            <span className="site-nav-toggle__bar" aria-hidden="true" />
-            <span className="site-nav-toggle__bar" aria-hidden="true" />
-            <span className="site-nav-toggle__bar" aria-hidden="true" />
-          </button>
+            <button
+              type="button"
+              className="site-nav-toggle"
+              aria-expanded={menuOpen}
+              aria-controls="site-nav-mobile"
+              aria-label={menuOpen ? "Menü schließen" : "Menü öffnen"}
+              onClick={() => setMenuOpen((open) => !open)}
+            >
+              <span className="site-nav-toggle__bar" aria-hidden="true" />
+              <span className="site-nav-toggle__bar" aria-hidden="true" />
+              <span className="site-nav-toggle__bar" aria-hidden="true" />
+            </button>
 
-          <nav className="site-nav site-nav--desktop" aria-label="Hauptnavigation">
-            {navItems.map((item) =>
-              isHashNav(item.href) ? (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className={navLinkClass()}
-                  onClick={(event) => {
-                    event.preventDefault();
-                    scrollToSection(item.href);
-                  }}
-                >
-                  {item.label}
-                </a>
-              ) : (
-                <Link key={item.href} href={item.href} className={navLinkClass()}>
-                  {item.label}
-                </Link>
-              ),
-            )}
-          </nav>
+            <nav
+              className="site-nav site-nav--desktop"
+              aria-label="Hauptnavigation"
+            >
+              {desktopNavItems.map((item) => renderNavItem(item, false))}
+            </nav>
           </div>
         </div>
 
@@ -233,30 +288,7 @@ export function SiteHeader({ variant = "default" }: SiteHeaderProps) {
           hidden={!menuOpen}
         >
           <div className="page-container site-nav--mobile-inner">
-            {navItems.map((item) =>
-              isHashNav(item.href) ? (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className={navLinkClass(true)}
-                  onClick={(event) => {
-                    event.preventDefault();
-                    scrollToSection(item.href);
-                  }}
-                >
-                  {item.label}
-                </a>
-              ) : (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={navLinkClass(true)}
-                  onClick={closeMenu}
-                >
-                  {item.label}
-                </Link>
-              ),
-            )}
+            {allNavItems.map((item) => renderNavItem(item, true))}
           </div>
         </nav>
       </header>
