@@ -1,3 +1,12 @@
+export type LogoDownload = {
+  id: string;
+  label: string;
+  logo: string;
+  logoAlt: string;
+  file: string;
+  downloadFileName: string;
+};
+
 export type DownloadItem = {
   slug: string;
   active: boolean;
@@ -6,6 +15,8 @@ export type DownloadItem = {
   file: string;
   downloadFileName: string;
   eventLabel?: string;
+  /** Zusätzliche Logo-Downloads auf derselben Seite */
+  logoDownloads?: readonly LogoDownload[];
   /** Phase 2: E-Mail vor Download abfragen */
   emailGate: boolean;
   /** Phase 2: Opt-in für KI-Informationen */
@@ -28,6 +39,32 @@ export const downloadsConfig = {
       eventLabel: "Kulturhistorischer Verein Roßdorf",
       emailGate: false,
       marketingOptIn: false,
+      logoDownloads: [
+        {
+          id: "claude",
+          label: "Setup Claude",
+          logo: "/logos/claude-ai-logo.jpg",
+          logoAlt: "Claude AI",
+          file: "/downloads/Setup-Claude_04-09-2026.pdf",
+          downloadFileName: "Setup-Claude_04-09-2026.pdf",
+        },
+        {
+          id: "mistral",
+          label: "Setup Mistral Vibe",
+          logo: "/logos/mistral-ai-logo.jpg",
+          logoAlt: "Mistral AI",
+          file: "/downloads/Setup-Mistral-Vibe_04-09-2026.pdf",
+          downloadFileName: "Setup-Mistral-Vibe_04-09-2026.pdf",
+        },
+        {
+          id: "chatgpt",
+          label: "Setup ChatGPT",
+          logo: "/logos/chatgpt-logo.jpg",
+          logoAlt: "ChatGPT",
+          file: "/downloads/Setup-ChatGPT_04-09-2026.pdf",
+          downloadFileName: "Setup-ChatGPT_04-09-2026.pdf",
+        },
+      ],
     },
   ] satisfies DownloadItem[],
 } as const;

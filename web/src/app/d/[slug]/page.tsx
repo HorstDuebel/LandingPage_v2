@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { DocumentDownloadCard } from "@/components/document-download-card";
+import { LogoDownloadGrid } from "@/components/logo-download-grid";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import {
   downloadsConfig,
@@ -59,8 +60,11 @@ export default async function DownloadPage({ params }: PageProps) {
             </h1>
 
             {available ? (
-              <div className="mt-10">
+              <div className="mt-10 space-y-12">
                 <DocumentDownloadCard item={item} />
+                {item.logoDownloads?.length ? (
+                  <LogoDownloadGrid items={item.logoDownloads} />
+                ) : null}
               </div>
             ) : (
               <div className="download-unavailable mt-10">
