@@ -134,16 +134,13 @@ export default function KiSalonPage() {
               </h2>
             </AnimateIn>
 
-            <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-12">
-              {kiSalonBenefits.items.map((item, i) => (
-                <AnimateIn key={item.title} delay={i * 60}>
-                  <article>
-                    <h3 className="offer-card__title">{item.title}</h3>
-                    <p className="offer-card__desc">{item.text}</p>
-                  </article>
-                </AnimateIn>
+            <ul className="mt-10 list-disc space-y-3 pl-6 body-text">
+              {kiSalonBenefits.items.map((item) => (
+                <li key={item}>{item}</li>
               ))}
-            </div>
+            </ul>
+
+            <p className="offer-card__title mt-10">{kiSalonBenefits.slogan}</p>
           </div>
         </section>
 
@@ -155,7 +152,9 @@ export default function KiSalonPage() {
               <h2 className="section-title">
                 <span className="display-title-line">{kiSalonAudience.headline}</span>
               </h2>
-              <p className="section-lead mt-6">{kiSalonAudience.body}</p>
+              {kiSalonAudience.body ? (
+                <p className="section-lead mt-6">{kiSalonAudience.body}</p>
+              ) : null}
             </AnimateIn>
 
             <ul className="mt-8 list-disc space-y-2 pl-6 body-text">
@@ -237,7 +236,7 @@ export default function KiSalonPage() {
           </div>
         </section>
 
-        {/* 8. Preis & CTA */}
+        {/* 8. Anfrage / CTA */}
         <section id="anfrage" className="final-cta section-block">
           <div className="page-container">
             <AnimateIn>
@@ -246,17 +245,6 @@ export default function KiSalonPage() {
                 <span className="display-title-line">{kiSalonPricing.headline}</span>
               </h2>
             </AnimateIn>
-
-            <div className="mt-10 space-y-4">
-              <p className="section-lead">{kiSalonPricing.founderLead}</p>
-              <p className="body-text">
-                <strong className="font-semibold">{kiSalonPricing.regularPrice}</strong>
-                {" – "}
-                {kiSalonPricing.regularLabel}
-                {" "}
-                ({kiSalonPricing.taxNote})
-              </p>
-            </div>
 
             <p className="section-lead mt-8">{kiSalonPricing.body}</p>
 

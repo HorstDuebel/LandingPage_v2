@@ -1,12 +1,12 @@
-/** KI-Salon: Inhalte aus Flyer, Sie-Form, Single Source of Truth */
+/** KI-Salon: Inhalte aus Flyer 08.09.2026, Sie-Form, Single Source of Truth */
 
 export const KI_SALON_INTERVIEW_URL =
   "https://ki-salon-fragen.netlify.app/" as const;
 
 export const kiSalonMeta = {
-  title: "KI-Salon – Klarheit statt Dauer-KI-Rauschen",
+  title: "KI-Salon: Klarheit statt Dauer-KI-Rauschen",
   description:
-    "Kuratiertes Gesprächsformat für Menschen in Verantwortung: 6 Monate, 6 Sessions à 90 Minuten, max. 8 Teilnehmende. Mit Susanne Volkwein und Frank Vullhorst in Darmstadt.",
+    "Fester, vertraulicher Gesprächsraum für Menschen in Verantwortung: 6 Monate, 6 Sessions à 90 Minuten, max. 8 Teilnehmende. Mit Susanne Volkwein und Frank Vullhorst in Darmstadt.",
 } as const;
 
 export const kiSalonHero = {
@@ -32,10 +32,9 @@ export const kiSalonPartner = {
 
 export const kiSalonProblem = {
   kicker: "Die Herausforderung",
-  headline: "Es gibt sehr viel KI-Input, jedoch zu wenig Orientierung und Klarheit.",
+  headline: "Viel KI-Input. Zu wenig Orientierung.",
   paragraphs: [
-    "KI ist überall. Fast jede Woche kommt etwas Neues dazu: ein neues Werkzeug, eine neue Meldung, eine neue Prognose. Im Wald vor lauter Bäumen den Überblick zu halten – irgendwann weiß man mehr als vorher und trotzdem irgendwie ohne Durchblick.",
-    "Auch in Unternehmen ist es oft nicht viel anders. Die einen wollen möglichst schnell loslegen. Andere hoffen, dass das Thema wieder vorbeigeht. Dazwischen sitzen Menschen, die Verantwortung tragen und Fragen haben, für die es im Alltag kaum einen guten Ort zum Austausch gibt.",
+    "Neue Tools, neue Prognosen, neue Erwartungen. Die einen wollen sofort loslegen, andere lieber abwarten. Dazwischen stehen Menschen, die Verantwortung tragen und entscheiden müssen: Was ist relevant? Was ist nur laut? Und was bedeutet KI konkret für uns?",
   ],
   quote:
     "KI nicht nur als Werkzeug betrachten, sondern als Veränderung, die auch Menschen und Zusammenarbeit betrifft.",
@@ -43,62 +42,48 @@ export const kiSalonProblem = {
 
 export const kiSalonFormat = {
   kicker: "Das Angebot",
-  headline: "Der KI-Salon – ein anderes Format.",
-  highlight: "Keine Schulung. Kein Vortrag. Keine Tool-Demo.",
+  headline: "Der KI-Salon: ein anderes Format.",
+  highlight: "Kein Vortrag. Keine Schulung. Keine Tool-Demo.",
   body:
-    "Der KI-Salon ist ein festes, kuratiertes Gesprächsformat für Menschen in Verantwortung. Klein, vertraulich, dialogisch. Impulse, die öffnen. Sie bringen Ihre eigenen Fragen und echte Situationen aus Ihrem Arbeitsalltag mit – in einen geschützten Rahmen.",
+    "Der KI-Salon ist ein fester, vertraulicher Gesprächsraum für Menschen in Verantwortung. Sie bringen reale Fragen und Situationen aus Ihrem Unternehmen mit. Wir ordnen ein, hinterfragen, spiegeln und entwickeln gemeinsam tragfähige Standpunkte.",
   subtitle: "Der Resonanzraum für Menschen in Verantwortung",
   stats: [
     "6 Monate",
     "6 Sessions",
-    "90 Minuten",
     "max. 8 Personen",
+    "90 Minuten",
     "monatlich",
     "Präsenz in Darmstadt",
   ],
-  note: "Mind. 4× in Präsenz, 2× online möglich",
+  note: "Eine verbindliche Gruppe. Mind. 4× in Präsenz, 2× online möglich.",
 } as const;
 
 export const kiSalonBenefits = {
   kicker: "Was Sie mitnehmen",
-  headline: "Mehr Sicherheit in der eigenen Haltung und im Denken – für Entscheidungen.",
+  headline:
+    "Ein Podcast gibt Ihnen Wissen. Der KI-Salon gibt Ihnen dazu Haltung, belastbare Standpunkte und Sicherheit.",
   items: [
-    {
-      title: "Eigene Haltung",
-      text: "Sie schärfen Ihre Haltung zu KI, die zu Ihnen und zu Ihrem Unternehmen passt.",
-    },
-    {
-      title: "Prioritäten erkennen",
-      text: "Sie können besser unterscheiden, was gerade wichtig ist und was nur laut ist.",
-    },
-    {
-      title: "Persönliches Logbuch",
-      text: "Am Ende jeder Session formulieren Sie einen nächsten Schritt – nicht für irgendwann, sondern bis zum nächsten Treffen.",
-    },
-    {
-      title: "Ihr eigener Weg",
-      text: "Am Ende steht keine allgemeine KI-Strategie, sondern Ihr eigener Weg im Umgang mit dem Thema.",
-    },
-    {
-      title: "Einordnung",
-      text: "Was KI kann, wo ihre Grenzen liegen, was rechtlich und organisatorisch wichtig wird – und welche Begriffe Sie kennen sollten.",
-    },
+    "Klare Sprache für KI-Gespräche, intern wie extern.",
+    "Fundierte Einordnung Ihrer konkreten Herausforderungen.",
+    "Orientierung: Was KI kann, was sie darf, was sie mit uns macht und was daraus entstehen kann.",
+    "Strategische Klarheit: Was heute entschieden werden sollte und wo bewusst etwas offenbleiben darf.",
   ],
+  slogan: "Kern bewahren. Wandel verstehen. Zukunft gestalten.",
 } as const;
 
 export const kiSalonAudience = {
   kicker: "Für wen",
-  headline: "Der richtige Ort für Sie, wenn …",
-  body:
-    "… Sie Verantwortung tragen, KI als kulturelle Herausforderung erleben und keinen Frontalvortrag suchen, sondern einen vertraulichen Raum für echte Fragen und gemeinsame Antworten.",
+  headline:
+    "Der richtige Ort für Menschen, die Verantwortung tragen und KI nicht nur technisch betrachten.",
+  body: "",
   roles: [
-    "Geschäftsführer:innen KMU",
-    "Bereichsleitungen",
-    "Personalverantwortliche",
-    "Transformationsbeauftragte",
-    "Leitende Referent:innen",
+    "Geschäftsführung",
+    "Bereichsleitung",
+    "HR",
+    "Transformation",
+    "Leitende Fachrollen",
   ],
-  note: "Die Besetzung ist Teil des Formats: keine zwei aus derselben Branche.",
+  note: "Kuratiert: maximal 8 Menschen, keine zwei aus derselben Branche.",
 } as const;
 
 export type KiSalonTimelineStep = {
@@ -116,30 +101,30 @@ export const kiSalonTimeline = {
       n: "1",
       title: "Ankommen",
       duration: "10 Min",
-      text: "Wir beginnen nicht mit KI, sondern mit der Frage: Wo stehen Sie gerade? Neugierig? Genervt? Überfordert? Pragmatisch? Vielleicht auch anders als noch vor vier Wochen. Und: Was ist seit dem letzten Treffen passiert?",
+      text: "Wo stehen Sie gerade? Was hat sich seit dem letzten Salon verändert?",
     },
     {
       n: "2",
       title: "Resonanzfunke",
-      duration: "5–10 Min",
-      text: "Ein Gedanke, eine Beobachtung, eine aktuelle Entwicklung. Wir ordnen ein, geben einen Funken und öffnen damit das Gespräch – nicht mit dem Anspruch, ein Thema vollständig zu erklären, sondern damit etwas in Bewegung kommt.",
+      duration: "5 bis 10 Min",
+      text: "Ein Gedanke, eine Beobachtung oder aktuelle Entwicklung öffnet das Thema.",
     },
     {
       n: "3",
-      title: "Gesprächsräume",
+      title: "Gesprächsraum",
       duration: "60 Min",
-      text: "Moderierter Dialog mit Leitfragen. Reihum bringt eine Person einen Fall aus dem eigenen Unternehmen mit. Die anderen hören zu, fragen nach, spiegeln, widersprechen und denken mit. Susanne und Frank führen gemeinsam durch das Gespräch: aufmerksam in der Haltung und klar in der Struktur.",
+      text: "Moderierter Dialog mit Leitfragen. Ein realer Fall aus der Gruppe. Fragen, Spiegeln, Widerspruch, neue Perspektiven.",
     },
     {
       n: "4",
       title: "Integration",
-      duration: "5–10 Min",
-      text: "Abschluss: Was nehmen Sie mit? Was möchten Sie bis zum nächsten Treffen ausprobieren, beobachten oder klären? Dieser Funken kommt ins Logbuch. Beim nächsten KI-Salon schauen wir wieder darauf.",
+      duration: "5 bis 10 Min",
+      text: "Was nehmen Sie mit? Was klären oder erproben Sie bis zum nächsten Treffen? Ihr nächster Schritt kommt ins persönliche Logbuch.",
     },
   ] satisfies KiSalonTimelineStep[],
   footnote: {
-    title: "Was KI wirklich kostet",
-    text: "Ein KI-Abonnement ist günstig. Aber das ist nicht unbedingt der entscheidende Preis. Was kostet Unsicherheit? Was kostet unkontrollierte Nutzung? Was passiert, wenn Mitarbeitende ihr Wissen in Systeme geben und sich gleichzeitig fragen, was danach mit ihrer eigenen Rolle geschieht?",
+    title: "Was kostet KI wirklich?",
+    text: "Nicht nur die Lizenz. Was kostet Unsicherheit? Unkontrollierte Nutzung? Verlust von Wissen? Und was passiert mit Menschen, wenn sich ihre Rolle verändert?",
   },
 } as const;
 
@@ -150,14 +135,14 @@ export const kiSalonHosts = {
     {
       name: "Susanne Volkwein",
       role: "Systemische Coachin, KI-Managerin (IHK)",
-      bio: "22 Jahre Konzernerfahrung in Personal- und Organisationsentwicklung, Change-Management, 4 Jahre Führungskraft. Sie kennt die Welt der Zielgruppe von innen. Sie hält den Raum – vertraulich und tief.",
+      bio: "22 Jahre Personal- und Organisationsentwicklung, Change und Führung. Sie hält den Raum: vertraulich und tief.",
       website: "https://www.susannevolkwein.de/",
       image: "/susanne-volkwein.png",
     },
     {
       name: "Frank Vullhorst",
       role: "Senior Project Manager, KI-Manager (Cert-IT)",
-      bio: "30 Jahre Erfahrung in technischer Beratung, Schulungen und Transformation. EU AI Act, KI-Ethik, Change-Management. Er kennt die Herausforderungen. Er bringt die Einordnung – konkret, strategisch.",
+      bio: "30 Jahre technische Beratung, Transformation und Veränderung. Er bringt die Einordnung, konkret und strategisch.",
       website: "https://frankvullhorst.de/",
       image: "/frank.png",
     },
@@ -165,15 +150,10 @@ export const kiSalonHosts = {
 } as const;
 
 export const kiSalonPricing = {
-  kicker: "Jetzt anfragen",
-  headline: "Für den Start des 1. KI-Salons im September",
-  founderLead:
-    "Wir starten mit einem einmaligen Gründerpreis für 6 Sessions",
-  regularPrice: "925,00 €",
-  regularLabel: "Normalpreis ab der 2. Runde für 6 Sessions",
-  taxNote: "pro Person, zzgl. MwSt.",
+  kicker: "Interesse am KI-Salon?",
+  headline: "Die Gruppe wird gerade zusammengestellt.",
   body:
-    "Lassen Sie uns kurz miteinander sprechen, um zu sehen, ob der KI-Salon zu Ihnen passt und wir zu Ihnen.",
+    "Da die Gruppe kuratiert ist, sprechen wir vorher kurz miteinander: Passt der KI-Salon zu Ihnen und Sie zur Gruppe? Lernen Sie uns kennen und füllen Sie den Interviewbogen aus.",
   cta: "Zum Interviewbogen",
 } as const;
 
