@@ -110,8 +110,6 @@ export default function KiSalonPage() {
 
             <p className="body-text mt-6">{kiSalonFormat.body}</p>
 
-            <p className="offer-card__title mt-8">{kiSalonFormat.subtitle}</p>
-
             <ul className="ki-salon-stats" aria-label="Format-Kennzahlen">
               {kiSalonFormat.stats.map((stat) => (
                 <li key={stat} className="ki-salon-stats__item">
@@ -152,16 +150,15 @@ export default function KiSalonPage() {
               <h2 className="section-title">
                 <span className="display-title-line">{kiSalonAudience.headline}</span>
               </h2>
-              {kiSalonAudience.body ? (
-                <p className="section-lead mt-6">{kiSalonAudience.body}</p>
-              ) : null}
             </AnimateIn>
 
-            <ul className="mt-8 list-disc space-y-2 pl-6 body-text">
-              {kiSalonAudience.roles.map((role) => (
-                <li key={role}>{role}</li>
+            <div className="mt-8 space-y-5">
+              {kiSalonAudience.paragraphs.map((paragraph) => (
+                <p key={paragraph.slice(0, 40)} className="body-text">
+                  {paragraph}
+                </p>
               ))}
-            </ul>
+            </div>
 
             <p className="body-text-note mt-8">{kiSalonAudience.note}</p>
           </div>

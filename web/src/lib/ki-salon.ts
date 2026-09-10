@@ -1,4 +1,4 @@
-/** KI-Salon: Inhalte aus Flyer 08.09.2026, Sie-Form, Single Source of Truth */
+/** KI-Salon: Inhalte aus Flyer 10.09.2026, Sie-Form, Single Source of Truth */
 
 export const KI_SALON_INTERVIEW_URL =
   "https://ki-salon-fragen.netlify.app/" as const;
@@ -6,14 +6,14 @@ export const KI_SALON_INTERVIEW_URL =
 export const kiSalonMeta = {
   title: "KI-Salon: Klarheit statt Dauer-KI-Rauschen",
   description:
-    "Fester, vertraulicher Gesprächsraum für Menschen in Verantwortung: 6 Monate, 6 Sessions à 90 Minuten, max. 8 Teilnehmende. Mit Susanne Volkwein und Frank Vullhorst in Darmstadt.",
+    "Fester, vertraulicher Gesprächsraum für Menschen in Verantwortung: 6 Monate, 6 Sessions à 90 Minuten, max. 10 Teilnehmende. Mit Susanne Volkwein und Frank Vullhorst in Darmstadt.",
 } as const;
 
 export const kiSalonHero = {
   kicker: "KI-Salon",
   headline: "Klarheit statt Dauer-KI-Rauschen.",
   lead:
-    "Ein Gesprächsformat für Menschen in Verantwortung, die KI nicht nur technisch betrachten, sondern besser verstehen möchten, was sie für das eigene Unternehmen und die Menschen darin bedeutet.",
+    "Ein Gesprächsformat für Menschen in Verantwortung, die KI nicht nur technisch betrachten, sondern besser verstehen möchten, was sie für das eigene Umfeld und die Menschen darin bedeutet.",
 } as const;
 
 export const kiSalonPartner = {
@@ -32,9 +32,10 @@ export const kiSalonPartner = {
 
 export const kiSalonProblem = {
   kicker: "Die Herausforderung",
-  headline: "Viel KI-Input. Zu wenig Orientierung.",
+  headline:
+    "Wie verändert KI das, was Ihre Arbeit, Ihr Unternehmen besonders macht?",
   paragraphs: [
-    "Neue Tools, neue Prognosen, neue Erwartungen. Die einen wollen sofort loslegen, andere lieber abwarten. Dazwischen stehen Menschen, die Verantwortung tragen und entscheiden müssen: Was ist relevant? Was ist nur laut? Und was bedeutet KI konkret für uns?",
+    "Die meisten beantworten diese Frage allein, weil der Overload des Tagesgeschäfts keinen Raum lässt, sie wirklich zu durchdenken. Der KI-Salon ist ein geschützter Raum, den Entscheiderinnen und Entscheider dafür nutzen können.",
   ],
   quote:
     "KI nicht nur als Werkzeug betrachten, sondern als Veränderung, die auch Menschen und Zusammenarbeit betrifft.",
@@ -42,15 +43,14 @@ export const kiSalonProblem = {
 
 export const kiSalonFormat = {
   kicker: "Das Angebot",
-  headline: "Der KI-Salon: ein anderes Format.",
+  headline: "Der KI-Salon: ein neues Format.",
   highlight: "Kein Vortrag. Keine Schulung. Keine Tool-Demo.",
   body:
-    "Der KI-Salon ist ein fester, vertraulicher Gesprächsraum für Menschen in Verantwortung. Sie bringen reale Fragen und Situationen aus Ihrem Unternehmen mit. Wir ordnen ein, hinterfragen, spiegeln und entwickeln gemeinsam tragfähige Standpunkte.",
-  subtitle: "Der Resonanzraum für Menschen in Verantwortung",
+    "Der KI-Salon ist ein fester, vertraulicher Gesprächsraum für Menschen in Verantwortung. Sie bringen reale Fragen und Situationen aus Ihrem Bereich mit. Wir ordnen ein, hinterfragen, spiegeln und entwickeln gemeinsam tragfähige Standpunkte.",
   stats: [
     "6 Monate",
     "6 Sessions",
-    "max. 8 Personen",
+    "max. 10 Personen",
     "90 Minuten",
     "monatlich",
     "Präsenz in Darmstadt",
@@ -66,24 +66,20 @@ export const kiSalonBenefits = {
     "Klare Sprache für KI-Gespräche, intern wie extern.",
     "Fundierte Einordnung Ihrer konkreten Herausforderungen.",
     "Orientierung: Was KI kann, was sie darf, was sie mit uns macht und was daraus entstehen kann.",
-    "Strategische Klarheit: Was heute entschieden werden sollte und wo bewusst etwas offenbleiben darf.",
+    "Strategische Klarheit: Was heute entschieden werden sollte und wo bewusst was offenbleiben darf.",
+    "Konkrete Impulse für die Arbeit am Unternehmen, um es stabil in die Industrie 5.0 zu führen.",
   ],
   slogan: "Kern bewahren. Wandel verstehen. Zukunft gestalten.",
 } as const;
 
 export const kiSalonAudience = {
   kicker: "Für wen",
-  headline:
-    "Der richtige Ort für Menschen, die Verantwortung tragen und KI nicht nur technisch betrachten.",
-  body: "",
-  roles: [
-    "Geschäftsführung",
-    "Bereichsleitung",
-    "HR",
-    "Transformation",
-    "Leitende Fachrollen",
+  headline: "Für Menschen, die Verantwortung tragen und etwas zu sagen haben.",
+  paragraphs: [
+    "Mit Erfahrung, eigener Haltung und Neugier auf andere Perspektiven.",
+    "Für alle, die KI nicht nur beobachten, sondern einordnen, hinterfragen und mitgestalten wollen.",
   ],
-  note: "Kuratiert: maximal 8 Menschen, keine zwei aus derselben Branche.",
+  note: "Kuratiert: maximal 10 Menschen, maximal zwei aus derselben Branche.",
 } as const;
 
 export type KiSalonTimelineStep = {
@@ -119,12 +115,12 @@ export const kiSalonTimeline = {
       n: "4",
       title: "Integration",
       duration: "5 bis 10 Min",
-      text: "Was nehmen Sie mit? Was klären oder erproben Sie bis zum nächsten Treffen? Ihr nächster Schritt kommt ins persönliche Logbuch.",
+      text: "Was nehmen Sie mit? Was klären oder erproben Sie bis zum nächsten Treffen?",
     },
   ] satisfies KiSalonTimelineStep[],
   footnote: {
     title: "Was kostet KI wirklich?",
-    text: "Nicht nur die Lizenz. Was kostet Unsicherheit? Unkontrollierte Nutzung? Verlust von Wissen? Und was passiert mit Menschen, wenn sich ihre Rolle verändert?",
+    text: "Nicht nur die Lizenz. Was kostet Unsicherheit? Unkontrollierte Nutzung? Verlust von Wissen? De-Skilling? Und was passiert mit Menschen, wenn sich ihre Rolle verändert?",
   },
 } as const;
 
@@ -142,7 +138,7 @@ export const kiSalonHosts = {
     {
       name: "Frank Vullhorst",
       role: "Senior Project Manager, KI-Manager (Cert-IT)",
-      bio: "30 Jahre technische Beratung, Transformation und Veränderung. Er bringt die Einordnung, konkret und strategisch.",
+      bio: "30 Jahre technische Beratung, Transformation und Veränderung. Er bringt die Einordnung, konkret, strategisch.",
       website: "https://frankvullhorst.de/",
       image: "/frank.png",
     },
