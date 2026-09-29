@@ -1,4 +1,4 @@
-/** KI-Salon: Inhalte aus Flyer 10.09.2026, Sie-Form, Single Source of Truth */
+/** KI-Salon: Inhalte aus Flyer 29.09.2026, Sie-Form, Single Source of Truth */
 
 export const KI_SALON_INTERVIEW_URL =
   "https://ki-salon-fragen.netlify.app/" as const;
@@ -6,7 +6,7 @@ export const KI_SALON_INTERVIEW_URL =
 export const kiSalonMeta = {
   title: "KI-Salon: Klarheit statt Dauer-KI-Rauschen",
   description:
-    "Fester, vertraulicher Gesprächsraum für Menschen in Verantwortung: 6 Monate, 6 Sessions à 90 Minuten, max. 10 Teilnehmende. Mit Susanne Volkwein und Frank Vullhorst in Darmstadt.",
+    "Fester, vertraulicher Gesprächsraum für Menschen in Verantwortung: 6 Monate, 6 Sessions à 90 Minuten, max. 10 Teilnehmende. Im Atelier Löwentor in Darmstadt. Mit Susanne Volkwein und Frank Vullhorst.",
 } as const;
 
 export const kiSalonHero = {
@@ -53,9 +53,12 @@ export const kiSalonFormat = {
     "max. 10 Personen",
     "90 Minuten",
     "monatlich",
-    "Präsenz in Darmstadt",
+    "Atelier Löwentor, Darmstadt",
   ],
-  note: "Eine verbindliche Gruppe. Mind. 4× in Präsenz, 2× online möglich.",
+  note: [
+    "Eine verbindliche Gruppe. Je 90 Minuten, monatlich im Atelier Löwentor in Darmstadt",
+    "(mind. 4× in Präsenz, 2× online möglich).",
+  ],
 } as const;
 
 export const kiSalonBenefits = {
@@ -147,10 +150,10 @@ export const kiSalonHosts = {
 
 export const kiSalonPricing = {
   kicker: "Interesse am KI-Salon?",
-  headline: "Die Gruppe wird gerade zusammengestellt.",
+  headline: "Die Termine stehen fest für 2027, es gibt noch Plätze.",
   body:
-    "Da die Gruppe kuratiert ist, sprechen wir vorher kurz miteinander: Passt der KI-Salon zu Ihnen und Sie zur Gruppe? Lernen Sie uns kennen und füllen Sie den Interviewbogen aus.",
-  cta: "Zum Interviewbogen",
+    "Erklären Sie jetzt Ihren Teilnahmewunsch. Nach Eingang Ihres Fragebogens melden wir uns persönlich bei Ihnen.",
+  cta: "Zum Fragebogen",
 } as const;
 
 export const kiSalonContact = {

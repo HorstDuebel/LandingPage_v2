@@ -118,7 +118,11 @@ export default function KiSalonPage() {
               ))}
             </ul>
 
-            <p className="body-text-note mt-4">{kiSalonFormat.note}</p>
+            <p className="body-text-note mt-4">
+              {kiSalonFormat.note[0]}
+              <br />
+              {kiSalonFormat.note[1]}
+            </p>
           </div>
         </section>
 
