@@ -7,12 +7,12 @@ import { getFaqJsonLd } from "@/lib/home-schema";
 export const metadata: Metadata = {
   title: "Fragen und Antworten",
   description:
-    "Antworten zu Erstgespräch, AI-ISCA Audit, Prozess-Erfassung, Datenschutz und EU AI Act sowie zum Claude Cowork Workshop.",
+    "Antworten zu Orientierungsgespräch, AI-ISCA Audit, Prozess-Erfassung, Datenschutz und EU AI Act sowie zum Claude Cowork Workshop.",
   alternates: { canonical: "/faq" },
   openGraph: {
     title: "Fragen und Antworten | Frank Vullhorst",
     description:
-      "Antworten zu Erstgespräch, AI-ISCA Audit, Prozess-Erfassung, Datenschutz und EU AI Act sowie zum Claude Cowork Workshop.",
+      "Antworten zu Orientierungsgespräch, AI-ISCA Audit, Prozess-Erfassung, Datenschutz und EU AI Act sowie zum Claude Cowork Workshop.",
     url: "/faq",
   },
 };

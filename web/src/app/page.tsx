@@ -171,7 +171,7 @@ export default function Home() {
                   KI-Einsatz. Schatten-KI wird dabei sichtbar und steuerbar. Nicht
                   durch Verbote, sondern durch Klarheit und Kompetenz.
                   Gleichzeitig erhalten Sie eine nachvollziehbare Dokumentation
-                  Ihrer Maßnahmen zur KI-Kompetenz, auch mit Blick auf den EU AI
+                  Ihrer Maßnahmen zur Kompetenz, auch mit Blick auf den EU AI
                   Act.
                 </p>
               </div>
@@ -232,13 +232,16 @@ export default function Home() {
                 </p>
                 <p className="body-text about-continuation__text">
                   Werkzeugmacher, Informatiker, viele Jahre in leitender Funktion
-                  bei 3D Systems. Mehr als 30 Jahre Erfahrung in Technik, Führung
-                  und internationalen Projekten.
+                  bei 3D Systems.
+                  <br />
+                  Mehr als 30 Jahre Erfahrung in Technik, Führung und
+                  internationalen Projekten.
                 </p>
                 <p className="body-text about-continuation__text">
                   Das Besondere ist die Verbindung von Werkstatt und
                   Geschäftsleitung. Ich verstehe technische Prozesse, aber auch
                   Strategie, Führung, Projekte und wirtschaftliche Entscheidungen.
+                  <br />
                   Der Kundendienst im 3D-Druck führte mich in Hunderte von
                   Betrieben: Dental, Automobil, Landmaschinen, Medizintechnik,
                   Weißwaren, Kunst und Mode. Mal Chefetage, mal Werkhalle.
@@ -324,8 +327,8 @@ export default function Home() {
                 </AnimateIn>
                 <AnimateIn delay={80}>
                   <p className="border-b border-[var(--border)] py-4 copy-small text-[var(--text)]">
-                    Vom 3D-Druck zur KI, seit 1994: Neue Technik in Betriebe zu
-                    bringen ist mein Beruf.
+                    Vom 3D-Druck zur KI: Neue Technik in Betriebe zu bringen ist
+                    mein Beruf.
                   </p>
                 </AnimateIn>
                 <AnimateIn delay={160}>

@@ -2,7 +2,7 @@
 
 export const faqEntries = [
   {
-    question: "Was passiert im Erstgespräch?",
+    question: "Was passiert im Orientierungsgespräch?",
     answer:
       "Wir schauen gemeinsam auf Ihre Ausgangslage: Was läuft, was fehlt, wo KI heute helfen kann, und was Sie noch lassen sollten. Kein Pitch, keine Agenda.",
   },
@@ -37,7 +37,7 @@ export const faqEntries = [
       "Wenn Sie eine Tool-Demo wollen oder Berater*innen suchen, die Ihnen sagen, was trendy ist. Hier geht es um echte, umsetzbare Entlastung im Betriebsalltag.",
   },
   {
-    question: "Was kommt nach dem Erstgespräch?",
+    question: "Was kommt nach dem Orientierungsgespräch?",
     answer:
       "Je nach Situation: ein AI-ISCA Audit, Prozess-Erfassung, ein AI Literacy Workshop, ein Pilotprojekt oder der Claude Cowork Workshop. Viele starten mit einem Potenzial-Scan, ich empfehle das, was zu Ihrem Betrieb passt, kein Standardpaket.",
   },
