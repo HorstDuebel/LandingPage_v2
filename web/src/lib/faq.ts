@@ -1,6 +1,13 @@
 /** FAQ, gemeinsam für Seite und JSON-LD */
 
-export const faqEntries = [
+export type FaqEntry = {
+  question: string;
+  answer: string;
+  linkLabel?: string;
+  linkHref?: string;
+};
+
+export const faqEntries: readonly FaqEntry[] = [
   {
     question: "Was passiert im Orientierungsgespräch?",
     answer:
@@ -41,4 +48,57 @@ export const faqEntries = [
     answer:
       "Je nach Situation: ein AI-ISCA Audit, Prozess-Erfassung, ein AI Literacy Workshop, ein Pilotprojekt oder der Claude Cowork Workshop. Viele starten mit einem Potenzial-Scan, ich empfehle das, was zu Ihrem Betrieb passt, kein Standardpaket.",
   },
-] as const;
+];
+
+export const faqBetriebEntries: readonly FaqEntry[] = [
+  {
+    question: "Muss ich meine Mitarbeiter in KI schulen?",
+    answer:
+      "Ja, wenn in Ihrem Betrieb KI genutzt wird, auch Werkzeuge wie ChatGPT oder Copilot. Artikel 4 der KI-Verordnung verlangt, dass Sie Maßnahmen ergreifen, um die KI-Kompetenz Ihres Personals zu fördern. Seit Juli 2026 ist diese Pflicht entschärft, aber nicht abgeschafft. Was genau gilt, steht auf der Seite „KI-Schulung für Mitarbeiter“.",
+    linkLabel: "KI-Schulung für Mitarbeiter",
+    linkHref: "/ki-schulung",
+  },
+  {
+    question: "Unsere Mitarbeiter wurden schon geschult. Reicht das?",
+    answer:
+      "Oft nicht. Wenn nach einer Schulung einer dem nächsten zeigt, wie es geht, wird das Wissen mit jeder Weitergabe dünner. Entscheidend ist, wie tief es heute im Betrieb sitzt und bei wem. Mein Grundsatz: Jeder darf damit arbeiten. Einer muss es beherrschen.",
+  },
+  {
+    question: "Was kostet eine KI-Beratung?",
+    answer:
+      "Das hängt davon ab, wo Sie stehen und was Sie vorhaben. Das Orientierungsgespräch ist kostenfrei. Danach bekommen Sie ein festes Angebot, meist für einen kleinen, klar umrissenen ersten Schritt statt für ein großes Paket.",
+  },
+  {
+    question: "Gibt es eine Förderung für KI-Schulungen?",
+    answer:
+      "Für kurze Schulungen kaum. Die Weiterbildungsförderung der Agentur für Arbeit setzt mindestens 120 Unterrichtsstunden voraus, der DIGI-Zuschuss Hessen fördert Software und Technik, keine Schulungen. Mehr dazu auf der Seite „KI-Schulung für Mitarbeiter“.",
+    linkLabel: "KI-Schulung für Mitarbeiter",
+    linkHref: "/ki-schulung",
+  },
+  {
+    question: "Wie führe ich KI im Unternehmen ein?",
+    answer:
+      "Erst der Betrieb, dann die KI. Zuerst klären wir, wo KI bei Ihnen schon genutzt wird, oft mehr als gedacht. Dann folgen klare Regeln für Ihr Team und eine Schulung. Danach setzen wir KI an einer einzigen Stelle um, mit einem messbaren Ergebnis, bevor es in die Breite geht. Klein anfangen, sauber wachsen.",
+  },
+  {
+    question: "Was bringt KI einem Handwerksbetrieb?",
+    answer:
+      "Vor allem Entlastung im Büro. Typische Einsatzfelder sind Angebote und Schreiben vorbereiten, E-Mails sortieren und beantworten, Dokumentationen erstellen und Informationen schneller finden. KI ersetzt dabei kein Fachwissen. Sie nimmt Routinearbeit ab, und der Mensch prüft und entscheidet.",
+  },
+  {
+    question:
+      "Das Mittelstand-Digital Zentrum berät kostenlos. Warum sollte ich Sie bezahlen?",
+    answer:
+      "Das ist ein gutes Angebot, und es zeigt Ihnen, was möglich ist. Meine Arbeit fängt da an, wo es darum geht, dass es in Ihrem Betrieb auch wirklich passiert. Und dass ich in einem Jahr noch erreichbar bin, wenn etwas klemmt.",
+  },
+  {
+    question: "Arbeiten Sie nur in Darmstadt?",
+    answer:
+      "Ich sitze in Roßdorf bei Darmstadt und komme zu Ihnen in den Betrieb, in Südhessen und im Rhein-Main-Gebiet, etwa nach Frankfurt, Wiesbaden, Mainz oder Aschaffenburg, gern auch Deutschland und DACH weit.",
+  },
+];
+
+export const allFaqEntries: readonly FaqEntry[] = [
+  ...faqEntries,
+  ...faqBetriebEntries,
+];

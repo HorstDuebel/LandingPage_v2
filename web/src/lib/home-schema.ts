@@ -1,4 +1,4 @@
-import { faqEntries } from "@/lib/faq";
+import { allFaqEntries } from "@/lib/faq";
 import { siteConfig } from "@/lib/site";
 
 export function getHomeJsonLd() {
@@ -113,7 +113,7 @@ export function getFaqJsonLd() {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "@id": `${url}/faq#faq`,
-    mainEntity: faqEntries.map((item) => ({
+    mainEntity: allFaqEntries.map((item) => ({
       "@type": "Question",
       name: item.question,
       acceptedAnswer: {
