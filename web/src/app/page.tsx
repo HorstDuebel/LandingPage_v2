@@ -8,7 +8,7 @@ import {
 import { BuildingBlockFlipGrid } from "@/components/flip-offer-card";
 import { JsonLd } from "@/components/json-ld";
 import { SectionKicker, SiteFooter, SiteHeader } from "@/components/site-chrome";
-import { cta, finalCta } from "@/lib/copy";
+import { finalCta } from "@/lib/copy";
 import { getHomeJsonLd } from "@/lib/home-schema";
 import { siteConfig } from "@/lib/site";
 
@@ -34,7 +34,7 @@ export default function Home() {
       <SiteHeader />
 
       <main id="top" className="landing-page flex-1">
-        {/* 1. Hero */}
+        {/* 1. Header / Hero */}
         <section className="hero-section hero-pattern section-block bg-[var(--surface-lime)]">
           <div className="page-container">
             <div>
@@ -49,32 +49,78 @@ export default function Home() {
               </h1>
 
               <div className="hero-lead-cta mt-6">
-                <p className="section-lead hero-lead-cta__text !max-w-none">
-                  Fortschritt entsteht, wenn Risiken erkannt, abgewogen und
-                  bewusst eingegangen werden. Bei KI gilt nichts anderes. Ich
-                  begleite Sie bei Ihrer{" "}
-                  <span className="whitespace-nowrap">KI-Einführung</span>{" "}
-                  dabei: Chancen nutzen, mutig vorangehen und an kritischen
-                  Stellen bewusst entscheiden. So entstehen KI-Kompetenzen und
-                  eine{" "}
-                  <span className="whitespace-nowrap">KI-Strategie</span>, die
-                  im Unternehmen verstanden und von der Belegschaft mitgetragen
-                  wird.
-                </p>
+                <div className="section-lead hero-lead-cta__text !max-w-none space-y-4">
+                  <p>
+                    Fortschritt entsteht nicht dadurch, Risiken zu vermeiden. Er
+                    entsteht dadurch, sie zu verstehen und bewusst zu
+                    entscheiden, welche Sie eingehen. Bei KI gilt nichts anderes.
+                  </p>
+                  <p>
+                    Genau dabei arbeite ich mit Ihnen: Chancen nutzen, an den
+                    richtigen Stellen genau hinsehen, klar entscheiden. So wächst
+                    KI-Kompetenz in Ihrem Team, und es entsteht eine Strategie,
+                    die Ihr Betrieb versteht, trägt und sich dann ohne mich
+                    weiterentwickelt.
+                  </p>
+                </div>
 
                 <PrimaryCtaLink
                   className="btn-primary hero-lead-cta__button mt-10 w-full"
                   trackLabel="hero"
                 >
-                  {cta.primary.hero}
+                  Kostenfreies Orientierungsgespräch{"\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0"}[ 30 Minuten ]
                 </PrimaryCtaLink>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 2. Angebot / Lösung */}
-        <section id="angebot" className="section-block bg-[var(--surface-muted)]">
+        {/* 2. Nutzen */}
+        <section id="nutzen" className="section-block bg-[var(--surface-muted)]">
+          <div className="page-container">
+            <AnimateIn>
+              <SectionKicker>Nutzen</SectionKicker>
+              <h2 className="section-title">
+                <span className="display-title-line">
+                  Was Sie davon haben.
+                </span>
+              </h2>
+              <p className="section-lead mt-6">
+                Wenn Sie im Tagesgeschäft kaum Zeit haben und trotzdem nicht
+                hinter der Entwicklung herlaufen wollen.
+              </p>
+            </AnimateIn>
+
+            <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-12">
+              {(
+                [
+                  {
+                    title: "Strategischer Weitblick",
+                    text: "Die KI-Entwicklung ist schneller als jede Brancheninnovation. Ich ordne für Sie ein, was zählt und was Sie ignorieren können.",
+                  },
+                  {
+                    title: "Branchenwissen",
+                    text: "Sie müssen mir Ihr Geschäft nicht lange erklären. Ich spreche die Sprache von Werkstatt und Management.",
+                  },
+                  {
+                    title: "Freiraum für Ihr Kerngeschäft",
+                    text: "Weil Sie sich nicht selbst durch Kurse und Videos arbeiten müssen, bleibt Ihre Zeit für das, was den Betrieb wirklich voranbringt.",
+                  },
+                ] as const
+              ).map((item, i) => (
+                <AnimateIn key={item.title} delay={i * 60}>
+                  <article>
+                    <h3 className="offer-card__title">{item.title}</h3>
+                    <p className="offer-card__desc">{item.text}</p>
+                  </article>
+                </AnimateIn>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 3. Das Angebot */}
+        <section id="angebot" className="section-block bg-[var(--surface-lime)]">
           <div className="page-container">
             <AnimateIn>
               <SectionKicker>Das Angebot</SectionKicker>
@@ -121,14 +167,12 @@ export default function Home() {
                   <li>Welche Kompetenzen, Regeln und Grenzen braucht es?</li>
                 </ul>
                 <p>
-                  So wird aus einzelnen Versuchen ein sicherer, steuerbarer{" "}
-                  <span className="whitespace-nowrap">KI-Einsatz</span>.
-                  Schatten-KI wird dabei sichtbar und steuerbar. Nicht durch
-                  Verbote, sondern durch Klarheit und Kompetenz. Gleichzeitig
-                  erhalten Sie eine nachvollziehbare Dokumentation Ihrer
-                  Maßnahmen zur{" "}
-                  <span className="whitespace-nowrap">KI-Kompetenz</span>, auch
-                  mit Blick auf den EU AI Act.
+                  So wird aus einzelnen Versuchen ein sicherer, steuerbarer
+                  KI-Einsatz. Schatten-KI wird dabei sichtbar und steuerbar. Nicht
+                  durch Verbote, sondern durch Klarheit und Kompetenz.
+                  Gleichzeitig erhalten Sie eine nachvollziehbare Dokumentation
+                  Ihrer Maßnahmen zur KI-Kompetenz, auch mit Blick auf den EU AI
+                  Act.
                 </p>
               </div>
               <p className="body-text !max-w-none">
@@ -143,38 +187,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 3. Orientierung */}
-        <section
-          id="so-arbeiten-wir"
-          className="section-block bg-[var(--surface-lime)]"
-        >
-          <div className="page-container">
-            <AnimateIn>
-              <SectionKicker>So arbeiten wir zusammen</SectionKicker>
-              <h2 className="section-title">
-                <span className="display-title-line">
-                  Erst verstehen: Dann sinnvoll umsetzen.
-                </span>
-              </h2>
-            </AnimateIn>
-
-            <BuildingBlockFlipGrid />
-
-            <div className="mt-12">
-              <PrimaryCtaLink
-                className="btn-primary hero-lead-cta__button w-full"
-                trackLabel="orientierung"
-              >
-                {cta.primary.hero}
-              </PrimaryCtaLink>
-            </div>
-          </div>
-        </section>
-
         {/* 4. Expertise */}
         <section
           id="ueber-mich"
-          className="section-block bg-[var(--surface-warm)]"
+          className="section-block bg-[var(--surface-teal)]"
         >
           <div className="page-container about-layout">
             <div className="about-portrait">
@@ -192,27 +208,45 @@ export default function Home() {
             <div className="about-copy">
               <AnimateIn>
                 <SectionKicker>Expertise</SectionKicker>
-                <h2 className="sr-only">Expertise</h2>
+                <h2 className="section-title">
+                  <span className="display-title-line">Wofür ich brenne.</span>
+                </h2>
               </AnimateIn>
 
-              <div className="mt-6 space-y-6">
-                <p className="body-text">
-                  Ich bin Werkzeugmacher, Informatiker und habe über viele Jahre
-                  in leitender Funktion bei 3D Systems gearbeitet. Mit mehr als
-                  30 Jahren Erfahrung in Technik, Führung und internationalen
-                  Projekten kenne ich Betriebe von innen, von der Werkstatt bis
-                  ins Management.
+              <p className="body-text mt-6">
+                Neue Technik in Betriebe bringen, das ist seit 1994 der rote
+                Faden. Damals war es der 3D-Druck: Systeme, die kaum jemand
+                verstand und die trotzdem zuverlässig funktionieren mussten.
+                Heute ist es KI. Das Prinzip und die Herausforderungen sind
+                ähnlich geblieben.
+              </p>
+            </div>
+
+            <div className="about-continuation">
+              <div className="space-y-6">
+                <p className="body-text about-continuation__text">
+                  <strong className="font-semibold text-[var(--text)]">
+                    Sie bleiben Chef der Technik und werden nicht zum Bediener der
+                    Technik.
+                  </strong>
                 </p>
-                <p className="body-text">
-                  Das Besondere ist die Verbindung aus Praxis und Struktur.
-                  Werkstattverständnis trifft auf die Logik eines Informatikers.
-                  Der Kundendienst im 3D-Druck hat mich in hunderte Betriebe
-                  geführt: Dental, Automobil, Landmaschinen, Medizintechnik,
-                  Weißwaren, bis hin zu Kunst und Mode. Mein Arbeitsplatz war
-                  dabei mal in den Chefetagen, mal in den Werkhallen und
-                  Produktionen. Ich bewege mich gekonnt auf
-                  Geschäftsleitungsebene und packe an der Werkbank geschickt mit
-                  an. Beide Sprachen sind meine.
+                <p className="body-text about-continuation__text">
+                  Werkzeugmacher, Informatiker, viele Jahre in leitender Funktion
+                  bei 3D Systems. Mehr als 30 Jahre Erfahrung in Technik, Führung
+                  und internationalen Projekten.
+                </p>
+                <p className="body-text about-continuation__text">
+                  Das Besondere ist die Verbindung von Werkstatt und
+                  Geschäftsleitung. Ich verstehe technische Prozesse, aber auch
+                  Strategie, Führung, Projekte und wirtschaftliche Entscheidungen.
+                  Der Kundendienst im 3D-Druck führte mich in Hunderte von
+                  Betrieben: Dental, Automobil, Landmaschinen, Medizintechnik,
+                  Weißwaren, Kunst und Mode. Mal Chefetage, mal Werkhalle.
+                </p>
+                <p className="body-text about-continuation__text !mt-8">
+                  <strong className="font-semibold text-[var(--text)]">
+                    Beide Sprachen sind meine.
+                  </strong>
                 </p>
               </div>
 
@@ -224,12 +258,60 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 5. Vertrauen */}
+        {/* 5. Haltung */}
+        <section id="haltung" className="section-block bg-[var(--surface-muted)]">
+          <div className="page-container">
+            <AnimateIn>
+              <SectionKicker>Haltung</SectionKicker>
+              <h2 className="section-title">
+                <span className="display-title-line">
+                  Nüchtern hinsehen statt hypen.
+                </span>
+              </h2>
+            </AnimateIn>
+
+            <div className="mt-10 space-y-5">
+              <p className="body-text !max-w-none">
+                Ein Betrieb braucht nicht möglichst viel KI. Entscheidend ist,
+                dass Menschen die Technik verstehen, einordnen und beherrschen,
+                ohne das eigene Denken an sie abzugeben.
+              </p>
+              <p className="body-text !max-w-none">
+                KI wird erst durch Menschen, Prozesse und Entscheidungen wirksam.
+                Deshalb braucht es einen gesunden Blick ohne Hype auf das, was KI
+                kann, was sie nicht kann und was sie mit uns macht.
+              </p>
+              <p className="body-text !max-w-none">
+                Wer KI nutzt, muss den eigenen Kopf im Training halten, genau wie
+                einen Muskel. Antworten prüfen, Zusammenhänge verstehen,
+                Verantwortung behalten.
+              </p>
+              <p className="body-text !max-w-none">
+                Die entscheidende Frage ist deshalb nicht nur: Was kann KI heute?
+                <br />
+                Sondern auch: Wer beherrscht das System heute und wer lernt heute,
+                es in zehn Jahren zu beherrschen? Was braucht es dafür?
+              </p>
+            </div>
+            <p className="body-text-note">
+              Mein Ziel ist, KI gezielt und gekonnt dort einzusetzen, wo sie
+              wirklich etwas verbessert,
+              <br />
+              und dabei die Souveränität im Betrieb zu erhalten.
+            </p>
+          </div>
+        </section>
+
+        {/* 6. Vertrauen */}
         <section id="vertrauen" className="section-block bg-[var(--surface-lime)]">
           <div className="page-container">
             <AnimateIn>
               <SectionKicker>Vertrauen</SectionKicker>
-              <h2 className="sr-only">Vertrauen</h2>
+              <h2 className="section-title">
+                <span className="display-title-line">
+                  Worauf Sie sich verlassen können.
+                </span>
+              </h2>
             </AnimateIn>
 
             <div className="mt-10 grid grid-cols-1 gap-0 lg:grid-cols-2 lg:gap-16">
@@ -242,8 +324,8 @@ export default function Home() {
                 </AnimateIn>
                 <AnimateIn delay={80}>
                   <p className="border-b border-[var(--border)] py-4 copy-small text-[var(--text)]">
-                    Vom 3D-Druck zur KI: Neue Technologie in Betriebe zu bringen ist mein
-                    Beruf.
+                    Vom 3D-Druck zur KI, seit 1994: Neue Technik in Betriebe zu
+                    bringen ist mein Beruf.
                   </p>
                 </AnimateIn>
                 <AnimateIn delay={160}>
@@ -275,20 +357,20 @@ export default function Home() {
                 <AnimateIn delay={0}>
                   <blockquote className="quote-block testimonial-card">
                     <p>
-                      Frank bringt Struktur und Klarheit in komplexe Themen und
-                      schafft einen Raum, in dem man offen reden kann.
+                      „Frank bringt Struktur und Klarheit in komplexe Themen und
+                      schafft einen Raum, in dem man offen reden kann.“
                     </p>
-                    <cite>Führungskraft, Produktionsbetrieb</cite>
+                    <cite>— Führungskraft, Produktionsbetrieb</cite>
                   </blockquote>
                 </AnimateIn>
                 <AnimateIn delay={120}>
                   <blockquote className="quote-block testimonial-card">
                     <p>
-                      Endlich jemand, der KI nicht als Hype verkauft, sondern
+                      „Endlich jemand, der KI nicht als Hype verkauft, sondern
                       pragmatisch einordnet, mit echtem Blick auf Datenschutz und
-                      Nutzen.
+                      Nutzen.“
                     </p>
-                    <cite>Inhaber*in, Handwerksbetrieb</cite>
+                    <cite>— Inhaber*in, Handwerksbetrieb</cite>
                   </blockquote>
                 </AnimateIn>
               </div>
@@ -296,47 +378,26 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 6. Nutzen / Vorteile */}
-        <section id="nutzen" className="section-block bg-[var(--surface-muted)]">
+        {/* 7. So arbeiten wir zusammen */}
+        <section
+          id="so-arbeiten-wir"
+          className="section-block bg-[var(--surface-muted)]"
+        >
           <div className="page-container">
             <AnimateIn>
-              <SectionKicker>Nutzen</SectionKicker>
-              <h2 className="sr-only">Nutzen</h2>
-              <p className="section-lead mt-6">
-                Wenn Sie im Tagesgeschäft kaum Zeit haben und trotzdem nicht
-                hinter der Entwicklung herlaufen wollen.
-              </p>
+              <SectionKicker>So arbeiten wir zusammen</SectionKicker>
+              <h2 className="section-title">
+                <span className="display-title-line">
+                  Erst verstehen: Dann sinnvoll umsetzen.
+                </span>
+              </h2>
             </AnimateIn>
 
-            <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-12">
-              {(
-                [
-                  {
-                    title: "Zeitersparnis",
-                    text: "Sie müssen sich nicht selbst durch Kurse und Videos arbeiten. Das setzt Ressourcen für Ihr Kerngeschäft frei.",
-                  },
-                  {
-                    title: "Strategischer KI-Weitblick",
-                    text: "Die KI-Entwicklung ist schneller als jede Brancheninnovation. Ich ordne für Sie ein, was zählt und was Sie ignorieren können.",
-                  },
-                  {
-                    title: "Branchenwissen",
-                    text: "Sie müssen mir Ihr Geschäft nicht lange erklären. Ich spreche die Sprache von Werkstatt und Management.",
-                  },
-                ] as const
-              ).map((item, i) => (
-                <AnimateIn key={item.title} delay={i * 60}>
-                  <article>
-                    <h3 className="offer-card__title">{item.title}</h3>
-                    <p className="offer-card__desc">{item.text}</p>
-                  </article>
-                </AnimateIn>
-              ))}
-            </div>
+            <BuildingBlockFlipGrid />
           </div>
         </section>
 
-        {/* 7. Abschluss-CTA */}
+        {/* 8. Abschluss-CTA */}
         <section id="termin" className="final-cta section-block">
           <div className="page-container">
             <AnimateIn>
@@ -351,10 +412,10 @@ export default function Home() {
             </AnimateIn>
 
             <PrimaryCtaLink
-              className="btn-primary mt-8 !w-auto"
+              className="btn-primary hero-lead-cta__button mt-10 w-full"
               trackLabel="final"
             >
-              {cta.primary.final}
+              Kostenfreies Orientierungsgespräch{"\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0"}[ 30 Minuten ]
             </PrimaryCtaLink>
           </div>
         </section>

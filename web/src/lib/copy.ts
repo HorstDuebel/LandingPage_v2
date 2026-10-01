@@ -6,18 +6,18 @@ export const cta = {
     hero: "Kostenfreies Erstgespräch: 30 Minuten Orientierung für Ihr Unternehmen",
     angebot: "Diese Klarheit für meinen Betrieb holen",
     vertrauen: "Mein kostenloses Erstgespräch buchen",
-    final: "Kostenfreies 30-Minuten-Erstgespräch reservieren",
+    final: "Kostenfreies Orientierungsgespräch\n[ 30 Minuten ]",
     footer: "Klarheit für meinen Betrieb holen",
   },
   secondary: "Zuerst sehen, welcher Weg zu mir passt",
   offerInline: "Termin wählen",
 } as const;
 
-/** Einziger Abschluss-CTA (Section 7) */
+/** Einziger Abschluss-CTA (Section 8) */
 export const finalCta = {
   headline: "Jetzt den ersten Schritt machen",
-  body: "Ich erkläre Ihnen KI nicht nur. Ich baue mit Ihnen KI-Kompetenz auf,",
-  bodyLine2: "die im Betrieb bleibt, wenn ich wieder weg bin.",
+  body: "Ich erkläre Ihnen KI nicht nur. Ich baue mit Ihnen KI-Kompetenz auf, die im Betrieb bleibt, wenn ich wieder weg bin.",
+  bodyLine2: "Sie bleiben Chef der KI, nicht abhängig von ihr.",
 } as const;
 
 export const triggers = {

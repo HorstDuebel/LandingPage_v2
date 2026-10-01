@@ -25,7 +25,7 @@ export const journeySteps: JourneyStep[] = [
     title: "Audit",
     offerTitle: "AI-ISCA Audit",
     offerDesc:
-      "Strukturierte Bestandsaufnahme: Was wird genutzt, was fehlt, wo liegen Risiken? Ergebnis: eine klare Entscheidungsgrundlage für Ihren Betrieb.",
+      "Eine strukturierte Bestandsaufnahme: Wo wird KI schon genutzt? Wo liegen Datenschutz- und Compliance-Risiken? Ergebnis ist eine dokumentierte Grundlage für Ihre Entscheidungen.",
     offerMeta: "Strukturiert · als Entscheidungsgrundlage",
     cluster: "prozessanalyse",
     recommended: true,
@@ -36,7 +36,7 @@ export const journeySteps: JourneyStep[] = [
     title: "KI-Leitlinie",
     offerTitle: "KI-Leitlinie",
     offerDesc:
-      "Klare Spielregeln für Ihr Team: Was darf genutzt werden, und was nicht. Verständlich formuliert, im Alltag anwendbar.",
+      "Klare Spielregeln für Ihr Team: Was darf genutzt werden, was nicht. Verständlich formuliert und im Alltag anwendbar.",
     offerMeta: "Praxisnah · für das ganze Team",
     cluster: "trainings",
   },
@@ -46,7 +46,7 @@ export const journeySteps: JourneyStep[] = [
     title: "Sicherer Hafen",
     offerTitle: "Sicherer Hafen",
     offerDesc:
-      "Ihre Daten bekommen die Schutzstufe, die sie brauchen, lokal, in der Cloud oder hybrid. Ohne Bürokratie-Overkill.",
+      "Ein geordneter Rahmen für den KI-Einsatz: geprüfte Werkzeuge, klare Regeln, saubere Datenwege. Was bisher im Verborgenen lief, bekommt einen sicheren, offiziellen Platz.",
     offerMeta: "Passend zur Datenschutzklasse",
     cluster: "prozessoptimierung",
   },
@@ -56,7 +56,7 @@ export const journeySteps: JourneyStep[] = [
     title: "AI Literacy",
     offerTitle: "AI Literacy Workshop",
     offerDesc:
-      "KI-Kompetenz, die sitzt: verständlich erklärt, nachweisbar dokumentiert, EU AI Act-konform (Art. 4).",
+      "KI-Kompetenz für Ihr Team, wie der EU AI Act sie verlangt. Verstehen, was KI kann und wo ihre Grenzen liegen, an Beispielen aus Ihrem Arbeitsalltag. Mit Unterlagen für Ihre Dokumentation.",
     offerMeta: "Workshop · Module 1–4",
     cluster: "trainings",
   },
@@ -66,7 +66,7 @@ export const journeySteps: JourneyStep[] = [
     title: "Prozess-Erfassung",
     offerTitle: "Prozess-Erfassung",
     offerDesc:
-      "Prozessanalyse: Das große Ganze sichtbar machen, Abläufe, Verantwortlichkeiten und Reibungspunkte erkennen, als Grundlage für die nächsten Schritte.",
+      "Wir nehmen Ihren Ist-Ablauf auf, mit Swimlane oder SIPOC. Rollen, Übergaben und Reibungspunkte werden sichtbar. Keine Personenbewertung, sondern Verständnis für den Betrieb.",
     offerMeta: "Workshop · Prozessaufnahme",
     cluster: "prozessanalyse",
   },
@@ -76,7 +76,7 @@ export const journeySteps: JourneyStep[] = [
     title: "Pilotprojekt",
     offerTitle: "Pilotprojekt",
     offerDesc:
-      "Der erste echte Schritt mit KI im Betrieb, kontrolliert, messbar, ausbaufähig. Klein anfangen. Sauber wachsen.",
+      "Ein Prozess, ein Ziel, ein messbares Ergebnis. Wir setzen die Optimierung an einer Stelle konkret um, bevor der Betrieb in die Breite geht. Klein anfangen. Sauber wachsen.",
     offerMeta: "Klein starten · sauber ausbauen",
     cluster: "prozessoptimierung",
   },
@@ -86,7 +86,7 @@ export const journeySteps: JourneyStep[] = [
     title: "Claude Cowork",
     offerTitle: "Claude Cowork Workshop",
     offerDesc:
-      "Ich unterstütze Sie dabei, Claude Cowork sicher einzuführen und produktive Workflows zu entwickeln, für eine digitale Assistenz, die Sie im Arbeitsalltag spürbar entlastet.",
+      "Sie bringen eine Kopie eines echten Arbeitsordners mit. Daraus bauen wir einen klar abgegrenzten Arbeitsraum.",
     offerMeta: "Workshop · Desktop-Agent · befähigend",
     cluster: "special",
     isNew: true,
@@ -161,44 +161,31 @@ export const journeyBuildingBlocks: JourneyBuildingBlock[] = [
   },
 ];
 
-/** Sonderkachel außerhalb der Dreier-Logik */
+/** Sonderkachel – Front wie Bausteine, Rückseite mit Detailtext */
 export const journeySpecialFormat = {
   id: "special" as const,
   title: "Claude Cowork Workshop",
-  intro:
-    "Claude Cowork bearbeitet Aufgaben selbstständig in mehreren Schritten. In der Desktop-App arbeitet Claude mit lokalen Ordnern, die Sie gezielt und kontrolliert freigeben.",
-  offerBody:
-    "Wir richten gemeinsam einen klar abgegrenzten Arbeitsbereich ein und legen fest, was Claude sehen und tun darf, im Unternehmen oder privat zuhause.",
-  closing:
-    "Nicht zuschauen, sondern selbst machen, mit klaren Grenzen von Anfang an.",
+  description:
+    "Wir richten Claude Cowork mit Ihnen ein: welche Dateien Claude sehen und bearbeiten darf und wann es nachfragen muss.",
+  lead: "Sie bringen eine Kopie eines echten Arbeitsordners mit. Daraus bauen wir einen klar abgegrenzten Arbeitsraum:",
+  bullets: [
+    "Welche Dateien darf Claude sehen?",
+    "Was darf es bearbeiten?",
+    "Wann soll es nachfragen?",
+  ],
+  afterBullets:
+    "Sie entscheiden selbst, welche Rechte und welchen Zugriff Claude bekommt. Und wissen, wie Sie die Arbeit jederzeit stoppen können.",
+  paragraphs: [
+    {
+      label: "Tarife:",
+      body: "Für die rein private Nutzung kommen die Claude-Tarife „Pro“ oder „Max“ infrage. Werden Claude Cowork und oder Claude im Betrieb mit personenbezogenen Kunden- oder Beschäftigtendaten eingesetzt, klären wir gemeinsam den passenden geschäftlichen Account und die notwendigen Datenschutzvoraussetzungen. Im geschäftlichen Bereich sind dafür insbesondere die Tarife Team und Enterprise mit AVV/DPA relevant.",
+    },
+    {
+      body: "Genauso wichtig ist, welche Daten Claude überhaupt erhält. Namen, Kundennummern, Adressen oder Steuer-IDs ersetzen wir, wo sinnvoll, mit der Verarbeitung durch Platzhalter. Das reduziert das Risiko, unabhängig vom gewählten Account.",
+    },
+    {
+      body: "Am Ende steht kein Zertifikat, sondern ein funktionierendes Setup für eine echte Aufgabe aus Ihrem Alltag, und Sie wissen, welche Freigaben Sie bewusst erteilt haben.",
+    },
+  ],
   stepId: "claude-cowork",
-  back: {
-    subtitle: "(für Einzelpersonen oder Gruppen)",
-    lead:
-      "Sie bringen eine Kopie eines echten Arbeitsordners mit. Daraus bauen wir einen klar abgegrenzten Arbeitsraum:",
-    bullets: [
-      "Welche Dateien darf Claude sehen?",
-      "Was darf es bearbeiten?",
-      "Wann soll es nachfragen?",
-    ],
-    afterBullets:
-      "Sie entscheiden selbst, welche Rechte und welchen Zugriff Claude bekommt.",
-    afterBulletsLine2:
-      "Und wissen, wie Sie die Arbeit jederzeit stoppen können.",
-    paragraphs: [
-      {
-        label: "Tarife:",
-        body: "Für die rein private Nutzung kommen die Claude-Tarif „Pro“ oder „Max“ infrage.",
-      },
-      {
-        body: "Werden Claude Cowork und oder Claude im Unternehmen mit personenbezogenen Kunden- oder Beschäftigtendaten eingesetzt, klären wir gemeinsam den passenden geschäftlichen Account und die notwendigen Datenschutzvoraussetzungen. Im geschäftlichen Bereich sind dafür insbesondere die Tarife Team und Enterprise mit AVV/DPA relevant.",
-      },
-      {
-        body: "Genauso wichtig ist, welche Daten Claude überhaupt erhält. Namen, Kundennummern, Adressen oder Steuer-IDs ersetzen wir, wo sinnvoll, mit der Verarbeitung durch Platzhalter. Das reduziert das Risiko, unabhängig vom gewählten Account.",
-      },
-      {
-        body: "Am Ende steht kein Zertifikat, sondern ein funktionierendes Setup für eine echte Aufgabe aus Ihrem Alltag und Sie wissen, welche Freigaben Sie bewusst erteilt haben.",
-      },
-    ],
-  },
 };

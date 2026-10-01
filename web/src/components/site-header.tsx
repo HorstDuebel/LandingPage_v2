@@ -18,10 +18,11 @@ type NavItem = {
 
 /** Variante B: Desktop schlank + KI-Salon-CTA; Mobile vollständiges Burger-Menü */
 const NAV_ITEMS: readonly NavItem[] = [
-  { href: "/#angebot", label: "Angebot" },
-  { href: "/#so-arbeiten-wir", label: "So arbeiten wir", desktop: false },
-  { href: "/#ueber-mich", label: "Über mich" },
   { href: "/#nutzen", label: "Nutzen" },
+  { href: "/#angebot", label: "Angebot" },
+  { href: "/#ueber-mich", label: "Über mich" },
+  { href: "/#haltung", label: "Haltung" },
+  { href: "/#so-arbeiten-wir", label: "So arbeiten wir", desktop: false },
   { href: "/#termin", label: "Termin" },
   { href: "/ki-salon", label: "KI-Salon", cta: true },
   { href: "/faq", label: "FAQ", desktop: false },

@@ -6,6 +6,7 @@ import {
   useLayoutEffect,
   useRef,
   useState,
+  type CSSProperties,
   type KeyboardEvent,
 } from "react";
 import {
@@ -93,12 +94,14 @@ function FlipOfferCard({
 function SpecialFormatFlipCard({
   flipped,
   onToggle,
+  minHeight,
 }: {
   flipped: boolean;
   onToggle: () => void;
+  minHeight: number;
 }) {
   const backMeasureRef = useRef<HTMLDivElement>(null);
-  const [openMinHeight, setOpenMinHeight] = useState(0);
+  const [openStyle, setOpenStyle] = useState<CSSProperties | undefined>();
 
   const onKeyDown = useCallback(
     (event: KeyboardEvent<HTMLDivElement>) => {
@@ -110,76 +113,102 @@ function SpecialFormatFlipCard({
     [onToggle],
   );
 
-  const syncOpenHeight = useCallback(() => {
-    const measure = backMeasureRef.current;
-    if (!measure) return;
-    setOpenMinHeight(measure.scrollHeight);
-  }, []);
-
-  useLayoutEffect(() => {
+  const syncOpenLayout = useCallback(() => {
     if (!flipped) {
-      setOpenMinHeight(0);
+      setOpenStyle(undefined);
       return;
     }
-    syncOpenHeight();
-  }, [flipped, syncOpenHeight]);
+
+    const section = document.getElementById("so-arbeiten-wir");
+    const termin = document.getElementById("termin");
+    const title = section?.querySelector("h2");
+    const container = section?.querySelector(".page-container");
+    if (!section || !title || !container) return;
+
+    const titleRect = title.getBoundingClientRect();
+    const sectionRect = section.getBoundingClientRect();
+    const containerRect = container.getBoundingClientRect();
+    const terminTop = termin?.getBoundingClientRect().top ?? window.innerHeight;
+
+    const top = Math.max(12, titleRect.bottom + 20);
+    const bottomLimit = Math.min(sectionRect.bottom, terminTop) - 12;
+    const maxHeight = Math.max(180, bottomLimit - top);
+    const width = Math.min(containerRect.width, window.innerWidth - 32);
+
+    setOpenStyle({
+      position: "fixed",
+      left: "50%",
+      right: "auto",
+      top,
+      bottom: "auto",
+      width,
+      height: "auto",
+      maxHeight,
+      overflowY: "auto",
+      translate: "-50% 0",
+      zIndex: 50,
+    });
+  }, [flipped]);
+
+  useLayoutEffect(() => {
+    syncOpenLayout();
+  }, [syncOpenLayout]);
 
   useEffect(() => {
     if (!flipped) return;
 
-    const measure = backMeasureRef.current;
-    if (!measure) return;
-
-    const ro = new ResizeObserver(() => syncOpenHeight());
-    ro.observe(measure);
-    window.addEventListener("resize", syncOpenHeight);
-
-    if (document.fonts?.ready) {
-      void document.fonts.ready.then(syncOpenHeight);
+    const section = document.getElementById("so-arbeiten-wir");
+    const kicker = section?.querySelector(".section-kicker");
+    const title = section?.querySelector("h2");
+    const anchor = kicker ?? title;
+    if (anchor) {
+      const y =
+        anchor.getBoundingClientRect().top + window.scrollY - 88;
+      window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
     }
 
+    const onRefresh = () => syncOpenLayout();
+    window.addEventListener("resize", onRefresh);
+    window.addEventListener("scroll", onRefresh, { passive: true });
+
+    const ro = new ResizeObserver(onRefresh);
+    if (section) ro.observe(section);
+    if (backMeasureRef.current) ro.observe(backMeasureRef.current);
+
+    if (document.fonts?.ready) {
+      void document.fonts.ready.then(onRefresh);
+    }
+
+    // Nach Scroll-Alignment nochmals einmessen
+    const t = window.setTimeout(onRefresh, 350);
+
     return () => {
+      window.removeEventListener("resize", onRefresh);
+      window.removeEventListener("scroll", onRefresh);
       ro.disconnect();
-      window.removeEventListener("resize", syncOpenHeight);
+      window.clearTimeout(t);
     };
-  }, [flipped, syncOpenHeight]);
+  }, [flipped, syncOpenLayout]);
 
   const front = (
     <>
-      <h3 className="offer-card__title offer-special__title">
-        {journeySpecialFormat.title}
-      </h3>
-      <p className="offer-card__desc">{journeySpecialFormat.intro}</p>
-      <p className="offer-card__desc">
-        <strong>Mein Angebot:</strong> {journeySpecialFormat.offerBody}
-      </p>
-      <p className="offer-card__desc offer-special__closing">
-        {journeySpecialFormat.closing}
-      </p>
+      <h3 className="offer-card__title">{journeySpecialFormat.title}</h3>
+      <p className="offer-card__desc">{journeySpecialFormat.description}</p>
       <p className="flip-card__hint">Mehr erfahren</p>
     </>
   );
 
   const back = (
     <>
-      <h3 className="offer-card__title offer-special__title">
-        {journeySpecialFormat.title}
-      </h3>
-      <p className="flip-card-special__subtitle">
-        {journeySpecialFormat.back.subtitle}
-      </p>
-      <p className="offer-card__desc">{journeySpecialFormat.back.lead}</p>
+      <h3 className="offer-card__title">{journeySpecialFormat.title}</h3>
+      <p className="offer-card__desc">{journeySpecialFormat.lead}</p>
       <ul className="flip-card-special__list">
-        {journeySpecialFormat.back.bullets.map((item) => (
+        {journeySpecialFormat.bullets.map((item) => (
           <li key={item}>{item}</li>
         ))}
       </ul>
-      <p className="offer-card__desc">
-        {journeySpecialFormat.back.afterBullets}
-        <br />
-        {journeySpecialFormat.back.afterBulletsLine2}
-      </p>
-      {journeySpecialFormat.back.paragraphs.map((paragraph) => (
+      <p className="offer-card__desc">{journeySpecialFormat.afterBullets}</p>
+      {journeySpecialFormat.paragraphs.map((paragraph) => (
         <p key={paragraph.body} className="offer-card__desc">
           {paragraph.label ? (
             <>
@@ -196,6 +225,7 @@ function SpecialFormatFlipCard({
   return (
     <div
       className={`flip-card flip-card-special${flipped ? " flip-card--open" : ""}`}
+      style={minHeight > 0 && !flipped ? { minHeight } : undefined}
     >
       <div
         ref={backMeasureRef}
@@ -206,10 +236,8 @@ function SpecialFormatFlipCard({
       </div>
 
       <div className="flip-card__slot">
-        <div className="flip-card__measure" data-flip-slot-special="">
-          <div className="flip-card__face flip-card__face--front flip-card__face--special">
-            {front}
-          </div>
+        <div className="flip-card__measure" data-flip-slot="">
+          <div className="flip-card__face flip-card__face--front">{front}</div>
         </div>
       </div>
 
@@ -219,11 +247,7 @@ function SpecialFormatFlipCard({
         tabIndex={0}
         aria-expanded={flipped}
         aria-label={`${journeySpecialFormat.title}: ${flipped ? "Details schließen" : "Mehr erfahren"}`}
-        style={
-          flipped && openMinHeight > 0
-            ? { minHeight: openMinHeight }
-            : undefined
-        }
+        style={openStyle}
         onClick={(event) => {
           event.stopPropagation();
           onToggle();
@@ -231,9 +255,7 @@ function SpecialFormatFlipCard({
         onKeyDown={onKeyDown}
       >
         <div className="flip-card__inner">
-          <div className="flip-card__face flip-card__face--front flip-card__face--special">
-            {front}
-          </div>
+          <div className="flip-card__face flip-card__face--front">{front}</div>
           <div
             className="flip-card__face flip-card__face--back flip-card__face--special"
             aria-hidden={!flipped}
@@ -320,16 +342,18 @@ export function BuildingBlockFlipGrid() {
             }
           />
         ))}
+        <SpecialFormatFlipCard
+          flipped={openId === journeySpecialFormat.id}
+          minHeight={minHeight}
+          onToggle={() =>
+            setOpenId((current) =>
+              current === journeySpecialFormat.id
+                ? null
+                : journeySpecialFormat.id,
+            )
+          }
+        />
       </div>
-
-      <SpecialFormatFlipCard
-        flipped={openId === journeySpecialFormat.id}
-        onToggle={() =>
-          setOpenId((current) =>
-            current === journeySpecialFormat.id ? null : journeySpecialFormat.id,
-          )
-        }
-      />
     </div>
   );
 }
