@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { AnimateIn } from "@/components/animate-in";
 import { BrandSignature } from "@/components/brand-signature";
 import {
@@ -171,8 +172,14 @@ export default function Home() {
                   KI-Einsatz. Schatten-KI wird dabei sichtbar und steuerbar. Nicht
                   durch Verbote, sondern durch Klarheit und Kompetenz.
                   Gleichzeitig erhalten Sie eine nachvollziehbare Dokumentation
-                  Ihrer Maßnahmen zur Kompetenz, auch mit Blick auf den EU AI
-                  Act.
+                  Ihrer Maßnahmen zur{" "}
+                  <Link
+                    href="/ki-schulung"
+                    className="font-medium text-[var(--text)] underline underline-offset-2 hover:text-[var(--brand-orange)]"
+                  >
+                    Kompetenz
+                  </Link>
+                  , auch mit Blick auf den EU AI Act.
                 </p>
               </div>
               <p className="body-text !max-w-none">

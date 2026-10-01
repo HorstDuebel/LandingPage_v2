@@ -9,6 +9,7 @@ import {
   type CSSProperties,
   type KeyboardEvent,
 } from "react";
+import Link from "next/link";
 import {
   journeyBuildingBlocks,
   journeySpecialFormat,
@@ -81,6 +82,15 @@ function FlipOfferCard({
                 <div key={mod.title} className="flip-card__module">
                   <p className="flip-card__module-title">{mod.title}</p>
                   <p className="offer-card__desc !mt-2">{mod.body}</p>
+                  {mod.link ? (
+                    <Link
+                      href={mod.link.href}
+                      className="mt-3 inline-block text-sm font-medium text-[var(--brand-orange)] underline-offset-2 hover:underline"
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      {mod.link.label}
+                    </Link>
+                  ) : null}
                 </div>
               ))}
             </div>

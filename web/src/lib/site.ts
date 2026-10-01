@@ -38,6 +38,7 @@ export const siteRoutes = [
   { path: "/", changeFrequency: "weekly" as const, priority: 1 },
   { path: "/termin", changeFrequency: "monthly" as const, priority: 0.9 },
   { path: "/ki-salon", changeFrequency: "monthly" as const, priority: 0.85 },
+  { path: "/ki-schulung", changeFrequency: "monthly" as const, priority: 0.8 },
   { path: "/faq", changeFrequency: "monthly" as const, priority: 0.7 },
   { path: "/impressum", changeFrequency: "yearly" as const, priority: 0.3 },
   { path: "/datenschutz", changeFrequency: "yearly" as const, priority: 0.3 },

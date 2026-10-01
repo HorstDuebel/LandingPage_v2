@@ -93,6 +93,9 @@ export function SiteFooter({ variant = "default" }: SiteFooterProps) {
 
         <div className="site-footer-legal">
           <div className="site-footer-legal__links">
+            <Link href="/ki-schulung" className="site-footer-legal__link">
+              KI-Schulung für Mitarbeiter
+            </Link>
             <Link href="/faq" className="site-footer-legal__link">
               FAQ
             </Link>

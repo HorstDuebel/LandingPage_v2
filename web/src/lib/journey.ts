@@ -96,6 +96,10 @@ export const journeySteps: JourneyStep[] = [
 export type JourneyBackModule = {
   title: string;
   body: string;
+  link?: {
+    href: string;
+    label: string;
+  };
 };
 
 export type JourneyBuildingBlock = {
@@ -156,6 +160,10 @@ export const journeyBuildingBlocks: JourneyBuildingBlock[] = [
       {
         title: "AI Literacy Workshop",
         body: "KI-Kompetenz für Ihr Team, wie der EU AI Act sie verlangt. Verstehen, was KI kann und wo ihre Grenzen liegen, an Beispielen aus Ihrem Arbeitsalltag. Mit Unterlagen für Ihre Dokumentation.",
+        link: {
+          href: "/ki-schulung",
+          label: "Mehr zur Schulungspflicht",
+        },
       },
     ],
   },

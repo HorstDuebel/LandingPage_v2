@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { LegalPage } from "@/components/legal-page";
 import { faqEntries } from "@/lib/faq";
@@ -38,6 +39,14 @@ export default function FaqPage() {
               </p>
             </details>
           ))}
+          <p className="mt-10 copy-small">
+            <Link
+              href="/ki-schulung"
+              className="font-medium text-[var(--text)] underline hover:text-[var(--brand-orange)]"
+            >
+              KI-Schulung für Mitarbeiter
+            </Link>
+          </p>
         </div>
       </LegalPage>
     </>
