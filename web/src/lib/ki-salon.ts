@@ -6,7 +6,7 @@ export const KI_SALON_INTERVIEW_URL =
 export const kiSalonMeta = {
   title: "KI-Salon: Klarheit statt Dauer-KI-Rauschen",
   description:
-    "Fester, vertraulicher Gesprächsraum für Menschen in Verantwortung: 6 Monate, 6 Sessions à 90 Minuten, max. 10 Teilnehmende. Im Atelier Löwentor in Darmstadt. Mit Susanne Volkwein und Frank Vullhorst.",
+    "Vertraulicher Gesprächsraum für Menschen in Verantwortung: 6 Sessions in 6 Monaten, max. 10 Teilnehmende, im Atelier Löwentor in Darmstadt.",
 } as const;
 
 export const kiSalonHero = {

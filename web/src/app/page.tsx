@@ -203,7 +203,7 @@ export default function Home() {
             <div className="about-portrait">
               <Image
                 src="/frank.png"
-                alt="Frank Vullhorst"
+                alt="Frank Vullhorst, KI-Beratung in Darmstadt"
                 width={1254}
                 height={1254}
                 className="h-auto w-full"

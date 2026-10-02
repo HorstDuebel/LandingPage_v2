@@ -92,23 +92,44 @@ export function SiteFooter({ variant = "default" }: SiteFooterProps) {
         )}
 
         <div className="site-footer-legal">
-          <div className="site-footer-legal__links">
-            <Link href="/ki-schulung" className="site-footer-legal__link">
-              KI-Schulung für Mitarbeiter
-            </Link>
-            <Link href="/faq" className="site-footer-legal__link">
-              FAQ
-            </Link>
-            <Link href="/impressum" className="site-footer-legal__link">
-              Impressum
-            </Link>
-            <Link href="/datenschutz" className="site-footer-legal__link">
-              Datenschutz
-            </Link>
-          </div>
-          <p className="site-footer-legal__copy">
-            © 2026 Frank Vullhorst · ki: sicher strategisch sinnvoll
+          <p className="site-footer-legal__note">
+            KI-Beratung und KI-Schulungen für Betriebe in Darmstadt, Frankfurt,
+            Wiesbaden und ganz Hessen.
           </p>
+          <div className="site-footer-legal__row">
+            <nav
+              className="site-footer-legal__links"
+              aria-label="Rechtliche und weiterführende Seiten"
+            >
+              <Link href="/ki-schulung" className="site-footer-legal__link">
+                KI-Schulung für Mitarbeiter
+              </Link>
+              <span className="site-footer-legal__sep" aria-hidden="true">
+                ·
+              </span>
+              <Link href="/faq" className="site-footer-legal__link">
+                FAQ
+              </Link>
+              <span className="site-footer-legal__sep" aria-hidden="true">
+                ·
+              </span>
+              <Link href="/impressum" className="site-footer-legal__link">
+                Impressum
+              </Link>
+              <span className="site-footer-legal__sep" aria-hidden="true">
+                ·
+              </span>
+              <Link href="/datenschutz" className="site-footer-legal__link">
+                Datenschutz
+              </Link>
+              <span className="site-footer-legal__sep" aria-hidden="true">
+                ·
+              </span>
+              <span className="site-footer-legal__copy">
+                © 2026 Frank Vullhorst · ki: sicher strategisch sinnvoll
+              </span>
+            </nav>
+          </div>
         </div>
       </div>
     </footer>

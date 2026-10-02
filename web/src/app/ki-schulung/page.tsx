@@ -1,8 +1,44 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { PrimaryCtaLink } from "@/components/cta-buttons";
 import { SectionKicker, SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { kiSchulungContent, kiSchulungMeta } from "@/lib/ki-schulung";
+
+const EU_REG_LABEL = "Verordnung (EU) 2026/1744";
+const EU_REG_HREF =
+  "https://eur-lex.europa.eu/eli/reg/2026/1744/oj?locale=de";
+
+function renderParagraphLines(paragraph: string): ReactNode {
+  return paragraph.split("\n").map((line, lineIndex) => {
+    const content = line.includes(EU_REG_LABEL)
+      ? (() => {
+          const [before, after] = line.split(EU_REG_LABEL);
+          return (
+            <>
+              {before}
+              <a
+                href={EU_REG_HREF}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-[var(--text)] underline underline-offset-2 hover:text-[var(--brand-orange)]"
+              >
+                {EU_REG_LABEL}
+              </a>
+              {after}
+            </>
+          );
+        })()
+      : line;
+
+    return (
+      <span key={`${paragraph}-${lineIndex}`}>
+        {lineIndex > 0 ? <br /> : null}
+        {content}
+      </span>
+    );
+  });
+}
 
 export const metadata: Metadata = {
   title: { absolute: kiSchulungMeta.title },
@@ -74,12 +110,7 @@ export default function KiSchulungPage() {
                         key={paragraph}
                         className="body-text mt-4 !max-w-none"
                       >
-                        {paragraph.split("\n").map((line, lineIndex) => (
-                          <span key={`${paragraph}-${lineIndex}`}>
-                            {lineIndex > 0 ? <br /> : null}
-                            {line}
-                          </span>
-                        ))}
+                        {renderParagraphLines(paragraph)}
                       </p>
                     ))
                   : null}

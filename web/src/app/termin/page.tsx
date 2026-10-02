@@ -6,14 +6,16 @@ import { triggers } from "@/lib/copy";
 import { GOOGLE_APPOINTMENT_SCHEDULE_URL } from "@/lib/booking";
 
 export const metadata: Metadata = {
-  title: "Orientierungsgespräch 30 Minuten, kostenlos",
+  title: {
+    absolute: "Orientierungsgespräch 30 Minuten, kostenfrei | Frank Vullhorst",
+  },
   description:
-    "Kostenloses KI-Orientierungsgespräch mit Frank Vullhorst: Wo KI in Ihrem Betrieb entlastet und welcher nächste Schritt passt. Online oder vor Ort, Rhein-Main.",
+    "Kostenfreies Orientierungsgespräch mit Frank Vullhorst: Wo KI in Ihrem Betrieb entlastet und welcher nächste Schritt passt. Online oder vor Ort, Rhein-Main.",
   alternates: { canonical: "/termin" },
   openGraph: {
-    title: "Orientierungsgespräch 30 Minuten, kostenlos | Frank Vullhorst",
+    title: "Orientierungsgespräch 30 Minuten, kostenfrei | Frank Vullhorst",
     description:
-      "Kostenloses Orientierungsgespräch: Klarheit für Ihren Betrieb, sicher, sinnvoll, strategisch.",
+      "Kostenfreies Orientierungsgespräch mit Frank Vullhorst: Wo KI in Ihrem Betrieb entlastet und welcher nächste Schritt passt. Online oder vor Ort, Rhein-Main.",
     url: "/termin",
   },
 };
