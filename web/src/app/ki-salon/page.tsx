@@ -25,10 +25,13 @@ export const metadata: Metadata = {
     title: `${kiSalonMeta.title} | Frank Vullhorst`,
     description: kiSalonMeta.description,
     url: "/ki-salon",
+    images: [{ url: "/og-share.jpg", width: 1200, height: 630 }],
   },
   twitter: {
+    card: "summary_large_image",
     title: `${kiSalonMeta.title} | Frank Vullhorst`,
     description: kiSalonMeta.description,
+    images: ["/og-share.jpg"],
   },
 };
 
@@ -209,10 +212,11 @@ export default function KiSalonPage() {
                         <Image
                           src={host.image}
                           alt={host.name}
-                          width={1254}
-                          height={1254}
+                          width={1200}
+                          height={1200}
                           className="h-auto w-full"
                           sizes="(min-width: 900px) 22.25rem, (min-width: 700px) 38vw, 70vw"
+                          loading="lazy"
                         />
                       </div>
                     ) : null}

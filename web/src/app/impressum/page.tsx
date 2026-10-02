@@ -12,6 +12,20 @@ export const metadata: Metadata = {
     "Impressum von Frank Vullhorst, KI-Beratung für KMU und Handwerk, Roßdorf (Rhein-Main).",
   alternates: { canonical: "/impressum" },
   robots: { index: true, follow: true },
+  openGraph: {
+    title: "Impressum | Frank Vullhorst",
+    description:
+      "Impressum von Frank Vullhorst, KI-Beratung für KMU und Handwerk, Roßdorf (Rhein-Main).",
+    url: "/impressum",
+    images: [{ url: "/og-share.jpg", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Impressum | Frank Vullhorst",
+    description:
+      "Impressum von Frank Vullhorst, KI-Beratung für KMU und Handwerk, Roßdorf (Rhein-Main).",
+    images: ["/og-share.jpg"],
+  },
 };
 
 export default function ImpressumPage() {

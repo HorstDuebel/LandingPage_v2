@@ -12,6 +12,20 @@ export const metadata: Metadata = {
     "Datenschutzerklärung der Website von Frank Vullhorst, KI-Beratung für KMU und Handwerk.",
   alternates: { canonical: "/datenschutz" },
   robots: { index: true, follow: true },
+  openGraph: {
+    title: "Datenschutz | Frank Vullhorst",
+    description:
+      "Datenschutzerklärung der Website von Frank Vullhorst, KI-Beratung für KMU und Handwerk.",
+    url: "/datenschutz",
+    images: [{ url: "/og-share.jpg", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Datenschutz | Frank Vullhorst",
+    description:
+      "Datenschutzerklärung der Website von Frank Vullhorst, KI-Beratung für KMU und Handwerk.",
+    images: ["/og-share.jpg"],
+  },
 };
 
 export default function DatenschutzPage() {

@@ -1,0 +1,2 @@
+# IONOS / Apache: fehlende Adressen mit HTTP 404 und der Next-Export-Seite beantworten
+ErrorDocument 404 /404.html

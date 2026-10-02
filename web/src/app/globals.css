@@ -1224,7 +1224,7 @@ section[id] {
 
 /* Abschluss-CTA – dunkler Kontrastblock */
 .final-cta {
-  background: var(--brand-dark);
+  background: #473b2e;
 }
 
 .final-cta .section-kicker {
@@ -1238,6 +1238,10 @@ section[id] {
 
 .final-cta .section-lead {
   color: rgb(255 255 255 / 0.7);
+}
+
+.final-cta .section-lead .final-cta-region {
+  color: #473b2e;
 }
 
 .final-cta .microcopy {
@@ -1281,6 +1285,7 @@ section[id] {
   display: block;
   width: 100%;
   height: auto;
+  object-fit: cover;
 }
 
 .about-continuation {

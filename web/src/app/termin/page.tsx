@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     description:
       "Kostenfreies Orientierungsgespräch mit Frank Vullhorst: Wo KI in Ihrem Betrieb entlastet und welcher nächste Schritt passt. Online oder vor Ort, Rhein-Main.",
     url: "/termin",
+    images: [{ url: "/og-share.jpg", width: 1200, height: 630 }],
   },
 };
 

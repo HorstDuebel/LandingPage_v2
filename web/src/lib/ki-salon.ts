@@ -136,14 +136,14 @@ export const kiSalonHosts = {
       role: "Systemische Coachin, KI-Managerin (IHK)",
       bio: "22 Jahre Personal- und Organisationsentwicklung, Change und Führung. Sie hält den Raum: vertraulich und tief.",
       website: "https://www.susannevolkwein.de/",
-      image: "/susanne-volkwein.png",
+      image: "/susanne-volkwein.webp",
     },
     {
       name: "Frank Vullhorst",
       role: "Senior Project Manager, KI-Manager (Cert-IT)",
       bio: "30 Jahre technische Beratung, Transformation und Veränderung. Er bringt die Einordnung, konkret, strategisch.",
       website: "https://frankvullhorst.de/",
-      image: "/frank.png",
+      image: "/frank.webp",
     },
   ],
 } as const;

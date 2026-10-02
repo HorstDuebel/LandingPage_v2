@@ -21,10 +21,13 @@ export const metadata: Metadata = {
     title: siteConfig.fullTitle,
     description: siteConfig.defaultDescription,
     url: "/",
+    images: [{ url: "/og-share.jpg", width: 1200, height: 630 }],
   },
   twitter: {
+    card: "summary_large_image",
     title: siteConfig.fullTitle,
     description: siteConfig.defaultDescription,
+    images: ["/og-share.jpg"],
   },
 };
 
@@ -168,18 +171,17 @@ export default function Home() {
                   <li>Welche Kompetenzen, Regeln und Grenzen braucht es?</li>
                 </ul>
                 <p>
-                  So wird aus einzelnen Versuchen ein sicherer, steuerbarer
-                  KI-Einsatz. Schatten-KI wird dabei sichtbar und steuerbar. Nicht
-                  durch Verbote, sondern durch Klarheit und Kompetenz.
-                  Gleichzeitig erhalten Sie eine nachvollziehbare Dokumentation
-                  Ihrer Maßnahmen zur{" "}
+                  So wird aus einzelnen Versuchen ein sicherer, geplanter
+                  Einsatz. Auch Schatten-KI kommt ans Licht: nicht durch Verbote,
+                  sondern durch Klarheit und{" "}
                   <Link
-                    href="/ki-schulung"
-                    className="font-medium text-[var(--text)] underline underline-offset-2 hover:text-[var(--brand-orange)]"
+                    href="/ki-schulung/"
+                    className="font-medium text-[var(--text)] hover:text-[var(--brand-orange)]"
                   >
                     Kompetenz
                   </Link>
-                  , auch mit Blick auf den EU AI Act.
+                  . Ihre Maßnahmen sind dabei nachvollziehbar dokumentiert, auch
+                  mit Blick auf den EU AI Act.
                 </p>
               </div>
               <p className="body-text !max-w-none">
@@ -202,10 +204,10 @@ export default function Home() {
           <div className="page-container about-layout">
             <div className="about-portrait">
               <Image
-                src="/frank.png"
+                src="/frank.webp"
                 alt="Frank Vullhorst, KI-Beratung in Darmstadt"
-                width={1254}
-                height={1254}
+                width={1200}
+                height={1200}
                 className="h-auto w-full"
                 sizes="(min-width: 900px) 22.25rem, (min-width: 700px) 38vw, 70vw"
                 priority
@@ -414,10 +416,14 @@ export default function Home() {
               <h2 className="section-title">
                 <span className="display-title-line">{finalCta.headline}</span>
               </h2>
-              <p className="section-lead mt-6">
-                {finalCta.body}
-                <br />
-                {finalCta.bodyLine2}
+              <p className="section-lead mt-6">{finalCta.body}</p>
+              <p className="section-lead mt-4">
+                Ich sitze in Roßdorf bei Darmstadt und komme zu Ihnen in den
+                Betrieb.
+                <span className="final-cta-region">
+                  {" "}
+                  In Südhessen und im Rhein-Main-Gebiet
+                </span>
               </p>
             </AnimateIn>
 

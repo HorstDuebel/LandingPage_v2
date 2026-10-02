@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     description:
       "Antworten auf häufige Fragen zu KI im Betrieb: Schulungspflicht, Kosten, Förderung und wie Sie KI im Unternehmen einführen. KI-Beratung aus Darmstadt.",
     url: "/faq",
+    images: [{ url: "/og-share.jpg", width: 1200, height: 630 }],
   },
 };
 

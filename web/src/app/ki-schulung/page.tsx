@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { PrimaryCtaLink } from "@/components/cta-buttons";
+import { JsonLd } from "@/components/json-ld";
 import { SectionKicker, SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { getKiSchulungBreadcrumbJsonLd } from "@/lib/home-schema";
 import { kiSchulungContent, kiSchulungMeta } from "@/lib/ki-schulung";
 
 const EU_REG_LABEL = "Verordnung (EU) 2026/1744";
@@ -48,6 +50,7 @@ export const metadata: Metadata = {
     title: kiSchulungMeta.title,
     description: kiSchulungMeta.description,
     url: kiSchulungMeta.path,
+    images: [{ url: "/og-share.jpg", width: 1200, height: 630 }],
   },
 };
 
@@ -67,6 +70,7 @@ export default function KiSchulungPage() {
 
   return (
     <div className="flex min-h-full flex-col">
+      <JsonLd data={getKiSchulungBreadcrumbJsonLd()} />
       <SiteHeader />
 
       <main className="flex-1">

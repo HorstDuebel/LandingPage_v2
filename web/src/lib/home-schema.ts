@@ -1,16 +1,28 @@
 import { allFaqEntries } from "@/lib/faq";
 import { siteConfig } from "@/lib/site";
 
-export function getHomeJsonLd() {
-  const { address, url, name, phone } = siteConfig;
+const businessDescription =
+  "KI-Beratung und KI-Schulungen für Betriebe aus Handwerk und Mittelstand in Darmstadt, Südhessen und Rhein-Main.";
 
-  const contactPoint = {
-    "@type": "ContactPoint" as const,
-    telephone: phone,
-    contactType: "customer service",
-    availableLanguage: "German",
-    url: `${url}/impressum`,
-  };
+const areaServed = [
+  { "@type": "City" as const, name: "Darmstadt" },
+  { "@type": "City" as const, name: "Roßdorf" },
+  {
+    "@type": "AdministrativeArea" as const,
+    name: "Landkreis Darmstadt-Dieburg",
+  },
+  { "@type": "City" as const, name: "Frankfurt am Main" },
+  { "@type": "City" as const, name: "Offenbach am Main" },
+  { "@type": "City" as const, name: "Wiesbaden" },
+  { "@type": "City" as const, name: "Mainz" },
+  { "@type": "City" as const, name: "Aschaffenburg" },
+  { "@type": "AdministrativeArea" as const, name: "Landkreis Bergstraße" },
+  { "@type": "AdministrativeArea" as const, name: "Groß-Gerau" },
+];
+
+export function getHomeJsonLd() {
+  const { address, url, name, phone, linkedinUrl } = siteConfig;
+  const businessId = `${url}/#business`;
 
   return {
     "@context": "https://schema.org",
@@ -18,20 +30,30 @@ export function getHomeJsonLd() {
       {
         "@type": "WebSite",
         "@id": `${url}/#website`,
-        url,
+        url: `${url}/`,
         name: `${name}, ${siteConfig.tagline}`,
         description: siteConfig.defaultDescription,
         inLanguage: "de-DE",
+        publisher: { "@id": businessId },
       },
       {
-        "@type": "Person",
-        "@id": `${url}/#person`,
-        name,
+        "@type": ["Person", "LocalBusiness", "ProfessionalService"],
+        "@id": businessId,
+        name: "Frank Vullhorst",
+        jobTitle: "KI-Berater",
+        description: businessDescription,
+        url: `${url}/`,
         telephone: phone,
-        contactPoint,
-        jobTitle: "KI-Berater*in",
-        description: siteConfig.defaultDescription,
-        url,
+        image: `${url}/frank.webp`,
+        logo: `${url}/brand/260715_SignaturFrank.png`,
+        sameAs: [linkedinUrl],
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: phone,
+          contactType: "customer service",
+          availableLanguage: "German",
+          url: `${url}/impressum/`,
+        },
         address: {
           "@type": "PostalAddress",
           streetAddress: address.street,
@@ -40,67 +62,7 @@ export function getHomeJsonLd() {
           addressRegion: address.region,
           addressCountry: address.country,
         },
-        areaServed: [
-          { "@type": "City", name: "Roßdorf" },
-          { "@type": "AdministrativeArea", name: "Rhein-Main" },
-        ],
-        knowsAbout: [
-          "Künstliche Intelligenz",
-          "EU AI Act",
-          "Datenschutz",
-          "Prozessoptimierung",
-          "KMU",
-          "Handwerk",
-        ],
-      },
-      {
-        "@type": "ProfessionalService",
-        "@id": `${url}/#service`,
-        name: `${name}, KI-Sparring`,
-        description: siteConfig.defaultDescription,
-        url,
-        telephone: phone,
-        contactPoint,
-        priceRange: "€€",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: address.street,
-          addressLocality: address.city,
-          postalCode: address.postalCode,
-          addressRegion: address.region,
-          addressCountry: address.country,
-        },
-        areaServed: {
-          "@type": "GeoCircle",
-          geoMidpoint: {
-            "@type": "GeoCoordinates",
-            latitude: siteConfig.geo.latitude,
-            longitude: siteConfig.geo.longitude,
-          },
-          geoRadius: "80000",
-        },
-        founder: { "@id": `${url}/#person` },
-      },
-      {
-        "@type": "LocalBusiness",
-        "@id": `${url}/#localbusiness`,
-        name,
-        description: "KI-Beratung",
-        url: "https://frankvullhorst.de",
-        telephone: phone,
-        contactPoint,
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: address.street,
-          addressLocality: address.city,
-          postalCode: address.postalCode,
-          addressRegion: address.region,
-          addressCountry: address.country,
-        },
-        areaServed: [
-          { "@type": "City", name: "Darmstadt" },
-          { "@type": "AdministrativeArea", name: "Rhein-Main" },
-        ],
+        areaServed,
       },
     ],
   };
@@ -112,7 +74,7 @@ export function getFaqJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "@id": `${url}/faq#faq`,
+    "@id": `${url}/faq/#faq`,
     mainEntity: allFaqEntries.map((item) => ({
       "@type": "Question",
       name: item.question,
@@ -121,5 +83,28 @@ export function getFaqJsonLd() {
         text: item.answer,
       },
     })),
+  };
+}
+
+export function getKiSchulungBreadcrumbJsonLd() {
+  const { url } = siteConfig;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Startseite",
+        item: `${url}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "KI-Schulung",
+        item: `${url}/ki-schulung/`,
+      },
+    ],
   };
 }
