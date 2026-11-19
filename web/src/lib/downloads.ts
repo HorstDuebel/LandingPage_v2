@@ -66,6 +66,44 @@ export const downloadsConfig = {
         },
       ],
     },
+    {
+      slug: "aka55",
+      active: true,
+      title: "Handout: KI-Alltag",
+      description:
+        "Begleitmaterial zum Kurs über Künstliche Intelligenz im Alltag – kompakt zusammengefasst zum Nachlesen.",
+      file: "/downloads/aka55-handout.pdf",
+      downloadFileName: "KI-Alltag-Handout-Akademie-55plus.pdf",
+      eventLabel: "Akademie 55+",
+      emailGate: false,
+      marketingOptIn: false,
+      logoDownloads: [
+        {
+          id: "claude",
+          label: "Setup Claude",
+          logo: "/logos/claude-ai-logo.jpg",
+          logoAlt: "Claude AI",
+          file: "/downloads/Setup-Claude_04-09-2026.pdf",
+          downloadFileName: "Setup-Claude_04-09-2026.pdf",
+        },
+        {
+          id: "mistral",
+          label: "Setup Mistral Vibe",
+          logo: "/logos/mistral-ai-logo.jpg",
+          logoAlt: "Mistral AI",
+          file: "/downloads/Setup-Mistral-Vibe_04-09-2026.pdf",
+          downloadFileName: "Setup-Mistral-Vibe_04-09-2026.pdf",
+        },
+        {
+          id: "chatgpt",
+          label: "Setup ChatGPT",
+          logo: "/logos/chatgpt-logo.jpg",
+          logoAlt: "ChatGPT",
+          file: "/downloads/Setup-ChatGPT_04-09-2026.pdf",
+          downloadFileName: "Setup-ChatGPT_04-09-2026.pdf",
+        },
+      ],
+    },
   ] satisfies DownloadItem[],
 } as const;
 
